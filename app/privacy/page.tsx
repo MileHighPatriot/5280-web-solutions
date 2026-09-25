@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy/" },
 };
 
-const updated = "September 24, 2026";
+const updated = "September 25, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -29,9 +29,15 @@ export default function PrivacyPage() {
           </p>
           <h2>Information collected automatically</h2>
           <p>
-            This site may use privacy-friendly, cookie-free analytics to count visits and see which
-            pages are useful. These tools don&rsquo;t track you across other websites and don&rsquo;t
-            use advertising cookies.
+            This site may use privacy-friendly, cookie-free analytics (GoatCounter) to count visits and
+            see which pages are useful. These tools don&rsquo;t track you across other websites and
+            don&rsquo;t use advertising cookies.
+          </p>
+          <h2>The speed test</h2>
+          <p>
+            When you use the speed test on the free website check page, the web address you type is sent
+            to Google PageSpeed Insights, which loads that site and scores it. The address isn&rsquo;t
+            saved on this site, and nothing about you is sent with it.
           </p>
           <h2>What I don&rsquo;t do</h2>
           <p>

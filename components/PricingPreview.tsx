@@ -28,7 +28,7 @@ export default function PricingPreview() {
           <Link
             key={tier.id}
             href={`/contact/?plan=${tier.id}`}
-            className={`group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 rounded-2xl px-6 py-5 transition-colors sm:px-7 ${
+            className={`group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 rounded-2xl px-6 py-5 transition-[background-color,translate] duration-300 hover:translate-x-1 sm:px-7 ${
               tier.highlight ? "bg-cream text-navy" : "bg-cream/[0.06] ring-1 ring-cream/10 hover:bg-cream/10"
             }`}
           >

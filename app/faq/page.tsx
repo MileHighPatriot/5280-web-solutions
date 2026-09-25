@@ -18,6 +18,7 @@ export default function FaqPage() {
     <>
       <JsonLd data={faqJsonLd([...generalFaq, ...pricingFaq])} />
       <PageHeader
+        backdrop="numerals"
         eyebrow="FAQ"
         title="Questions, answered."
         lede={`Can't find what you're looking for? Call or text ${site.phoneDisplay} and ask me directly.`}

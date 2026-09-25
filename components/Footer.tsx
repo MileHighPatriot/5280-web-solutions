@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div className="container-x">
-          <div className="flex flex-col gap-3 border-t border-cream/10 py-6 text-sm text-mist sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-cream/10 pt-6 pb-24 text-sm text-mist sm:flex-row sm:items-center sm:justify-between sm:pb-6">
             <p>
               &copy; {new Date().getFullYear()} {site.name}. Built in Colorado. Mountain photo:{" "}
               <a href={photoCredit.source} className="underline underline-offset-2 hover:text-cream">

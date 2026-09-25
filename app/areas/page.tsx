@@ -16,6 +16,8 @@ export default function AreasPage() {
   return (
     <>
       <PageHeader
+        backdrop="topo"
+        seed={7}
         eyebrow="Service areas"
         title="Local websites, up and down I-25."
         lede="I work with small businesses from Fort Collins and Greeley to Colorado Springs, meeting in person or working fully remote, whichever is easier for you."
@@ -30,7 +32,7 @@ export default function AreasPage() {
                 <li key={area.slug}>
                   <Link
                     href={`/areas/${area.slug}/`}
-                    className="group block h-full rounded-2xl bg-paper p-6 ring-1 ring-navy/10 transition-shadow hover:ring-2 hover:ring-orange"
+                    className="group block h-full rounded-2xl bg-paper p-6 ring-1 ring-navy/10 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-orange"
                   >
                     <p className="t-mono text-stone">{area.region}</p>
                     <p className="t-h3 mt-2 flex items-center justify-between">

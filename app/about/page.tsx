@@ -34,6 +34,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
+        backdrop="logo"
         eyebrow="About"
         title="Hi, I'm Kohlton."
         lede="I build websites for small businesses up and down the Front Range, and I take care of them after launch so you don't have to."

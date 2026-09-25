@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServiceIcon from "@/components/ServiceIcon";
+import Backdrop from "@/components/ui/Backdrop";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/Section";
+import { industryByLabel } from "@/data/industries";
 import { everyBuild } from "@/data/pricing";
 import { services, steps, whoIHelp } from "@/data/services";
 
@@ -17,6 +20,8 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader
+        backdrop="topo"
+        seed={4}
         eyebrow="Services"
         title="Everything your business needs online."
         lede="New sites, redesigns, hosting, and getting found on Google, all handled by one local developer who explains things in plain English."
@@ -85,33 +90,52 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section aria-labelledby="how" className="container-x section-y">
-        <SectionHeading id="how" eyebrow="How it works" title="Four simple steps." />
-        <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {steps.map((step) => (
-            <li key={step.step} className="relative border-t-2 border-navy pt-6">
-              <span className="absolute -top-[7px] left-0 h-3 w-3 rounded-full bg-orange" aria-hidden="true" />
-              <p className="font-mono text-sm font-medium text-ember">Step {step.step}</p>
-              <h3 className="t-h3 mt-2">{step.title}</h3>
-              <p className="mt-3 leading-relaxed text-stone">{step.body}</p>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-navy/10 sm:p-12">
-          <h2 className="t-h3">Built for businesses like yours</h2>
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {whoIHelp.map((item) => (
-              <li key={item} className="rounded-full bg-cream px-4 py-2 text-sm font-semibold ring-1 ring-navy/10">
-                {item}
+      <div className="relative isolate overflow-clip">
+        <Backdrop variant="ridge" />
+        <section aria-labelledby="how" className="container-x section-y">
+          <SectionHeading id="how" eyebrow="How it works" title="Four simple steps." />
+          <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {steps.map((step) => (
+              <li key={step.step} className="relative border-t-2 border-navy pt-6">
+                <span className="absolute -top-[7px] left-0 h-3 w-3 rounded-full bg-orange" aria-hidden="true" />
+                <p className="font-mono text-sm font-medium text-ember">Step {step.step}</p>
+                <h3 className="t-h3 mt-2">{step.title}</h3>
+                <p className="mt-3 leading-relaxed text-stone">{step.body}</p>
               </li>
             ))}
-          </ul>
-          <p className="mt-6 max-w-2xl text-stone">
-            Don&rsquo;t see your industry? If you serve customers on the Front Range, I can help.
-          </p>
-        </div>
-      </section>
+          </ol>
+
+          <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-navy/10 sm:p-12">
+            <h2 className="t-h3">Built for businesses like yours</h2>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {whoIHelp.map((item) => {
+                const industry = industryByLabel.get(item);
+                const chip = "inline-flex rounded-full bg-cream px-4 py-2 text-sm font-semibold ring-1 ring-navy/10";
+                return (
+                  <li key={item}>
+                    {industry ? (
+                      <Link
+                        href={`/industries/${industry.slug}/`}
+                        className={`${chip} group gap-1.5 transition-shadow hover:ring-2 hover:ring-orange`}
+                      >
+                        {item}
+                        <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-0.5">
+                          →
+                        </span>
+                      </Link>
+                    ) : (
+                      <span className={chip}>{item}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="mt-6 max-w-2xl text-stone">
+              Don&rsquo;t see your industry? If you serve customers on the Front Range, I can help.
+            </p>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

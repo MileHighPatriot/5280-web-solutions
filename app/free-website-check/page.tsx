@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { TalkLine } from "@/components/BookCall";
 import LeadForm from "@/components/LeadForm";
+import SpeedCheck from "@/components/SpeedCheck";
 import { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import { site } from "@/data/site";
+import { SectionHeading } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
   title: "Free Website Check",
@@ -24,15 +26,31 @@ export default function FreeWebsiteCheckPage() {
   return (
     <>
       <PageHeader
+        backdrop="topo"
+        seed={11}
         eyebrow="Free website check"
         title="Is your website costing you customers?"
         lede="Send me your site and I'll review it for free. You'll get honest, plain-English notes on what's working, what isn't, and what to fix first. No obligation."
       />
 
-      <section className="container-x section-y">
+      <section aria-labelledby="speed-test" className="container-x pt-16 sm:pt-24">
+        <SectionHeading
+          id="speed-test"
+          eyebrow="Try it now"
+          title="See how your site scores, right now."
+          lede="Type in your website and see how it scores on Google's own test, explained in plain English. Then send it to me for the full review."
+        />
+        <div className="reveal mt-10">
+          <SpeedCheck />
+        </div>
+      </section>
+
+      <section id="request" aria-labelledby="request-heading" className="container-x section-y scroll-mt-24">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h2 className="t-h3">What I look at</h2>
+            <h2 id="request-heading" className="t-h3">
+              What I look at
+            </h2>
             <ul className="mt-6 grid gap-5">
               {checks.map((item) => (
                 <li key={item.title} className="flex gap-3">
@@ -51,13 +69,7 @@ export default function FreeWebsiteCheckPage() {
                 for what a first site should include, and what it would cost.
               </p>
             </div>
-            <p className="mt-6 text-sm text-stone">
-              Prefer to talk? Call or text{" "}
-              <a href={site.phoneHref} className="font-semibold text-navy underline underline-offset-4">
-                {site.phoneDisplay}
-              </a>
-              .
-            </p>
+            <TalkLine className="mt-6" />
           </div>
           <div className="lg:col-span-7">
             <h2 className="sr-only">Request your free check</h2>

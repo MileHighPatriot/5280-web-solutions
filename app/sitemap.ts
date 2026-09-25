@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { areas } from "@/data/areas";
+import { industries } from "@/data/industries";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms/",
     ...projects.map((project) => `/work/${project.slug}/`),
     ...areas.map((area) => `/areas/${area.slug}/`),
+    ...industries.map((industry) => `/industries/${industry.slug}/`),
   ];
   return paths.map((path) => ({ url: `${site.url}${path}`, lastModified }));
 }

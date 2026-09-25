@@ -15,6 +15,7 @@ export default function WorkPage() {
   return (
     <>
       <PageHeader
+        backdrop="numerals"
         eyebrow="Work"
         title="Sites built to win the job."
         lede="These concept projects show the design, speed, and features I build into every site. Each is a fictional business, created as a portfolio piece. Real client work is added here as it launches."

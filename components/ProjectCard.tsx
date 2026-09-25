@@ -15,7 +15,7 @@ export function ConceptBadge({ className = "" }: { className?: string }) {
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="reveal group relative">
-      <div className="relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-transform duration-500 group-hover:-translate-y-1">
+      <div className="relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
         <div
           aria-hidden="true"
           className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/15 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
@@ -33,7 +33,10 @@ export default function ProjectCard({ project }: { project: Project }) {
       </h3>
       <p className="mt-2 text-[0.975rem] leading-relaxed text-stone">{project.summary}</p>
       <p className="mt-3 text-sm font-bold text-ember">
-        Read the case study <span aria-hidden="true">→</span>
+        Read the case study{" "}
+        <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
       </p>
     </article>
   );

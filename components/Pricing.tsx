@@ -163,7 +163,7 @@ function TierCard({ tier }: { tier: Tier }) {
   return (
     <article
       aria-labelledby={`tier-${tier.id}`}
-      className={`relative flex flex-col rounded-2xl p-6 sm:p-7 ${
+      className={`relative flex flex-col rounded-2xl p-6 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/15 sm:p-7 ${
         featured ? "bg-navy text-cream shadow-xl shadow-navy/20 ring-2 ring-orange" : "bg-paper ring-1 ring-navy/10"
       }`}
     >

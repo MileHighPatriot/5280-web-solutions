@@ -1,0 +1,5 @@
+:HL["/5280-web-solutions/_next/static/chunks/0f38fqq7qnutq.css","style"]
+:HL["/5280-web-solutions/_next/static/media/31a9145ccb84606d-s.p.3j3x29wbycqkn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/5280-web-solutions/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/5280-web-solutions/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"industries","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"restaurants","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"N9SM7bThkyMucMNQtXHto"}

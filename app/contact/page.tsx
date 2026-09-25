@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookCallCard } from "@/components/BookCall";
 import LeadForm from "@/components/LeadForm";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
@@ -13,6 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
+        backdrop="logo"
         eyebrow="Contact"
         title="Let's talk about your website."
         lede={`Tell me a little about your business and which option you're leaning toward. I'll reply within ${site.replyTime}, usually sooner.`}
@@ -26,6 +28,7 @@ export default function ContactPage() {
           </div>
 
           <aside className="grid content-start gap-4 lg:col-span-5" aria-label="Other ways to reach me">
+            <BookCallCard />
             <ContactCard label="Call or text" value={site.phoneDisplay} href={site.phoneHref} />
             <ContactCard label="Email" value={site.email} href={site.emailHref} />
             <div className="rounded-2xl bg-paper p-6 ring-1 ring-navy/10">

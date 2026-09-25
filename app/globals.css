@@ -247,3 +247,199 @@ details[open] .faq-icon-v {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Backdrop art (components/ui/Backdrop.tsx) ----------
+   Page headers draw in on load; in-page backdrops draw as they scroll into view.
+   Without motion (or scroll-timeline support) everything simply shows, fully drawn. */
+@keyframes bd-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes bd-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes bd-rise {
+  from {
+    opacity: 0;
+    translate: 0 8%;
+  }
+}
+
+@keyframes bd-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes bd-pop {
+  0%,
+  55% {
+    opacity: 0;
+    scale: 0;
+  }
+  80% {
+    scale: 1.35;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bd-load .bd-draw {
+    stroke-dasharray: 1;
+    animation: bd-draw 2.8s cubic-bezier(0.55, 0, 0.25, 1) both;
+    animation-delay: calc(var(--i, 0) * 35ms + 200ms);
+  }
+
+  .bd-load .bd-rise {
+    animation: bd-rise 1.6s var(--ease-out-expo) 200ms both;
+  }
+
+  .bd-load .bd-fade,
+  .bd-load .bd-pop {
+    animation: bd-fade 1s ease 1.4s both;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bd-scroll {
+      view-timeline: --bd block;
+    }
+
+    .bd-scroll .bd-draw {
+      stroke-dasharray: 1;
+      animation: bd-draw linear both;
+      animation-timeline: --bd;
+      animation-range: entry 0% cover 35%;
+    }
+
+    .bd-scroll .bd-rise {
+      animation: bd-rise linear both;
+      animation-timeline: --bd;
+      animation-range: entry 5% cover 30%;
+    }
+
+    .bd-scroll .bd-fade {
+      animation: bd-fade linear both;
+      animation-timeline: --bd;
+      animation-range: cover 15% cover 35%;
+    }
+
+    /* The ridge sits at the bottom of its section, so it follows its own position instead. */
+    .bd-ridge {
+      view-timeline: --ridge block;
+    }
+
+    .bd-scroll .bd-wipe {
+      animation: bd-wipe linear both;
+      animation-timeline: --ridge;
+      animation-range: entry 0% cover 60%;
+    }
+
+    .bd-scroll .bd-ridge .bd-fade {
+      animation-timeline: --ridge;
+      animation-range: cover 30% cover 70%;
+    }
+
+    .bd-scroll .bd-ridge .bd-pop {
+      animation: bd-pop linear both;
+      animation-timeline: --ridge;
+      animation-range: entry 40% cover 70%;
+    }
+  }
+}
+
+/* ---------- Page transitions (React <ViewTransition default="page"> in app/layout.tsx) ---------- */
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+::view-transition-group(.page) {
+  animation-duration: 420ms;
+}
+
+::view-transition-old(.page) {
+  animation: page-out 160ms ease-in both;
+}
+
+::view-transition-new(.page) {
+  animation: page-in 420ms var(--ease-out-expo) 90ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ---------- Hero: the photo drifts slower than the page, and the copy eases away ---------- */
+@keyframes hero-drift {
+  to {
+    transform: translateY(24%) scale(1.06);
+  }
+}
+
+@keyframes hero-copy-out {
+  to {
+    opacity: 0.15;
+    transform: translateY(-40px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-timeline {
+      view-timeline: --hero block;
+    }
+
+    .hero-drift {
+      animation: hero-drift linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+
+    .hero-copy {
+      animation: hero-copy-out linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 70%;
+    }
+  }
+}
+
+/* ---------- Speed test (components/SpeedCheck.tsx) ---------- */
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.speed-spinner {
+  animation: spin 0.9s linear infinite;
+}
+
+.score-ring {
+  transition: stroke-dashoffset 1.6s var(--ease-out-expo);
+}

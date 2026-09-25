@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { ViewTransition } from "react";
+import Analytics from "@/components/Analytics";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd, { businessJsonLd } from "@/components/JsonLd";
+import MobileBar from "@/components/MobileBar";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -56,9 +59,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <Header />
         <main id="main" className="flex-1 pt-16 sm:pt-20">
-          {children}
+          {/* Page changes cross-fade (see ::view-transition rules in globals.css). */}
+          <ViewTransition default="page">{children}</ViewTransition>
         </main>
         <Footer />
+        <MobileBar />
+        <Analytics />
       </body>
     </html>
   );

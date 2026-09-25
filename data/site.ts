@@ -20,6 +20,14 @@ export const site = {
   // Web3Forms access key: delivers form submissions to the email above.
   // Public by design (it only allows sending to this inbox).
   web3formsKey: "46846766-3c9d-485e-8921-8f6765032b96",
+  // Cal.com booking link for the intro call, e.g. "kohlton/intro-call". Empty = show "call or text" instead.
+  calLink: "",
+  // GoatCounter site code (the "code" in code.goatcounter.com). Empty = no analytics script at all.
+  goatcounterCode: "",
+  // Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
+  // 5280webs.com in Google Cloud. Without one, Google's shared quota usually refuses the request
+  // and the speed test falls back to "send it to me and I'll run it".
+  pagespeedKey: "",
   // North to south, so lists read like the drive down I-25.
   cities: [
     "Fort Collins",

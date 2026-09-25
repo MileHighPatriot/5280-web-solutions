@@ -4,7 +4,7 @@ import { photoCredit } from "@/data/site";
 
 function HeroCopy() {
   return (
-    <div className="container-x relative z-10 pt-16 sm:pt-24 lg:pt-28">
+    <div className="hero-copy container-x relative z-10 pt-16 sm:pt-24 lg:pt-28">
       <p className="t-mono fade-up text-mist">Web design · Fort Collins to Colorado Springs</p>
       <h1 className="t-display fade-up mt-6 max-w-[16ch] text-balance" style={{ animationDelay: "80ms" }}>
         Websites that win <span className="text-orange">local customers.</span>
@@ -25,14 +25,14 @@ function HeroCopy() {
 /** Homepage hero: a real photograph of the Front Range behind downtown Denver at sunset. */
 export default function HeroPhoto() {
   return (
-    <section className="relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[92svh]">
+    <section className="hero-timeline relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[92svh]">
       <Image
         src={photoCredit.src}
         alt="The Front Range mountains behind downtown Denver at sunset"
         fill
         priority
         sizes="100vw"
-        className="-z-20 object-cover object-[50%_75%]"
+        className="hero-drift -z-20 origin-bottom object-cover object-[50%_75%]"
       />
       {/* Navy fades down over the sky so the headline stays readable, letting the mountains and city glow below. */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy via-navy/80 to-navy/0" style={{ backgroundSize: "100% 72%", backgroundRepeat: "no-repeat" }} />
