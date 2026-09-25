@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* Brand tokens, taken from the 5280 Web Solutions logo and business cards. */
+@theme inline {
+  --color-navy: #14202b;
+  --color-navy-2: #1b2a38;
+  --color-navy-3: #243646;
+  --color-slate: #2d4155;
+  --color-mist: #a3b1c0;
+  --color-orange: #e07a3f;
+  --color-orange-soft: #f0a577;
+  --color-ember: #a94c1c;
+  --color-cream: #f4efe6;
+  --color-paper: #faf7f2;
+  --color-sand: #e9e2d6;
+  --color-line: #dcd4c6;
+  --color-stone: #4b5866;
+
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+@utility section-y {
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+@utility t-display {
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+@utility t-h1 {
+  font-weight: 800;
+  font-size: clamp(2.35rem, 5.4vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+@utility t-h2 {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+@utility t-h3 {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+@utility t-lede {
+  font-size: clamp(1.075rem, 1.4vw, 1.3rem);
+  line-height: 1.55;
+}
+
+@utility t-body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* Small uppercase label for eyebrows and captions. */
+@utility t-mono {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  background: var(--color-navy);
+  color: var(--color-paper);
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Section anchors land below the fixed header. */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Device screens that scroll through a full-page capture. 100cqh = the screen's height. */
+.screen-scroll,
+.screen-loop {
+  container-type: size;
+  overflow: hidden;
+}
+
+.screen-scroll img {
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.group:hover .screen-scroll img,
+.device-showcase[data-active] .screen-scroll img {
+  transform: translateY(calc(-100% + 100cqh));
+  transition: transform 9s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.screen-loop img {
+  animation: screen-loop 18s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+.screen-loop-phone img {
+  animation-duration: 15s;
+  animation-delay: -3s;
+}
+
+@keyframes screen-loop {
+  0%,
+  8% {
+    transform: none;
+  }
+  92%,
+  100% {
+    transform: translateY(calc(-100% + 100cqh));
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.8s var(--ease-out-expo) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll-driven reveals: pure CSS, and browsers without support simply show the content. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes timeline-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 55%;
+    }
+
+    .timeline-fill {
+      transform-origin: left;
+      animation: timeline-fill linear both;
+      animation-timeline: view();
+      animation-range: cover 25% cover 60%;
+    }
+  }
+}
+
+/* FAQ disclosure built on <details>, no JavaScript. */
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .faq-icon-v {
+  transform: scaleY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .screen-scroll img,
+  .screen-loop img {
+    transform: none !important;
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
