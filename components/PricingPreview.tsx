@@ -9,7 +9,7 @@ export default function PricingPreview() {
       <div className="reveal lg:col-span-5">
         <p className="t-mono text-mist">Pricing</p>
         <h2 id="pricing-preview" className="t-h2 mt-5 text-balance">
-          Clear prices. No surprises.
+          Clear prices. <span className="text-orange">No surprises.</span>
         </h2>
         <p className="t-lede mt-5 text-mist">
           A professional site built for a small setup fee, then one low monthly price. Or pay once and

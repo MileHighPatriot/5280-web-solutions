@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Backdrop, { type BackdropVariant } from "@/components/ui/Backdrop";
+import Blueprint from "@/components/ui/Blueprint";
 import { Eyebrow } from "@/components/ui/Section";
 
 /** Navy page intro that continues the header, with a thin orange ridge underneath. */
@@ -20,7 +21,8 @@ export default function PageHeader({
   seed?: number;
 }) {
   return (
-    <header className="relative isolate overflow-hidden bg-navy text-cream">
+    <header data-glow className="relative isolate overflow-hidden bg-navy text-cream">
+      <Blueprint className="opacity-70" />
       {backdrop ? <Backdrop variant={backdrop} seed={seed} dark animate="load" /> : null}
       <div className="container-x relative z-10 pt-14 pb-20 sm:pt-20 sm:pb-28">
         <Eyebrow className="fade-up text-mist">{eyebrow}</Eyebrow>
@@ -46,12 +48,12 @@ export default function PageHeader({
       >
         <path
           d="M0 44 L120 30 L210 38 L330 18 L420 30 L520 12 L640 34 L760 22 L880 36 L1010 8 L1110 28 L1230 20 L1350 34 L1470 24 L1600 32 V60 H0 Z"
-          fill="#f4efe6"
+          className="fill-cream"
         />
         <path
           d="M0 44 L120 30 L210 38 L330 18 L420 30 L520 12 L640 34 L760 22 L880 36 L1010 8 L1110 28 L1230 20 L1350 34 L1470 24 L1600 32"
           fill="none"
-          stroke="#e07a3f"
+          className="stroke-orange"
           strokeWidth="2"
           vectorEffect="non-scaling-stroke"
         />

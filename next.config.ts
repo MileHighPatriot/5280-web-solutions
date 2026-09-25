@@ -1,8 +1,9 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
-// `npm run pages` builds a preview for https://milehighpatriot.github.io/5280-web-solutions/.
-// A normal build targets the real domain (5280webs.com) at the root.
+// `npm run pages` builds the live site for 5280webs.com (served by GitHub Pages from docs/,
+// with public/CNAME). GITHUB_PAGES=true builds the old github.io preview under /5280-web-solutions
+// instead; it's only useful if the custom domain is ever removed.
 const isPagesPreview = process.env.GITHUB_PAGES === "true";
 const basePath = isPagesPreview ? "/5280-web-solutions" : "";
 

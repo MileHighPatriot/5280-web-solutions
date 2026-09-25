@@ -56,7 +56,7 @@ function Numerals({ dark }: { dark: boolean }) {
   return (
     <span
       className="bd-rise absolute -top-[0.12em] -right-[0.06em] text-[clamp(9rem,27vw,25rem)] leading-none font-black tracking-[-0.05em] text-transparent"
-      style={{ WebkitTextStroke: `2px ${dark ? "rgb(244 239 230 / 0.08)" : "rgb(20 32 43 / 0.09)"}` }}
+      style={{ WebkitTextStroke: `2px ${dark ? "color-mix(in srgb, var(--color-cream) 8%, transparent)" : "color-mix(in srgb, var(--color-navy) 9%, transparent)"}` }}
     >
       5280
     </span>

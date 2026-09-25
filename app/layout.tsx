@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd, { businessJsonLd } from "@/components/JsonLd";
 import MobileBar from "@/components/MobileBar";
+import PointerGlow from "@/components/PointerGlow";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -23,7 +24,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#14202b",
+  themeColor: "#002244",
 };
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <MobileBar />
         <Analytics />
+        <PointerGlow />
       </body>
     </html>
   );

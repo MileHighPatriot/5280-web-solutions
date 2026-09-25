@@ -5,8 +5,10 @@ import FounderCard from "@/components/FounderCard";
 import HeroPhoto from "@/components/HeroPhoto";
 import PricingPreview from "@/components/PricingPreview";
 import ProjectCard from "@/components/ProjectCard";
+import Readouts from "@/components/Readouts";
 import ServiceIcon from "@/components/ServiceIcon";
 import Backdrop from "@/components/ui/Backdrop";
+import Blueprint from "@/components/ui/Blueprint";
 import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
 import { projects } from "@/data/projects";
@@ -20,6 +22,7 @@ export default function Home() {
   return (
     <>
       <HeroPhoto />
+      <Readouts />
 
       {/* Work */}
       <div className="relative isolate overflow-clip">
@@ -29,7 +32,11 @@ export default function Home() {
             <SectionHeading
               id="work"
               eyebrow="Recent work"
-              title="Sites built to win the job."
+              title={
+                <>
+                  Sites built to <span className="text-orange">win the job.</span>
+                </>
+              }
               lede="Hover a project to scroll through the whole site. These are concept projects; real client work is added as it launches."
             />
             <Button href="/work/" variant="outline" className="self-start lg:self-auto">
@@ -45,26 +52,38 @@ export default function Home() {
       </div>
 
       {/* Services */}
-      <section aria-labelledby="services" className="relative isolate overflow-clip border-y border-navy/10 bg-paper">
-        <Backdrop variant="numerals" />
+      <section aria-labelledby="services" data-glow className="relative isolate overflow-clip bg-navy text-cream">
+        <Blueprint />
+        <Backdrop variant="numerals" dark />
         <div className="container-x section-y">
           <SectionHeading
             id="services"
+            dark
             eyebrow="What I do"
-            title="Everything your business needs online."
+            title={
+              <>
+                Everything your business needs <span className="text-orange">online.</span>
+              </>
+            }
             lede="One local developer handles it all, from the first design to every update after launch."
           />
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {services.map((service) => (
-              <Link key={service.id} href={`/services/#${service.id}`} className="reveal group block">
-                <ServiceIcon id={service.id} className="h-11 w-11 text-navy" />
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, i) => (
+              <Link
+                key={service.id}
+                href={`/services/#${service.id}`}
+                data-glow
+                className="glow-card reveal group relative block rounded-2xl bg-navy-2/80 p-6 [--glow-a:0.16] ring-1 ring-cream/10 backdrop-blur-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-orange/70 hover:shadow-[0_18px_40px_-18px_rgba(251,79,20,0.55)]"
+              >
+                <span className="absolute top-6 right-6 font-mono text-xs text-mist">0{i + 1}</span>
+                <ServiceIcon id={service.id} className="h-11 w-11 text-cream" />
                 <h3 className="t-h3 mt-5 flex items-center gap-2">
                   {service.title}
                   <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-1">
                     →
                   </span>
                 </h3>
-                <p className="mt-3 leading-relaxed text-stone">{service.short}</p>
+                <p className="mt-3 leading-relaxed text-mist">{service.short}</p>
               </Link>
             ))}
           </div>
@@ -78,7 +97,11 @@ export default function Home() {
           <SectionHeading
             id="before-after"
             eyebrow="Redesigns"
-            title="Same business. A website that finally shows it."
+            title={
+              <>
+                Same business. A website that <span className="text-orange">finally shows it.</span>
+              </>
+            }
             lede="Drag the handle to compare. A redesign keeps your name, domain, and Google rankings, and fixes everything else."
           />
           <div className="reveal mt-12">
@@ -95,7 +118,8 @@ export default function Home() {
       </div>
 
       {/* Pricing preview */}
-      <section aria-labelledby="pricing-preview" className="bg-navy text-cream">
+      <section aria-labelledby="pricing-preview" data-glow className="relative isolate overflow-clip bg-navy text-cream">
+        <Blueprint className="[mask-image:radial-gradient(ellipse_70%_80%_at_15%_50%,black_20%,transparent_75%)]" />
         <div className="container-x section-y">
           <PricingPreview />
         </div>
@@ -113,7 +137,11 @@ export default function Home() {
               <SectionHeading
                 id="about"
                 eyebrow="Who you'll work with"
-                title="One local developer, start to finish."
+                title={
+                  <>
+                    One local developer, <span className="text-orange">start to finish.</span>
+                  </>
+                }
                 lede="No account managers, no offshore handoffs, no call centers. When you work with 5280 Web Solutions, you work with me, from the first call to every update after launch."
               />
               <div className="reveal mt-10 flex flex-wrap gap-3">

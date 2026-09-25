@@ -1,0 +1,113 @@
+{
+  "/denver-front-range-sunset.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1920,
+    3008
+  ],
+  "/kohlton-luper.jpg": [
+    256,
+    384,
+    640,
+    724
+  ],
+  "/work/car-wash-tunnel.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1400
+  ],
+  "/work/helix-frame-siding-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/helix-frame-siding-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/helix-frame-siding-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/helix-frame-siding-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
+  "/work/platte-river-builders-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/platte-river-builders-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/platte-river-builders-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/platte-river-builders-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
+  "/work/summit-frame-build-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/summit-frame-build-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/summit-frame-build-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/summit-frame-build-mobile.jpg": [
+    256,
+    384,
+    600
+  ]
+}

@@ -10,7 +10,8 @@ export function LogoMark({
   /** Let the strokes animate in (used by the Backdrop art). */
   draw?: boolean;
 }) {
-  const stroke = draw ? { pathLength: 1, className: "bd-draw" } : {};
+  const len = draw ? { pathLength: 1 } : {};
+  const drawn = draw ? "bd-draw " : "";
   return (
     <svg
       viewBox={tile ? "60 60 240 240" : "92 112 170 150"}
@@ -20,12 +21,12 @@ export function LogoMark({
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      {tile ? <rect x="60" y="60" width="240" height="240" rx="52" fill="#14202b" /> : null}
-      <path {...stroke} d="M104 219 149 167 178 202" stroke="#e07a3f" strokeWidth="13" />
-      <path {...stroke} d="M143 219 192 142 242 219" stroke="currentColor" strokeWidth="13" />
-      <path {...stroke} d="M175 176 186 168 193 177 201 168 210 176" stroke="currentColor" strokeWidth="8" />
-      <circle className={draw ? "bd-fade" : undefined} cx="226" cy="133" r="12.5" fill="#e07a3f" />
-      <path {...stroke} d="M212 246h33" stroke="#e07a3f" strokeWidth="13" />
+      {tile ? <rect x="60" y="60" width="240" height="240" rx="52" className="fill-navy" /> : null}
+      <path {...len} className={`${drawn}stroke-orange`} d="M104 219 149 167 178 202" strokeWidth="13" />
+      <path {...len} className={drawn} d="M143 219 192 142 242 219" stroke="currentColor" strokeWidth="13" />
+      <path {...len} className={drawn} d="M175 176 186 168 193 177 201 168 210 176" stroke="currentColor" strokeWidth="8" />
+      <circle className={`${draw ? "bd-fade " : ""}fill-orange`} cx="226" cy="133" r="12.5" />
+      <path {...len} className={`${drawn}stroke-orange`} d="M212 246h33" strokeWidth="13" />
     </svg>
   );
 }

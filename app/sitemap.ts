@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact/",
     "/free-website-check/",
     "/areas/",
+    "/industries/",
     "/faq/",
     "/privacy/",
     "/terms/",

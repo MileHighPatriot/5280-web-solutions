@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-[#0f1821]">
+      <div className="bg-navy-ink">
         <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Logo />

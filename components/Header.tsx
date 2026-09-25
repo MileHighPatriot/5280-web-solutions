@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
+import ServicesMenu from "@/components/ServicesMenu";
+import { industries } from "@/data/industries";
 import { primaryNav } from "@/data/nav";
 import { site } from "@/data/site";
 
@@ -31,12 +33,16 @@ export default function Header() {
     };
   }, [open]);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href);
+  const isActive = (href: string) =>
+    pathname === href ||
+    pathname.startsWith(href) ||
+    // The Services menu also covers the industry and service-area pages.
+    (href === "/services/" && (pathname.startsWith("/industries/") || pathname.startsWith("/areas/")));
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 bg-navy text-cream transition-shadow duration-300 ${
-        scrolled || open ? "shadow-[0_1px_0_rgba(244,239,230,0.08),0_8px_24px_rgba(0,0,0,0.25)]" : ""
+        scrolled || open ? "shadow-[0_1px_0_rgba(245,243,238,0.08),0_8px_24px_rgba(0,0,0,0.25)]" : ""
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between gap-6 sm:h-20">
@@ -45,20 +51,24 @@ export default function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-          {primaryNav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-              className={`relative py-2 text-[0.95rem] font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-orange after:transition-transform after:duration-300 ${
-                isActive(link.href)
-                  ? "text-cream after:scale-x-100"
-                  : "text-cream/75 after:scale-x-0 hover:text-cream hover:after:scale-x-100"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {primaryNav.map((link) =>
+            link.href === "/services/" ? (
+              <ServicesMenu key={link.href} active={isActive(link.href)} />
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`relative py-2 text-[0.95rem] font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-orange after:transition-transform after:duration-300 ${
+                  isActive(link.href)
+                    ? "text-cream after:scale-x-100"
+                    : "text-cream/75 after:scale-x-0 hover:text-cream hover:after:scale-x-100"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-4">
@@ -70,7 +80,7 @@ export default function Header() {
           </a>
           <Link
             href="/free-website-check/"
-            className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-navy transition-colors hover:bg-orange-soft sm:inline-flex"
+            className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-navy shadow-[0_6px_20px_-10px_rgba(251,79,20,0.8)] transition-[background-color,box-shadow] hover:bg-orange-soft hover:shadow-[0_10px_28px_-8px_rgba(251,79,20,0.8)] sm:inline-flex"
           >
             Free website check
           </Link>
@@ -110,6 +120,7 @@ export default function Header() {
         </div>
       </div>
 
+      <div aria-hidden="true" className="scroll-progress absolute inset-x-0 bottom-0 h-0.5 origin-left bg-orange" />
       <div
         id="mobile-menu"
         hidden={!open}
@@ -133,6 +144,25 @@ export default function Header() {
                     →
                   </span>
                 </Link>
+                {link.href === "/services/" ? (
+                  <div className="pb-5">
+                    <p className="t-mono text-mist">Who I help</p>
+                    <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.95rem] text-cream/80">
+                      {industries.map((industry) => (
+                        <li key={industry.slug}>
+                          <Link href={`/industries/${industry.slug}/`} className="hover:text-orange">
+                            {industry.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/areas/" className="hover:text-orange">
+                          Service areas
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>

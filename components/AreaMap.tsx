@@ -41,24 +41,24 @@ export default function AreaMap({ className = "" }: { className?: string }) {
       {/* Foothills along the west edge */}
       <path
         d="M0 0 H70 L58 40 L74 80 L60 130 L78 170 L62 214 L70 250 L56 300 L84 340 L76 380 L96 420 L82 470 L110 520 L98 570 L150 620 L140 660 H0 Z"
-        fill="#243646"
+        className="fill-navy-3"
       />
       <path
         d="M70 0 L58 40 L74 80 L60 130 L78 170 L62 214 L70 250 L56 300 L84 340 L76 380 L96 420 L82 470 L110 520 L98 570 L150 620 L140 660"
         fill="none"
-        stroke="#e07a3f"
+        className="stroke-orange"
         strokeWidth="2"
         strokeLinejoin="round"
       />
-      <text x="16" y="606" fill="#a3b1c0" fontSize="11" fontFamily="var(--font-plex-mono), monospace" letterSpacing="1.5" transform="rotate(-90 16 606)">
+      <text x="16" y="606" className="fill-mist" fontSize="11" fontFamily="var(--font-plex-mono), monospace" letterSpacing="1.5" transform="rotate(-90 16 606)">
         FOOTHILLS
       </text>
 
       {/* I-25 */}
-      <path d={i25} fill="none" stroke="#a3b1c0" strokeWidth="2" strokeDasharray="6 6" opacity="0.5" />
+      <path d={i25} fill="none" className="stroke-mist" strokeWidth="2" strokeDasharray="6 6" opacity="0.5" />
       <g transform="translate(282 22)">
-        <rect x="-18" y="-12" width="36" height="24" rx="5" fill="none" stroke="#a3b1c0" strokeWidth="1.5" opacity="0.7" />
-        <text x="0" y="4.5" textAnchor="middle" fill="#a3b1c0" fontSize="12" fontWeight="700" fontFamily="var(--font-plex-mono), monospace">
+        <rect x="-18" y="-12" width="36" height="24" rx="5" fill="none" className="stroke-mist" strokeWidth="1.5" opacity="0.7" />
+        <text x="0" y="4.5" textAnchor="middle" className="fill-mist" fontSize="12" fontWeight="700" fontFamily="var(--font-plex-mono), monospace">
           I-25
         </text>
       </g>
@@ -70,18 +70,17 @@ export default function AreaMap({ className = "" }: { className?: string }) {
         const anchor = city.label === "left" ? "end" : city.label === "below" ? "middle" : "start";
         return (
           <g key={city.name}>
-            {city.major ? <circle cx={city.x} cy={city.y} r="14" fill="#e07a3f" opacity="0.18" /> : null}
-            <circle cx={city.x} cy={city.y} r={r} fill={city.major ? "#e07a3f" : "#c6cfd9"} />
+            {city.major ? <circle cx={city.x} cy={city.y} r="14" className="fill-orange" opacity="0.18" /> : null}
+            <circle cx={city.x} cy={city.y} r={r} className={city.major ? "fill-orange" : "fill-[#c6cfd9]"} />
             {city.major ? (
               <text
                 x={labelX}
                 y={labelY}
                 textAnchor={anchor}
-                fill="#f4efe6"
+                className="fill-cream stroke-navy"
                 fontSize="14"
                 fontWeight="700"
                 style={{ paintOrder: "stroke" }}
-                stroke="#14202b"
                 strokeWidth="4"
               >
                 {city.name}

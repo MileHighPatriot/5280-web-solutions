@@ -4,7 +4,8 @@ import type { ReactNode } from "react";
 type Variant = "primary" | "dark" | "outline" | "outline-light";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-orange text-navy hover:bg-orange-soft",
+  primary:
+    "bg-orange text-navy shadow-[0_8px_24px_-12px_rgba(251,79,20,0.7)] hover:bg-orange-soft hover:shadow-[0_14px_34px_-10px_rgba(251,79,20,0.75)]",
   dark: "bg-navy text-cream hover:bg-navy-3",
   outline: "border-2 border-navy/20 text-navy hover:border-navy",
   "outline-light": "border-2 border-cream/30 text-cream hover:border-cream",
@@ -18,14 +19,8 @@ type ButtonProps = {
   arrow?: boolean;
 };
 
-export default function Button({
-  href,
-  children,
-  variant = "primary",
-  className = "",
-  arrow = true,
-}: ButtonProps) {
-  const classes = `group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[0.95rem] font-bold transition-colors duration-200 ${variants[variant]} ${className}`;
+export default function Button({ href, children, variant = "primary", className = "", arrow = true }: ButtonProps) {
+  const classes = `group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[0.95rem] font-bold transition-[background-color,border-color,color,box-shadow] duration-200 ${variants[variant]} ${className}`;
   const content = (
     <>
       {children}

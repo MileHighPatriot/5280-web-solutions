@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
-/* Brand tokens, taken from the 5280 Web Solutions logo and business cards. */
+/* Brand tokens: Broncos-style deep navy and bright orange, on a warm off-white.
+   Bright orange is for fills, large text, and accents; small orange text on light
+   backgrounds uses ember, which passes WCAG AA contrast. */
 @theme inline {
-  --color-navy: #14202b;
-  --color-navy-2: #1b2a38;
-  --color-navy-3: #243646;
-  --color-slate: #2d4155;
-  --color-mist: #a3b1c0;
-  --color-orange: #e07a3f;
-  --color-orange-soft: #f0a577;
-  --color-ember: #a94c1c;
-  --color-cream: #f4efe6;
-  --color-paper: #faf7f2;
-  --color-sand: #e9e2d6;
-  --color-line: #dcd4c6;
-  --color-stone: #4b5866;
+  --color-navy: #002244;
+  --color-navy-2: #07294f;
+  --color-navy-3: #10335e;
+  --color-navy-ink: #001833;
+  --color-slate: #1f3d63;
+  --color-mist: #a9bad2;
+  --color-orange: #fb4f14;
+  --color-orange-soft: #ff7a45;
+  --color-ember: #b83d0e;
+  --color-cream: #f5f3ee;
+  --color-paper: #fbfaf8;
+  --color-sand: #e8e4dc;
+  --color-line: #d8d3c9;
+  --color-stone: #475569;
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -27,6 +30,45 @@
   max-width: 1280px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+/* Blueprint grid for navy areas: fine 48px cells with a stronger line every fourth,
+   faded out toward the edges so it reads as texture, not a pattern. */
+@utility blueprint {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-mist) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-mist) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to right, color-mix(in srgb, var(--color-mist) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-mist) 6%, transparent) 1px, transparent 1px);
+  background-size:
+    192px 192px,
+    192px 192px,
+    48px 48px,
+    48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, black 25%, transparent 80%);
+}
+
+/* Orange copy of the blueprint grid that only shows in a circle around the cursor
+   (see components/ui/Blueprint.tsx and PointerGlow.tsx). */
+@utility blueprint-spot {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-orange) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-orange) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to right, color-mix(in srgb, var(--color-orange) 26%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-orange) 26%, transparent) 1px, transparent 1px);
+  background-size:
+    192px 192px,
+    192px 192px,
+    48px 48px,
+    48px 48px;
+  mask-image: radial-gradient(
+    220px circle at var(--mx, -999px) var(--my, -999px),
+    black 0%,
+    color-mix(in srgb, black 35%, transparent) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 @utility section-y {
@@ -442,4 +484,81 @@ details[open] .faq-icon-v {
 
 .score-ring {
   transition: stroke-dashoffset 1.6s var(--ease-out-expo);
+}
+
+/* ---------- Reading progress: a thin orange line along the bottom of the header ---------- */
+.scroll-progress {
+  scale: 0 1;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@keyframes scroll-progress {
+  to {
+    scale: 1 1;
+  }
+}
+
+/* ---------- Cursor effects (PointerGlow feeds --mx / --my) ---------- */
+[data-glow]:hover > .blueprint-spot {
+  opacity: 1;
+}
+
+/* A soft orange light that follows the cursor across a card. --glow-a sets its strength. */
+.glow-card {
+  isolation: isolate;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(251 79 20 / var(--glow-a, 0.09)),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Launch log terminal (components/LaunchLog.tsx) ---------- */
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 0.15em;
+  vertical-align: text-bottom;
+  background: var(--color-orange);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+.terminal-spin {
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Showcase screenshots fade in when they arrive after page load. */
+.fade-in {
+  animation: bd-fade 0.6s ease both;
 }

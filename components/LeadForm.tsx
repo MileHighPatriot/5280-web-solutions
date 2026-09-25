@@ -85,7 +85,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
   if (status === "sent") {
     return (
       <div role="status" className="rounded-2xl bg-navy p-8 text-cream sm:p-10">
-        <p className="t-mono text-orange">{isCheck ? "Request received" : "Message received"}</p>
+        <p className="t-mono text-ember">{isCheck ? "Request received" : "Message received"}</p>
         <p className="t-h2 mt-4">Thanks, talk soon.</p>
         <p className="t-lede mt-4 text-mist">
           {accessKey

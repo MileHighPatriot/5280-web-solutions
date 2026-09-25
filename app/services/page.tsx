@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LaunchLog from "@/components/LaunchLog";
 import ServiceIcon from "@/components/ServiceIcon";
 import Backdrop from "@/components/ui/Backdrop";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import { SectionHeading } from "@/components/ui/Section";
+import { Eyebrow, SectionHeading } from "@/components/ui/Section";
 import { industryByLabel } from "@/data/industries";
 import { everyBuild } from "@/data/pricing";
 import { services, steps, whoIHelp } from "@/data/services";
@@ -104,6 +105,22 @@ export default function ServicesPage() {
               </li>
             ))}
           </ol>
+
+          <div className="mt-20 grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <Eyebrow className="text-stone">Launch day</Eyebrow>
+              <h2 className="t-h2 mt-5 text-balance">
+                Nothing goes live <span className="text-orange">unchecked.</span>
+              </h2>
+              <p className="t-lede mt-5 text-pretty text-stone">
+                Before your site launches, I run the same checklist every time, so the first customer who finds you gets
+                a site that works.
+              </p>
+            </div>
+            <div className="reveal lg:col-span-7">
+              <LaunchLog />
+            </div>
+          </div>
 
           <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-navy/10 sm:p-12">
             <h2 className="t-h3">Built for businesses like yours</h2>

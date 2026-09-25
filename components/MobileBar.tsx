@@ -27,7 +27,7 @@ export default function MobileBar() {
   return (
     <nav
       aria-label="Quick contact"
-      className={`fixed inset-x-3 z-40 flex gap-1.5 rounded-full bg-navy/95 p-1.5 text-cream shadow-[0_10px_30px_rgba(20,32,43,0.35)] ring-1 ring-cream/10 backdrop-blur transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:hidden ${
+      className={`fixed inset-x-3 z-40 flex gap-1.5 rounded-full bg-navy/95 p-1.5 text-cream shadow-[0_10px_30px_rgba(0,34,68,0.35)] ring-1 ring-cream/10 backdrop-blur transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:hidden ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-[160%] opacity-0"
       }`}
       style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}

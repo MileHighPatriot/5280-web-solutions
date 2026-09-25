@@ -8,6 +8,11 @@ import type { Project } from "@/data/projects";
  * A laptop and phone showing a whole site. The screens scroll through the full
  * page on hover (mouse) or when the showcase is on screen (touch devices).
  * "loop" keeps them scrolling up and down, for case study pages.
+ *
+ * The full-page screenshots are heavy, so hover-mode showcases (which sit below the
+ * first screen) load them only once the page has finished loading and gone idle,
+ * about a second after load. Until then the screens show their navy background.
+ * That keeps them from competing with the hero photo on first load.
  */
 export default function DeviceShowcase({
   project,
@@ -22,6 +27,26 @@ export default function DeviceShowcase({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const [full, setFull] = useState(priority || mode === "loop");
+
+  useEffect(() => {
+    if (full) return;
+    // Safari has no requestIdleCallback, so fall back to a short timeout there.
+    const canIdle = typeof window.requestIdleCallback === "function";
+    let idleId = 0;
+    const upgrade = () => {
+      idleId = canIdle
+        ? window.requestIdleCallback(() => setFull(true), { timeout: 2500 })
+        : window.setTimeout(() => setFull(true), 1200);
+    };
+    if (document.readyState === "complete") upgrade();
+    else window.addEventListener("load", upgrade, { once: true });
+    return () => {
+      window.removeEventListener("load", upgrade);
+      if (canIdle) window.cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
+    };
+  }, [full]);
 
   useEffect(() => {
     const el = ref.current;
@@ -39,33 +64,44 @@ export default function DeviceShowcase({
       {/* Laptop */}
       <div className="rounded-t-[0.9rem] bg-[#0b1117] p-[2.2%] pb-[1.6%] shadow-2xl shadow-navy/30 ring-1 ring-white/10">
         <div className={`${screenClass} aspect-[16/10] rounded-[0.35rem] bg-navy-3`}>
-          <Image
-            src={project.images.fullDesktop}
-            alt={`Full ${project.name} home page on a laptop`}
-            width={960}
-            height={3600}
-            sizes={sizes}
-            priority={priority}
-            className="w-full"
-          />
+          {full ? (
+            <Image
+              src={project.images.fullDesktop}
+              alt={`Full ${project.name} home page on a laptop`}
+              width={960}
+              height={3600}
+              sizes={sizes}
+              loading={priority ? "eager" : undefined}
+              fetchPriority={priority ? "high" : undefined}
+              className="w-full fade-in"
+            />
+          ) : null}
         </div>
       </div>
-      <div aria-hidden="true" className="relative -mx-[5%] h-[0.9rem] rounded-b-[0.9rem] bg-gradient-to-b from-[#c9cfd6] to-[#8d97a3] sm:h-4">
+      <div
+        aria-hidden="true"
+        className="relative -mx-[5%] h-[0.9rem] rounded-b-[0.9rem] bg-gradient-to-b from-[#c9cfd6] to-[#8d97a3] sm:h-4"
+      >
         <span className="absolute top-0 left-1/2 h-1.5 w-[16%] -translate-x-1/2 rounded-b-md bg-[#79838f]" />
       </div>
 
       {/* Phone */}
       <div className="absolute right-0 bottom-0 w-[25%] rounded-[1.1rem] bg-[#0b1117] p-[1.6%] shadow-2xl shadow-navy/40 ring-1 ring-white/15 sm:rounded-[1.4rem]">
-        <div className={`${screenClass} ${mode === "loop" ? "screen-loop-phone" : ""} aspect-[9/19] rounded-[0.8rem] bg-navy-3 sm:rounded-[1.05rem]`}>
-          <Image
-            src={project.images.fullMobile}
-            alt={`Full ${project.name} home page on a phone`}
-            width={440}
-            height={5866}
-            sizes="160px"
-            priority={priority}
-            className="w-full"
-          />
+        <div
+          className={`${screenClass} ${mode === "loop" ? "screen-loop-phone" : ""} aspect-[9/19] rounded-[0.8rem] bg-navy-3 sm:rounded-[1.05rem]`}
+        >
+          {full ? (
+            <Image
+              src={project.images.fullMobile}
+              alt={`Full ${project.name} home page on a phone`}
+              width={440}
+              height={5866}
+              sizes="160px"
+              loading={priority ? "eager" : undefined}
+              fetchPriority={priority ? "high" : undefined}
+              className="w-full fade-in"
+            />
+          ) : null}
         </div>
       </div>
     </div>

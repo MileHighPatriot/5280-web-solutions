@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 export default function NotFound() {
   return (
     <section className="relative isolate flex min-h-[40rem] overflow-hidden bg-navy text-cream lg:min-h-[85svh]">
-      <Image src={photoCredit.src} alt="" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_80%]" />
+      <Image src={photoCredit.src} alt="" fill loading="eager" fetchPriority="high" sizes="100vw" className="-z-20 object-cover object-[50%_80%]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy via-navy/80 to-navy/20" />
       <div className="container-x relative z-10 pt-20 sm:pt-28">
         <p className="t-mono text-mist">Error 404 · off the trail</p>
