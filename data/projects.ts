@@ -96,14 +96,14 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "contract-and-build",
-    name: "5280 Contract and Build",
+    slug: "platte-river-builders",
+    name: "Platte River Builders",
     industry: "General contractor",
     location: "Denver, CO",
-    url: "https://milehighpatriot.github.io/5280-contract-and-build/",
+    url: "https://milehighpatriot.github.io/platte-river-builders/",
     summary:
       "A bold, high-contrast site for a full-service Denver contractor, with an online cost calculator and a page for every service.",
-    goal: "Show that a contractor site can do real work before the phone rings: explain every service, answer permit questions, and give homeowners a ballpark cost in their browser. (A fictional company. The shared \"5280\" is a nod to Denver, not a connection to 5280 Web Solutions.)",
+    goal: "Show that a contractor site can do real work before the phone rings: explain every service, answer permit questions, and give homeowners a ballpark cost in their browser.",
     decisions: [
       {
         title: "Built at altitude",
@@ -127,10 +127,10 @@ export const projects: Project[] = [
     ],
     stack: "HTML · CSS · JavaScript",
     images: {
-      desktop: "/work/5280-contract-and-build-desktop.jpg",
-      mobile: "/work/5280-contract-and-build-mobile.jpg",
-      fullDesktop: "/work/5280-contract-and-build-full-desktop.jpg",
-      fullMobile: "/work/5280-contract-and-build-full-mobile.jpg",
+      desktop: "/work/platte-river-builders-desktop.jpg",
+      mobile: "/work/platte-river-builders-mobile.jpg",
+      fullDesktop: "/work/platte-river-builders-full-desktop.jpg",
+      fullMobile: "/work/platte-river-builders-full-mobile.jpg",
     },
   },
 ];
