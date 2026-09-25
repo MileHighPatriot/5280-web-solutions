@@ -31,13 +31,22 @@ Change a number in `data/pricing.ts` and the pricing page, homepage, city pages,
 
 Forms send through [Web3Forms](https://web3forms.com) (free) to kohlton@5280webs.com. The access key is in `data/site.ts` (`web3formsKey`). It's public by design, since it only allows sending messages to that inbox. To use a different key, change it there or set `NEXT_PUBLIC_WEB3FORMS_KEY` at build time.
 
-## Deploy (GitHub Pages + 5280webs.com)
+## Deploy
 
-1. Push the repo to GitHub.
-2. Deploy the `out/` folder, either with a GitHub Actions Pages workflow or by publishing `out/` to a `gh-pages` branch.
-3. `public/CNAME` already contains `5280webs.com`. At the domain registrar, point the apex A records to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153) and add a `www` CNAME to `milehighpatriot.github.io`.
-4. In the repo's Pages settings, turn on **Enforce HTTPS**.
-5. Submit `https://5280webs.com/sitemap.xml` in Google Search Console.
+**Preview (live now):** https://milehighpatriot.github.io/5280-web-solutions/
+
+GitHub Pages publishes the `docs/` folder on `main`. After making changes, rebuild it and save:
+
+```bash
+npm run pages      # builds the preview into docs/
+```
+
+**Switching to 5280webs.com** (when the domain is ready):
+
+1. Change the `pages` script in `package.json` so it builds without `GITHUB_PAGES=true` and keeps `docs/CNAME` (the site then lives at the root of the domain).
+2. At the domain registrar, point the apex A records to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153) and add a `www` CNAME to `milehighpatriot.github.io`.
+3. In the repo's Pages settings, set the custom domain to `5280webs.com` and turn on **Enforce HTTPS**.
+4. Submit `https://5280webs.com/sitemap.xml` in Google Search Console.
 
 ## Still to add
 

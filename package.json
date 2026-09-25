@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pages": "GITHUB_PAGES=true next build && rm -rf docs && cp -a out docs && rm -f docs/CNAME && touch docs/.nojekyll"
   },
   "dependencies": {
     "next": "16.3.5",

@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://5280webs.com/sitemap.xml
