@@ -43,7 +43,7 @@ The site is live at **https://5280webs.com**. GitHub Pages publishes the `docs/`
 npm run pages      # builds the site into docs/ (keeps docs/CNAME)
 ```
 
-DNS is at Squarespace. The apex A records point to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153), and `www` is a CNAME to `milehighpatriot.github.io`. The concept sites use subdomains that are also CNAMEs to `milehighpatriot.github.io`: `summit.`, `platte.` and `headgate.5280webs.com`. Each concept repo has a `CNAME` file that claims its subdomain. `helix.5280webs.com` has its DNS record, but Helix still lives at milehighpatriot.github.io/helix-frame-siding/ until its repo is moved over.
+DNS is at Squarespace. The apex A records point to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153), and `www` is a CNAME to `milehighpatriot.github.io`. The concept sites use subdomains that are also CNAMEs to `milehighpatriot.github.io`: `summit.`, `helix.`, `platte.` and `headgate.5280webs.com`. Each concept repo has a `CNAME` file that claims its subdomain.
 
 ## Finish setup: accounts still needed
 

@@ -27,7 +27,7 @@ export const projects: Project[] = [
     industry: "Framing & siding contractor",
     location: "Denver, CO",
     featured: "Interactive design studio",
-    url: "https://milehighpatriot.github.io/helix-frame-siding/",
+    url: "https://helix.5280webs.com/",
     summary:
       "A contractor site with an interactive design studio: homeowners repaint the siding, trim, and deck on a real house before asking for an estimate.",
     goal: "Siding is a visual decision, and homeowners struggle to picture colors from a swatch. This concept turns the website into a sales tool: customers try colors on a real photo, and the estimate form picks up their choices.",
