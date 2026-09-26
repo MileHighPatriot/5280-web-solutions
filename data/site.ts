@@ -53,7 +53,23 @@ export const site = {
   ],
 };
 
-/** The Front Range sunset photo used in the hero and footer (CC BY 4.0 requires this credit). */
+/**
+ * Homepage hero: aerial looking west over downtown, with the Broncos stadium just past the towers
+ * and the Front Range behind. Public domain (Library of Congress), credited anyway.
+ * Cropped to 2:1 at 2560px from the 3840px Commons copy. The left side sits under the navy
+ * overlay, so it's pre-softened there: city detail is what makes the file heavy.
+ */
+export const heroPhoto = {
+  src: "/denver-stadium-aerial.jpg",
+  author: "Carol M. Highsmith, Library of Congress",
+  license: "public domain",
+  source: "https://www.loc.gov/item/2017689056/",
+  // A tall phone hero renders this ~1,500 CSS px wide. Asking for 1080px keeps typical phones on
+  // the 1920 copy (~250 KB) instead of the 2560 one (~400 KB).
+  sizes: "(min-width: 1024px) 100vw, 1080px",
+};
+
+/** The Front Range sunset photo used in the footer and 404 page (CC BY 4.0 requires this credit). */
 export const photoCredit = {
   src: "/denver-front-range-sunset.jpg",
   author: "DarlArthurS",

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Blueprint from "@/components/ui/Blueprint";
 import Decode from "@/components/ui/Decode";
 import Button from "@/components/ui/Button";
-import { photoCredit } from "@/data/site";
+import { heroPhoto } from "@/data/site";
 
 function HeroCopy() {
   return (
@@ -26,25 +26,23 @@ function HeroCopy() {
   );
 }
 
-/** Homepage hero: a real photograph of the Front Range behind downtown Denver at sunset. */
+/** Homepage hero: aerial of downtown Denver, the Broncos stadium, and the Front Range behind. */
 export default function HeroPhoto() {
   return (
     <section data-glow className="hero-timeline relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[92svh]">
       <Image
-        src={photoCredit.src}
-        alt="The Front Range mountains behind downtown Denver at sunset"
+        src={heroPhoto.src}
+        alt="Downtown Denver from the air, with the Broncos stadium beyond the towers and the Front Range behind"
         fill
         loading="eager"
         fetchPriority="high"
-        sizes={photoCredit.sizes}
-        className="hero-drift -z-20 origin-bottom object-cover object-[50%_75%]"
+        sizes={heroPhoto.sizes}
+        className="hero-drift -z-20 origin-bottom object-cover object-[68%_50%]"
       />
-      {/* Navy fades down over the sky so the headline stays readable, letting the mountains and city glow below. */}
-      <div
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-navy via-navy/80 to-navy/0"
-        style={{ backgroundSize: "100% 72%", backgroundRepeat: "no-repeat" }}
-      />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-navy/70 to-transparent" />
+      {/* Navy holds the left side for the headline and clears to the right, where the stadium and peaks sit. */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/80 to-navy/10 lg:via-navy/55 lg:to-navy/0" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-navy/80 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy/80 to-transparent" />
       <Blueprint className="[mask-image:radial-gradient(ellipse_75%_60%_at_65%_20%,black_15%,transparent_70%)]" />
       <HeroCopy />
       {/* Survey-style readout along the bottom edge */}

@@ -3,7 +3,7 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { footerNav, legalNav } from "@/data/nav";
-import { photoCredit, site } from "@/data/site";
+import { heroPhoto, photoCredit, site } from "@/data/site";
 
 export default function Footer() {
   return (
@@ -83,13 +83,17 @@ export default function Footer() {
         <div className="container-x">
           <div className="flex flex-col gap-3 border-t border-cream/10 pt-6 pb-24 text-sm text-mist sm:flex-row sm:items-center sm:justify-between sm:pb-6">
             <p>
-              &copy; {new Date().getFullYear()} {site.name}. Built in Colorado. Mountain photo:{" "}
+              &copy; {new Date().getFullYear()} {site.name}. Built in Colorado. Photos:{" "}
               <a href={photoCredit.source} className="underline underline-offset-2 hover:text-cream">
                 {photoCredit.author}
               </a>
               ,{" "}
               <a href={photoCredit.licenseUrl} className="underline underline-offset-2 hover:text-cream">
                 {photoCredit.license}
+              </a>
+              ;{" "}
+              <a href={heroPhoto.source} className="underline underline-offset-2 hover:text-cream">
+                {heroPhoto.author}
               </a>
               .
             </p>
