@@ -59,4 +59,8 @@ export const photoCredit = {
   license: "CC BY 4.0",
   licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
   source: "https://commons.wikimedia.org/wiki/File:Downtown_Denver_Skyline_at_Sunset.jpg",
+  // The photo is about 3:1, so object-cover in a tall phone section renders it ~2,200px wide
+  // (height × 2.93), far wider than the screen. "100vw" made phones fetch the 1200px copy and
+  // blow it up ~5x. Below lg, ask for the full-size copy (54 KB) instead.
+  sizes: "(min-width: 1024px) 100vw, 2440px",
 };

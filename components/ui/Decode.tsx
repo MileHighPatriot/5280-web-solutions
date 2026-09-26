@@ -9,6 +9,10 @@ const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#_-+";
  * scrolls into view. Screen readers and search engines only ever see the real text;
  * the scramble runs on an aria-hidden copy. Skipped with reduced motion.
  * Best on monospace labels, where the width doesn't jump.
+ *
+ * Text that's already on screen when this mounts is left alone: the server HTML has been
+ * showing it since first paint (up to a couple of seconds on a phone), so scrambling it
+ * after hydration reads as a glitch rather than an effect.
  */
 export default function Decode({ text, duration = 750 }: { text: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,9 +39,14 @@ export default function Decode({ text, duration = 750 }: { text: string; duratio
       frame = requestAnimationFrame(tick);
     };
 
+    // The first callback reports where the text is at mount.
+    let first = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        const alreadyVisible = first && entry.intersectionRatio > 0;
+        first = false;
+        if (alreadyVisible) observer.disconnect();
+        else if (entry.isIntersecting) {
           observer.disconnect();
           run();
         }

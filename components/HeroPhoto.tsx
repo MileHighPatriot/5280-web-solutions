@@ -36,7 +36,7 @@ export default function HeroPhoto() {
         fill
         loading="eager"
         fetchPriority="high"
-        sizes="100vw"
+        sizes={photoCredit.sizes}
         className="hero-drift -z-20 origin-bottom object-cover object-[50%_75%]"
       />
       {/* Navy fades down over the sky so the headline stays readable, letting the mountains and city glow below. */}

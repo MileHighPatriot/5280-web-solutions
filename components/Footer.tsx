@@ -13,7 +13,7 @@ export default function Footer() {
           src={photoCredit.src}
           alt=""
           fill
-          sizes="100vw"
+          sizes={photoCredit.sizes}
           className="-z-20 object-cover object-[50%_80%]"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy via-navy/85 to-navy/35" />
