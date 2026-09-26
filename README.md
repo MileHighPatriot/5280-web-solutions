@@ -1,8 +1,8 @@
 # 5280 Web Solutions
 
-### 👉 [View the live website](https://milehighpatriot.github.io/5280-web-solutions/)
+### 👉 [View the live website](https://5280webs.com)
 
-https://milehighpatriot.github.io/5280-web-solutions/
+https://5280webs.com
 
 Business website for 5280 Web Solutions (5280webs.com): websites for Front Range small businesses.
 
@@ -37,25 +37,28 @@ Forms send through [Web3Forms](https://web3forms.com) (free) to kohlton@5280webs
 
 ## Deploy
 
-**Preview (live now):** https://milehighpatriot.github.io/5280-web-solutions/
-
-GitHub Pages publishes the `docs/` folder on `main`. After making changes, rebuild it and save:
+The site is live at **https://5280webs.com**. GitHub Pages publishes the `docs/` folder on `main`, with **Enforce HTTPS** on. After making changes, rebuild it and save:
 
 ```bash
-npm run pages      # builds the preview into docs/
+npm run pages      # builds the site into docs/ (keeps docs/CNAME)
 ```
 
-**Switching to 5280webs.com** (when the domain is ready):
+DNS is at Squarespace. The apex A records point to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153), and `www` is a CNAME to `milehighpatriot.github.io`. The concept sites use subdomains that are also CNAMEs to `milehighpatriot.github.io`: `summit.`, `platte.` and `headgate.5280webs.com`. Each concept repo has a `CNAME` file that claims its subdomain. `helix.5280webs.com` has its DNS record, but Helix still lives at milehighpatriot.github.io/helix-frame-siding/ until its repo is moved over.
 
-1. Change the `pages` script in `package.json` so it builds without `GITHUB_PAGES=true` and keeps `docs/CNAME` (the site then lives at the root of the domain).
-2. At the domain registrar, point the apex A records to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153) and add a `www` CNAME to `milehighpatriot.github.io`.
-3. In the repo's Pages settings, set the custom domain to `5280webs.com` and turn on **Enforce HTTPS**.
-4. Submit `https://5280webs.com/sitemap.xml` in Google Search Console.
+## Finish setup: accounts still needed
+
+Each of these is empty in `data/site.ts` (marked `TODO(Kohlton)`). Until it's filled in, that feature hides itself or falls back to "call or text".
+
+| Setting | What it turns on | How to get it (all free) |
+|---|---|---|
+| `pagespeedKey` | The live speed test on `/free-website-check/`. Without it, Google's shared quota usually refuses, and visitors get "send it to me instead." | [Google Cloud console](https://console.cloud.google.com): new project → enable **PageSpeed Insights API** → Credentials → Create API key. Restrict it to the websites `https://5280webs.com/*` and `https://www.5280webs.com/*` (HTTP referrers) and to the PageSpeed Insights API only. The key is visible in the page by design, so those restrictions are what protect it. |
+| `calLink` | A "Book a 20-minute call" button on `/contact/` and `/free-website-check/`. | [cal.com](https://cal.com): create a 20-minute "Intro call" event with availability **Mon–Fri, 8am–6pm** (to match `hours`), then paste the part after `cal.com/`, e.g. `kohlton/intro-call`. |
+| `goatcounterCode` | Cookie-free visitor analytics (no cookie banner needed). | [goatcounter.com](https://www.goatcounter.com): sign up and pick a code, e.g. `5280webs`. Paste just the code. |
 
 ## Still to add
 
 - Real client projects in `data/projects.ts` as they launch
-- Cookie-free analytics (Cloudflare Web Analytics or Plausible)
+- A concept project outside construction/trades (salon, restaurant, or cleaning) to pair with Helix on the homepage
 
 ## Photo credits
 

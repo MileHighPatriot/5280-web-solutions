@@ -20,29 +20,39 @@ function measureLoad(): number | null {
   return nav.domContentLoadedEventEnd / 1000;
 }
 
-function useCountUp(target: number, active: boolean, decimals = 0) {
-  const [value, setValue] = useState(0);
+/**
+ * The server HTML carries the real numbers, so crawlers, link previews, and slow phones never
+ * see zeros. The count-up is an extra on top: it only runs when the strip starts below the fold.
+ * The values drop to 0 while off screen, then count up as it scrolls in.
+ */
+type Phase = "rest" | "armed" | "run";
+
+function useCountUp(target: number, phase: Phase, decimals = 0) {
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
-    if (!active) return;
-    // With reduced motion the value lands on the first frame instead of counting up.
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (phase !== "run") return;
     const start = performance.now();
-    const duration = reduce ? 1 : 1400;
     let frame = 0;
     const tick = (now: number) => {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 4);
-      setValue(Number((target * eased).toFixed(decimals)));
+      const t = Math.min((now - start) / 1400, 1);
+      setProgress(1 - Math.pow(1 - t, 4));
       if (t < 1) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [target, active, decimals]);
-  return value;
+    // If the tab is hidden mid-count (rAF pauses), land on the real number.
+    const settle = () => document.hidden && setProgress(1);
+    document.addEventListener("visibilitychange", settle);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("visibilitychange", settle);
+    };
+  }, [phase]);
+  if (phase === "rest") return target;
+  return Number((target * (phase === "armed" ? 0 : progress)).toFixed(decimals));
 }
 
-function Cell({ reading, active }: { reading: Reading; active: boolean }) {
-  const value = useCountUp(reading.value, active, reading.decimals);
+function Cell({ reading, phase }: { reading: Reading; phase: Phase }) {
+  const value = useCountUp(reading.value, phase, reading.decimals);
   return (
     <div className="border-cream/10 py-6 lg:border-l lg:px-8 lg:first:border-l-0 lg:first:pl-0">
       <p className="t-mono flex items-center gap-2 text-mist">
@@ -60,7 +70,7 @@ function Cell({ reading, active }: { reading: Reading; active: boolean }) {
 
 export default function Readouts() {
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const [phase, setPhase] = useState<Phase>("rest");
   const [load, setLoad] = useState<number | null>(null);
 
   useEffect(() => {
@@ -69,11 +79,22 @@ export default function Readouts() {
     else window.addEventListener("load", read, { once: true });
 
     const el = ref.current;
-    if (!el) return;
+    const still =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.webdriver;
+    if (!el || still) return;
+    // The first callback reports where the strip is at mount. Already on screen: leave the
+    // real numbers alone. Below the fold: zero them now and count up when they scroll in.
+    let first = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true);
+        const onScreen = entry.isIntersecting;
+        if (first) {
+          first = false;
+          if (onScreen) return observer.disconnect();
+          return setPhase("armed");
+        }
+        if (onScreen) {
+          setPhase("run");
           observer.disconnect();
         }
       },
@@ -99,7 +120,7 @@ export default function Readouts() {
       : { label: "Custom built", value: 100, unit: "%", note: "No templates. Designed for your business." },
     { label: "Service area", value: site.cities.length, unit: "cities", note: "Fort Collins to Colorado Springs" },
     { label: "Your team", value: 1, unit: "developer", note: "Start to finish. No call centers." },
-    { label: "Reply time", value: 1, unit: "business day", note: "Usually sooner. Call or text anytime." },
+    { label: "Reply time", value: 1, unit: "business day", note: `Usually sooner. Calls & texts ${site.hours}.` },
   ];
 
   return (
@@ -107,7 +128,7 @@ export default function Readouts() {
       <Blueprint className="opacity-60" />
       <div ref={ref} className="container-x grid grid-cols-2 gap-x-6 lg:grid-cols-4 lg:gap-x-0">
         {readings.map((reading) => (
-          <Cell key={reading.label} reading={reading} active={active} />
+          <Cell key={reading.label} reading={reading} phase={phase} />
         ))}
       </div>
     </section>

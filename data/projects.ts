@@ -11,6 +11,8 @@ export type Project = {
   stack: string;
   /** Hero screenshots, plus long captures that scroll inside the device frames. */
   images: { desktop: string; mobile: string; fullDesktop: string; fullMobile: string };
+  /** Short tag for a featured project, e.g. "Interactive design studio". Featured projects list first. */
+  featured?: string;
 };
 
 /**
@@ -20,48 +22,11 @@ export type Project = {
  */
 export const projects: Project[] = [
   {
-    slug: "summit-frame-build",
-    name: "Summit Frame & Build",
-    industry: "Framing contractor",
-    location: "Aurora, CO",
-    url: "https://milehighpatriot.github.io/summit-frame-build/",
-    summary:
-      "An editorial, magazine-style site for a family-run framing crew, built to make a trade business look as premium as its work.",
-    goal: "Most framing companies have a phone number and a few photos online. This concept shows how a small crew could stand out to custom-home builders and homeowners with a site that feels like a high-end design magazine and still gets straight to \"request an estimate.\"",
-    decisions: [
-      {
-        title: "Lead with the work",
-        body: "A full-screen drone video of a house going up opens the site. Visitors see the craftsmanship before they read a word.",
-      },
-      {
-        title: "Editorial typography",
-        body: "A refined serif paired with a clean sans gives the crew a premium voice that stands apart from typical contractor sites.",
-      },
-      {
-        title: "Before & after proof",
-        body: "Case studies use a draggable before/after slider that works with a mouse, a finger, or the keyboard.",
-      },
-    ],
-    features: [
-      "Full-bleed video hero with phone-sized version",
-      "Accessible before/after slider",
-      "Working contact form on a fully static site",
-      "Local SEO: structured data, sitemap, social share image",
-      "Motion that respects reduced-motion settings",
-    ],
-    stack: "Next.js · TypeScript · Tailwind CSS",
-    images: {
-      desktop: "/work/summit-frame-build-desktop.jpg",
-      mobile: "/work/summit-frame-build-mobile.jpg",
-      fullDesktop: "/work/summit-frame-build-full-desktop.jpg",
-      fullMobile: "/work/summit-frame-build-full-mobile.jpg",
-    },
-  },
-  {
     slug: "helix-frame-siding",
     name: "Helix Frame & Siding",
     industry: "Framing & siding contractor",
     location: "Denver, CO",
+    featured: "Interactive design studio",
     url: "https://milehighpatriot.github.io/helix-frame-siding/",
     summary:
       "A contractor site with an interactive design studio: homeowners repaint the siding, trim, and deck on a real house before asking for an estimate.",
@@ -96,11 +61,49 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "summit-frame-build",
+    name: "Summit Frame & Build",
+    industry: "Framing contractor",
+    location: "Aurora, CO",
+    url: "https://summit.5280webs.com/",
+    summary:
+      "An editorial, magazine-style site for a family-run framing crew, built to make a trade business look as premium as its work.",
+    goal: "Most framing companies have a phone number and a few photos online. This concept shows how a small crew could stand out to custom-home builders and homeowners with a site that feels like a high-end design magazine and still gets straight to \"request an estimate.\"",
+    decisions: [
+      {
+        title: "Lead with the work",
+        body: "A full-screen drone video of a house going up opens the site. Visitors see the craftsmanship before they read a word.",
+      },
+      {
+        title: "Editorial typography",
+        body: "A refined serif paired with a clean sans gives the crew a premium voice that stands apart from typical contractor sites.",
+      },
+      {
+        title: "Before & after proof",
+        body: "Case studies use a draggable before/after slider that works with a mouse, a finger, or the keyboard.",
+      },
+    ],
+    features: [
+      "Full-bleed video hero with phone-sized version",
+      "Accessible before/after slider",
+      "Working contact form on a fully static site",
+      "Local SEO: structured data, sitemap, social share image",
+      "Motion that respects reduced-motion settings",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/summit-frame-build-desktop.jpg",
+      mobile: "/work/summit-frame-build-mobile.jpg",
+      fullDesktop: "/work/summit-frame-build-full-desktop.jpg",
+      fullMobile: "/work/summit-frame-build-full-mobile.jpg",
+    },
+  },
+  {
     slug: "platte-river-builders",
     name: "Platte River Builders",
     industry: "General contractor",
     location: "Denver, CO",
-    url: "https://milehighpatriot.github.io/platte-river-builders/",
+    url: "https://platte.5280webs.com/",
     summary:
       "A bold, high-contrast site for a full-service Denver contractor, with an online cost calculator and a page for every service.",
     goal: "Show that a contractor site can do real work before the phone rings: explain every service, answer permit questions, and give homeowners a ballpark cost in their browser.",
@@ -138,7 +141,7 @@ export const projects: Project[] = [
     name: "Headgate Plumbing & Drain",
     industry: "Plumbing, residential & commercial",
     location: "Denver, CO",
-    url: "https://milehighpatriot.github.io/headgate-plumbing/",
+    url: "https://headgate.5280webs.com/",
     summary:
       "A service-first site for a Denver plumbing shop that works like a dispatch desk: symptom triage, published price ranges, and two-hour arrival windows.",
     goal: "Most plumbing sites look the same: blue and white, a van in the hero, and a phone number. This concept answers what people actually need at 3am: how urgent is this, what do I do right now, and what will it cost. It also gives commercial clients a reason to stay on an account.",
@@ -172,3 +175,8 @@ export const projects: Project[] = [
     },
   },
 ];
+
+/** The homepage shows two: the featured piece, plus one from a different line of work. */
+export const homepageProjects = ["helix-frame-siding", "headgate-plumbing"].map(
+  (slug) => projects.find((project) => project.slug === slug)!,
+);

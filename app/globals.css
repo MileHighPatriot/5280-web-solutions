@@ -178,8 +178,7 @@ body {
   transition: transform 1.2s var(--ease-out-expo);
 }
 
-.group:hover .screen-scroll img,
-.device-showcase[data-active] .screen-scroll img {
+.group:hover .screen-scroll img {
   transform: translateY(calc(-100% + 100cqh));
   transition: transform 9s cubic-bezier(0.45, 0, 0.55, 1);
 }
@@ -191,6 +190,11 @@ body {
 .screen-loop-phone img {
   animation-duration: 15s;
   animation-delay: -3s;
+}
+
+/* Touch devices: the loop holds still off screen, or when the visitor taps Pause. */
+.device-showcase[data-paused] .screen-loop img {
+  animation-play-state: paused;
 }
 
 @keyframes screen-loop {

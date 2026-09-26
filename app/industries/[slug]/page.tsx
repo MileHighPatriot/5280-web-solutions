@@ -141,7 +141,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
             id="examples"
             eyebrow="Examples"
             title={`Sites I've designed for ${industry.audience}.`}
-            lede="Concept projects that show the design and features I build. Hover one to scroll through the whole site."
+            lede="Concept projects that show the design and features I build. Hover one (or scroll to it on your phone) to see the whole site."
           />
           <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:gap-10">
             {showcase.map((project) => (

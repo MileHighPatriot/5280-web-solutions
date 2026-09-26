@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Project } from "@/data/projects";
 
 /**
- * A laptop and phone showing a whole site. The screens scroll through the full
- * page on hover (mouse) or when the showcase is on screen (touch devices).
+ * A laptop and phone showing a whole site. With a mouse, the screens scroll through
+ * the full page on hover. Touch screens can't hover, so there the screens loop up and
+ * down while the showcase is on screen, with a Pause/Play button.
  * "loop" keeps them scrolling up and down, for case study pages.
  *
  * The full-page screenshots are heavy, so hover-mode showcases (which sit below the
@@ -14,6 +15,13 @@ import type { Project } from "@/data/projects";
  * about a second after load. Until then the screens show their navy background.
  * That keeps them from competing with the hero photo on first load.
  */
+const hoverQuery = "(hover: hover)";
+const subscribeHover = (onChange: () => void) => {
+  const query = window.matchMedia(hoverQuery);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+
 export default function DeviceShowcase({
   project,
   mode = "hover",
@@ -27,7 +35,11 @@ export default function DeviceShowcase({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const [paused, setPaused] = useState(false);
   const [full, setFull] = useState(priority || mode === "loop");
+  // The server renders the mouse version; touch devices switch after hydration.
+  const canHover = useSyncExternalStore(subscribeHover, () => window.matchMedia(hoverQuery).matches, () => true);
+  const touch = mode === "hover" && !canHover;
 
   useEffect(() => {
     if (full) return;
@@ -50,17 +62,34 @@ export default function DeviceShowcase({
 
   useEffect(() => {
     const el = ref.current;
-    // Mouse users get hover; touch devices scroll the screens when the showcase is in view.
-    if (!el || mode === "loop" || window.matchMedia("(hover: hover)").matches) return;
-    const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), { threshold: 0.65 });
+    // Touch devices only play the loop while the showcase is in view.
+    if (!el || !touch) return;
+    const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), { threshold: 0.5 });
     observer.observe(el);
     return () => observer.disconnect();
-  }, [mode]);
+  }, [touch]);
 
-  const screenClass = mode === "loop" ? "screen-loop" : "screen-scroll";
+  const loop = mode === "loop" || touch;
+  const screenClass = loop ? "screen-loop" : "screen-scroll";
 
   return (
-    <div ref={ref} data-active={active || undefined} className="device-showcase relative pr-[9%] pb-[6%]">
+    <div
+      ref={ref}
+      data-paused={(touch && (!active || paused)) || undefined}
+      className="device-showcase relative pr-[9%] pb-[6%]"
+    >
+      {touch ? (
+        // Sits above the card's full-size link, so tapping it doesn't open the case study.
+        <button
+          type="button"
+          onClick={() => setPaused((value) => !value)}
+          aria-pressed={paused}
+          className="absolute bottom-0 left-0 z-10 inline-flex translate-y-1/2 items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1.5 font-mono text-[0.65rem] font-medium uppercase tracking-widest text-cream backdrop-blur motion-reduce:hidden"
+        >
+          <span aria-hidden="true">{paused ? "▶" : "❚❚"}</span>
+          {paused ? "Play preview" : "Pause preview"}
+        </button>
+      ) : null}
       {/* Laptop */}
       <div className="rounded-t-[0.9rem] bg-[#0b1117] p-[2.2%] pb-[1.6%] shadow-2xl shadow-navy/30 ring-1 ring-white/10">
         <div className={`${screenClass} aspect-[16/10] rounded-[0.35rem] bg-navy-3`}>
@@ -88,7 +117,7 @@ export default function DeviceShowcase({
       {/* Phone */}
       <div className="absolute right-0 bottom-0 w-[25%] rounded-[1.1rem] bg-[#0b1117] p-[1.6%] shadow-2xl shadow-navy/40 ring-1 ring-white/15 sm:rounded-[1.4rem]">
         <div
-          className={`${screenClass} ${mode === "loop" ? "screen-loop-phone" : ""} aspect-[9/19] rounded-[0.8rem] bg-navy-3 sm:rounded-[1.05rem]`}
+          className={`${screenClass} ${loop ? "screen-loop-phone" : ""} aspect-[9/19] rounded-[0.8rem] bg-navy-3 sm:rounded-[1.05rem]`}
         >
           {full ? (
             <Image

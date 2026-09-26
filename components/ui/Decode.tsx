@@ -13,16 +13,29 @@ const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#_-+";
  * Text that's already on screen when this mounts is left alone: the server HTML has been
  * showing it since first paint (up to a couple of seconds on a phone), so scrambling it
  * after hydration reads as a glitch rather than an effect.
+ *
+ * The scramble can never be the resting state: a timer and a tab-hidden check both force
+ * the real text if animation frames stall, and headless browsers (screenshot bots) skip it.
  */
 export default function Decode({ text, duration = 750 }: { text: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || navigator.webdriver || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
+    let safety = 0;
+
+    const finish = () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(safety);
+      el.textContent = text;
+    };
+    const onHide = () => document.hidden && finish();
 
     const run = () => {
+      document.addEventListener("visibilitychange", onHide);
+      safety = window.setTimeout(finish, duration + 150);
       const start = performance.now();
       const tick = (now: number) => {
         const progress = Math.min((now - start) / duration, 1);
@@ -34,7 +47,7 @@ export default function Decode({ text, duration = 750 }: { text: string; duratio
         }
         el.textContent = out;
         if (progress < 1) frame = requestAnimationFrame(tick);
-        else el.textContent = text;
+        else finish();
       };
       frame = requestAnimationFrame(tick);
     };
@@ -56,8 +69,8 @@ export default function Decode({ text, duration = 750 }: { text: string; duratio
     observer.observe(el);
     return () => {
       observer.disconnect();
-      cancelAnimationFrame(frame);
-      el.textContent = text;
+      document.removeEventListener("visibilitychange", onHide);
+      finish();
     };
   }, [text, duration]);
 

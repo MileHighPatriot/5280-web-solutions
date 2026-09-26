@@ -1,4 +1,4 @@
-import { addOnPrice, editPrice, monthlyTerms, money, tiers } from "@/data/pricing";
+import { addOnPrice, editPrice, foundingClients, monthlyTerms, money, tiers } from "@/data/pricing";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -12,7 +12,7 @@ export const pricingFaq: FaqItem[] = [
   },
   {
     question: `Why is there a ${monthlyTerms.minimumMonths}-month minimum?`,
-    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice.`,
+    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. My first ${foundingClients.count} clients skip the minimum entirely and go month-to-month from day one while I build out my portfolio.`,
   },
   {
     question: "Can I buy my site outright later?",

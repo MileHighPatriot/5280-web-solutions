@@ -12,7 +12,7 @@ export function ConceptBadge({ className = "" }: { className?: string }) {
   );
 }
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, large = false }: { project: Project; large?: boolean }) {
   return (
     <article className="reveal group relative">
       <div className="relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
@@ -21,12 +21,20 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/15 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
         />
         <ConceptBadge className="absolute top-4 left-4 !bg-cream/10" />
-        <DeviceShowcase project={project} />
+        <DeviceShowcase
+          project={project}
+          sizes={large ? "(min-width: 1024px) 640px, (min-width: 640px) 50vw, 100vw" : undefined}
+        />
       </div>
-      <p className="t-mono mt-5 text-stone">
-        {project.industry} · {project.location}
+      <p className="t-mono mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-stone">
+        {project.featured ? (
+          <span className="rounded-full bg-orange px-2.5 py-0.5 text-[0.68rem] font-bold text-navy">Featured · {project.featured}</span>
+        ) : null}
+        <span>
+          {project.industry} · {project.location}
+        </span>
       </p>
-      <h3 className="t-h3 mt-2">
+      <h3 className={`mt-2 ${large ? "t-h2" : "t-h3"}`}>
         <Link href={`/work/${project.slug}/`} className="after:absolute after:inset-0">
           {project.name}
         </Link>

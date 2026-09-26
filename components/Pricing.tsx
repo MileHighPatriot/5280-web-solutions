@@ -6,10 +6,12 @@ import {
   addOnPrice,
   editPrice,
   flatFee,
+  foundingClients,
   money,
   moneyRange,
   monthlyTerms,
   tiers,
+  yearOne,
   type Tier,
 } from "@/data/pricing";
 
@@ -80,6 +82,12 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
               <li>Buy your site outright any time</li>
             </ul>
           </div>
+
+          <p className="mx-2 mt-6 rounded-xl bg-navy px-5 py-4 text-[0.95rem] text-cream">
+            <strong className="text-orange">Founding clients:</strong> my first {foundingClients.count} clients go
+            month-to-month from day one, with no {monthlyTerms.minimumMonths}-month minimum, while I build out my
+            portfolio.
+          </p>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3 lg:gap-5">
             {tiers.map((tier) => (
@@ -194,6 +202,12 @@ function TierCard({ tier }: { tier: Tier }) {
         <span className="font-bold">+ {money(tier.setupFee)} setup fee</span>
         <span className={`text-xs font-semibold ${featured ? "text-orange-soft" : "text-ember"}`}>
           One-time, paid upfront
+        </span>
+      </p>
+      <p className={`mt-2 px-1 text-sm ${featured ? "text-mist" : "text-stone"}`}>
+        Year one: <strong className={featured ? "text-cream" : "text-navy"}>{money(yearOne(tier))}</strong> total
+        <span className="block text-xs">
+          {money(tier.setupFee)} setup + {monthlyTerms.minimumMonths} × {money(tier.monthly)}/month
         </span>
       </p>
 

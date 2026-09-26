@@ -18,6 +18,13 @@ export function businessJsonLd() {
     "@id": `${site.url}/#business`,
     name: site.name,
     description: site.description,
+    // Matches site.hours ("Mon–Fri, 8am–6pm").
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
     url: site.url,
     logo: `${site.url}/logo.png`,
     image: `${site.url}/og.png`,

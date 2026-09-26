@@ -11,7 +11,7 @@ import Backdrop from "@/components/ui/Backdrop";
 import Blueprint from "@/components/ui/Blueprint";
 import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
-import { projects } from "@/data/projects";
+import { homepageProjects } from "@/data/projects";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -37,15 +37,17 @@ export default function Home() {
                   Sites built to <span className="text-orange">win the job.</span>
                 </>
               }
-              lede="Hover a project to scroll through the whole site. These are concept projects; real client work is added as it launches."
+              lede="Hover a project (or scroll to it on your phone) to see the whole site. These are concept projects; real client work is added as it launches."
             />
             <Button href="/work/" variant="outline" className="self-start lg:self-auto">
               All work
             </Button>
           </div>
-          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:gap-10">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-10">
+            {homepageProjects.map((project, i) => (
+              <div key={project.slug} className={i === 0 ? "lg:col-span-7" : "lg:col-span-5 lg:mt-24"}>
+                <ProjectCard project={project} large={i === 0} />
+              </div>
             ))}
           </div>
         </section>
@@ -131,7 +133,7 @@ export default function Home() {
         <section aria-labelledby="about" className="container-x section-y">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="reveal mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
-              <FounderCard photo={false} />
+              <FounderCard />
             </div>
             <div className="lg:col-span-7">
               <SectionHeading
@@ -144,6 +146,11 @@ export default function Home() {
                 }
                 lede="No account managers, no offshore handoffs, no call centers. When you work with 5280 Web Solutions, you work with me, from the first call to every update after launch."
               />
+              <p className="reveal mt-6 max-w-2xl border-l-2 border-orange pl-5 text-lg leading-relaxed text-navy">
+                Before I built websites, I spent years running my own business, so I know what it&rsquo;s like
+                when nobody else is covering the phone. That&rsquo;s what I build for you: a site that works, and
+                one person who picks up when you call.
+              </p>
               <div className="reveal mt-10 flex flex-wrap gap-3">
                 <Button href="/about/" variant="dark">
                   More about me

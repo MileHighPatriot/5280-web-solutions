@@ -15,18 +15,19 @@ export const site = {
   email: "kohlton@5280webs.com",
   emailHref: "mailto:kohlton@5280webs.com",
   region: "Front Range, Colorado",
+  // Also set as openingHoursSpecification in components/JsonLd.tsx; change both together.
   hours: "Mon–Fri, 8am–6pm",
   replyTime: "one business day",
   // Web3Forms access key: delivers form submissions to the email above.
   // Public by design (it only allows sending to this inbox).
   web3formsKey: "46846766-3c9d-485e-8921-8f6765032b96",
-  // Cal.com booking link for the intro call, e.g. "kohlton/intro-call". Empty = show "call or text" instead.
+  // TODO(Kohlton): Cal.com booking link for the intro call, e.g. "kohlton/intro-call". Empty = show "call or text" instead.
   calLink: "",
-  // GoatCounter site code (the "code" in code.goatcounter.com). Empty = no analytics script at all.
+  // TODO(Kohlton): GoatCounter site code (the "code" in code.goatcounter.com). Empty = no analytics script at all.
   goatcounterCode: "",
-  // Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
+  // TODO(Kohlton): Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
   // 5280webs.com in Google Cloud. Without one, Google's shared quota usually refuses the request
-  // and the speed test falls back to "send it to me and I'll run it".
+  // and the speed test falls back to "send it to me and I'll run it". Setup steps: README "Finish setup".
   pagespeedKey: "",
   // North to south, so lists read like the drive down I-25.
   cities: [

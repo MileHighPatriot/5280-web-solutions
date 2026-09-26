@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { flatFee, money, tiers } from "@/data/pricing";
+import { flatFee, money, tiers, yearOne } from "@/data/pricing";
 
 /** Homepage pricing at a glance. The full breakdown lives on /pricing. */
 export default function PricingPreview() {
@@ -46,7 +46,7 @@ export default function PricingPreview() {
             </span>
             <span className={`text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>{tier.summary}</span>
             <span className={`text-right text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>
-              + {money(tier.setupFee)} setup
+              + {money(tier.setupFee)} setup · {money(yearOne(tier))} year one
             </span>
           </Link>
         ))}
