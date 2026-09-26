@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
 import ServicesMenu from "@/components/ServicesMenu";
-import { industries } from "@/data/industries";
+import { menuIndustries } from "@/data/industries";
 import { primaryNav } from "@/data/nav";
 import { site } from "@/data/site";
 
@@ -148,13 +148,18 @@ export default function Header() {
                   <div className="pb-5">
                     <p className="t-mono text-mist">Who we help</p>
                     <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.95rem] text-cream/80">
-                      {industries.map((industry) => (
+                      {menuIndustries.map((industry) => (
                         <li key={industry.slug}>
                           <Link href={`/industries/${industry.slug}/`} className="hover:text-orange">
                             {industry.label}
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <Link href="/industries/" className="font-semibold text-orange hover:text-cream">
+                          All industries →
+                        </Link>
+                      </li>
                       <li>
                         <Link href="/areas/" className="hover:text-orange">
                           Service areas

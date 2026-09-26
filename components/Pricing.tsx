@@ -5,6 +5,7 @@ import {
   everyBuild,
   addOnPrice,
   editPrice,
+  extraPagePrice,
   flatFee,
   foundingClients,
   money,
@@ -97,7 +98,8 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
 
           <p className="mt-5 px-2 text-center text-sm text-stone">
             The setup fee is a one-time payment made upfront, separate from your monthly price. Prices
-            shown are starting rates for sites up to 5 pages.
+            shown are starting rates for the page count on each plan. Need more? Extra pages are{" "}
+            {addOnPrice(extraPagePrice)}.
           </p>
         </div>
       </section>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import ServiceIcon from "@/components/ServiceIcon";
-import { industries } from "@/data/industries";
+import { industries, menuIndustries } from "@/data/industries";
 import { services } from "@/data/services";
 
 /**
@@ -134,7 +134,7 @@ export default function ServicesMenu({ active }: { active: boolean }) {
             <div className="border-l border-cream/10 p-6">
               <p className="t-mono text-mist">Who we help</p>
               <ul className="mt-3 grid gap-0.5">
-                {industries.map((industry) => (
+                {menuIndustries.map((industry) => (
                   <li key={industry.slug}>
                     <Link
                       href={`/industries/${industry.slug}/`}
@@ -159,7 +159,7 @@ export default function ServicesMenu({ active }: { active: boolean }) {
             </Link>
             <div className="flex gap-5">
               <Link href="/industries/" className="text-cream/80 hover:text-orange">
-                All industries
+                All {industries.length} industries
               </Link>
               <Link href="/areas/" className="text-cream/80 hover:text-orange">
                 Service areas

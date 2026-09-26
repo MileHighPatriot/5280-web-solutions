@@ -33,7 +33,7 @@ export const areas: Area[] = [
       "Aurora is one of the biggest and most diverse cities in Colorado, with thousands of family-owned businesses serving a fast-growing population.",
     local:
       "Whether you run a restaurant on East Colfax, a service business near Southlands, or a crew working the new subdivisions out east, a clean, professional website helps new neighbors find and trust you. We keep your services, hours, and contact info front and center.",
-    industries: ["Home services & trades", "Restaurants & markets", "Car washes & auto repair", "Cleaning services"],
+    industries: ["Home services & trades", "Restaurants & markets", "Car washes & auto repair", "Cleaning services", "Churches & nonprofits"],
   },
   {
     slug: "lakewood",
@@ -77,6 +77,6 @@ export const areas: Area[] = [
       "Colorado Springs is growing fast, and new residents look for every business (plumbers, restaurants, auto shops) on their phones first.",
     local:
       "From Old Colorado City to the new neighborhoods on the east side, Springs businesses need to be easy to find and easy to contact. We build sites that load fast, rank for local searches, and make calling you the obvious next step.",
-    industries: ["Home services & trades", "Auto shops & car washes", "Restaurants", "Landscaping & snow removal"],
+    industries: ["Home services & trades", "Auto shops & car washes", "Restaurants", "Landscaping & snow removal", "Churches & ministries"],
   },
 ];

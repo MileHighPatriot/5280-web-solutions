@@ -79,14 +79,3 @@ export const steps = [
     body: "Your site goes live. On a monthly plan we keep it running and updated. On a flat-fee build you own it outright.",
   },
 ];
-
-export const whoIHelp = [
-  "Contractors & trades",
-  "Restaurants & cafés",
-  "Car washes & auto shops",
-  "Landscaping & lawn care",
-  "Salons & barbers",
-  "Cleaning services",
-  "Fitness & wellness",
-  "Retail & local shops",
-];

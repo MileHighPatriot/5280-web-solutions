@@ -67,6 +67,11 @@ export const generalFaq: FaqItem[] = [
       "Every site is built with the SEO basics Google looks for. Your Google Business Profile, which often puts a local business on the map, is set up for you on Growth and Premium plans, or as a one-time add-on. No honest developer can guarantee a #1 ranking, but we'll give you a strong, clean foundation.",
   },
   {
+    question: "What kinds of businesses do you work with?",
+    answer:
+      "Almost any local business or organization: contractors and trades, restaurants, shops, salons, gyms, practices, pet care, daycares, real estate, photographers, and more. We also build for churches, ministries, and nonprofits, with online giving, sermon and livestream pages, events calendars, and volunteer sign-ups connected to the tools you already use.",
+  },
+  {
     question: "Can you redo my existing website?",
     answer:
       "Yes. Redesigns are a big part of what we do. We'll keep your domain and anything that's working for you, and rebuild the rest so it's faster, clearer, and works on phones.",

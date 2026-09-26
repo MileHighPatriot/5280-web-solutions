@@ -6,9 +6,9 @@ import Backdrop from "@/components/ui/Backdrop";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { Eyebrow, SectionHeading } from "@/components/ui/Section";
-import { industryByLabel } from "@/data/industries";
+import { industries } from "@/data/industries";
 import { everyBuild } from "@/data/pricing";
-import { services, steps, whoIHelp } from "@/data/services";
+import { services, steps } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -125,27 +125,19 @@ export default function ServicesPage() {
           <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-navy/10 sm:p-12">
             <h2 className="t-h3">Built for businesses like yours</h2>
             <ul className="mt-5 flex flex-wrap gap-2">
-              {whoIHelp.map((item) => {
-                const industry = industryByLabel.get(item);
-                const chip = "inline-flex rounded-full bg-cream px-4 py-2 text-sm font-semibold ring-1 ring-navy/10";
-                return (
-                  <li key={item}>
-                    {industry ? (
-                      <Link
-                        href={`/industries/${industry.slug}/`}
-                        className={`${chip} group gap-1.5 transition-shadow hover:ring-2 hover:ring-orange`}
-                      >
-                        {item}
-                        <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-0.5">
-                          →
-                        </span>
-                      </Link>
-                    ) : (
-                      <span className={chip}>{item}</span>
-                    )}
-                  </li>
-                );
-              })}
+              {industries.map((industry) => (
+                <li key={industry.slug}>
+                  <Link
+                    href={`/industries/${industry.slug}/`}
+                    className="group inline-flex gap-1.5 rounded-full bg-cream px-4 py-2 text-sm font-semibold ring-1 ring-navy/10 transition-shadow hover:ring-2 hover:ring-orange"
+                  >
+                    {industry.label}
+                    <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
             <p className="mt-6 max-w-2xl text-stone">
               Don&rsquo;t see your industry? If you serve customers on the Front Range, we can help.
