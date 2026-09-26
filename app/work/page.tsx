@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import { projects } from "@/data/projects";
+import { listedProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -24,7 +24,7 @@ export default function WorkPage() {
       <section className="container-x section-y">
         <h2 className="sr-only">Projects</h2>
         <div className="grid gap-12 sm:grid-cols-2 lg:gap-10">
-          {projects.map((project) => (
+          {listedProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>

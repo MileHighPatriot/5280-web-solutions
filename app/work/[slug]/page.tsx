@@ -5,7 +5,7 @@ import DeviceShowcase from "@/components/DeviceShowcase";
 import { ConceptBadge } from "@/components/ProjectCard";
 import Button, { Check } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Section";
-import { projects } from "@/data/projects";
+import { listedProjects, projects } from "@/data/projects";
 
 export const dynamicParams = false;
 
@@ -29,7 +29,9 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   const index = projects.findIndex((item) => item.slug === slug);
   if (index === -1) notFound();
   const project = projects[index];
-  const next = projects[(index + 1) % projects.length];
+  // "Next project" cycles through the listed projects; archived pages point to the first one.
+  const listed = listedProjects.findIndex((item) => item.slug === slug);
+  const next = listedProjects[(listed + 1) % listedProjects.length];
 
   return (
     <article>

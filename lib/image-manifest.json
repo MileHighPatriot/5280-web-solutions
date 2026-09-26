@@ -26,6 +26,34 @@
     1200,
     1400
   ],
+  "/work/ditch-rider-brewing-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/ditch-rider-brewing-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/ditch-rider-brewing-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/ditch-rider-brewing-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
   "/work/headgate-plumbing-desktop.jpg": [
     256,
     384,
@@ -78,6 +106,34 @@
     440
   ],
   "/work/helix-frame-siding-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
+  "/work/lamplight-bible-church-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/lamplight-bible-church-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/lamplight-bible-church-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/lamplight-bible-church-mobile.jpg": [
     256,
     384,
     600

@@ -104,7 +104,7 @@ export const industries: Industry[] = [
       tier: "growth",
       reason: "Menus, specials, and hours change often, and updates are included.",
     },
-    projects: [],
+    projects: ["ditch-rider-brewing"],
   },
   {
     slug: "salons-barbers",
@@ -307,7 +307,7 @@ export const industries: Industry[] = [
       tier: "growth",
       reason: "Sermons update themselves. Events and seasonal service times change, and updates are included.",
     },
-    projects: [],
+    projects: ["lamplight-bible-church"],
   },
   {
     slug: "nonprofits",
@@ -708,7 +708,7 @@ export const industries: Industry[] = [
       tier: "growth",
       reason: "Taps, events, and seasonal releases change constantly, and updates are included.",
     },
-    projects: [],
+    projects: ["ditch-rider-brewing"],
   },
   {
     slug: "outdoor-recreation",

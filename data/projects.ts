@@ -13,6 +13,8 @@ export type Project = {
   images: { desktop: string; mobile: string; fullDesktop: string; fullMobile: string };
   /** Short tag for a featured project, e.g. "Interactive design studio". Featured projects list first. */
   featured?: string;
+  /** Retired from the Work grid. The case study page stays up so old links keep working. */
+  archived?: boolean;
 };
 
 /**
@@ -65,6 +67,7 @@ export const projects: Project[] = [
     name: "Summit Frame & Build",
     industry: "Framing contractor",
     location: "Aurora, CO",
+    archived: true,
     url: "https://summit.5280webs.com/",
     summary:
       "An editorial, magazine-style site for a family-run framing crew, built to make a trade business look as premium as its work.",
@@ -103,6 +106,7 @@ export const projects: Project[] = [
     name: "Platte River Builders",
     industry: "General contractor",
     location: "Denver, CO",
+    archived: true,
     url: "https://platte.5280webs.com/",
     summary:
       "A bold, high-contrast site for a full-service Denver contractor, with an online cost calculator and a page for every service.",
@@ -174,7 +178,88 @@ export const projects: Project[] = [
       fullMobile: "/work/headgate-plumbing-full-mobile.jpg",
     },
   },
+  {
+    slug: "lamplight-bible-church",
+    name: "Lamplight Bible Church",
+    industry: "Church",
+    location: "Greenwood Village, CO",
+    url: "https://lamplight.5280webs.com/",
+    summary:
+      "A site for a verse-by-verse Bible church that makes the first visit easy and turns 1,000 sermons into a bookshelf you can browse.",
+    goal: "Visitors check a church online before they ever walk in, and most church sites bury what they're looking for: service times, what to expect, and where the kids go. This concept puts the first visit up front and gives a teaching church a way to show its whole archive.",
+    decisions: [
+      {
+        title: "Plan the first Sunday for them",
+        body: "Four quick questions (which service, who's coming, kids' ages, how you're getting there) build a personal timeline for the morning, from parking to the right kids room, with a calendar file.",
+      },
+      {
+        title: "The whole Bible on a shelf",
+        body: "Sixty-six book spines fill with gold as they're taught. Every book opens to its messages, and each message shows the actual passage text, which can be read aloud.",
+      },
+      {
+        title: "Warm, not churchy",
+        body: "Evening indigo, parchment, and one lamp-gold accent, with an editorial serif for Scripture. The logo is an open Bible that forms an oil lamp.",
+      },
+    ],
+    features: [
+      "First-visit planner with kids room matching and .ics download",
+      "Live stream countdown and fill-in sermon notes",
+      "Book-by-book teaching archive with passage text and read-aloud",
+      "Home group finder, reading plan with streaks, and inline Scripture for beliefs",
+      "Giving demo with fee coverage, budget breakdown, events calendar, and prayer form",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/lamplight-bible-church-desktop.jpg",
+      mobile: "/work/lamplight-bible-church-mobile.jpg",
+      fullDesktop: "/work/lamplight-bible-church-full-desktop.jpg",
+      fullMobile: "/work/lamplight-bible-church-full-mobile.jpg",
+    },
+  },
+  {
+    slug: "ditch-rider-brewing",
+    name: "Ditch Rider Brewing & Kitchen",
+    industry: "Brewpub & restaurant",
+    location: "Greenwood Village, CO",
+    url: "https://ditchrider.5280webs.com/",
+    summary:
+      "A brewpub site that answers \"what's pouring, is the patio open, and can I get food?\" in one look, with a live tap list, a flight builder, and pickup ordering.",
+    goal: "Most brewery sites have a PDF menu and an outdated tap list. This concept treats the website as the front of the taproom: what's on right now, what goes with it, whether the patio is open, and how to take some home.",
+    decisions: [
+      {
+        title: "The tap list is the homepage",
+        body: "Seventeen beers with style filters, an ABV slider, pour prices, and keg levels, so \"kicking soon\" means something. Each glass is tinted to the beer's actual color.",
+      },
+      {
+        title: "Built on Colorado rules",
+        body: "Brewpubs must sell food, so every dish is paired with a beer. Beer can't be shipped, so to-go is pickup only with ID checked. The age gate covers only the beer pages, so families can still see the menu.",
+      },
+      {
+        title: "A look of its own",
+        body: "Named for the riders who ran the High Line Canal. Condensed sign-painter type, stout and kraft neutrals, a brick-red accent, and procedurally generated can labels for every beer.",
+      },
+    ],
+    features: [
+      "Live tap list with filters, keg levels, and a four-taster flight builder",
+      "Pairing-aware kitchen menu with dietary filters",
+      "Pickup pre-order with time slots and a 21+ step",
+      "Patio status and five-day outlook from the live forecast",
+      "Events calendar, private-event estimator, and Mug Club calculator",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/ditch-rider-brewing-desktop.jpg",
+      mobile: "/work/ditch-rider-brewing-mobile.jpg",
+      fullDesktop: "/work/ditch-rider-brewing-full-desktop.jpg",
+      fullMobile: "/work/ditch-rider-brewing-full-mobile.jpg",
+    },
+  },
 ];
+
+/** Projects shown on the Work page, in order. Archived ones keep their case study pages. */
+export const listedProjects = ["helix-frame-siding", "headgate-plumbing", "lamplight-bible-church", "ditch-rider-brewing"].map(
+  (slug) => projects.find((project) => project.slug === slug)!,
+);
 
 /** The homepage shows two: the featured piece, plus one from a different line of work. */
 export const homepageProjects = ["helix-frame-siding", "headgate-plumbing"].map(
