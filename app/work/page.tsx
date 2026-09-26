@@ -23,7 +23,7 @@ export default function WorkPage() {
 
       <section className="container-x section-y">
         <h2 className="sr-only">Projects</h2>
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid gap-12 sm:grid-cols-2 lg:gap-10">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

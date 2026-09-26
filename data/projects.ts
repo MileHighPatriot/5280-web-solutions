@@ -133,4 +133,42 @@ export const projects: Project[] = [
       fullMobile: "/work/platte-river-builders-full-mobile.jpg",
     },
   },
+  {
+    slug: "headgate-plumbing",
+    name: "Headgate Plumbing & Drain",
+    industry: "Plumbing, residential & commercial",
+    location: "Denver, CO",
+    url: "https://milehighpatriot.github.io/headgate-plumbing/",
+    summary:
+      "A service-first site for a Denver plumbing shop that works like a dispatch desk: symptom triage, published price ranges, and two-hour arrival windows.",
+    goal: "Most plumbing sites look the same: blue and white, a van in the hero, and a phone number. This concept answers what people actually need at 3am: how urgent is this, what do I do right now, and what will it cost. It also gives commercial clients a reason to stay on an account.",
+    decisions: [
+      {
+        title: "Sort by symptom, not by service",
+        body: "Homeowners don't know what their problem is called. A triage tool asks one or two questions, then gives an urgency level, what to do in the next five minutes, and a price range.",
+      },
+      {
+        title: "Built on real Denver rules",
+        body: "The \"Whose pipe is it?\" diagram follows Denver Water's ownership rules, the water heater tool decodes real manufacturer serial codes, and Freeze Watch pulls the live forecast.",
+      },
+      {
+        title: "A look plumbers don't use",
+        body: "An oxidized-copper patina palette with a hi-vis accent and a single alert red for emergencies. The type was designed for legibility, and the panels are shaped like pipe fittings.",
+      },
+    ],
+    features: [
+      "Symptom triage with urgency levels and next steps",
+      "Two-hour arrival-window booking with a live service ticket",
+      "Searchable price book and Care Plan savings calculator",
+      "Interactive pipe-ownership diagram and water heater age decoder",
+      "Live freeze forecast, backflow due-date tool, and ZIP checker",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/headgate-plumbing-desktop.jpg",
+      mobile: "/work/headgate-plumbing-mobile.jpg",
+      fullDesktop: "/work/headgate-plumbing-full-desktop.jpg",
+      fullMobile: "/work/headgate-plumbing-full-mobile.jpg",
+    },
+  },
 ];

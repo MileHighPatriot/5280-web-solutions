@@ -53,6 +53,8 @@ export const industries: Industry[] = [
       "Service-area map and city list",
       "Licensing and insurance up front",
       "Tap-to-call on every page",
+      "For service trades: an emergency call button and a way to book outside business hours",
+      "Published price ranges, so callers know what to expect before you arrive",
     ],
     problems: [
       "A one-page site that doesn't say which towns you serve",
@@ -63,7 +65,7 @@ export const industries: Industry[] = [
       tier: "growth",
       reason: "New project photos and seasonal services are worth adding as you go.",
     },
-    projects: ["summit-frame-build", "helix-frame-siding", "platte-river-builders"],
+    projects: ["summit-frame-build", "helix-frame-siding", "platte-river-builders", "headgate-plumbing"],
   },
   {
     slug: "restaurants",

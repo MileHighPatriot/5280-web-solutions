@@ -43,7 +43,7 @@ export default function Home() {
               All work
             </Button>
           </div>
-          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:gap-10">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}

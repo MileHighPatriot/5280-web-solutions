@@ -26,6 +26,34 @@
     1200,
     1400
   ],
+  "/work/headgate-plumbing-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/headgate-plumbing-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/headgate-plumbing-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/headgate-plumbing-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
   "/work/helix-frame-siding-desktop.jpg": [
     256,
     384,
