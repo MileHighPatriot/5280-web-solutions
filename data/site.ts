@@ -64,12 +64,29 @@ export const heroPhoto = {
   author: "Carol M. Highsmith, Library of Congress",
   license: "public domain",
   source: "https://www.loc.gov/item/2017689056/",
-  // A tall phone hero renders this ~1,500 CSS px wide. Asking for 1080px keeps typical phones on
-  // the 1920 copy (~250 KB) instead of the 2560 one (~400 KB).
-  sizes: "(min-width: 1024px) 100vw, 1080px",
+  // A tall phone hero renders this ~1,500 CSS px wide, but nearly all of it sits under the navy
+  // overlay. Asking for 600px puts most phones on the 1080 copy (~95 KB) or 1200 copy (~115 KB)
+  // instead of the 1920 one (~255 KB), which cost about 10 points of mobile PageSpeed.
+  sizes: "(min-width: 1024px) 100vw, 600px",
 };
 
-/** The Front Range sunset photo used in the footer and 404 page (CC BY 4.0 requires this credit). */
+/**
+ * Footer call-to-action on every page: the Broncos stadium with the snowy Front Range behind.
+ * CC BY 3.0 requires credit and a note that it was changed: cropped, color-adjusted, sharpened,
+ * and the old "Invesco Field" name and logo painted out of the sign panel. The top half sits
+ * under the navy overlay, so it's pre-softened there to keep the file light.
+ */
+export const footerPhoto = {
+  src: "/mile-high-front-range.jpg",
+  author: "David Shankbone",
+  license: "CC BY 3.0",
+  licenseUrl: "https://creativecommons.org/licenses/by/3.0/",
+  source: "https://commons.wikimedia.org/wiki/File:Invesco_Field_at_Mile_High.jpg",
+  // Phones render the ~1.6:1 photo about twice the screen width in the tall footer.
+  sizes: "(min-width: 1024px) 100vw, 200vw",
+};
+
+/** The Front Range sunset photo used on the 404 page and link previews (CC BY 4.0 requires this credit). */
 export const photoCredit = {
   src: "/denver-front-range-sunset.jpg",
   author: "DarlArthurS",

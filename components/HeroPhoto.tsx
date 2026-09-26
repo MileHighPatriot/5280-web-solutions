@@ -2,6 +2,8 @@ import Image from "next/image";
 import Blueprint from "@/components/ui/Blueprint";
 import Decode from "@/components/ui/Decode";
 import Button from "@/components/ui/Button";
+import HeroShowcase from "@/components/HeroShowcase";
+import { listedProjects } from "@/data/projects";
 import { heroPhoto } from "@/data/site";
 
 function HeroCopy() {
@@ -29,7 +31,7 @@ function HeroCopy() {
 /** Homepage hero: aerial of downtown Denver, the Broncos stadium, and the Front Range behind. */
 export default function HeroPhoto() {
   return (
-    <section data-glow className="hero-timeline relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[92svh]">
+    <section data-glow className="hero-timeline relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[max(92svh,52rem)]">
       <Image
         src={heroPhoto.src}
         alt="Downtown Denver from the air, with the Broncos stadium beyond the towers and the Front Range behind"
@@ -45,6 +47,14 @@ export default function HeroPhoto() {
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy/80 to-transparent" />
       <Blueprint className="[mask-image:radial-gradient(ellipse_75%_60%_at_65%_20%,black_15%,transparent_70%)]" />
       <HeroCopy />
+      {/* Live preview of the concept sites, lower right on wide screens (it would crowd the headline below xl). */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-16 z-10 hidden xl:block">
+        <div className="container-x flex justify-end">
+          <div className="fade-up pointer-events-auto w-[380px]" style={{ animationDelay: "360ms" }}>
+            <HeroShowcase projects={listedProjects} />
+          </div>
+        </div>
+      </div>
       {/* Survey-style readout along the bottom edge */}
       <div
         aria-hidden="true"

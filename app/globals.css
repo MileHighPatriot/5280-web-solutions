@@ -21,6 +21,7 @@
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: var(--font-archivo), var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -76,6 +77,8 @@
 }
 
 @utility t-display {
+  font-family: var(--font-display);
+  font-stretch: 112%;
   font-weight: 800;
   font-size: clamp(2.6rem, 7vw, 5.75rem);
   line-height: 0.98;
@@ -83,6 +86,8 @@
 }
 
 @utility t-h1 {
+  font-family: var(--font-display);
+  font-stretch: 112%;
   font-weight: 800;
   font-size: clamp(2.35rem, 5.4vw, 4.5rem);
   line-height: 1.02;
@@ -90,6 +95,8 @@
 }
 
 @utility t-h2 {
+  font-family: var(--font-display);
+  font-stretch: 112%;
   font-weight: 800;
   font-size: clamp(1.9rem, 3.8vw, 3.1rem);
   line-height: 1.06;
@@ -565,4 +572,31 @@ details[open] .faq-icon-v {
 /* Showcase screenshots fade in when they arrive after page load. */
 .fade-in {
   animation: bd-fade 0.6s ease both;
+}
+
+/* Hero showcase (components/HeroShowcase.tsx): the active site's bar fills, then the next site
+   shows. Hover or keyboard focus pauses it. With reduced motion the bar sits full and still,
+   so the showcase only changes when someone clicks a bar. */
+.showcase-progress {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .showcase-progress {
+    animation: showcase-progress 5.5s linear both;
+  }
+
+  .showcase:hover .showcase-progress,
+  .showcase:focus-within .showcase-progress {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes showcase-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }

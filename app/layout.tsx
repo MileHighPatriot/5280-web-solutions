@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 import { ViewTransition } from "react";
 import Analytics from "@/components/Analytics";
 import Footer from "@/components/Footer";
@@ -13,6 +13,14 @@ import "./globals.css";
 const schibsted = Schibsted_Grotesk({
   subsets: ["latin"],
   variable: "--font-schibsted",
+  display: "swap",
+});
+
+// Display face for big headlines only: Archivo's width axis gives a wide, engineered cut.
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -52,7 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${schibsted.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${schibsted.variable} ${archivo.variable} ${plexMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-cream font-sans text-navy">
         <JsonLd data={businessJsonLd()} />
         <a href="#main" className="skip-link">

@@ -3,21 +3,25 @@ import Logo from "@/components/Logo";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { footerNav, legalNav } from "@/data/nav";
-import { heroPhoto, photoCredit, site } from "@/data/site";
+import { footerPhoto, heroPhoto, photoCredit, site } from "@/data/site";
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-cream">
       <div className="relative isolate overflow-hidden">
         <Image
-          src={photoCredit.src}
+          src={footerPhoto.src}
           alt=""
           fill
-          sizes={photoCredit.sizes}
-          className="-z-20 object-cover object-[50%_80%]"
+          sizes={footerPhoto.sizes}
+          className="-z-20 object-cover object-bottom"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy via-navy/85 to-navy/35" />
-        <div className="container-x relative z-10 pt-20 pb-40 sm:pt-28 sm:pb-64 lg:pb-80">
+        {/* Phones: navy holds the stacked copy and clears at the bottom for the stadium. Desktop: navy
+            holds the left for the copy and clears to the right, where the peaks and stadium sit. */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy/95 via-navy/85 via-55% to-navy/5 lg:hidden" />
+        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-navy/95 via-navy/70 via-40% to-navy/0 lg:block" />
+        <div className="absolute inset-x-0 top-0 -z-10 hidden h-40 bg-gradient-to-b from-navy to-transparent lg:block" />
+        <div className="container-x relative z-10 pt-20 pb-64 sm:pt-28 sm:pb-72 lg:pb-80">
           <p className="t-mono text-mist">Ready when you are</p>
           <h2 className="t-display mt-5 max-w-[14ch] text-balance">
             Let&rsquo;s get your business <span className="text-orange">online right.</span>
@@ -95,7 +99,15 @@ export default function Footer() {
               <a href={heroPhoto.source} className="underline underline-offset-2 hover:text-cream">
                 {heroPhoto.author}
               </a>
-              .
+              ;{" "}
+              <a href={footerPhoto.source} className="underline underline-offset-2 hover:text-cream">
+                {footerPhoto.author}
+              </a>
+              ,{" "}
+              <a href={footerPhoto.licenseUrl} className="underline underline-offset-2 hover:text-cream">
+                {footerPhoto.license}
+              </a>
+              , edited.
             </p>
             <ul className="flex gap-5">
               {legalNav.map((link) => (
