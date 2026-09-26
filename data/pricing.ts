@@ -271,10 +271,10 @@ export const tiers: Tier[] = [
 ];
 
 export const flatFee = {
-  buildMin: 1000,
-  buildMax: 1500,
-  hostingMin: 20,
-  hostingMax: 25,
+  buildMin: 1800,
+  buildMax: 2500,
+  hostingMin: 25,
+  hostingMax: 35,
   features: [
     "Custom website, designed and built for you",
     "You own the site outright",

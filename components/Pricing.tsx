@@ -87,7 +87,8 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
           <p className="mx-2 mt-6 rounded-xl bg-navy px-5 py-4 text-[0.95rem] text-cream">
             <strong className="text-orange">Founding clients:</strong> our first {foundingClients.count} clients go
             month-to-month from day one, with no {monthlyTerms.minimumMonths}-month minimum, while we build out our
-            portfolio.
+            portfolio. Leave in the first year and you can keep your site with a buyout, which gets smaller every
+            month you stay.
           </p>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3 lg:gap-5">

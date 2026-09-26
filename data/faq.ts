@@ -12,7 +12,7 @@ export const pricingFaq: FaqItem[] = [
   },
   {
     question: `Why is there a ${monthlyTerms.minimumMonths}-month minimum?`,
-    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. Our first ${foundingClients.count} clients skip the minimum entirely and go month-to-month from day one while we build out our portfolio.`,
+    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. Our first ${foundingClients.count} clients skip the minimum entirely and go month-to-month from day one while we build out our portfolio. If a founding client leaves in the first ${monthlyTerms.minimumMonths} months, they can keep the site by buying it out, and that price goes down every month they stay.`,
   },
   {
     question: "Can I buy my site outright later?",
@@ -41,7 +41,7 @@ export const pricingFaq: FaqItem[] = [
   {
     question: "Why aren't these prices higher (or lower) than other agencies'?",
     answer:
-      "Most small businesses don't need a $10,000 agency site, and a $10/month drag-and-drop builder usually looks like one. These plans sit in the middle: a custom, professional site built by a real person, at a price a small business can budget for. Bigger projects, like online stores or booking systems, get a custom quote.",
+      "Most small businesses don't need a $10,000 agency site, and a $10/month drag-and-drop builder usually looks like one. These plans sit in the middle: a custom, professional site built by a real person, at a price a small business can budget for. Extras like online booking, giving pages, or a small online store have set prices on the add-on list, and anything bigger gets a custom quote upfront.",
   },
 ];
 
