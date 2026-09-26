@@ -17,7 +17,7 @@ export default function ContactPage() {
         backdrop="logo"
         eyebrow="Contact"
         title="Let's talk about your website."
-        lede={`Tell me a little about your business and which option you're leaning toward. I'll reply within ${site.replyTime}, usually sooner.`}
+        lede={`Tell us a little about your business and which option you're leaning toward. We'll reply within ${site.replyTime}, usually sooner.`}
       />
 
       <section className="container-x section-y">
@@ -27,7 +27,7 @@ export default function ContactPage() {
             <LeadForm variant="contact" />
           </div>
 
-          <aside className="grid content-start gap-4 lg:col-span-5" aria-label="Other ways to reach me">
+          <aside className="grid content-start gap-4 lg:col-span-5" aria-label="Other ways to reach us">
             <BookCallCard />
             <ContactCard label="Call or text" value={site.phoneDisplay} href={site.phoneHref} />
             <ContactCard label="Email" value={site.email} href={site.emailHref} />
@@ -40,7 +40,7 @@ export default function ContactPage() {
               <p className="t-mono text-mist">What happens next</p>
               <ol className="mt-4 grid gap-3">
                 <li>
-                  <span className="font-bold text-orange">1.</span> I read your message and look at your
+                  <span className="font-bold text-orange">1.</span> We read your message and look at your
                   current site, if you have one.
                 </li>
                 <li>

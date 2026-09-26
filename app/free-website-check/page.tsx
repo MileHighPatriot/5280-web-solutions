@@ -30,7 +30,7 @@ export default function FreeWebsiteCheckPage() {
         seed={11}
         eyebrow="Free website check"
         title="Is your website costing you customers?"
-        lede="Send me your site and I'll review it for free. You'll get honest, plain-English notes on what's working, what isn't, and what to fix first. No obligation."
+        lede="Send us your site and we'll review it for free. You'll get honest, plain-English notes on what's working, what isn't, and what to fix first. No obligation."
       />
 
       <section aria-labelledby="speed-test" className="container-x pt-16 sm:pt-24">
@@ -38,7 +38,7 @@ export default function FreeWebsiteCheckPage() {
           id="speed-test"
           eyebrow="Try it now"
           title="See how your site scores, right now."
-          lede="Type in your website and see how it scores on Google's own test, explained in plain English. Then send it to me for the full review."
+          lede="Type in your website and see how it scores on Google's own test, explained in plain English. Then send it to us for the full review."
         />
         <div className="reveal mt-10">
           <SpeedCheck />
@@ -49,7 +49,7 @@ export default function FreeWebsiteCheckPage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <h2 id="request-heading" className="t-h3">
-              What I look at
+              What we look at
             </h2>
             <ul className="mt-6 grid gap-5">
               {checks.map((item) => (
@@ -65,7 +65,7 @@ export default function FreeWebsiteCheckPage() {
             <div className="mt-10 rounded-2xl bg-sand/70 p-6">
               <p className="font-bold">No website yet?</p>
               <p className="mt-2 text-stone">
-                Leave the website field blank and tell me about your business. I&rsquo;ll send ideas
+                Leave the website field blank and tell us about your business. We&rsquo;ll send ideas
                 for what a first site should include, and what it would cost.
               </p>
             </div>

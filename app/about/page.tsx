@@ -13,16 +13,16 @@ export const metadata: Metadata = {
 
 const promises = [
   {
-    title: "You'll talk to me",
+    title: "You'll talk to your developer",
     body: "Not a sales rep or a support ticket. The person who builds your site is the person who answers your call.",
   },
   {
     title: "Plain English, always",
-    body: "No jargon and no upselling you on things you don't need. If something doesn't make sense, that's on me to explain better.",
+    body: "No jargon and no upselling you on things you don't need. If something doesn't make sense, that's on us to explain better.",
   },
   {
     title: "Clear, posted prices",
-    body: "My prices are on the website, and the setup fee is spelled out. You'll know what you're paying before we start.",
+    body: "Our prices are posted on the website, and the setup fee is spelled out. You'll know what you're paying before we start.",
   },
   {
     title: "Your business stays yours",
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <div className="mt-12 flex flex-wrap gap-3">
               <Button href="/free-website-check/">Get a free website check</Button>
               <Button href="/work/" variant="outline">
-                See my work
+                See our work
               </Button>
             </div>
           </div>

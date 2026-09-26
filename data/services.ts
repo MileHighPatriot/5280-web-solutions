@@ -10,7 +10,7 @@ export const services: Service[] = [
   {
     id: "new-websites",
     title: "New websites",
-    short: "No site yet, or starting from scratch? I design and build one around how your customers actually find and hire you.",
+    short: "No site yet, or starting from scratch? We design and build one around how your customers actually find and hire you.",
     body: "Most customers look you up on their phone before they call. A new site gives them what they need in seconds: what you do, where you work, what people say about you, and a big button to call or get a quote.",
     points: [
       "Custom design, not a stock template",
@@ -22,8 +22,8 @@ export const services: Service[] = [
   {
     id: "redesigns",
     title: "Website redesigns",
-    short: "Already have a site that looks dated, loads slowly, or breaks on phones? I rebuild it so it works as hard as you do.",
-    body: "A dated website quietly costs you jobs. People bounce when a page is slow or hard to use on a phone. I keep what's working (your domain, your content, your Google ranking) and fix what isn't.",
+    short: "Already have a site that looks dated, loads slowly, or breaks on phones? We rebuild it so it works as hard as you do.",
+    body: "A dated website quietly costs you jobs. People bounce when a page is slow or hard to use on a phone. We keep what's working (your domain, your content, your Google ranking) and fix what isn't.",
     points: [
       "Keep your domain and existing Google rankings",
       "Rewrite unclear copy in plain English",
@@ -34,20 +34,20 @@ export const services: Service[] = [
   {
     id: "hosting-care",
     title: "Hosting & care",
-    short: "I keep your site online, secure, and up to date, so it's one less thing on your plate.",
-    body: "Websites need upkeep: security patches, renewals, backups, and small updates. On a monthly plan I handle all of it, and you get a real person to text when something needs changing.",
+    short: "We keep your site online, secure, and up to date, so it's one less thing on your plate.",
+    body: "Websites need upkeep: security patches, renewals, backups, and small updates. On a monthly plan we handle all of it, and you get a real person to text when something needs changing.",
     points: [
       "Fast, secure hosting with SSL included",
       "Domain renewals handled so it never lapses",
-      "Uptime monitoring: if the site goes down, I know first",
+      "Uptime monitoring: if the site goes down, we know first",
       "Edits and updates on Growth and Premium plans",
     ],
   },
   {
     id: "get-found",
     title: "Get found on Google",
-    short: "Show up when locals search for what you do. I set up the basics that put you on the map.",
-    body: "For a local business, Google Maps and your Business Profile often matter as much as the website. I set both up properly so they work together and send calls your way.",
+    short: "Show up when locals search for what you do. We set up the basics that put you on the map.",
+    body: "For a local business, Google Maps and your Business Profile often matter as much as the website. We set both up properly so they work together and send calls your way.",
     points: [
       "Google Business Profile setup (included on Growth and Premium)",
       "Local SEO basics: titles, descriptions, and service areas",
@@ -61,7 +61,7 @@ export const steps = [
   {
     step: "01",
     title: "Free website check",
-    body: "Send me your current site, or tell me about your business if you don't have one. I'll take a look and send back honest notes, free.",
+    body: "Send us your current site, or tell us about your business if you don't have one. We'll take a look and send back honest notes, free.",
   },
   {
     step: "02",
@@ -71,12 +71,12 @@ export const steps = [
   {
     step: "03",
     title: "Design & build",
-    body: "I design and build your site, usually in 2–3 weeks. You review it, request changes, and approve it before anything goes live.",
+    body: "We design and build your site, usually in 2–3 weeks. You review it, request changes, and approve it before anything goes live.",
   },
   {
     step: "04",
     title: "Launch & care",
-    body: "Your site goes live. On a monthly plan I keep it running and updated. On a flat-fee build you own it outright.",
+    body: "Your site goes live. On a monthly plan we keep it running and updated. On a flat-fee build you own it outright.",
   },
 ];
 

@@ -73,7 +73,7 @@ export const industries: Industry[] = [
     audience: "restaurants & cafés",
     title: "Restaurant websites people actually use.",
     intro:
-      "Hungry people want three things from your website: the menu, the hours, and directions, fast and on a phone. Everything else is a bonus. I make those three impossible to miss.",
+      "Hungry people want three things from your website: the menu, the hours, and directions, fast and on a phone. Everything else is a bonus. We make those three impossible to miss.",
     customerNeeds: [
       {
         title: "A menu they can read",

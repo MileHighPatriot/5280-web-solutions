@@ -29,7 +29,7 @@ export default function TermsPage() {
           </p>
           <h2>Portfolio</h2>
           <p>
-            Projects labeled &ldquo;Concept project&rdquo; are fictional businesses created to show my
+            Projects labeled &ldquo;Concept project&rdquo; are fictional businesses created to show our
             design and development work. Names, people, reviews, and contact details on those sites
             are illustrative.
           </p>
@@ -40,8 +40,8 @@ export default function TermsPage() {
           </p>
           <h2>No warranty</h2>
           <p>
-            This website is provided &ldquo;as is.&rdquo; I work to keep it accurate and available,
-            but I can&rsquo;t guarantee it will always be error-free or uninterrupted.
+            This website is provided &ldquo;as is.&rdquo; We work to keep it accurate and available,
+            but we can&rsquo;t guarantee it will always be error-free or uninterrupted.
           </p>
           <h2>Questions</h2>
           <p>

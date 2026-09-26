@@ -89,7 +89,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
         <p className="t-h2 mt-4">Thanks, talk soon.</p>
         <p className="t-lede mt-4 text-mist">
           {accessKey
-            ? `I'll get back to you within ${site.replyTime}. Need me sooner? Call or text ${site.phoneDisplay}.`
+            ? `We'll get back to you within ${site.replyTime}. Need us sooner? Call or text ${site.phoneDisplay}.`
             : "Your email app should have opened with everything filled in. Just hit send."}
         </p>
         <button
@@ -142,7 +142,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
       )}
 
       <Field
-        label={isCheck ? "What's not working, or what do you want from a website?" : "Tell me about your business"}
+        label={isCheck ? "What's not working, or what do you want from a website?" : "Tell us about your business"}
         name="message"
         as="textarea"
         placeholder={

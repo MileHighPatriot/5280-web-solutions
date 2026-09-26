@@ -19,7 +19,7 @@ export function BookCallCard() {
         Book a 20-minute call
         <Arrow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
       </p>
-      <p className="mt-1 text-navy/80">Pick a time that works for you. Opens my calendar in a new tab.</p>
+      <p className="mt-1 text-navy/80">Pick a time that works for you. Opens our calendar in a new tab.</p>
     </a>
   );
 }

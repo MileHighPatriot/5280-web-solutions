@@ -23,9 +23,9 @@ export default function IndustriesPage() {
       <PageHeader
         backdrop="topo"
         seed={31}
-        eyebrow="Who I help"
+        eyebrow="Who we help"
         title="Built for how your trade gets customers."
-        lede="A restaurant, a roofer, and a barbershop need very different websites. Pick your industry to see what I build in and the problems I fix most often."
+        lede="A restaurant, a roofer, and a barbershop need very different websites. Pick your industry to see what we build in and the problems we fix most often."
       />
 
       <section aria-label="Industries" className="container-x section-y">
@@ -55,7 +55,7 @@ export default function IndustriesPage() {
           <div>
             <h2 className="t-h3">Don&rsquo;t see your business?</h2>
             <p className="mt-2 max-w-xl text-mist">
-              If you serve customers on the Front Range, I can build you a site that brings them in. Tell me what you
+              If you serve customers on the Front Range, we can build you a site that brings them in. Tell us what you
               do.
             </p>
           </div>

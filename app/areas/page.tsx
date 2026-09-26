@@ -20,7 +20,7 @@ export default function AreasPage() {
         seed={7}
         eyebrow="Service areas"
         title="Local websites, up and down I-25."
-        lede="I work with small businesses from Fort Collins and Greeley to Colorado Springs, meeting in person or working fully remote, whichever is easier for you."
+        lede="We work with small businesses from Fort Collins and Greeley to Colorado Springs, meeting in person or working fully remote, whichever is easier for you."
       />
 
       <section className="container-x section-y">
@@ -47,7 +47,7 @@ export default function AreasPage() {
               ))}
             </ul>
 
-            <h2 className="t-h3 mt-14">Every city I serve</h2>
+            <h2 className="t-h3 mt-14">Every city we serve</h2>
             <p className="mt-4 leading-relaxed text-stone">{site.cities.join(" · ")}</p>
             <p className="mt-4 text-stone">
               Outside this list? If you&rsquo;re anywhere along the Front Range,{" "}

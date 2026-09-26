@@ -53,7 +53,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
           <div className="lg:col-span-7">
             <h2 className="t-h2">A local developer for {area.city}</h2>
             <p className="t-body mt-5 text-stone">{area.local}</p>
-            <h3 className="t-h3 mt-12">What I can do for your {area.city} business</h3>
+            <h3 className="t-h3 mt-12">What we can do for your {area.city} business</h3>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2">
               {services.map((service) => (
                 <li key={service.id} className="rounded-2xl bg-paper p-5 ring-1 ring-navy/10">
@@ -92,7 +92,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
       </section>
 
       <nav aria-label="Other service areas" className="container-x py-14">
-        <p className="t-mono text-stone">Other areas I serve</p>
+        <p className="t-mono text-stone">Other areas we serve</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {others.map((item) => (
             <li key={item.slug}>

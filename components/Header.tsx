@@ -146,7 +146,7 @@ export default function Header() {
                 </Link>
                 {link.href === "/services/" ? (
                   <div className="pb-5">
-                    <p className="t-mono text-mist">Who I help</p>
+                    <p className="t-mono text-mist">Who we help</p>
                     <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.95rem] text-cream/80">
                       {industries.map((industry) => (
                         <li key={industry.slug}>

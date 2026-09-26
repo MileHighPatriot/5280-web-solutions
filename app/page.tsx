@@ -13,6 +13,7 @@ import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
 import { homepageProjects } from "@/data/projects";
 import { services } from "@/data/services";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -61,7 +62,7 @@ export default function Home() {
           <SectionHeading
             id="services"
             dark
-            eyebrow="What I do"
+            eyebrow="What we do"
             title={
               <>
                 Everything your business needs <span className="text-orange">online.</span>
@@ -144,16 +145,21 @@ export default function Home() {
                     One local developer, <span className="text-orange">start to finish.</span>
                   </>
                 }
-                lede="No account managers, no offshore handoffs, no call centers. When you work with 5280 Web Solutions, you work with me, from the first call to every update after launch."
+                lede="No account managers, no offshore handoffs, no call centers. When you work with 5280 Web Solutions, you work directly with the developer who builds your site, from the first call to every update after launch."
               />
-              <p className="reveal mt-6 max-w-2xl border-l-2 border-orange pl-5 text-lg leading-relaxed text-navy">
-                Before I built websites, I spent years running my own business, so I know what it&rsquo;s like
-                when nobody else is covering the phone. That&rsquo;s what I build for you: a site that works, and
-                one person who picks up when you call.
-              </p>
+              <figure className="reveal mt-6 max-w-2xl border-l-2 border-orange pl-5">
+                <blockquote className="text-lg leading-relaxed text-navy">
+                  &ldquo;Before I built websites, I spent years running my own business, so I know what it&rsquo;s
+                  like when nobody else is covering the phone. That&rsquo;s what I build for you: a site that works,
+                  and one person who picks up when you call.&rdquo;
+                </blockquote>
+                <figcaption className="t-mono mt-3 text-stone">
+                  {site.founder}, founder
+                </figcaption>
+              </figure>
               <div className="reveal mt-10 flex flex-wrap gap-3">
                 <Button href="/about/" variant="dark">
-                  More about me
+                  Meet the founder
                 </Button>
                 <Button href="/contact/" variant="outline">
                   Get in touch

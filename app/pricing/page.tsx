@@ -69,7 +69,7 @@ export default function PricingPage() {
                   <a href={site.phoneHref} className="font-semibold text-navy underline underline-offset-4">
                     {site.phoneDisplay}
                   </a>{" "}
-                  and I&rsquo;ll help you choose.
+                  and we&rsquo;ll help you choose.
                 </>
               }
             />

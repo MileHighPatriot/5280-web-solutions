@@ -70,7 +70,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
           id="needs"
           eyebrow="What your customers want"
           title="Built around how your customers decide."
-          lede="Every site I build starts with what the people visiting it are actually trying to do."
+          lede="Every site we build starts with what the people visiting it are actually trying to do."
         />
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {industry.customerNeeds.map((need, i) => (
@@ -89,7 +89,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="rounded-3xl bg-navy p-8 text-cream sm:p-10 lg:col-span-7">
               <h2 id="included" className="t-h3">
-                What I build into your site
+                What we build into your site
               </h2>
               <ul className="mt-6 grid gap-3.5 sm:grid-cols-2">
                 {industry.mustHaves.map((item) => (
@@ -105,7 +105,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
               </p>
             </div>
             <div className="lg:col-span-5">
-              <h2 className="t-h3">Problems I fix all the time</h2>
+              <h2 className="t-h3">Problems we fix all the time</h2>
               <ul className="mt-6 grid gap-4">
                 {industry.problems.map((item) => (
                   <li key={item} className="flex gap-3">
@@ -140,8 +140,8 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
           <SectionHeading
             id="examples"
             eyebrow="Examples"
-            title={`Sites I've designed for ${industry.audience}.`}
-            lede="Concept projects that show the design and features I build. Hover one (or scroll to it on your phone) to see the whole site."
+            title={`Sites we've designed for ${industry.audience}.`}
+            lede="Concept projects that show the design and features we build. Hover one (or scroll to it on your phone) to see the whole site."
           />
           <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:gap-10">
             {showcase.map((project) => (
@@ -158,7 +158,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
       </section>
 
       <nav aria-label="Other industries" className="container-x border-t border-navy/10 py-14">
-        <p className="t-mono text-stone">I also build websites for</p>
+        <p className="t-mono text-stone">We also build websites for</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {others.map((item) => (
             <li key={item.slug}>

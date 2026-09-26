@@ -275,7 +275,7 @@ export default function SpeedCheck() {
             <p className="font-bold">{state.message}</p>
             {state.busy ? (
               <p className="mt-2 text-stone">
-                No problem. Send me your address with the form below and I&rsquo;ll run the full test myself and send
+                No problem. Send us your address with the form below and we&rsquo;ll run the full test ourselves and send
                 you the results with plain-English notes.
               </p>
             ) : null}
@@ -285,7 +285,7 @@ export default function SpeedCheck() {
                 onClick={() => sendToForm()}
                 className="mt-4 inline-flex items-center gap-2 font-bold text-ember underline underline-offset-4"
               >
-                Send it to me instead <Arrow />
+                Send it to us instead <Arrow />
               </button>
             ) : null}
           </div>
@@ -322,7 +322,7 @@ export default function SpeedCheck() {
             </div>
             <div className="mt-10 flex flex-col items-start gap-4 border-t border-navy/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
               <p className="max-w-xl text-stone">
-                Scores are only part of the story. I&rsquo;ll also look at your design, wording, and how easy it is to
+                Scores are only part of the story. We&rsquo;ll also look at your design, wording, and how easy it is to
                 contact you, then send honest notes. Free, no obligation.
               </p>
               <button

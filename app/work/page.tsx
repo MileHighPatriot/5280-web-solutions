@@ -18,7 +18,7 @@ export default function WorkPage() {
         backdrop="numerals"
         eyebrow="Work"
         title="Sites built to win the job."
-        lede="These concept projects show the design, speed, and features I build into every site. Each is a fictional business, created as a portfolio piece. Real client work is added here as it launches."
+        lede="These concept projects show the design, speed, and features we build into every site. Each is a fictional business, created as a portfolio piece. Real client work is added here as it launches."
       />
 
       <section className="container-x section-y">

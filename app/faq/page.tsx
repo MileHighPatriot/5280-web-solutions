@@ -21,7 +21,7 @@ export default function FaqPage() {
         backdrop="numerals"
         eyebrow="FAQ"
         title="Questions, answered."
-        lede={`Can't find what you're looking for? Call or text ${site.phoneDisplay} and ask me directly.`}
+        lede={`Can't find what you're looking for? Call or text ${site.phoneDisplay} and ask us directly.`}
       />
 
       <div className="container-x section-y grid gap-16">

@@ -113,7 +113,7 @@ export default function ServicesPage() {
                 Nothing goes live <span className="text-orange">unchecked.</span>
               </h2>
               <p className="t-lede mt-5 text-pretty text-stone">
-                Before your site launches, I run the same checklist every time, so the first customer who finds you gets
+                Before your site launches, we run the same checklist every time, so the first customer who finds you gets
                 a site that works.
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function ServicesPage() {
               })}
             </ul>
             <p className="mt-6 max-w-2xl text-stone">
-              Don&rsquo;t see your industry? If you serve customers on the Front Range, I can help.
+              Don&rsquo;t see your industry? If you serve customers on the Front Range, we can help.
             </p>
           </div>
         </section>

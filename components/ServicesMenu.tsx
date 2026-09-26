@@ -114,7 +114,7 @@ export default function ServicesMenu({ active }: { active: boolean }) {
           <div aria-hidden="true" className="blueprint absolute inset-0 -z-10 opacity-60" />
           <div className="grid grid-cols-[1fr_1.1fr]">
             <div className="p-6">
-              <p className="t-mono text-mist">What I do</p>
+              <p className="t-mono text-mist">What we do</p>
               <ul className="mt-3 grid gap-1">
                 {services.map((service) => (
                   <li key={service.id}>
@@ -132,7 +132,7 @@ export default function ServicesMenu({ active }: { active: boolean }) {
               </ul>
             </div>
             <div className="border-l border-cream/10 p-6">
-              <p className="t-mono text-mist">Who I help</p>
+              <p className="t-mono text-mist">Who we help</p>
               <ul className="mt-3 grid gap-0.5">
                 {industries.map((industry) => (
                   <li key={industry.slug}>

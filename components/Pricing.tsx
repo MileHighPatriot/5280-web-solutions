@@ -28,7 +28,7 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
       <div className="mx-auto max-w-3xl text-center">
         <p className="t-mono text-stone">Simple, upfront pricing</p>
         <Heading className={`${headingLevel === "h1" ? "t-h1" : "t-h2"} mt-4 text-balance`}>
-          Two ways to work with me
+          Two ways to work with us
         </Heading>
         <p className="t-lede mt-5 text-pretty text-stone">
           Spread the cost with a monthly plan, or pay once and own your site outright. Either way you
@@ -84,8 +84,8 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
           </div>
 
           <p className="mx-2 mt-6 rounded-xl bg-navy px-5 py-4 text-[0.95rem] text-cream">
-            <strong className="text-orange">Founding clients:</strong> my first {foundingClients.count} clients go
-            month-to-month from day one, with no {monthlyTerms.minimumMonths}-month minimum, while I build out my
+            <strong className="text-orange">Founding clients:</strong> our first {foundingClients.count} clients go
+            month-to-month from day one, with no {monthlyTerms.minimumMonths}-month minimum, while we build out our
             portfolio.
           </p>
 

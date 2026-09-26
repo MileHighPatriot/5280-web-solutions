@@ -19,7 +19,7 @@ function HeroCopy() {
       <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>
         <Button href="/free-website-check/">Get a free website check</Button>
         <Button href="/work/" variant="outline-light">
-          See my work
+          See our work
         </Button>
       </div>
     </div>
