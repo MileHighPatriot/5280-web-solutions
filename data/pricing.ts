@@ -22,13 +22,12 @@ export const monthlyTerms = {
   buyout: true,
 };
 
-/** Early-client offer: the first few clients skip the minimum and go month-to-month from day one. */
-export const foundingClients = { count: 5 };
+/** Limited-time offer: new clients skip the minimum and go month-to-month from day one. */
+export const launchOffer = { label: "Limited-time offer" };
 
 export const money = (value: number) => `$${value.toLocaleString("en-US")}`;
 export const moneyRange = (min: number, max: number) =>
   min === max ? money(min) : `${money(min)}–${money(max)}`;
-
 
 export type AddOnGroup = "launch" | "features" | "design" | "ongoing";
 
@@ -57,7 +56,8 @@ export const addOns: AddOn[] = [
     min: 150,
     unit: "one-time",
     group: "launch",
-    description: "Get on Google Maps with your hours, photos, and services set up right.",
+    description:
+      "Get on Google Maps with your hours, photos, and services set up right.",
   },
   {
     id: "directory-listings",
@@ -65,7 +65,8 @@ export const addOns: AddOn[] = [
     min: 150,
     unit: "one-time",
     group: "launch",
-    description: "Listed on Apple Maps, Bing, Yelp, Nextdoor, and more, with the same info everywhere.",
+    description:
+      "Listed on Apple Maps, Bing, Yelp, Nextdoor, and more, with the same info everywhere.",
   },
   {
     id: "social-profiles",
@@ -73,7 +74,8 @@ export const addOns: AddOn[] = [
     min: 100,
     unit: "one-time",
     group: "launch",
-    description: "Facebook and Instagram pages set up to match your site and link back to it.",
+    description:
+      "Facebook and Instagram pages set up to match your site and link back to it.",
   },
   {
     id: "domain-email",
@@ -81,7 +83,8 @@ export const addOns: AddOn[] = [
     min: 100,
     unit: "one-time",
     group: "launch",
-    description: "yourbusiness.com and you@yourbusiness.com, set up and connected.",
+    description:
+      "yourbusiness.com and you@yourbusiness.com, set up and connected.",
   },
   {
     id: "rush-launch",
@@ -89,7 +92,8 @@ export const addOns: AddOn[] = [
     min: 250,
     unit: "one-time",
     group: "launch",
-    description: "Go live in about a week instead of 2–3, for a grand opening or a busy season.",
+    description:
+      "Go live in about a week instead of 2–3, for a grand opening or a busy season.",
   },
   {
     id: "extra-page",
@@ -97,7 +101,8 @@ export const addOns: AddOn[] = [
     min: 100,
     unit: "each",
     group: "features",
-    description: "Another page beyond your plan's page count, designed to match the rest of the site.",
+    description:
+      "Another page beyond your plan's page count, designed to match the rest of the site.",
   },
   {
     id: "online-booking",
@@ -105,7 +110,8 @@ export const addOns: AddOn[] = [
     min: 150,
     unit: "one-time",
     group: "features",
-    description: "Connect Square, Calendly, Vagaro, Mindbody, or the app you already use, with Book Now on every page.",
+    description:
+      "Connect Square, Calendly, Vagaro, Mindbody, or the app you already use, with Book Now on every page.",
   },
   {
     id: "online-giving",
@@ -113,7 +119,8 @@ export const addOns: AddOn[] = [
     min: 150,
     unit: "one-time",
     group: "features",
-    description: "A giving page for churches and nonprofits, with one-time and recurring gifts through your platform.",
+    description:
+      "A giving page for churches and nonprofits, with one-time and recurring gifts through your platform.",
   },
   {
     id: "events-calendar",
@@ -121,7 +128,8 @@ export const addOns: AddOn[] = [
     min: 150,
     unit: "one-time",
     group: "features",
-    description: "Services, classes, and events on your site, synced from a Google Calendar you already update.",
+    description:
+      "Services, classes, and events on your site, synced from a Google Calendar you already update.",
   },
   {
     id: "video-library",
@@ -129,7 +137,8 @@ export const addOns: AddOn[] = [
     min: 200,
     unit: "one-time",
     group: "features",
-    description: "Your latest YouTube videos and livestreams on your site, updating on their own.",
+    description:
+      "Your latest YouTube videos and livestreams on your site, updating on their own.",
   },
   {
     id: "online-store",
@@ -138,7 +147,8 @@ export const addOns: AddOn[] = [
     max: 750,
     unit: "one-time",
     group: "features",
-    description: "Sell products, gift cards, or merch with Square or Shopify. Up to 25 products loaded for you.",
+    description:
+      "Sell products, gift cards, or merch with Square or Shopify. Up to 25 products loaded for you.",
   },
   {
     id: "custom-form",
@@ -146,7 +156,8 @@ export const addOns: AddOn[] = [
     min: 75,
     unit: "each",
     group: "features",
-    description: "Job applications, volunteer sign-ups, registrations, or intake forms, sent to your inbox.",
+    description:
+      "Job applications, volunteer sign-ups, registrations, or intake forms, sent to your inbox.",
   },
   {
     id: "newsletter",
@@ -154,7 +165,8 @@ export const addOns: AddOn[] = [
     min: 100,
     unit: "one-time",
     group: "features",
-    description: "A sign-up form connected to Mailchimp or your email tool, with a welcome email ready to go.",
+    description:
+      "A sign-up form connected to Mailchimp or your email tool, with a welcome email ready to go.",
   },
   {
     id: "logo",
@@ -163,7 +175,8 @@ export const addOns: AddOn[] = [
     max: 300,
     unit: "one-time",
     group: "design",
-    description: "A new logo, or your current one redrawn so it's crisp everywhere.",
+    description:
+      "A new logo, or your current one redrawn so it's crisp everywhere.",
   },
   {
     id: "print-design",
@@ -172,7 +185,8 @@ export const addOns: AddOn[] = [
     max: 150,
     unit: "each",
     group: "design",
-    description: "Print-ready designs that match your site, with a QR code that links straight to it.",
+    description:
+      "Print-ready designs that match your site, with a QR code that links straight to it.",
   },
   {
     id: "extra-blog-post",
@@ -197,7 +211,8 @@ export const addOns: AddOn[] = [
     min: 75,
     unit: "/mo",
     group: "ongoing",
-    description: "Ask happy customers for Google reviews, and track and answer them.",
+    description:
+      "Ask happy customers for Google reviews, and track and answer them.",
   },
   {
     id: "local-seo-boost",
@@ -205,17 +220,21 @@ export const addOns: AddOn[] = [
     min: 100,
     unit: "/mo",
     group: "ongoing",
-    description: "A monthly Google Business Profile post, a listing check, and a report on your top local searches.",
+    description:
+      "A monthly Google Business Profile post, a listing check, and a report on your top local searches.",
   },
 ];
 
 /** Price of a single content edit, used wherever à la carte edits are mentioned. */
 export const editPrice = addOns.find((addOn) => addOn.id === "extra-edits")!;
 /** Price of one page beyond a plan's page count. */
-export const extraPagePrice = addOns.find((addOn) => addOn.id === "extra-page")!;
+export const extraPagePrice = addOns.find(
+  (addOn) => addOn.id === "extra-page",
+)!;
 
 /** Site features Growth and Premium set up for free (normally à la carte). */
-const includedFeatures = "online booking, events calendar, giving page, newsletter, or custom form";
+const includedFeatures =
+  "online booking, events calendar, giving page, newsletter, or custom form";
 
 export const tiers: Tier[] = [
   {
@@ -223,7 +242,8 @@ export const tiers: Tier[] = [
     name: "Basic",
     monthly: 75,
     setupFee: 250,
-    summary: "A professional site, kept online and secure. Best if your info rarely changes.",
+    summary:
+      "A professional site, kept online and secure. Best if your info rarely changes.",
     features: [
       "Custom website, designed and built for you",
       "Up to 5 pages at launch",
@@ -238,7 +258,8 @@ export const tiers: Tier[] = [
     name: "Growth",
     monthly: 125,
     setupFee: 350,
-    summary: "For businesses that update hours, menus, photos, or promos now and then.",
+    summary:
+      "For businesses that update hours, menus, photos, or promos now and then.",
     includesPrevious: "Everything in Basic",
     features: [
       "Up to 8 pages at launch",
@@ -255,7 +276,8 @@ export const tiers: Tier[] = [
     name: "Premium",
     monthly: 200,
     setupFee: 500,
-    summary: "Your own web person on call. Changes happen fast, and we check in every month.",
+    summary:
+      "Your own web person on call. Changes happen fast, and we check in every month.",
     includesPrevious: "Everything in Growth",
     features: [
       "Up to 12 pages at launch",
@@ -295,33 +317,103 @@ export const everyBuild = [
 ];
 
 /** Rows for the full monthly comparison table. true = included, false = not, string = detail. */
-export const comparison: { label: string; values: Record<TierId, boolean | string> }[] = [
-  { label: "Custom website build", values: { basic: true, growth: true, premium: true } },
-  { label: "Pages at launch", values: { basic: "Up to 5", growth: "Up to 8", premium: "Up to 12" } },
-  { label: "Hosting & domain management", values: { basic: true, growth: true, premium: true } },
-  { label: "SSL certificate (the padlock)", values: { basic: true, growth: true, premium: true } },
-  { label: "Security & software updates", values: { basic: true, growth: true, premium: true } },
-  { label: "Uptime monitoring", values: { basic: true, growth: true, premium: true } },
-  { label: "Content edits", values: { basic: "À la carte", growth: "2 small / month", premium: "Unlimited reasonable" } },
-  { label: "Turnaround on requests", values: { basic: "Standard", growth: "Standard", premium: "Same / next day" } },
-  { label: "Site features set up free (booking, calendar, giving, and more)", values: { basic: false, growth: "1", premium: "3" } },
-  { label: "Google Business Profile setup", values: { basic: false, growth: "Included, one-time", premium: "Included, one-time" } },
-  { label: "Apple Maps, Bing & Yelp listings", values: { basic: false, growth: "Included, one-time", premium: "Included, one-time" } },
-  { label: "Analytics & traffic summary", values: { basic: false, growth: "Monthly", premium: "Monthly" } },
-  { label: "Logo cleanup, business email & social profiles", values: { basic: false, growth: false, premium: "Included, one-time" } },
-  { label: "Local SEO boost (Google post + search report)", values: { basic: false, growth: false, premium: "Monthly" } },
-  { label: "Monthly check-in call", values: { basic: false, growth: false, premium: true } },
-  { label: "Bonus deliverable (graphic, blog post, or review campaign)", values: { basic: false, growth: false, premium: "1 / month" } },
+export const comparison: {
+  label: string;
+  values: Record<TierId, boolean | string>;
+}[] = [
+  {
+    label: "Custom website build",
+    values: { basic: true, growth: true, premium: true },
+  },
+  {
+    label: "Pages at launch",
+    values: { basic: "Up to 5", growth: "Up to 8", premium: "Up to 12" },
+  },
+  {
+    label: "Hosting & domain management",
+    values: { basic: true, growth: true, premium: true },
+  },
+  {
+    label: "SSL certificate (the padlock)",
+    values: { basic: true, growth: true, premium: true },
+  },
+  {
+    label: "Security & software updates",
+    values: { basic: true, growth: true, premium: true },
+  },
+  {
+    label: "Uptime monitoring",
+    values: { basic: true, growth: true, premium: true },
+  },
+  {
+    label: "Content edits",
+    values: {
+      basic: "À la carte",
+      growth: "2 small / month",
+      premium: "Unlimited reasonable",
+    },
+  },
+  {
+    label: "Turnaround on requests",
+    values: {
+      basic: "Standard",
+      growth: "Standard",
+      premium: "Same / next day",
+    },
+  },
+  {
+    label: "Site features set up free (booking, calendar, giving, and more)",
+    values: { basic: false, growth: "1", premium: "3" },
+  },
+  {
+    label: "Google Business Profile setup",
+    values: {
+      basic: false,
+      growth: "Included, one-time",
+      premium: "Included, one-time",
+    },
+  },
+  {
+    label: "Apple Maps, Bing & Yelp listings",
+    values: {
+      basic: false,
+      growth: "Included, one-time",
+      premium: "Included, one-time",
+    },
+  },
+  {
+    label: "Analytics & traffic summary",
+    values: { basic: false, growth: "Monthly", premium: "Monthly" },
+  },
+  {
+    label: "Logo cleanup, business email & social profiles",
+    values: { basic: false, growth: false, premium: "Included, one-time" },
+  },
+  {
+    label: "Local SEO boost (Google post + search report)",
+    values: { basic: false, growth: false, premium: "Monthly" },
+  },
+  {
+    label: "Monthly check-in call",
+    values: { basic: false, growth: false, premium: true },
+  },
+  {
+    label: "Bonus deliverable (graphic, blog post, or review campaign)",
+    values: { basic: false, growth: false, premium: "1 / month" },
+  },
 ];
 
 /** "$150 one-time", "$25–$40 each", "$75/mo". */
 export const addOnPrice = (addOn: AddOn) => {
-  const amount = addOn.max ? moneyRange(addOn.min, addOn.max) : money(addOn.min);
+  const amount = addOn.max
+    ? moneyRange(addOn.min, addOn.max)
+    : money(addOn.min);
   return addOn.unit === "/mo" ? `${amount}/mo` : `${amount} ${addOn.unit}`;
 };
 
 /** Setup fee plus the first 12 months, so the year-one cost is never a surprise. */
-export const yearOne = (tier: Tier) => tier.setupFee + tier.monthly * monthlyTerms.minimumMonths;
+export const yearOne = (tier: Tier) =>
+  tier.setupFee + tier.monthly * monthlyTerms.minimumMonths;
 
 /**
  * "Your other options" table on the pricing page: a Growth plan next to doing it yourself and
@@ -337,16 +429,31 @@ const growth = tiers.find((tier) => tier.id === "growth")!;
 
 export type AlternativeId = "diy" | "us" | "agency";
 
-export const alternativeColumns: { id: AlternativeId; name: string; detail: string }[] = [
+export const alternativeColumns: {
+  id: AlternativeId;
+  name: string;
+  detail: string;
+}[] = [
   { id: "diy", name: "Do it yourself", detail: "Wix, Squarespace & similar" },
-  { id: "us", name: `Our ${growth.name} plan`, detail: `${money(growth.monthly)}/mo + ${money(growth.setupFee)} setup` },
+  {
+    id: "us",
+    name: `Our ${growth.name} plan`,
+    detail: `${money(growth.monthly)}/mo + ${money(growth.setupFee)} setup`,
+  },
   { id: "agency", name: "Denver agency", detail: "Typical custom build" },
 ];
 
-export const alternatives: { label: string; values: Record<AlternativeId, boolean | string> }[] = [
+export const alternatives: {
+  label: string;
+  values: Record<AlternativeId, boolean | string>;
+}[] = [
   {
     label: "Upfront cost",
-    values: { diy: "$0, plus your time", us: `${money(growth.setupFee)} setup`, agency: `${moneyRange(agency.buildMin, agency.buildMax)}+` },
+    values: {
+      diy: "$0, plus your time",
+      us: `${money(growth.setupFee)} setup`,
+      agency: `${moneyRange(agency.buildMin, agency.buildMax)}+`,
+    },
   },
   {
     label: "Monthly cost",
@@ -364,11 +471,41 @@ export const alternatives: { label: string; values: Record<AlternativeId, boolea
       agency: `About ${moneyRange(agency.buildMin + agency.careMin * 12, agency.buildMax + agency.careMax * 12)}+`,
     },
   },
-  { label: "Who designs & builds it", values: { diy: "You, from a template", us: "A local developer, custom for you", agency: "An agency team" } },
+  {
+    label: "Who designs & builds it",
+    values: {
+      diy: "You, from a template",
+      us: "A local developer, custom for you",
+      agency: "An agency team",
+    },
+  },
   // Matches the Growth plan's "2 small content edits per month" in `tiers`.
-  { label: "Who makes changes", values: { diy: "You", us: "We do, 2 small edits a month included", agency: "Their team, often billed by the hour" } },
-  { label: "Google Business Profile & listings set up", values: { diy: false, us: true, agency: "Usually extra" } },
-  { label: "Hosting, security & updates", values: { diy: true, us: true, agency: "With a care plan" } },
-  { label: "Hand-built to load fast on phones", values: { diy: "Depends on the template", us: true, agency: true } },
-  { label: "Who you talk to", values: { diy: "A support chat", us: "Your developer, directly", agency: "Usually an account manager" } },
+  {
+    label: "Who makes changes",
+    values: {
+      diy: "You",
+      us: "We do, 2 small edits a month included",
+      agency: "Their team, often billed by the hour",
+    },
+  },
+  {
+    label: "Google Business Profile & listings set up",
+    values: { diy: false, us: true, agency: "Usually extra" },
+  },
+  {
+    label: "Hosting, security & updates",
+    values: { diy: true, us: true, agency: "With a care plan" },
+  },
+  {
+    label: "Hand-built to load fast on phones",
+    values: { diy: "Depends on the template", us: true, agency: true },
+  },
+  {
+    label: "Who you talk to",
+    values: {
+      diy: "A support chat",
+      us: "Your developer, directly",
+      agency: "Usually an account manager",
+    },
+  },
 ];

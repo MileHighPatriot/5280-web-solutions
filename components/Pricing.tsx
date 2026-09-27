@@ -9,7 +9,7 @@ import {
   editPrice,
   extraPagePrice,
   flatFee,
-  foundingClients,
+  launchOffer,
   money,
   moneyRange,
   monthlyTerms,
@@ -41,14 +41,20 @@ export default function Pricing({
       {intro ? (
         <div className="mx-auto max-w-3xl text-center">
           <p className="t-mono text-stone">Simple, upfront pricing</p>
-          <Heading className={`${headingLevel === "h1" ? "t-h1" : "t-h2"} mt-4 text-balance`}>
+          <Heading
+            className={`${headingLevel === "h1" ? "t-h1" : "t-h2"} mt-4 text-balance`}
+          >
             Two ways to work with us
           </Heading>
           <p className="t-lede mt-5 text-pretty text-stone">
-            Spread the cost with a monthly plan, or pay once and own your site outright. Either way you
-            get a custom site built by a real person on the Front Range.
+            Spread the cost with a monthly plan, or pay once and own your site
+            outright. Either way you get a custom site built by a real person on
+            the Front Range.
           </p>
-          <nav aria-label="Pricing options" className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <nav
+            aria-label="Pricing options"
+            className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"
+          >
             <a
               href="#monthly"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-cream"
@@ -67,7 +73,10 @@ export default function Pricing({
           </nav>
           <p className="mt-5 text-sm text-stone">
             Not sure which fits?{" "}
-            <Link href="/pricing/#plan-finder" className="font-bold text-ember underline underline-offset-4">
+            <Link
+              href="/pricing/#plan-finder"
+              className="font-bold text-ember underline underline-offset-4"
+            >
               Try the 30-second plan finder
             </Link>
           </p>
@@ -75,33 +84,46 @@ export default function Pricing({
       ) : null}
 
       {/* Path 1: monthly plans */}
-      <section id="monthly" aria-labelledby="monthly-title" className={intro ? "mt-14 sm:mt-20" : undefined}>
+      <section
+        id="monthly"
+        aria-labelledby="monthly-title"
+        className={intro ? "mt-14 sm:mt-20" : undefined}
+      >
         <div className="rounded-[1.75rem] bg-sand/70 p-4 ring-1 ring-navy/10 sm:p-6 lg:p-10">
           <div className="flex flex-col gap-6 px-2 pt-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="t-mono text-stone">Option 1 · Monthly plan</span>
+                <span className="t-mono text-stone">
+                  Option 1 · Monthly plan
+                </span>
                 <span className="rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy">
                   Recommended
                 </span>
               </div>
-              <Sub id="monthly-title" className="mt-4 text-[clamp(1.6rem,3vw,2.35rem)] font-extrabold leading-tight tracking-tight text-balance">
-                No big upfront cost. Get a professional site built for a small setup fee.
+              <Sub
+                id="monthly-title"
+                className="mt-4 text-[clamp(1.6rem,3vw,2.35rem)] font-extrabold leading-tight tracking-tight text-balance"
+              >
+                No big upfront cost. Get a professional site built for a small
+                setup fee.
               </Sub>
             </div>
             <ul className="grid shrink-0 gap-2 text-[0.95rem] text-stone lg:text-right">
               <li>
-                <strong className="text-navy">{monthlyTerms.minimumMonths}-month minimum</strong>, then
-                month-to-month
+                <strong className="text-navy">
+                  {monthlyTerms.minimumMonths}-month minimum
+                </strong>
+                , then month-to-month
               </li>
               <li>Buy your site outright any time</li>
             </ul>
           </div>
 
           <p className="mx-2 mt-6 rounded-xl bg-navy px-5 py-4 text-[0.95rem] text-cream">
-            <strong className="text-orange">Founding clients:</strong> our first {foundingClients.count} clients go
-            month-to-month from day one, with no {monthlyTerms.minimumMonths}-month minimum, while we build out our
-            portfolio. Leave in the first year and you can keep your site with a buyout, which gets smaller every
+            <strong className="text-orange">{launchOffer.label}:</strong> new
+            clients go month-to-month from day one, with no{" "}
+            {monthlyTerms.minimumMonths}-month minimum. Leave in the first year
+            and you can keep your site with a buyout, which gets smaller every
             month you stay.
           </p>
 
@@ -112,15 +134,18 @@ export default function Pricing({
           </div>
 
           <p className="mt-5 px-2 text-center text-sm text-stone">
-            The setup fee is a one-time payment made upfront, separate from your monthly price. Prices
-            shown are starting rates for the page count on each plan. Need more? Extra pages are{" "}
-            {addOnPrice(extraPagePrice)}.
+            The setup fee is a one-time payment made upfront, separate from your
+            monthly price. Prices shown are starting rates for the page count on
+            each plan. Need more? Extra pages are {addOnPrice(extraPagePrice)}.
           </p>
         </div>
       </section>
 
       {/* Every build includes */}
-      <section aria-labelledby="every-build" className="mx-auto mt-14 max-w-5xl sm:mt-16">
+      <section
+        aria-labelledby="every-build"
+        className="mx-auto mt-14 max-w-5xl sm:mt-16"
+      >
         <Sub id="every-build" className="t-mono text-center text-stone">
           Included with every website, either way
         </Sub>
@@ -135,11 +160,17 @@ export default function Pricing({
       </section>
 
       {/* Path 2: flat-fee build */}
-      <section id="flat-fee" aria-labelledby="flat-fee-title" className="mx-auto mt-14 max-w-5xl sm:mt-16">
+      <section
+        id="flat-fee"
+        aria-labelledby="flat-fee-title"
+        className="mx-auto mt-14 max-w-5xl sm:mt-16"
+      >
         <div className="rounded-[1.5rem] border-2 border-dashed border-navy/20 bg-paper p-6 sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             <div>
-              <span className="t-mono text-stone">Option 2 · Flat-fee build</span>
+              <span className="t-mono text-stone">
+                Option 2 · Flat-fee build
+              </span>
               <Sub id="flat-fee-title" className="t-h3 mt-3 text-balance">
                 Prefer to pay once and own it outright?
               </Sub>
@@ -150,7 +181,10 @@ export default function Pricing({
                 <span className="text-stone">one-time build</span>
               </p>
               <p className="mt-2 text-[0.95rem] text-stone">
-                then <strong className="text-navy">{moneyRange(flatFee.hostingMin, flatFee.hostingMax)}/mo</strong>{" "}
+                then{" "}
+                <strong className="text-navy">
+                  {moneyRange(flatFee.hostingMin, flatFee.hostingMax)}/mo
+                </strong>{" "}
                 hosting after launch
               </p>
               <Link
@@ -171,8 +205,8 @@ export default function Pricing({
                 ))}
               </ul>
               <p className="mt-5 rounded-xl bg-sand/70 px-4 py-3 text-sm text-stone">
-                Hosting on the flat-fee plan doesn&rsquo;t include edits. Changes are billed à la carte at{" "}
-                {addOnPrice(editPrice)}.
+                Hosting on the flat-fee plan doesn&rsquo;t include edits.
+                Changes are billed à la carte at {addOnPrice(editPrice)}.
               </p>
             </div>
           </div>
@@ -192,26 +226,44 @@ function FeatureRow({ row, featured }: { row: Row; featured: boolean }) {
     <li
       className={`flex gap-2.5 ${row.bold ? "font-bold" : ""} ${row.excluded ? (featured ? "text-mist" : "text-stone") : ""}`}
     >
-      {row.excluded ? <Dash className="opacity-70" /> : <Check className={featured ? "text-orange" : "text-ember"} />}
+      {row.excluded ? (
+        <Dash className="opacity-70" />
+      ) : (
+        <Check className={featured ? "text-orange" : "text-ember"} />
+      )}
       {row.text}
     </li>
   );
 }
 
-function TierCard({ tier, heading: TierHeading }: { tier: Tier; heading: "h3" | "h4" }) {
+function TierCard({
+  tier,
+  heading: TierHeading,
+}: {
+  tier: Tier;
+  heading: "h3" | "h4";
+}) {
   const featured = Boolean(tier.highlight);
   const rows: Row[] = [
-    ...(tier.includesPrevious ? [{ text: tier.includesPrevious, bold: true }] : []),
-    ...tier.features.map((feature) => ({ text: feature, excluded: feature.startsWith("No ") })),
+    ...(tier.includesPrevious
+      ? [{ text: tier.includesPrevious, bold: true }]
+      : []),
+    ...tier.features.map((feature) => ({
+      text: feature,
+      excluded: feature.startsWith("No "),
+    })),
   ];
   // Collapse only when it hides at least two rows; hiding a single line isn't worth a click.
-  const shown = rows.length - visibleFeatures >= 2 ? visibleFeatures : rows.length;
+  const shown =
+    rows.length - visibleFeatures >= 2 ? visibleFeatures : rows.length;
 
   return (
     <article
       aria-labelledby={`tier-${tier.id}`}
       className={`relative flex flex-col rounded-2xl p-6 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/15 sm:p-7 ${
-        featured ? "bg-navy text-cream shadow-xl shadow-navy/20 ring-2 ring-orange" : "bg-paper ring-1 ring-navy/10"
+        featured
+          ? "bg-navy text-cream shadow-xl shadow-navy/20 ring-2 ring-orange"
+          : "bg-paper ring-1 ring-navy/10"
       }`}
     >
       {tier.highlight ? (
@@ -220,15 +272,22 @@ function TierCard({ tier, heading: TierHeading }: { tier: Tier; heading: "h3" | 
         </p>
       ) : null}
 
-      <TierHeading id={`tier-${tier.id}`} className="text-xl font-extrabold tracking-tight">
+      <TierHeading
+        id={`tier-${tier.id}`}
+        className="text-xl font-extrabold tracking-tight"
+      >
         {tier.name}
       </TierHeading>
-      <p className={`mt-2 text-[0.95rem] leading-snug lg:min-h-[4.1rem] ${featured ? "text-mist" : "text-stone"}`}>
+      <p
+        className={`mt-2 text-[0.95rem] leading-snug lg:min-h-[4.1rem] ${featured ? "text-mist" : "text-stone"}`}
+      >
         {tier.summary}
       </p>
 
       <p className="mt-6 flex items-baseline gap-1">
-        <span className="text-5xl font-extrabold tracking-tight">{money(tier.monthly)}</span>
+        <span className="text-5xl font-extrabold tracking-tight">
+          {money(tier.monthly)}
+        </span>
         <span className={featured ? "text-mist" : "text-stone"}>/month</span>
       </p>
 
@@ -239,14 +298,23 @@ function TierCard({ tier, heading: TierHeading }: { tier: Tier; heading: "h3" | 
         }`}
       >
         <span className="font-bold">+ {money(tier.setupFee)} setup fee</span>
-        <span className={`text-xs font-semibold ${featured ? "text-orange-soft" : "text-ember"}`}>
+        <span
+          className={`text-xs font-semibold ${featured ? "text-orange-soft" : "text-ember"}`}
+        >
           One-time, paid upfront
         </span>
       </p>
-      <p className={`mt-2 px-1 text-sm ${featured ? "text-mist" : "text-stone"}`}>
-        Year one: <strong className={featured ? "text-cream" : "text-navy"}>{money(yearOne(tier))}</strong> total
+      <p
+        className={`mt-2 px-1 text-sm ${featured ? "text-mist" : "text-stone"}`}
+      >
+        Year one:{" "}
+        <strong className={featured ? "text-cream" : "text-navy"}>
+          {money(yearOne(tier))}
+        </strong>{" "}
+        total
         <span className="block text-xs">
-          {money(tier.setupFee)} setup + {monthlyTerms.minimumMonths} × {money(tier.monthly)}/month
+          {money(tier.setupFee)} setup + {monthlyTerms.minimumMonths} ×{" "}
+          {money(tier.monthly)}/month
         </span>
       </p>
 
@@ -280,7 +348,9 @@ function TierCard({ tier, heading: TierHeading }: { tier: Tier; heading: "h3" | 
         href={`/contact/?plan=${tier.id}`}
         aria-label={`Get started with the ${tier.name} plan`}
         className={`group mt-8 inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 font-bold transition-colors ${
-          featured ? "bg-orange text-navy hover:bg-orange-soft" : "bg-navy text-cream hover:bg-navy-3"
+          featured
+            ? "bg-orange text-navy hover:bg-orange-soft"
+            : "bg-navy text-cream hover:bg-navy-3"
         }`}
       >
         Get started
@@ -299,13 +369,24 @@ export function ComparisonTable() {
           <caption className="sr-only">Monthly plan comparison</caption>
           <thead>
             <tr className="border-b border-navy/10">
-              <th scope="col" className="p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone">
+              <th
+                scope="col"
+                className="p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone"
+              >
                 Monthly plans
               </th>
               {tiers.map((tier) => (
-                <th key={tier.id} scope="col" className={`p-5 text-center ${tier.highlight ? "bg-navy text-cream" : ""}`}>
-                  <span className="block text-lg font-extrabold">{tier.name}</span>
-                  <span className={`block text-sm font-normal ${tier.highlight ? "text-mist" : "text-stone"}`}>
+                <th
+                  key={tier.id}
+                  scope="col"
+                  className={`p-5 text-center ${tier.highlight ? "bg-navy text-cream" : ""}`}
+                >
+                  <span className="block text-lg font-extrabold">
+                    {tier.name}
+                  </span>
+                  <span
+                    className={`block text-sm font-normal ${tier.highlight ? "text-mist" : "text-stone"}`}
+                  >
                     {money(tier.monthly)}/mo + {money(tier.setupFee)} setup
                   </span>
                 </th>
@@ -314,7 +395,10 @@ export function ComparisonTable() {
           </thead>
           <tbody>
             {comparison.map((row) => (
-              <tr key={row.label} className="border-b border-navy/10 last:border-0">
+              <tr
+                key={row.label}
+                className="border-b border-navy/10 last:border-0"
+              >
                 <th scope="row" className="px-5 py-4 font-medium">
                   {row.label}
                 </th>
@@ -335,7 +419,9 @@ export function ComparisonTable() {
       {/* On phones the stacked rows run long and repeat the plan cards, so they start folded. */}
       <details className="group md:hidden">
         <summary className="flex cursor-pointer items-center justify-between gap-4 rounded-xl bg-paper px-5 py-4 font-bold ring-1 ring-navy/10">
-          <span className="group-open:hidden">Show all {comparison.length} rows</span>
+          <span className="group-open:hidden">
+            Show all {comparison.length} rows
+          </span>
           <span className="hidden group-open:inline">Hide the comparison</span>
           <span
             aria-hidden="true"
@@ -350,12 +436,17 @@ export function ComparisonTable() {
             {tiers.map((tier) => (
               <p key={tier.id}>
                 <span className="block font-extrabold">{tier.name}</span>
-                <span className="block text-xs text-mist">{money(tier.monthly)}/mo</span>
+                <span className="block text-xs text-mist">
+                  {money(tier.monthly)}/mo
+                </span>
               </p>
             ))}
           </div>
           {comparison.map((row) => (
-            <div key={row.label} className="rounded-xl bg-paper p-4 ring-1 ring-navy/10">
+            <div
+              key={row.label}
+              className="rounded-xl bg-paper p-4 ring-1 ring-navy/10"
+            >
               <p className="text-sm font-bold">{row.label}</p>
               <dl className="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
                 {tiers.map((tier) => (
@@ -381,16 +472,29 @@ export function AlternativesTable() {
     <>
       <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-navy/10 max-md:hidden">
         <table className="w-full table-fixed border-collapse text-left text-[0.95rem]">
-          <caption className="sr-only">Our Growth plan compared with doing it yourself and hiring an agency</caption>
+          <caption className="sr-only">
+            Our Growth plan compared with doing it yourself and hiring an agency
+          </caption>
           <thead>
             <tr className="border-b border-navy/10">
-              <th scope="col" className="w-[26%] p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone">
+              <th
+                scope="col"
+                className="w-[26%] p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone"
+              >
                 Your options
               </th>
               {alternativeColumns.map((column) => (
-                <th key={column.id} scope="col" className={`p-5 text-center ${column.id === "us" ? "bg-navy text-cream" : ""}`}>
-                  <span className="block text-lg font-extrabold">{column.name}</span>
-                  <span className={`block text-sm font-normal ${column.id === "us" ? "text-mist" : "text-stone"}`}>
+                <th
+                  key={column.id}
+                  scope="col"
+                  className={`p-5 text-center ${column.id === "us" ? "bg-navy text-cream" : ""}`}
+                >
+                  <span className="block text-lg font-extrabold">
+                    {column.name}
+                  </span>
+                  <span
+                    className={`block text-sm font-normal ${column.id === "us" ? "text-mist" : "text-stone"}`}
+                  >
                     {column.detail}
                   </span>
                 </th>
@@ -399,7 +503,10 @@ export function AlternativesTable() {
           </thead>
           <tbody>
             {alternatives.map((row) => (
-              <tr key={row.label} className="border-b border-navy/10 last:border-0">
+              <tr
+                key={row.label}
+                className="border-b border-navy/10 last:border-0"
+              >
                 <th scope="row" className="px-5 py-4 font-medium">
                   {row.label}
                 </th>
@@ -419,7 +526,10 @@ export function AlternativesTable() {
 
       <div className="grid gap-3 md:hidden">
         {alternatives.map((row) => (
-          <div key={row.label} className="rounded-xl bg-paper p-4 ring-1 ring-navy/10">
+          <div
+            key={row.label}
+            className="rounded-xl bg-paper p-4 ring-1 ring-navy/10"
+          >
             <p className="text-sm font-bold">{row.label}</p>
             <dl className="mt-3 grid gap-2 text-sm">
               {alternativeColumns.map((column) => (
@@ -427,7 +537,11 @@ export function AlternativesTable() {
                   key={column.id}
                   className={`flex items-center justify-between gap-4 rounded-lg px-3 py-2 ${column.id === "us" ? "bg-navy text-cream" : "bg-sand/50"}`}
                 >
-                  <dt className={`shrink-0 whitespace-nowrap ${column.id === "us" ? "font-bold" : "text-stone"}`}>{column.name}</dt>
+                  <dt
+                    className={`shrink-0 whitespace-nowrap ${column.id === "us" ? "font-bold" : "text-stone"}`}
+                  >
+                    {column.name}
+                  </dt>
                   <dd className="text-right">
                     <CellValue value={row.values[column.id]} />
                   </dd>

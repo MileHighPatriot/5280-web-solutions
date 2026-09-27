@@ -1,4 +1,10 @@
-import { addOnPrice, editPrice, foundingClients, monthlyTerms, money, tiers } from "@/data/pricing";
+import {
+  addOnPrice,
+  editPrice,
+  monthlyTerms,
+  money,
+  tiers,
+} from "@/data/pricing";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -12,7 +18,7 @@ export const pricingFaq: FaqItem[] = [
   },
   {
     question: `Why is there a ${monthlyTerms.minimumMonths}-month minimum?`,
-    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. Our first ${foundingClients.count} clients skip the minimum entirely and go month-to-month from day one while we build out our portfolio. If a founding client leaves in the first ${monthlyTerms.minimumMonths} months, they can keep the site by buying it out, and that price goes down every month they stay.`,
+    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. For a limited time, new clients skip the minimum entirely and go month-to-month from day one. If you leave in the first ${monthlyTerms.minimumMonths} months, you can keep the site by buying it out, and that price goes down every month you stay.`,
   },
   {
     question: "Can I buy my site outright later?",
@@ -25,9 +31,9 @@ export const pricingFaq: FaqItem[] = [
       "You do, always. Your domain (like yourbusiness.com) is registered in your name. We manage the renewals and settings for you, but it's yours whatever plan you choose and whether or not you stay with us.",
   },
   {
-    question: "What counts as a \"small edit\" or a \"reasonable edit\"?",
+    question: 'What counts as a "small edit" or a "reasonable edit"?',
     answer:
-      "A small edit is something like updating hours, swapping photos, changing prices, adding a menu item, or posting a seasonal promo. Anything that takes under about 30 minutes. \"Unlimited reasonable edits\" on Premium means all of those, as often as you need. Building a brand-new section or page is a separate project, and we'll quote it upfront.",
+      'A small edit is something like updating hours, swapping photos, changing prices, adding a menu item, or posting a seasonal promo. Anything that takes under about 30 minutes. "Unlimited reasonable edits" on Premium means all of those, as often as you need. Building a brand-new section or page is a separate project, and we\'ll quote it upfront.',
   },
   {
     question: "What if I need changes on the flat-fee build?",
@@ -67,7 +73,8 @@ export const generalFaq: FaqItem[] = [
       "Every site is built with the SEO basics Google looks for. Your Google Business Profile, which often puts a local business on the map, is set up for you on Growth and Premium plans, or as a one-time add-on. No honest developer can guarantee a #1 ranking, but we'll give you a strong, clean foundation.",
   },
   {
-    question: "Will my business show up in AI answers, like ChatGPT or Google's AI Overviews?",
+    question:
+      "Will my business show up in AI answers, like ChatGPT or Google's AI Overviews?",
     answer:
       "No one can promise that, so be wary of anyone who does. Those tools lean on the same foundation we build into every site: clear pages that say what you do and where, business details marked up in a format machines can read, a complete Google Business Profile, and the same name, address, and phone everywhere you're listed. That gives your business its best shot at being the one they recommend.",
   },

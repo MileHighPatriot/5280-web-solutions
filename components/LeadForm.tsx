@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, type ReactNode, useEffect, useState } from "react";
+import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import { Arrow } from "@/components/ui/Button";
 import { flatFee, money, moneyRange, tiers } from "@/data/pricing";
 import { site } from "@/data/site";
@@ -27,14 +27,26 @@ type Status = "idle" | "sending" | "sent" | "error";
 export default function LeadForm({ variant = "contact" }: { variant?: Variant }) {
   const [status, setStatus] = useState<Status>("idle");
   const [plan, setPlan] = useState("not-sure");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [blueprint, setBlueprint] = useState<{ industry: string; town: string; features: string[] } | null>(null);
 
   // Pricing buttons link here with ?plan=growth etc. Read it after hydration so the page stays static.
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get("plan");
+    /* eslint-disable react-hooks/set-state-in-effect -- one-time sync from the URL */
+    const params = new URLSearchParams(window.location.search);
+    // The homepage blueprint builder links here with the business name and the features they picked.
+    const business = params.get("business")?.trim();
+    const field = formRef.current?.elements.namedItem("business");
+    if (business && field instanceof HTMLInputElement && !field.value) field.value = business.slice(0, 80);
+    const features = params.get("blueprint")?.split("|").filter(Boolean).slice(0, 60);
+    if (features?.length) {
+      setBlueprint({ industry: params.get("industry") ?? "", town: params.get("town") ?? "", features });
+    }
+    const requested = params.get("plan");
     if (requested && planOptions.some((option) => option.value === requested)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync from the URL
       setPlan(requested);
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   const isCheck = variant === "check";
@@ -55,6 +67,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
         `Email: ${data.email}`,
         `Phone: ${data.phone || "Not given"}`,
         isCheck ? `Current website: ${data.website || "None yet"}` : `Plan: ${planLabel}`,
+        ...(data.blueprint ? [`Blueprint: ${data.blueprint}`] : []),
         "",
         data.message,
       ].join("\n");
@@ -106,8 +119,30 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-paper p-6 ring-1 ring-navy/10 sm:p-8">
+    <form ref={formRef} onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-paper p-6 ring-1 ring-navy/10 sm:p-8">
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
+      {blueprint ? (
+        <div className="rounded-xl bg-navy p-5 text-cream">
+          <p className="t-mono text-orange-soft">Your blueprint is attached</p>
+          <p className="mt-2 font-bold">
+            {[blueprint.industry && `A ${blueprint.industry} site`, blueprint.town].filter(Boolean).join(" in ")} ·{" "}
+            {blueprint.features.length} features
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-1.5 text-sm">
+            {blueprint.features.map((feature) => (
+              <li key={feature} className="rounded-full px-2.5 py-1 ring-1 ring-cream/25">
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <input
+            type="hidden"
+            name="blueprint"
+            value={`${blueprint.industry}${blueprint.town ? `, ${blueprint.town}` : ""}: ${blueprint.features.join(", ")}`}
+          />
+        </div>
+      ) : null}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Your name" name="name" autoComplete="name" required />

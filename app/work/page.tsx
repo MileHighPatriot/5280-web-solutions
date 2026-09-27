@@ -39,7 +39,7 @@ export default function WorkPage() {
             0{listedProjects.length + 1}
           </p>
           <div className="lg:col-span-8">
-            <p className="t-mono text-stone">Now booking founding clients</p>
+            <p className="t-mono text-stone">Now booking new projects</p>
             <p className="t-h2 mt-4 max-w-[20ch] text-balance">
               Your business could be <span className="text-orange">project 0{listedProjects.length + 1}.</span>
             </p>

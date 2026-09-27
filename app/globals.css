@@ -228,6 +228,102 @@ body {
   animation: fade-up 0.8s var(--ease-out-expo) both;
 }
 
+/* Blueprint builder (components/BlueprintBuilder.tsx): drafting-paper sheet and its linework. */
+.bp-sheet {
+  background-color: #0b3563;
+  background-image:
+    linear-gradient(to right, rgb(245 243 238 / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(245 243 238 / 0.1) 1px, transparent 1px),
+    linear-gradient(to right, rgb(245 243 238 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(245 243 238 / 0.045) 1px, transparent 1px);
+  background-size:
+    96px 96px,
+    96px 96px,
+    24px 24px,
+    24px 24px;
+}
+
+.bp-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(245 243 238 / 0.8);
+}
+
+.bp-pin {
+  display: inline-flex;
+  min-width: 1.4rem;
+  padding-inline: 0.25rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-orange);
+  color: var(--color-navy-ink);
+  font: 700 0.7rem/1 var(--font-mono);
+}
+
+.bp-bar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: rgb(245 243 238 / 0.28);
+}
+
+/* Dimension line with end ticks. */
+.bp-dim {
+  position: relative;
+  height: 1px;
+  background: var(--color-orange-soft);
+}
+
+.bp-dim::before,
+.bp-dim::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--color-orange-soft);
+}
+
+.bp-dim::before {
+  left: 0;
+}
+
+.bp-dim::after {
+  right: 0;
+}
+
+/* Sections draw in left to right when a blueprint is drawn; a new one flashes orange. */
+.bp-draw {
+  animation: bp-draw 0.55s var(--ease-out-expo) both;
+}
+
+.bp-new {
+  animation: bp-new 1.4s ease-out both;
+}
+
+@keyframes bp-draw {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes bp-new {
+  from {
+    box-shadow: 0 0 0 2px var(--color-orange-soft);
+  }
+  to {
+    box-shadow: 0 0 0 2px transparent;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
