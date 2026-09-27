@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Onest, Syne } from "next/font/google";
 import { ViewTransition } from "react";
 import Analytics from "@/components/Analytics";
 import Footer from "@/components/Footer";
@@ -10,17 +10,18 @@ import PointerGlow from "@/components/PointerGlow";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const schibsted = Schibsted_Grotesk({
+// Body text, buttons, and navigation.
+const onest = Onest({
   subsets: ["latin"],
-  variable: "--font-schibsted",
+  variable: "--font-onest",
   display: "swap",
 });
 
-// Display face for big headlines only: Archivo's width axis gives a wide, engineered cut.
-const archivo = Archivo({
+// Display face for headlines, card titles, and eyebrow labels. Nothing in the portfolio uses it,
+// so the studio's own site doesn't look like any of its concept sites.
+const syne = Syne({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-archivo",
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${schibsted.variable} ${archivo.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${onest.variable} ${syne.variable} ${plexMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-cream font-sans text-navy">
         <JsonLd data={businessJsonLd()} />
         <a href="#main" className="skip-link">

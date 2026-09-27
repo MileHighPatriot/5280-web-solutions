@@ -12,7 +12,7 @@ function HeroCopy() {
       <p className="t-mono fade-up text-mist">
         <Decode text="Web design · Fort Collins to Colorado Springs" duration={1100} />
       </p>
-      <h1 className="t-display fade-up mt-6 max-w-[16ch] text-balance" style={{ animationDelay: "80ms" }}>
+      <h1 className="t-display fade-up mt-6 max-w-[20ch] text-balance" style={{ animationDelay: "80ms" }}>
         Websites that win <span className="text-orange">local customers.</span>
       </h1>
       <p className="t-lede fade-up mt-6 max-w-xl text-pretty text-mist" style={{ animationDelay: "160ms" }}>

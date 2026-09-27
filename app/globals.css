@@ -19,9 +19,9 @@
   --color-line: #d8d3c9;
   --color-stone: #475569;
 
-  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
-  --font-display: var(--font-archivo), var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), var(--font-onest), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -76,38 +76,37 @@
   padding-block: clamp(4rem, 9vw, 8rem);
 }
 
+/* Syne runs wide, so the display sizes sit a notch below a typical grotesk's. */
 @utility t-display {
   font-family: var(--font-display);
-  font-stretch: 112%;
   font-weight: 800;
-  font-size: clamp(2.6rem, 7vw, 5.75rem);
-  line-height: 0.98;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.96;
   letter-spacing: -0.035em;
 }
 
 @utility t-h1 {
   font-family: var(--font-display);
-  font-stretch: 112%;
   font-weight: 800;
-  font-size: clamp(2.35rem, 5.4vw, 4.5rem);
-  line-height: 1.02;
+  font-size: clamp(1.7rem, 4.8vw, 4rem);
+  line-height: 1;
   letter-spacing: -0.03em;
 }
 
 @utility t-h2 {
   font-family: var(--font-display);
-  font-stretch: 112%;
   font-weight: 800;
-  font-size: clamp(1.9rem, 3.8vw, 3.1rem);
-  line-height: 1.06;
+  font-size: clamp(1.75rem, 3.4vw, 2.8rem);
+  line-height: 1.04;
   letter-spacing: -0.025em;
 }
 
 @utility t-h3 {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.2rem, 1.6vw, 1.45rem);
   line-height: 1.25;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.01em;
 }
 
 @utility t-lede {
@@ -122,10 +121,10 @@
 
 /* Small uppercase label for eyebrows and captions. */
 @utility t-mono {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
