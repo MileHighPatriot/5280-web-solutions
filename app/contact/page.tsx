@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BookCallCard } from "@/components/BookCall";
+import CallCard from "@/components/CallCard";
 import LeadForm from "@/components/LeadForm";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
@@ -14,8 +15,9 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        backdrop="logo"
-        eyebrow="Contact"
+        tone="orange"
+        visual={<CallCard />}
+        eyebrow="Contact · Talk to the developer"
         title="Let's talk about your website."
         lede={`Tell us a little about your business and which option you're leaning toward. We'll reply within ${site.replyTime}, usually sooner.`}
       />

@@ -23,7 +23,14 @@ import {
  * monthly plans first, then the flat-fee build as a lighter alternative.
  * Pure markup, no client JavaScript.
  */
-export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+export default function Pricing({
+  headingLevel = "h2",
+  intro = true,
+}: {
+  headingLevel?: "h1" | "h2";
+  /** Off when the page header already introduces the two options (the Pricing page). */
+  intro?: boolean;
+}) {
   const Heading = headingLevel;
   // Everything below steps down one level from the page heading, so the outline never skips a level.
   const Sub = headingLevel === "h1" ? "h2" : "h3";
@@ -31,42 +38,44 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
 
   return (
     <div>
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="t-mono text-stone">Simple, upfront pricing</p>
-        <Heading className={`${headingLevel === "h1" ? "t-h1" : "t-h2"} mt-4 text-balance`}>
-          Two ways to work with us
-        </Heading>
-        <p className="t-lede mt-5 text-pretty text-stone">
-          Spread the cost with a monthly plan, or pay once and own your site outright. Either way you
-          get a custom site built by a real person on the Front Range.
-        </p>
-        <nav aria-label="Pricing options" className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <a
-            href="#monthly"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-cream"
-          >
-            <span className="rounded-full bg-orange px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-navy">
-              Recommended
-            </span>
-            Monthly plans
-          </a>
-          <a
-            href="#flat-fee"
-            className="inline-flex items-center justify-center rounded-full border-2 border-navy/15 px-5 py-3 text-sm font-bold transition-colors hover:border-navy"
-          >
-            One-time flat-fee build
-          </a>
-        </nav>
-        <p className="mt-5 text-sm text-stone">
-          Not sure which fits?{" "}
-          <Link href="/pricing/#plan-finder" className="font-bold text-ember underline underline-offset-4">
-            Try the 30-second plan finder
-          </Link>
-        </p>
-      </div>
+      {intro ? (
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="t-mono text-stone">Simple, upfront pricing</p>
+          <Heading className={`${headingLevel === "h1" ? "t-h1" : "t-h2"} mt-4 text-balance`}>
+            Two ways to work with us
+          </Heading>
+          <p className="t-lede mt-5 text-pretty text-stone">
+            Spread the cost with a monthly plan, or pay once and own your site outright. Either way you
+            get a custom site built by a real person on the Front Range.
+          </p>
+          <nav aria-label="Pricing options" className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href="#monthly"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-cream"
+            >
+              <span className="rounded-full bg-orange px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-navy">
+                Recommended
+              </span>
+              Monthly plans
+            </a>
+            <a
+              href="#flat-fee"
+              className="inline-flex items-center justify-center rounded-full border-2 border-navy/15 px-5 py-3 text-sm font-bold transition-colors hover:border-navy"
+            >
+              One-time flat-fee build
+            </a>
+          </nav>
+          <p className="mt-5 text-sm text-stone">
+            Not sure which fits?{" "}
+            <Link href="/pricing/#plan-finder" className="font-bold text-ember underline underline-offset-4">
+              Try the 30-second plan finder
+            </Link>
+          </p>
+        </div>
+      ) : null}
 
       {/* Path 1: monthly plans */}
-      <section id="monthly" aria-labelledby="monthly-title" className="mt-14 sm:mt-20">
+      <section id="monthly" aria-labelledby="monthly-title" className={intro ? "mt-14 sm:mt-20" : undefined}>
         <div className="rounded-[1.75rem] bg-sand/70 p-4 ring-1 ring-navy/10 sm:p-6 lg:p-10">
           <div className="flex flex-col gap-6 px-2 pt-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">

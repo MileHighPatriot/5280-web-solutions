@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import HeaderDevices from "@/components/HeaderDevices";
 import LaunchLog from "@/components/LaunchLog";
-import ServiceIcon from "@/components/ServiceIcon";
 import Backdrop from "@/components/ui/Backdrop";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { Eyebrow, SectionHeading } from "@/components/ui/Section";
 import { industries } from "@/data/industries";
+import { featuredProject, projects } from "@/data/projects";
 import { everyBuild } from "@/data/pricing";
 import { services, steps } from "@/data/services";
 
@@ -17,59 +18,69 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/" },
 };
 
+const headgate = projects.find((project) => project.slug === "headgate-plumbing")!;
+
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        backdrop="topo"
-        seed={4}
-        eyebrow="Services"
+        tone="orange"
+        into="navy"
+        visual={<HeaderDevices laptop={featuredProject} phone={headgate} />}
+        eyebrow="Services · Four ways we help"
         title="Built, hosted, and found."
         lede="New sites, redesigns, hosting, and getting found on Google, all handled by one local developer who explains things in plain English."
         actions={
           <>
-            <Button href="/free-website-check/">Get a free website check</Button>
-            <Button href="/pricing/" variant="outline-light">
+            <Button href="/free-website-check/" variant="dark">
+              Get a free website check
+            </Button>
+            <Button href="/pricing/" variant="outline-ink">
               See pricing
             </Button>
           </>
         }
       />
 
-      <div className="container-x section-y grid gap-16 sm:gap-24">
-        {services.map((service, index) => (
+      {services.map((service, index) => {
+        const dark = index % 2 === 0;
+        return (
           <section
             key={service.id}
             id={service.id}
             aria-labelledby={`${service.id}-title`}
-            className="reveal grid gap-8 lg:grid-cols-12 lg:gap-12"
+            className={dark ? "bg-navy text-cream" : "bg-cream text-navy"}
           >
-            <div className="lg:col-span-5">
-              <div className="flex items-center gap-4">
-                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-navy text-cream">
-                  <ServiceIcon id={service.id} className="h-9 w-9" />
-                </span>
-                <p className="font-mono text-sm font-medium text-ember">0{index + 1}</p>
+            <div className={`${index > 0 ? "reveal " : ""}container-x grid gap-8 py-16 sm:py-24 lg:grid-cols-12 lg:gap-12`}>
+              <p
+                aria-hidden="true"
+                className={`t-display text-[clamp(4.5rem,8vw,7rem)] leading-[0.8] lg:col-span-3 ${
+                  dark ? "text-orange" : "text-transparent [-webkit-text-stroke:2px_var(--color-navy)]"
+                }`}
+              >
+                0{index + 1}
+              </p>
+              <div className="lg:col-span-4">
+                <h2 id={`${service.id}-title`} className="t-h2">
+                  {service.title}
+                </h2>
+                <p className={`t-lede mt-5 text-pretty ${dark ? "text-mist" : "text-stone"}`}>{service.short}</p>
               </div>
-              <h2 id={`${service.id}-title`} className="t-h2 mt-5">
-                {service.title}
-              </h2>
-              <p className="t-lede mt-5 text-stone">{service.short}</p>
-            </div>
-            <div className="lg:col-span-7">
-              <p className="t-body">{service.body}</p>
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {service.points.map((point) => (
-                  <li key={point} className="flex gap-2.5 rounded-xl bg-paper p-4 ring-1 ring-navy/10">
-                    <Check className="mt-0.5 text-ember" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              <div className="lg:col-span-5">
+                <p className={`t-body ${dark ? "text-cream/85" : ""}`}>{service.body}</p>
+                <ul className="mt-8 grid gap-4">
+                  {service.points.map((point) => (
+                    <li key={point} className="flex gap-3.5">
+                      <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 bg-orange" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </section>
-        ))}
-      </div>
+        );
+      })}
 
       <section aria-labelledby="included" className="bg-navy text-cream">
         <div className="container-x section-y grid gap-12 lg:grid-cols-2">

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { TalkLine } from "@/components/BookCall";
 import LeadForm from "@/components/LeadForm";
+import ReportSheet from "@/components/ReportSheet";
 import SpeedCheck from "@/components/SpeedCheck";
-import { Check } from "@/components/ui/Button";
+import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/Section";
 import { site } from "@/data/site";
@@ -31,21 +32,33 @@ export default function FreeWebsiteCheckPage() {
   return (
     <>
       <PageHeader
-        backdrop="topo"
-        seed={11}
-        eyebrow="Free website check"
+        tone="orange"
+        long
+        visual={<ReportSheet />}
+        eyebrow="Free website check · No obligation"
         title="Is your website costing you customers?"
         lede={`Send us your site and we'll review it for free. Within ${site.checkTurnaround} you'll get a written report in plain English: what's working, what isn't, and what to fix first. No obligation, and no sales pitch.`}
+        actions={
+          <>
+            <Button href="#request" variant="dark">
+              Request your free check
+            </Button>
+            <Button href="#speed-test" variant="outline-ink">
+              Test your speed now
+            </Button>
+          </>
+        }
       />
 
       <section aria-labelledby="speed-test" className="container-x pt-16 sm:pt-24">
         <SectionHeading
           id="speed-test"
+          reveal={false}
           eyebrow="Try it now"
           title="See how your site scores, right now."
           lede="Type in your website and see how it scores on Google's own test, explained in plain English. Then send it to us for the full review."
         />
-        <div className="reveal mt-10">
+        <div className="mt-10">
           <SpeedCheck />
         </div>
       </section>

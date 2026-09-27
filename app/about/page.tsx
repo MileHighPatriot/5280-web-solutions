@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import FounderCard from "@/components/FounderCard";
-import Button, { Check } from "@/components/ui/Button";
+import FounderPortrait from "@/components/FounderPortrait";
+import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import { SectionHeading } from "@/components/ui/Section";
+import { Eyebrow } from "@/components/ui/Section";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -34,23 +34,26 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        backdrop="logo"
-        eyebrow="About"
+        tone="orange"
+        into="navy"
+        visual={<FounderPortrait />}
+        eyebrow="About · Front Range, Colorado"
         title="Hi, I'm Kohlton."
         lede="I build websites for small businesses up and down the Front Range, and I take care of them after launch so you don't have to."
       />
 
-      <section aria-labelledby="story" className="container-x section-y">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <div className="mx-auto max-w-md lg:sticky lg:top-28 lg:max-w-none">
-              <FounderCard showRegion />
-            </div>
+      <section aria-labelledby="story" className="bg-navy text-cream">
+        <div className="container-x section-y grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-4">
+            <p className="t-display text-[clamp(7rem,16vw,12rem)] leading-[0.8] text-orange">14</p>
+            <p className="t-mono mt-5 max-w-[16rem] text-mist">Years in construction before I built websites</p>
           </div>
-
-          <div className="lg:col-span-7">
-            <SectionHeading id="story" eyebrow="My story" title="Why I started 5280 Web Solutions" />
-            <div className="t-body mt-8 grid gap-5 text-stone">
+          <div className="lg:col-span-8">
+            <Eyebrow className="text-mist">My story</Eyebrow>
+            <h2 id="story" className="t-h2 mt-5 text-balance">
+              Why I started 5280 Web Solutions
+            </h2>
+            <div className="t-body mt-8 grid max-w-2xl gap-5 text-cream/85">
               <p>
                 Colorado runs on small businesses: the car wash on the corner, the landscaping crew,
                 the family restaurant, the contractor everyone&rsquo;s neighbor recommends. Too many
@@ -70,27 +73,52 @@ export default function AboutPage() {
                 needs to change.
               </p>
             </div>
-
-            <h2 className="t-h3 mt-14">What you can count on</h2>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-              {promises.map((item) => (
-                <li key={item.title} className="rounded-2xl bg-paper p-6 ring-1 ring-navy/10">
-                  <p className="flex items-center gap-2 font-bold">
-                    <Check className="text-ember" />
-                    {item.title}
-                  </p>
-                  <p className="mt-2 leading-relaxed text-stone">{item.body}</p>
-                </li>
-              ))}
+            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm">
+              <li>
+                <a href={site.phoneHref} className="hover:text-orange">
+                  {site.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a href={site.emailHref} className="hover:text-orange">
+                  {site.email}
+                </a>
+              </li>
+              <li className="text-mist">{site.hours}</li>
             </ul>
-
-            <div className="mt-12 flex flex-wrap gap-3">
-              <Button href="/free-website-check/">Get a free website check</Button>
-              <Button href="/work/" variant="outline">
-                See our work
-              </Button>
-            </div>
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="promises" className="container-x section-y">
+        <div className="reveal max-w-3xl">
+          <Eyebrow className="text-stone">The short version</Eyebrow>
+          <h2 id="promises" className="t-h2 mt-5 text-balance">
+            What you can <span className="text-orange">count on.</span>
+          </h2>
+        </div>
+        <ol className="mt-14 grid gap-x-12 gap-y-12 sm:grid-cols-2">
+          {promises.map((item, index) => (
+            <li key={item.title} className="reveal grid grid-cols-[auto_1fr] gap-6 border-t-2 border-navy pt-8">
+              <span
+                aria-hidden="true"
+                className="t-display text-[clamp(3.25rem,5vw,4.5rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-navy)]"
+              >
+                0{index + 1}
+              </span>
+              <div>
+                <h3 className="t-h3">{item.title}</h3>
+                <p className="mt-2 leading-relaxed text-stone">{item.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-16 flex flex-wrap gap-3">
+          <Button href="/free-website-check/">Get a free website check</Button>
+          <Button href="/work/" variant="outline">
+            See our work
+          </Button>
         </div>
       </section>
     </>

@@ -156,6 +156,11 @@ body {
   outline-offset: 3px;
 }
 
+/* An orange ring disappears on orange panels. */
+.bg-orange :focus-visible {
+  outline-color: var(--color-navy-ink);
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;

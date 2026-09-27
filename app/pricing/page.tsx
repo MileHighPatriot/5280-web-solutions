@@ -5,7 +5,9 @@ import Faq, { faqJsonLd } from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import PlanFinder from "@/components/PlanFinder";
 import Pricing, { AlternativesTable, ComparisonTable } from "@/components/Pricing";
+import PriceTag from "@/components/PriceTag";
 import Button from "@/components/ui/Button";
+import PageHeader from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/Section";
 import { pricingFaq } from "@/data/faq";
 import { alternativesCheckedOn, money, tiers } from "@/data/pricing";
@@ -22,8 +24,35 @@ export default function PricingPage() {
     <>
       <JsonLd data={faqJsonLd(pricingFaq)} />
 
+      <PageHeader
+        tone="orange"
+        visual={<PriceTag />}
+        eyebrow="Pricing · Simple and upfront"
+        title="Two ways to work with us."
+        lede={
+          <>
+            Spread the cost with a monthly plan, or pay once and own your site outright. Either way you get a custom
+            site built by a real person on the Front Range. Not sure which fits?{" "}
+            <Link href="/pricing/#plan-finder" className="font-bold underline underline-offset-4">
+              Try the 30-second plan finder
+            </Link>
+            .
+          </>
+        }
+        actions={
+          <>
+            <Button href="#monthly" variant="dark">
+              Monthly plans
+            </Button>
+            <Button href="#flat-fee" variant="outline-ink">
+              One-time flat-fee build
+            </Button>
+          </>
+        }
+      />
+
       <section className="container-x pt-14 pb-16 sm:pt-20 sm:pb-20">
-        <Pricing headingLevel="h1" />
+        <Pricing headingLevel="h1" intro={false} />
       </section>
 
       <section aria-labelledby="add-ons" className="container-x pb-16 sm:pb-24">

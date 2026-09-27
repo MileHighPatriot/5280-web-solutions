@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "dark" | "outline" | "outline-light";
+type Variant = "primary" | "dark" | "outline" | "outline-light" | "outline-ink";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -9,6 +9,8 @@ const variants: Record<Variant, string> = {
   dark: "bg-navy text-cream hover:bg-navy-3",
   outline: "border-2 border-navy/20 text-navy hover:border-navy",
   "outline-light": "border-2 border-cream/30 text-cream hover:border-cream",
+  /** For orange panels. */
+  "outline-ink": "border-2 border-navy-ink text-navy-ink hover:bg-navy-ink hover:text-orange",
 };
 
 type ButtonProps = {

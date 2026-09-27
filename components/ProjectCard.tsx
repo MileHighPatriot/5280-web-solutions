@@ -32,9 +32,18 @@ function SpeedBadge({ speed }: { speed: NonNullable<Project["speed"]> }) {
   );
 }
 
-export default function ProjectCard({ project, large = false }: { project: Project; large?: boolean }) {
+export default function ProjectCard({
+  project,
+  large = false,
+  reveal = true,
+}: {
+  project: Project;
+  large?: boolean;
+  /** Off for cards that can sit above the fold, so they never paint mid-fade. */
+  reveal?: boolean;
+}) {
   return (
-    <article className="reveal group relative">
+    <article className={`${reveal ? "reveal " : ""}group relative`}>
       <div className="@container relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
         <div
           aria-hidden="true"

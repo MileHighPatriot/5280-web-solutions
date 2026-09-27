@@ -17,6 +17,7 @@ export function SectionHeading({
   lede,
   dark = false,
   center = false,
+  reveal = true,
   id,
 }: {
   eyebrow: string;
@@ -24,10 +25,12 @@ export function SectionHeading({
   lede?: ReactNode;
   dark?: boolean;
   center?: boolean;
+  /** Off for headings that can sit above the fold, so they never paint mid-fade. */
+  reveal?: boolean;
   id?: string;
 }) {
   return (
-    <div className={`reveal ${center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
+    <div className={`${reveal ? "reveal " : ""}${center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
       <Eyebrow className={`${dark ? "text-mist" : "text-stone"} ${center ? "justify-center" : ""}`}>
         {eyebrow}
       </Eyebrow>
