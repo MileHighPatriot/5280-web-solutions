@@ -24,7 +24,7 @@ export default function ServicesPage() {
         backdrop="topo"
         seed={4}
         eyebrow="Services"
-        title="Everything your business needs online."
+        title="Built, hosted, and found."
         lede="New sites, redesigns, hosting, and getting found on Google, all handled by one local developer who explains things in plain English."
         actions={
           <>

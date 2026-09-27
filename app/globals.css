@@ -79,6 +79,7 @@
 /* Syne runs wide, so the display sizes sit a notch below a typical grotesk's. */
 @utility t-display {
   font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
   font-weight: 800;
   font-size: clamp(2.4rem, 6vw, 5rem);
   line-height: 0.96;
@@ -87,6 +88,7 @@
 
 @utility t-h1 {
   font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
   font-weight: 800;
   font-size: clamp(1.7rem, 4.8vw, 4rem);
   line-height: 1;
@@ -95,6 +97,7 @@
 
 @utility t-h2 {
   font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
   font-weight: 800;
   font-size: clamp(1.75rem, 3.4vw, 2.8rem);
   line-height: 1.04;
@@ -103,6 +106,7 @@
 
 @utility t-h3 {
   font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
   font-weight: 700;
   font-size: clamp(1.2rem, 1.6vw, 1.45rem);
   line-height: 1.25;
@@ -122,6 +126,7 @@
 /* Small uppercase label for eyebrows and captions. */
 @utility t-mono {
   font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.16em;

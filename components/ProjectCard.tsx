@@ -12,32 +12,44 @@ export function ConceptBadge({ className = "" }: { className?: string }) {
   );
 }
 
+/** Lighthouse scores on the card's frame. The label shortens as the card narrows so it never meets the concept badge. */
+function SpeedBadge({ speed }: { speed: NonNullable<Project["speed"]> }) {
+  return (
+    <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-widest text-cream backdrop-blur">
+      <svg aria-hidden="true" viewBox="0 0 12 12" className="h-3 w-3 text-orange">
+        <path fill="currentColor" d="M7 0 1.5 7H6l-1 5 5.5-7H6z" />
+      </svg>
+      <span className="sr-only">
+        PageSpeed {speed.mobile} on phones, {speed.desktop} on desktop
+      </span>
+      <span aria-hidden="true">
+        <span className="hidden @2xs:inline">PageSpeed </span>
+        {speed.mobile}
+        <span className="hidden @md:inline"> phone</span> · {speed.desktop}
+        <span className="hidden @md:inline"> desktop</span>
+      </span>
+    </span>
+  );
+}
+
 export default function ProjectCard({ project, large = false }: { project: Project; large?: boolean }) {
   return (
     <article className="reveal group relative">
-      <div className="relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
+      <div className="@container relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
         <div
           aria-hidden="true"
           className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/15 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
         />
         <ConceptBadge className="absolute top-4 left-4 !bg-cream/10" />
+        {project.speed ? <SpeedBadge speed={project.speed} /> : null}
         <DeviceShowcase
           project={project}
           sizes={large ? "(min-width: 1024px) 640px, (min-width: 640px) 50vw, 100vw" : undefined}
         />
       </div>
-      <p className="t-mono mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-stone">
-        {project.featured ? (
-          <span className="rounded-full bg-orange px-2.5 py-0.5 text-[0.68rem] font-bold text-navy">Featured · {project.featured}</span>
-        ) : null}
-        <span>
-          {project.industry} · {project.location}
-        </span>
-        {project.speed ? (
-          <span className="rounded-full bg-navy/[0.06] px-2.5 py-0.5 text-navy">
-            PageSpeed {project.speed.mobile} phone · {project.speed.desktop} desktop
-          </span>
-        ) : null}
+      <p className="t-mono mt-5 text-stone">
+        {project.featured ? <span className="text-ember">Featured · </span> : null}
+        {project.industry} · {project.location}
       </p>
       <h3 className={`mt-2 ${large ? "t-h2" : "t-h3"}`}>
         <Link href={`/work/${project.slug}/`} className="after:absolute after:inset-0">

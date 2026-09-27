@@ -170,8 +170,30 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
   );
 }
 
+/** Feature rows shown on a plan card before the rest fold under "more features". */
+const visibleFeatures = 5;
+
+type Row = { text: string; bold?: boolean; excluded?: boolean };
+
+function FeatureRow({ row, featured }: { row: Row; featured: boolean }) {
+  return (
+    <li
+      className={`flex gap-2.5 ${row.bold ? "font-bold" : ""} ${row.excluded ? (featured ? "text-mist" : "text-stone") : ""}`}
+    >
+      {row.excluded ? <Dash className="opacity-70" /> : <Check className={featured ? "text-orange" : "text-ember"} />}
+      {row.text}
+    </li>
+  );
+}
+
 function TierCard({ tier }: { tier: Tier }) {
   const featured = Boolean(tier.highlight);
+  const rows: Row[] = [
+    ...(tier.includesPrevious ? [{ text: tier.includesPrevious, bold: true }] : []),
+    ...tier.features.map((feature) => ({ text: feature, excluded: feature.startsWith("No ") })),
+  ];
+  // Collapse only when it hides at least two rows; hiding a single line isn't worth a click.
+  const shown = rows.length - visibleFeatures >= 2 ? visibleFeatures : rows.length;
 
   return (
     <article
@@ -216,27 +238,31 @@ function TierCard({ tier }: { tier: Tier }) {
         </span>
       </p>
 
-      <ul className="mt-6 grid flex-1 content-start gap-3 text-[0.95rem]">
-        {tier.includesPrevious ? (
-          <li className="flex gap-2.5 font-bold">
-            <Check className={featured ? "text-orange" : "text-ember"} />
-            {tier.includesPrevious}
-          </li>
+      <div className="mt-6 flex-1 text-[0.95rem]">
+        <ul className="grid gap-3">
+          {rows.slice(0, shown).map((row) => (
+            <FeatureRow key={row.text} row={row} featured={featured} />
+          ))}
+        </ul>
+        {shown < rows.length ? (
+          // Flex column + order-last puts "Show fewer" under the extra rows where browsers allow styling <details>.
+          <details className="group mt-3 flex flex-col">
+            <summary
+              className={`order-last inline-flex cursor-pointer items-center gap-2 self-start rounded-full py-1 text-sm font-bold group-open:mt-3 ${featured ? "text-orange" : "text-ember"}`}
+            >
+              <span className="group-open:hidden">
+                + {rows.length - shown} more features
+              </span>
+              <span className="hidden group-open:inline">Show fewer</span>
+            </summary>
+            <ul className="grid gap-3">
+              {rows.slice(shown).map((row) => (
+                <FeatureRow key={row.text} row={row} featured={featured} />
+              ))}
+            </ul>
+          </details>
         ) : null}
-        {tier.features.map((feature) => {
-          const excluded = feature.startsWith("No ");
-          return (
-            <li key={feature} className={`flex gap-2.5 ${excluded ? (featured ? "text-mist" : "text-stone") : ""}`}>
-              {excluded ? (
-                <Dash className="opacity-70" />
-              ) : (
-                <Check className={featured ? "text-orange" : "text-ember"} />
-              )}
-              {feature}
-            </li>
-          );
-        })}
-      </ul>
+      </div>
 
       <Link
         href={`/contact/?plan=${tier.id}`}
@@ -294,31 +320,45 @@ export function ComparisonTable() {
         </table>
       </div>
 
-      <div className="grid gap-3 md:hidden">
-        <div className="sticky top-16 z-10 grid grid-cols-3 gap-2 rounded-xl bg-navy p-3 text-center text-cream">
-          {tiers.map((tier) => (
-            <p key={tier.id}>
-              <span className="block font-extrabold">{tier.name}</span>
-              <span className="block text-xs text-mist">{money(tier.monthly)}/mo</span>
-            </p>
+      {/* On phones the stacked rows run long and repeat the plan cards, so they start folded. */}
+      <details className="group md:hidden">
+        <summary className="flex cursor-pointer items-center justify-between gap-4 rounded-xl bg-paper px-5 py-4 font-bold ring-1 ring-navy/10">
+          <span className="group-open:hidden">Show all {comparison.length} rows</span>
+          <span className="hidden group-open:inline">Hide the comparison</span>
+          <span
+            aria-hidden="true"
+            className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-navy/15 transition-colors group-open:border-orange group-open:bg-orange"
+          >
+            <span className="absolute h-0.5 w-3 rounded bg-current" />
+            <span className="faq-icon-v absolute h-3 w-0.5 rounded bg-current transition-transform duration-300" />
+          </span>
+        </summary>
+        <div className="mt-3 grid gap-3">
+          <div className="sticky top-16 z-10 grid grid-cols-3 gap-2 rounded-xl bg-navy p-3 text-center text-cream">
+            {tiers.map((tier) => (
+              <p key={tier.id}>
+                <span className="block font-extrabold">{tier.name}</span>
+                <span className="block text-xs text-mist">{money(tier.monthly)}/mo</span>
+              </p>
+            ))}
+          </div>
+          {comparison.map((row) => (
+            <div key={row.label} className="rounded-xl bg-paper p-4 ring-1 ring-navy/10">
+              <p className="text-sm font-bold">{row.label}</p>
+              <dl className="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
+                {tiers.map((tier) => (
+                  <div key={tier.id}>
+                    <dt className="sr-only">{tier.name}</dt>
+                    <dd>
+                      <CellValue value={row.values[tier.id]} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           ))}
         </div>
-        {comparison.map((row) => (
-          <div key={row.label} className="rounded-xl bg-paper p-4 ring-1 ring-navy/10">
-            <p className="text-sm font-bold">{row.label}</p>
-            <dl className="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
-              {tiers.map((tier) => (
-                <div key={tier.id}>
-                  <dt className="sr-only">{tier.name}</dt>
-                  <dd>
-                    <CellValue value={row.values[tier.id]} />
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        ))}
-      </div>
+      </details>
     </>
   );
 }

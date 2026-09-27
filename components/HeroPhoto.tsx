@@ -31,7 +31,7 @@ function HeroCopy() {
 /** Homepage hero: aerial of downtown Denver, the Broncos stadium, and the Front Range behind. */
 export default function HeroPhoto() {
   return (
-    <section data-glow className="hero-timeline relative isolate flex min-h-[46rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[max(92svh,52rem)]">
+    <section data-glow className="hero-timeline relative isolate flex min-h-[38rem] flex-col overflow-hidden bg-navy text-cream sm:min-h-[52rem] lg:min-h-[max(92svh,52rem)]">
       <Image
         src={heroPhoto.src}
         alt="Downtown Denver from the air, with the Broncos stadium beyond the towers and the Front Range behind"

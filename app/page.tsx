@@ -38,7 +38,7 @@ export default function Home() {
                   Sites built to <span className="text-orange">win the job.</span>
                 </>
               }
-              lede="Hover a project (or scroll to it on your phone) to see the whole site. These are concept projects; real client work is added as it launches."
+              lede="Each one is designed from scratch for a different kind of local business, and every one loads fast on a phone. These are concept projects; real client work is added as it launches."
             />
             <Button href="/work/" variant="outline" className="self-start lg:self-auto">
               All work
@@ -76,17 +76,18 @@ export default function Home() {
                 key={service.id}
                 href={`/services/#${service.id}`}
                 data-glow
-                className="glow-card reveal group relative block rounded-2xl bg-navy-2/80 p-6 [--glow-a:0.16] ring-1 ring-cream/10 backdrop-blur-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-orange/70 hover:shadow-[0_18px_40px_-18px_rgba(251,79,20,0.55)]"
+                className="glow-card reveal group relative flex flex-col rounded-2xl bg-navy-2/80 p-6 [--glow-a:0.16] ring-1 ring-cream/10 backdrop-blur-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-orange/70 hover:shadow-[0_18px_40px_-18px_rgba(251,79,20,0.55)]"
               >
                 <span className="absolute top-6 right-6 font-mono text-xs text-mist">0{i + 1}</span>
                 <ServiceIcon id={service.id} className="h-11 w-11 text-cream" />
-                <h3 className="t-h3 mt-5 flex items-center gap-2">
-                  {service.title}
-                  <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-1">
+                <h3 className="t-h3 mt-5">{service.title}</h3>
+                <p className="mt-3 leading-relaxed text-mist">{service.short}</p>
+                <p className="mt-auto pt-6 text-sm font-bold text-orange">
+                  Learn more{" "}
+                  <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">
                     →
                   </span>
-                </h3>
-                <p className="mt-3 leading-relaxed text-mist">{service.short}</p>
+                </p>
               </Link>
             ))}
           </div>
