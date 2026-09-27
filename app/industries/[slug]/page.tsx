@@ -44,7 +44,8 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
   const industry = industries[index];
   const art = headerArt[index % headerArt.length];
   const tier = tiers.find((item) => item.id === industry.fit.tier)!;
-  const showcase = projects.filter((project) => industry.projects.includes(project.slug));
+  // Retired concepts drop off automatically; their demo subdomains are gone.
+  const showcase = projects.filter((project) => !project.archived && industry.projects.includes(project.slug));
   const others = industries.filter((item) => item.slug !== industry.slug);
 
   return (

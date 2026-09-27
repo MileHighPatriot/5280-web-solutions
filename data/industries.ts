@@ -64,7 +64,7 @@ export const industries: Industry[] = [
       tier: "growth",
       reason: "New project photos and seasonal services are worth adding as you go.",
     },
-    projects: ["summit-frame-build", "helix-frame-siding", "platte-river-builders", "headgate-plumbing"],
+    projects: ["helix-frame-siding", "headgate-plumbing"],
   },
   {
     slug: "restaurants",

@@ -49,9 +49,13 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           </div>
           <h1 className="t-h1 mt-5 max-w-[18ch] text-balance">{project.name}</h1>
           <p className="t-lede mt-6 max-w-2xl text-mist">{project.summary}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={project.url}>Visit the live site</Button>
-          </div>
+          {project.archived ? (
+            <p className="t-mono mt-8 text-mist">Retired concept · the live demo is no longer online</p>
+          ) : (
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={project.url}>Visit the live site</Button>
+            </div>
+          )}
         </div>
       </header>
 
