@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import FeaturedShowcase from "@/components/FeaturedShowcase";
 import FounderCard from "@/components/FounderCard";
 import HeroPhoto from "@/components/HeroPhoto";
 import PricingPreview from "@/components/PricingPreview";
@@ -11,7 +12,7 @@ import Backdrop from "@/components/ui/Backdrop";
 import Blueprint from "@/components/ui/Blueprint";
 import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
-import { homepageProjects } from "@/data/projects";
+import { featuredProject, homepageProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <HeroPhoto />
       <Readouts />
+      <FeaturedShowcase project={featuredProject} />
 
       {/* Work */}
       <div className="relative isolate overflow-clip">
@@ -32,7 +34,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               id="work"
-              eyebrow="Recent work"
+              eyebrow="More work"
               title={
                 <>
                   Sites built to <span className="text-orange">win the job.</span>
@@ -46,8 +48,8 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-10">
             {homepageProjects.map((project, i) => (
-              <div key={project.slug} className={i === 0 ? "lg:col-span-7" : "lg:col-span-5 lg:mt-24"}>
-                <ProjectCard project={project} large={i === 0} />
+              <div key={project.slug} className={i === 0 ? "lg:col-span-6" : "lg:col-span-6 lg:mt-24"}>
+                <ProjectCard project={project} />
               </div>
             ))}
           </div>

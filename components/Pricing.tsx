@@ -25,6 +25,9 @@ import {
  */
 export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  // Everything below steps down one level from the page heading, so the outline never skips a level.
+  const Sub = headingLevel === "h1" ? "h2" : "h3";
+  const tierHeading = headingLevel === "h1" ? "h3" : "h4";
 
   return (
     <div>
@@ -73,9 +76,9 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
                   Recommended
                 </span>
               </div>
-              <h3 id="monthly-title" className="mt-4 text-[clamp(1.6rem,3vw,2.35rem)] font-extrabold leading-tight tracking-tight text-balance">
+              <Sub id="monthly-title" className="mt-4 text-[clamp(1.6rem,3vw,2.35rem)] font-extrabold leading-tight tracking-tight text-balance">
                 No big upfront cost. Get a professional site built for a small setup fee.
-              </h3>
+              </Sub>
             </div>
             <ul className="grid shrink-0 gap-2 text-[0.95rem] text-stone lg:text-right">
               <li>
@@ -95,7 +98,7 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3 lg:gap-5">
             {tiers.map((tier) => (
-              <TierCard key={tier.id} tier={tier} />
+              <TierCard key={tier.id} tier={tier} heading={tierHeading} />
             ))}
           </div>
 
@@ -109,9 +112,9 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
 
       {/* Every build includes */}
       <section aria-labelledby="every-build" className="mx-auto mt-14 max-w-5xl sm:mt-16">
-        <h3 id="every-build" className="t-mono text-center text-stone">
+        <Sub id="every-build" className="t-mono text-center text-stone">
           Included with every website, either way
-        </h3>
+        </Sub>
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           {everyBuild.map((item) => (
             <li key={item} className="flex gap-2.5 text-[0.975rem]">
@@ -128,9 +131,9 @@ export default function Pricing({ headingLevel = "h2" }: { headingLevel?: "h1" |
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             <div>
               <span className="t-mono text-stone">Option 2 · Flat-fee build</span>
-              <h3 id="flat-fee-title" className="t-h3 mt-3 text-balance">
+              <Sub id="flat-fee-title" className="t-h3 mt-3 text-balance">
                 Prefer to pay once and own it outright?
-              </h3>
+              </Sub>
               <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
                 <span className="text-4xl font-extrabold tracking-tight">
                   {moneyRange(flatFee.buildMin, flatFee.buildMax)}
@@ -186,7 +189,7 @@ function FeatureRow({ row, featured }: { row: Row; featured: boolean }) {
   );
 }
 
-function TierCard({ tier }: { tier: Tier }) {
+function TierCard({ tier, heading: TierHeading }: { tier: Tier; heading: "h3" | "h4" }) {
   const featured = Boolean(tier.highlight);
   const rows: Row[] = [
     ...(tier.includesPrevious ? [{ text: tier.includesPrevious, bold: true }] : []),
@@ -208,9 +211,9 @@ function TierCard({ tier }: { tier: Tier }) {
         </p>
       ) : null}
 
-      <h4 id={`tier-${tier.id}`} className="text-xl font-extrabold tracking-tight">
+      <TierHeading id={`tier-${tier.id}`} className="text-xl font-extrabold tracking-tight">
         {tier.name}
-      </h4>
+      </TierHeading>
       <p className={`mt-2 text-[0.95rem] leading-snug lg:min-h-[4.1rem] ${featured ? "text-mist" : "text-stone"}`}>
         {tier.summary}
       </p>
@@ -223,7 +226,7 @@ function TierCard({ tier }: { tier: Tier }) {
       {/* Setup fee on its own line so it's never mistaken for part of the monthly price. */}
       <p
         className={`mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 rounded-xl px-4 py-3 ${
-          featured ? "bg-navy-3 text-cream" : "bg-sand text-navy"
+          featured ? "bg-navy-3 text-cream" : "bg-sand/70 text-navy"
         }`}
       >
         <span className="font-bold">+ {money(tier.setupFee)} setup fee</span>

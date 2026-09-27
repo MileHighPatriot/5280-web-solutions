@@ -36,7 +36,7 @@ export default function Logo({ className = "" }: { className?: string }) {
     <span className={`flex items-center gap-2.5 ${className}`}>
       <LogoMark className="h-9 w-auto sm:h-10" />
       <span className="flex flex-col leading-none">
-        <span className="text-[1.45rem] font-black tracking-[-0.03em] sm:text-[1.6rem]">5280</span>
+        <span className="text-[1.45rem] font-black tracking-[-0.03em] sm:text-[1.6rem]">5280</span>{" "}
         <span className="mt-1 font-mono text-[0.56rem] font-medium tracking-[0.3em] text-orange sm:text-[0.6rem]">
           WEB SOLUTIONS
         </span>

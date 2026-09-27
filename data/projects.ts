@@ -270,7 +270,10 @@ export const listedProjects = ["helix-frame-siding", "headgate-plumbing", "lampl
   (slug) => projects.find((project) => project.slug === slug)!,
 );
 
-/** The homepage shows two: the featured piece, plus one from a different line of work. */
-export const homepageProjects = ["helix-frame-siding", "headgate-plumbing"].map(
+/** The homepage's orange showcase panel. */
+export const featuredProject = projects.find((project) => project.slug === "helix-frame-siding")!;
+
+/** The homepage grid under the showcase: two from different lines of work than the featured piece. */
+export const homepageProjects = ["headgate-plumbing", "ditch-rider-brewing"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );
