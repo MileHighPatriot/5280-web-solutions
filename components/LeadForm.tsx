@@ -89,7 +89,9 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
         <p className="t-h2 mt-4">Thanks, talk soon.</p>
         <p className="t-lede mt-4 text-mist">
           {accessKey
-            ? `We'll get back to you within ${site.replyTime}. Need us sooner? Call or text ${site.phoneDisplay}.`
+            ? isCheck
+              ? `Your written report will be in your inbox within ${site.checkTurnaround}. Questions before then? Call or text ${site.phoneDisplay}.`
+              : `We'll get back to you within ${site.replyTime}. Need us sooner? Call or text ${site.phoneDisplay}.`
             : "Your email app should have opened with everything filled in. Just hit send."}
         </p>
         <button
@@ -163,7 +165,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
           <Arrow className="transition-transform duration-300 group-hover:translate-x-0.5" />
         </button>
         <p className="text-sm text-stone">
-          Reply within {site.replyTime}. No spam, ever.
+          {isCheck ? `Your report within ${site.checkTurnaround}.` : `Reply within ${site.replyTime}.`} No spam, ever.
         </p>
       </div>
 

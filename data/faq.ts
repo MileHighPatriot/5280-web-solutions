@@ -67,6 +67,11 @@ export const generalFaq: FaqItem[] = [
       "Every site is built with the SEO basics Google looks for. Your Google Business Profile, which often puts a local business on the map, is set up for you on Growth and Premium plans, or as a one-time add-on. No honest developer can guarantee a #1 ranking, but we'll give you a strong, clean foundation.",
   },
   {
+    question: "Will my business show up in AI answers, like ChatGPT or Google's AI Overviews?",
+    answer:
+      "No one can promise that, so be wary of anyone who does. Those tools lean on the same foundation we build into every site: clear pages that say what you do and where, business details marked up in a format machines can read, a complete Google Business Profile, and the same name, address, and phone everywhere you're listed. That gives your business its best shot at being the one they recommend.",
+  },
+  {
     question: "What kinds of businesses do you work with?",
     answer:
       "Almost any local business or organization: contractors and trades, restaurants, shops, salons, gyms, practices, pet care, daycares, real estate, photographers, and more. We also build for churches, ministries, and nonprofits, with online giving, sermon and livestream pages, events calendars, and volunteer sign-ups connected to the tools you already use.",

@@ -5,6 +5,7 @@ import SpeedCheck from "@/components/SpeedCheck";
 import { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/Section";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Free Website Check",
@@ -17,6 +18,10 @@ const checks = [
   { title: "Phone test", body: "How your site looks and works on a phone, where most of your customers find you." },
   { title: "Speed", body: "How fast it loads, and what's slowing it down." },
   { title: "Google visibility", body: "Whether you show up for local searches, and how your Business Profile looks." },
+  {
+    title: "AI search",
+    body: "Whether Google's AI answers and tools like ChatGPT can tell what you do and where you work.",
+  },
   { title: "Calls to action", body: "How easy it is for a visitor to call, book, or ask for a quote." },
   { title: "First impression", body: "Whether the design and copy build trust or quietly send people elsewhere." },
   { title: "Quick wins", body: "Fixes you can make yourself today, whether or not we work together." },
@@ -30,7 +35,7 @@ export default function FreeWebsiteCheckPage() {
         seed={11}
         eyebrow="Free website check"
         title="Is your website costing you customers?"
-        lede="Send us your site and we'll review it for free. You'll get honest, plain-English notes on what's working, what isn't, and what to fix first. No obligation."
+        lede={`Send us your site and we'll review it for free. Within ${site.checkTurnaround} you'll get a written report in plain English: what's working, what isn't, and what to fix first. No obligation, and no sales pitch.`}
       />
 
       <section aria-labelledby="speed-test" className="container-x pt-16 sm:pt-24">
@@ -62,7 +67,28 @@ export default function FreeWebsiteCheckPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-10 rounded-2xl bg-sand/70 p-6">
+            <div className="mt-10 rounded-2xl bg-navy p-6 text-cream">
+              <p className="t-mono text-orange-soft">What you get</p>
+              <p className="mt-3 text-lg font-bold">A written report within {site.checkTurnaround}.</p>
+              <ul className="mt-4 grid gap-2.5 text-mist">
+                <li className="flex gap-2.5">
+                  <Check className="mt-0.5 shrink-0 text-orange" />
+                  Your top 5 fixes, ranked by how much they&rsquo;re likely costing you
+                </li>
+                <li className="flex gap-2.5">
+                  <Check className="mt-0.5 shrink-0 text-orange" />
+                  Your Google speed scores, explained in plain English
+                </li>
+                <li className="flex gap-2.5">
+                  <Check className="mt-0.5 shrink-0 text-orange" />
+                  Quick wins you can make yourself, whether or not we work together
+                </li>
+              </ul>
+              <p className="mt-4 text-sm text-mist">
+                No sales pitch. If your site is in good shape, we&rsquo;ll tell you that too.
+              </p>
+            </div>
+            <div className="mt-4 rounded-2xl bg-sand/70 p-6">
               <p className="font-bold">No website yet?</p>
               <p className="mt-2 text-stone">
                 Leave the website field blank and tell us about your business. We&rsquo;ll send ideas

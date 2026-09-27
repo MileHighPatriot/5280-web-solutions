@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Arrow, Check, Dash } from "@/components/ui/Button";
 import {
+  alternativeColumns,
+  alternatives,
   comparison,
   everyBuild,
   addOnPrice,
@@ -310,6 +312,72 @@ export function ComparisonTable() {
                   <dt className="sr-only">{tier.name}</dt>
                   <dd>
                     <CellValue value={row.values[tier.id]} />
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/** A Growth plan next to doing it yourself and hiring a Denver agency (see `alternatives`). */
+export function AlternativesTable() {
+  return (
+    <>
+      <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-navy/10 max-md:hidden">
+        <table className="w-full table-fixed border-collapse text-left text-[0.95rem]">
+          <caption className="sr-only">Our Growth plan compared with doing it yourself and hiring an agency</caption>
+          <thead>
+            <tr className="border-b border-navy/10">
+              <th scope="col" className="w-[26%] p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone">
+                Your options
+              </th>
+              {alternativeColumns.map((column) => (
+                <th key={column.id} scope="col" className={`p-5 text-center ${column.id === "us" ? "bg-navy text-cream" : ""}`}>
+                  <span className="block text-lg font-extrabold">{column.name}</span>
+                  <span className={`block text-sm font-normal ${column.id === "us" ? "text-mist" : "text-stone"}`}>
+                    {column.detail}
+                  </span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {alternatives.map((row) => (
+              <tr key={row.label} className="border-b border-navy/10 last:border-0">
+                <th scope="row" className="px-5 py-4 font-medium">
+                  {row.label}
+                </th>
+                {alternativeColumns.map((column) => (
+                  <td
+                    key={column.id}
+                    className={`px-5 py-4 text-center ${column.id === "us" ? "bg-navy/[0.04] font-semibold" : "text-stone"}`}
+                  >
+                    <CellValue value={row.values[column.id]} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="grid gap-3 md:hidden">
+        {alternatives.map((row) => (
+          <div key={row.label} className="rounded-xl bg-paper p-4 ring-1 ring-navy/10">
+            <p className="text-sm font-bold">{row.label}</p>
+            <dl className="mt-3 grid gap-2 text-sm">
+              {alternativeColumns.map((column) => (
+                <div
+                  key={column.id}
+                  className={`flex items-center justify-between gap-4 rounded-lg px-3 py-2 ${column.id === "us" ? "bg-navy text-cream" : "bg-sand/50"}`}
+                >
+                  <dt className={`shrink-0 whitespace-nowrap ${column.id === "us" ? "font-bold" : "text-stone"}`}>{column.name}</dt>
+                  <dd className="text-right">
+                    <CellValue value={row.values[column.id]} />
                   </dd>
                 </div>
               ))}

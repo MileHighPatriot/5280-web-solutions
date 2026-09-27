@@ -18,6 +18,9 @@ export const site = {
   // Also set as openingHoursSpecification in components/JsonLd.tsx; change both together.
   hours: "Mon–Fri, 8am–6pm",
   replyTime: "one business day",
+  // How long a free website check report takes (confirmed by Kohlton 2026-09-26). Promised on the
+  // check page, the form's thank-you message, and the "how it works" steps.
+  checkTurnaround: "2 business days",
   // Web3Forms access key: delivers form submissions to the email above.
   // Public by design (it only allows sending to this inbox).
   web3formsKey: "46846766-3c9d-485e-8921-8f6765032b96",

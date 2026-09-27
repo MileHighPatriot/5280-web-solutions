@@ -33,6 +33,11 @@ export default function ProjectCard({ project, large = false }: { project: Proje
         <span>
           {project.industry} · {project.location}
         </span>
+        {project.speed ? (
+          <span className="rounded-full bg-navy/[0.06] px-2.5 py-0.5 text-navy">
+            PageSpeed {project.speed.mobile} phone · {project.speed.desktop} desktop
+          </span>
+        ) : null}
       </p>
       <h3 className={`mt-2 ${large ? "t-h2" : "t-h3"}`}>
         <Link href={`/work/${project.slug}/`} className="after:absolute after:inset-0">

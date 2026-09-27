@@ -322,3 +322,53 @@ export const addOnPrice = (addOn: AddOn) => {
 
 /** Setup fee plus the first 12 months, so the year-one cost is never a surprise. */
 export const yearOne = (tier: Tier) => tier.setupFee + tier.monthly * monthlyTerms.minimumMonths;
+
+/**
+ * "Your other options" table on the pricing page: a Growth plan next to doing it yourself and
+ * hiring a Denver agency. DIY is the Wix and Squarespace plans a small business would actually
+ * use, billed yearly (Squarespace $16–$39, Wix $17–$39). Agency is starting prices published by
+ * Denver web design firms: custom builds from about $5,000, care plans about $99–$760/mo.
+ * Recheck these about once a year and update `alternativesCheckedOn`.
+ */
+export const alternativesCheckedOn = "September 2026";
+const diy = { monthlyMin: 16, monthlyMax: 39 };
+const agency = { buildMin: 5000, buildMax: 10000, careMin: 100, careMax: 350 };
+const growth = tiers.find((tier) => tier.id === "growth")!;
+
+export type AlternativeId = "diy" | "us" | "agency";
+
+export const alternativeColumns: { id: AlternativeId; name: string; detail: string }[] = [
+  { id: "diy", name: "Do it yourself", detail: "Wix, Squarespace & similar" },
+  { id: "us", name: `Our ${growth.name} plan`, detail: `${money(growth.monthly)}/mo + ${money(growth.setupFee)} setup` },
+  { id: "agency", name: "Denver agency", detail: "Typical custom build" },
+];
+
+export const alternatives: { label: string; values: Record<AlternativeId, boolean | string> }[] = [
+  {
+    label: "Upfront cost",
+    values: { diy: "$0, plus your time", us: `${money(growth.setupFee)} setup`, agency: `${moneyRange(agency.buildMin, agency.buildMax)}+` },
+  },
+  {
+    label: "Monthly cost",
+    values: {
+      diy: `${moneyRange(diy.monthlyMin, diy.monthlyMax)} for the builder`,
+      us: `${money(growth.monthly)}, all in`,
+      agency: `${moneyRange(agency.careMin, agency.careMax)}+ for a care plan`,
+    },
+  },
+  {
+    label: "Year one, all in",
+    values: {
+      diy: `About ${moneyRange(diy.monthlyMin * 12, diy.monthlyMax * 12)}, plus your weekends`,
+      us: money(yearOne(growth)),
+      agency: `About ${moneyRange(agency.buildMin + agency.careMin * 12, agency.buildMax + agency.careMax * 12)}+`,
+    },
+  },
+  { label: "Who designs & builds it", values: { diy: "You, from a template", us: "A local developer, custom for you", agency: "An agency team" } },
+  // Matches the Growth plan's "2 small content edits per month" in `tiers`.
+  { label: "Who makes changes", values: { diy: "You", us: "We do, 2 small edits a month included", agency: "Their team, often billed by the hour" } },
+  { label: "Google Business Profile & listings set up", values: { diy: false, us: true, agency: "Usually extra" } },
+  { label: "Hosting, security & updates", values: { diy: true, us: true, agency: "With a care plan" } },
+  { label: "Hand-built to load fast on phones", values: { diy: "Depends on the template", us: true, agency: true } },
+  { label: "Who you talk to", values: { diy: "A support chat", us: "Your developer, directly", agency: "Usually an account manager" } },
+];

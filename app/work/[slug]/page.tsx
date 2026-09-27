@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DeviceShowcase from "@/components/DeviceShowcase";
+import SpeedScores from "@/components/SpeedScores";
 import { ConceptBadge } from "@/components/ProjectCard";
 import Button, { Check } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Section";
@@ -58,6 +59,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         <div className="container-x">
           <div className="mx-auto max-w-5xl">
             <DeviceShowcase project={project} mode="loop" priority sizes="(min-width: 1024px) 900px, 100vw" />
+            <SpeedScores project={project} />
           </div>
         </div>
       </div>

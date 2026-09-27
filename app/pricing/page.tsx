@@ -4,11 +4,11 @@ import AddOns from "@/components/AddOns";
 import Faq, { faqJsonLd } from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import PlanFinder from "@/components/PlanFinder";
-import Pricing, { ComparisonTable } from "@/components/Pricing";
+import Pricing, { AlternativesTable, ComparisonTable } from "@/components/Pricing";
 import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
 import { pricingFaq } from "@/data/faq";
-import { money, tiers } from "@/data/pricing";
+import { alternativesCheckedOn, money, tiers } from "@/data/pricing";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -40,6 +40,22 @@ export default function PricingPage() {
         <div className="mt-10">
           <PlanFinder />
         </div>
+      </section>
+
+      <section aria-labelledby="alternatives" className="container-x pb-16 sm:pb-24">
+        <SectionHeading
+          id="alternatives"
+          eyebrow="Your other options"
+          title="How a plan stacks up against doing it yourself, or hiring an agency."
+          lede="A website builder is cheap until you count your weekends. An agency does great work at agency prices. A plan sits in between: custom work, a real person, one monthly price."
+        />
+        <div className="mt-10">
+          <AlternativesTable />
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-stone">
+          Do it yourself: Wix and Squarespace plans a small business would typically use, billed yearly. Agency: starting
+          prices published by Denver web design firms. Both checked {alternativesCheckedOn}.
+        </p>
       </section>
 
       <section aria-labelledby="compare" className="border-t border-navy/10 bg-paper/60">

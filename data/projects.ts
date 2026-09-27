@@ -15,6 +15,11 @@ export type Project = {
   featured?: string;
   /** Retired from the Work grid. The case study page stays up so old links keep working. */
   archived?: boolean;
+  /**
+   * Google Lighthouse scores (0–100) for the live homepage, median of 3 runs each.
+   * Re-measure after big changes to a concept site and update `measured`.
+   */
+  speed?: { mobile: number; desktop: number; accessibility: number; seo: number; measured: string };
 };
 
 /**
@@ -61,6 +66,7 @@ export const projects: Project[] = [
       fullDesktop: "/work/helix-frame-siding-full-desktop.jpg",
       fullMobile: "/work/helix-frame-siding-full-mobile.jpg",
     },
+    speed: { mobile: 90, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "summit-frame-build",
@@ -177,6 +183,7 @@ export const projects: Project[] = [
       fullDesktop: "/work/headgate-plumbing-full-desktop.jpg",
       fullMobile: "/work/headgate-plumbing-full-mobile.jpg",
     },
+    speed: { mobile: 95, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "lamplight-bible-church",
@@ -215,6 +222,7 @@ export const projects: Project[] = [
       fullDesktop: "/work/lamplight-bible-church-full-desktop.jpg",
       fullMobile: "/work/lamplight-bible-church-full-mobile.jpg",
     },
+    speed: { mobile: 87, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "ditch-rider-brewing",
@@ -253,6 +261,7 @@ export const projects: Project[] = [
       fullDesktop: "/work/ditch-rider-brewing-full-desktop.jpg",
       fullMobile: "/work/ditch-rider-brewing-full-mobile.jpg",
     },
+    speed: { mobile: 99, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
 ];
 

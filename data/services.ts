@@ -1,3 +1,5 @@
+import { site } from "@/data/site";
+
 export type Service = {
   id: string;
   title: string;
@@ -46,12 +48,13 @@ export const services: Service[] = [
   {
     id: "get-found",
     title: "Get found on Google",
-    short: "Show up when locals search for what you do. We set up the basics that put you on the map.",
-    body: "For a local business, Google Maps and your Business Profile often matter as much as the website. We set both up properly so they work together and send calls your way.",
+    short: "Show up when locals search for what you do, on Google Maps and in AI answers. We set up the basics that put you on the map.",
+    body: "For a local business, Google Maps and your Business Profile often matter as much as the website. More people now ask Google's AI answers or ChatGPT for a recommendation, too. We set everything up so search engines and AI tools can tell exactly what you do and where, and send calls your way.",
     points: [
       "Google Business Profile setup (included on Growth and Premium)",
       "Local SEO basics: titles, descriptions, and service areas",
       "Business info that matches everywhere it's listed",
+      "Business details marked up in the format Google and AI tools read",
       "Connect Google Search Console so you can see what's working",
     ],
   },
@@ -61,7 +64,7 @@ export const steps = [
   {
     step: "01",
     title: "Free website check",
-    body: "Send us your current site, or tell us about your business if you don't have one. We'll take a look and send back honest notes, free.",
+    body: `Send us your current site, or tell us about your business if you don't have one. Within ${site.checkTurnaround} you'll get a written report with honest, plain-English notes, free.`,
   },
   {
     step: "02",
