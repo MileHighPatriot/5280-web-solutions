@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy/" },
 };
 
-const updated = "September 25, 2026";
+const updated = "September 30, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -29,9 +29,17 @@ export default function PrivacyPage() {
           </p>
           <h2>Information collected automatically</h2>
           <p>
-            This site may use privacy-friendly, cookie-free analytics (GoatCounter) to count visits and
-            see which pages are useful. These tools don&rsquo;t track you across other websites and
-            don&rsquo;t use advertising cookies.
+            This site uses Google Analytics to count visits and see which pages are useful. Google
+            Analytics sets cookies and collects details like the pages you view, how you found the site,
+            your general location, and your device and browser. We don&rsquo;t use it for advertising.
+            You can block it with your browser&rsquo;s privacy settings or Google&rsquo;s{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              className="font-semibold text-navy underline underline-offset-4"
+            >
+              opt-out add-on
+            </a>
+            .
           </p>
           <h2>The speed test</h2>
           <p>

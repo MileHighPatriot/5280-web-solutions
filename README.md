@@ -53,6 +53,7 @@ Each of these is empty in `data/site.ts` (marked `TODO(Kohlton)`). Until it's fi
 |---|---|---|
 | `pagespeedKey` | The live speed test on `/free-website-check/`. Without it, Google's shared quota usually refuses, and visitors get "send it to me instead." | [Google Cloud console](https://console.cloud.google.com): new project → enable **PageSpeed Insights API** → Credentials → Create API key. Restrict it to the websites `https://5280webs.com/*` and `https://www.5280webs.com/*` (HTTP referrers) and to the PageSpeed Insights API only. The key is visible in the page by design, so those restrictions are what protect it. |
 | `calLink` | A "Book a 20-minute call" button on `/contact/` and `/free-website-check/`. | [cal.com](https://cal.com): create a 20-minute "Intro call" event with availability **Mon–Fri, 8am–6pm** (to match `hours`), then paste the part after `cal.com/`, e.g. `kohlton/intro-call`. |
+| `gaMeasurementId` | Google Analytics 4 (already set to `G-YZGZZ7XY8Q`). Uses cookies, which the privacy policy discloses. | [analytics.google.com](https://analytics.google.com): Admin → Data streams → your web stream → **Measurement ID**. Paste just the `G-…` ID, not the whole snippet. |
 | `goatcounterCode` | Cookie-free visitor analytics (no cookie banner needed). | [goatcounter.com](https://www.goatcounter.com): sign up and pick a code, e.g. `5280webs`. Paste just the code. |
 
 ## Still to add

@@ -28,6 +28,8 @@ export const site = {
   calLink: "",
   // TODO(Kohlton): GoatCounter site code (the "code" in code.goatcounter.com). Empty = no analytics script at all.
   goatcounterCode: "",
+  // Google Analytics 4 measurement ID (starts with "G-"). Public by design. Empty = no Google tag at all.
+  gaMeasurementId: "G-YZGZZ7XY8Q",
   // TODO(Kohlton): Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
   // 5280webs.com in Google Cloud. Without one, Google's shared quota usually refuses the request
   // and the speed test falls back to "send it to me and I'll run it". Setup steps: README "Finish setup".
