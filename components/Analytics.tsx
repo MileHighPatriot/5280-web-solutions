@@ -24,6 +24,22 @@ gtag('config', '${id}');`}
 }
 
 /**
+ * Microsoft Clarity: heatmaps and session recordings. Loads nothing until
+ * site.clarityProjectId is set. Clarity follows client-side page changes itself.
+ */
+function Clarity({ id }: { id: string }) {
+  return (
+    <Script id="clarity-init" strategy="afterInteractive">
+      {`(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${id}");`}
+    </Script>
+  );
+}
+
+/**
  * GoatCounter: free, cookie-free visit counts (no consent banner needed).
  * Loads nothing until site.goatcounterCode is set. Automatic counting is off
  * so each client-side page change is counted once, here.
@@ -38,6 +54,7 @@ export default function Analytics() {
   const pathname = usePathname();
   const code = site.goatcounterCode;
   const gaId = site.gaMeasurementId;
+  const clarityId = site.clarityProjectId;
 
   useEffect(() => {
     if (code) count(pathname);
@@ -46,6 +63,7 @@ export default function Analytics() {
   return (
     <>
       {gaId && <GoogleAnalytics id={gaId} />}
+      {clarityId && <Clarity id={clarityId} />}
       {code && (
         <Script
           src="https://gc.zgo.at/count.js"
