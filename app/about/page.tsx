@@ -45,8 +45,8 @@ export default function AboutPage() {
       <section aria-labelledby="story" className="bg-navy text-cream">
         <div className="container-x section-y grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4">
-            <p className="t-display text-[clamp(7rem,16vw,12rem)] leading-[0.8] text-orange">14</p>
-            <p className="t-mono mt-5 max-w-[16rem] text-mist">Years in construction before I built websites</p>
+            <p className="t-display text-[clamp(7rem,16vw,12rem)] leading-[0.8] text-orange">12</p>
+            <p className="t-mono mt-5 max-w-[16rem] text-mist">Years framing houses around Denver</p>
           </div>
           <div className="lg:col-span-8">
             <Eyebrow className="text-mist">My story</Eyebrow>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 they lose customers who never even call.
               </p>
               <p>
-                Before I built websites, I spent 14 years in construction. I know what it&rsquo;s
+                I&rsquo;ve been framing houses around Denver for about 12 years. I know what it&rsquo;s
                 like to run jobs, juggle customers, and have zero time to mess with a website.
                 That&rsquo;s why I handle everything for you, explain it in plain English, and
                 actually pick up the phone.
