@@ -26,6 +26,7 @@ export function businessJsonLd() {
       closes: "18:00",
     },
     url: site.url,
+    ...(site.googleProfileUrl ? { sameAs: [site.googleProfileUrl] } : {}),
     logo: `${site.url}/logo.png`,
     image: `${site.url}/og.png`,
     telephone: "+1-720-260-6089",

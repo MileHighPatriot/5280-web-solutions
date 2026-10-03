@@ -75,6 +75,13 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-mist">{site.hours}</li>
+              {site.googleReviewUrl && (
+                <li>
+                  <a href={site.googleReviewUrl} className="transition-colors hover:text-orange">
+                    Review us on Google
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 

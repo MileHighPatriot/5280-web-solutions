@@ -38,6 +38,9 @@ export default function ContactPage() {
               <p className="mt-2 text-lg font-bold">{site.hours}</p>
               <p className="mt-1 text-stone">Texts after hours are answered the next business day.</p>
             </div>
+            {site.googleReviewUrl && (
+              <ContactCard label="Worked with us?" value="Review us on Google" href={site.googleReviewUrl} />
+            )}
             <div className="rounded-2xl bg-navy p-6 text-cream">
               <p className="t-mono text-mist">What happens next</p>
               <ol className="mt-4 grid gap-3">

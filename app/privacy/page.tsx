@@ -41,19 +41,21 @@ export default function PrivacyPage() {
             </a>
             .
           </p>
-          <p>
-            We also use Microsoft Clarity to see how visitors use the site, through heatmaps and
-            recordings of clicks, scrolling, and mouse movement. This helps us fix confusing or broken
-            pages. Clarity uses cookies and hides what you type into forms. Microsoft handles this data
-            under its{" "}
-            <a
-              href="https://www.microsoft.com/privacy/privacystatement"
-              className="font-semibold text-navy underline underline-offset-4"
-            >
-              privacy statement
-            </a>
-            .
-          </p>
+          {site.clarityProjectId && (
+            <p>
+              We also use Microsoft Clarity to see how visitors use the site, through heatmaps and
+              recordings of clicks, scrolling, and mouse movement. This helps us fix confusing or broken
+              pages. Clarity uses cookies and hides what you type into forms. Microsoft handles this data
+              under its{" "}
+              <a
+                href="https://www.microsoft.com/privacy/privacystatement"
+                className="font-semibold text-navy underline underline-offset-4"
+              >
+                privacy statement
+              </a>
+              .
+            </p>
+          )}
           <h2>The speed test</h2>
           <p>
             When you use the speed test on the free website check page, the web address you type is sent

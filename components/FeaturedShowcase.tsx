@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import WhenNear from "@/components/ui/WhenNear";
 import type { Project } from "@/data/projects";
 
 /**
  * Full-bleed orange panel for the featured project: big type, the scores, and a tilted
- * phone whose screen loops through the whole site. Pure CSS (the shared .screen-loop),
- * so it ships no client JavaScript.
+ * phone whose screen loops through the whole site (pure CSS, the shared .screen-loop).
+ * The screenshot is ~180 KB, so WhenNear holds it back until the visitor scrolls close.
  */
 export default function FeaturedShowcase({ project }: { project: Project }) {
   const scores = project.speed
@@ -65,7 +66,7 @@ export default function FeaturedShowcase({ project }: { project: Project }) {
 
         <div className="relative mx-auto w-[min(17rem,70%)] lg:col-span-5 lg:w-[19rem]">
           <div className="rotate-[-4deg] rounded-[2.6rem] bg-[#0b1117] p-2.5 shadow-[0_50px_90px_-30px_rgba(0,24,51,0.75)] ring-1 ring-white/15 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0">
-            <div className="screen-loop screen-loop-phone aspect-[9/19] rounded-[2rem] bg-navy-3">
+            <WhenNear className="screen-loop screen-loop-phone aspect-[9/19] rounded-[2rem] bg-navy-3">
               <Image
                 src={project.images.fullMobile}
                 alt={`The full ${project.name} home page on a phone`}
@@ -74,7 +75,7 @@ export default function FeaturedShowcase({ project }: { project: Project }) {
                 sizes="300px"
                 className="w-full"
               />
-            </div>
+            </WhenNear>
           </div>
         </div>
       </div>

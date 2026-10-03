@@ -15,6 +15,10 @@ export const site = {
   email: "kohlton@5280webs.com",
   emailHref: "mailto:kohlton@5280webs.com",
   region: "Front Range, Colorado",
+  // Google Business Profile (place ID ChIJG0IhN9wQpQ0RwsHmb3F-96M). The profile link is the schema
+  // sameAs; the review link opens Google's "write a review" box. Empty = no Google links shown.
+  googleProfileUrl: "https://www.google.com/maps?cid=11815051173103583682",
+  googleReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJG0IhN9wQpQ0RwsHmb3F-96M",
   // Also set as openingHoursSpecification in components/JsonLd.tsx; change both together.
   hours: "Mon–Fri, 8am–6pm",
   replyTime: "one business day",
@@ -30,8 +34,10 @@ export const site = {
   goatcounterCode: "",
   // Google Analytics 4 measurement ID (starts with "G-"). Public by design. Empty = no Google tag at all.
   gaMeasurementId: "G-YZGZZ7XY8Q",
-  // Microsoft Clarity project ID (heatmaps and session recordings). Public by design. Empty = no Clarity script.
-  clarityProjectId: "yqk7iful74",
+  // Microsoft Clarity project ID (heatmaps and session recordings). Public by design. Empty = no Clarity script
+  // and no Clarity paragraph in the privacy policy. Off since 2026-10-03: its third-party cookies held
+  // Lighthouse "Best Practices" at 77, and the old project (yqk7iful74) was deleted.
+  clarityProjectId: "",
   // TODO(Kohlton): Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
   // 5280webs.com in Google Cloud. Without one, Google's shared quota usually refuses the request
   // and the speed test falls back to "send it to me and I'll run it". Setup steps: README "Finish setup".
