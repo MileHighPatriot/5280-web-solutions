@@ -174,8 +174,9 @@ export default function Home() {
               />
               <figure className="reveal mt-6 max-w-2xl border-l-2 border-orange pl-5">
                 <blockquote className="text-lg leading-relaxed text-navy">
-                  &ldquo;Before I built websites, I spent years running my own business, so I know what it&rsquo;s
-                  like when nobody else is covering the phone. That&rsquo;s what I build for you: a site that works,
+                  &ldquo;I&rsquo;ve been framing houses around Denver for about 12 years, and I ran my own crew for a
+                  couple of those, so I know what it&rsquo;s like when nobody else is covering the phone. That&rsquo;s
+                  what I build for you: a site that works,
                   and one person who picks up when you call.&rdquo;
                 </blockquote>
                 <figcaption className="t-mono mt-3 text-stone">
