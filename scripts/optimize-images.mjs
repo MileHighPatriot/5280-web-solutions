@@ -19,6 +19,11 @@ const manifestPath = path.join(root, "lib", "image-manifest.json");
 // Matches Next's default deviceSizes/imageSizes that the loader is asked for.
 const WIDTHS = [256, 384, 640, 750, 828, 1080, 1200, 1920];
 const QUALITY = 76;
+// Per-photo WebP settings, keyed by path under /public. Anything not listed uses QUALITY.
+// After changing one, delete that photo's copies in public/_img so they get rebuilt.
+const OVERRIDES = {
+  "/denver-stadium-aerial.jpg": { quality: 60, effort: 6 },
+};
 
 async function* photos(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -52,7 +57,7 @@ for await (const file of photos(publicDir)) {
   for (const width of widths) {
     const target = `${base}-${width}.webp`;
     if ((await mtime(target)) > sourceTime) continue;
-    await sharp(file).resize({ width }).webp({ quality: QUALITY }).toFile(target);
+    await sharp(file).resize({ width }).webp({ quality: QUALITY, ...OVERRIDES[rel] }).toFile(target);
     made++;
   }
 }
