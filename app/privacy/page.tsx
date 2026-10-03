@@ -56,12 +56,6 @@ export default function PrivacyPage() {
               .
             </p>
           )}
-          <h2>The speed test</h2>
-          <p>
-            When you use the speed test on the free website check page, the web address you type is sent
-            to Google PageSpeed Insights, which loads that site and scores it. The address isn&rsquo;t
-            saved on this site, and nothing about you is sent with it.
-          </p>
           <h2>What we don&rsquo;t do</h2>
           <p>
             We don&rsquo;t sell, rent, or trade your personal information, and we don&rsquo;t add you to

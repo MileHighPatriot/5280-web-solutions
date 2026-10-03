@@ -587,19 +587,11 @@ details[open] .faq-icon-v {
   }
 }
 
-/* ---------- Speed test (components/SpeedCheck.tsx) ---------- */
+/* ---------- Spinner (used by the launch log terminal below) ---------- */
 @keyframes spin {
   to {
     rotate: 360deg;
   }
-}
-
-.speed-spinner {
-  animation: spin 0.9s linear infinite;
-}
-
-.score-ring {
-  transition: stroke-dashoffset 1.6s var(--ease-out-expo);
 }
 
 /* ---------- Reading progress: a thin orange line along the bottom of the header ---------- */

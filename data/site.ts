@@ -38,10 +38,6 @@ export const site = {
   // and no Clarity paragraph in the privacy policy. Off since 2026-10-03: its third-party cookies held
   // Lighthouse "Best Practices" at 77, and the old project (yqk7iful74) was deleted.
   clarityProjectId: "",
-  // TODO(Kohlton): Google PageSpeed Insights API key for the speed test on /free-website-check/. Restrict it to
-  // 5280webs.com in Google Cloud. Without one, Google's shared quota usually refuses the request
-  // and the speed test falls back to "send it to me and I'll run it". Setup steps: README "Finish setup".
-  pagespeedKey: "",
   // North to south, so lists read like the drive down I-25.
   cities: [
     "Fort Collins",

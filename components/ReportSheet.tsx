@@ -1,7 +1,7 @@
 import { Check } from "@/components/ui/Button";
 import { site } from "@/data/site";
 
-const sections = ["Your top 5 fixes, ranked", "Speed scores, explained", "Quick wins you can do today"];
+const sections = ["Your grade and ranked fixes", "Speed scores, explained", "Quick wins you can do today"];
 
 /** A tilted paper report for the orange Free Website Check header: what the written check covers. */
 export default function ReportSheet() {
@@ -31,7 +31,7 @@ export default function ReportSheet() {
       </ol>
       <p className="mt-7 inline-flex items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-bold text-cream">
         <Check className="h-4 w-4 text-orange" />
-        No sales pitch
+        No obligation
       </p>
     </div>
   );

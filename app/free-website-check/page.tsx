@@ -2,29 +2,38 @@ import type { Metadata } from "next";
 import { TalkLine } from "@/components/BookCall";
 import LeadForm from "@/components/LeadForm";
 import ReportSheet from "@/components/ReportSheet";
-import SpeedCheck from "@/components/SpeedCheck";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import { SectionHeading } from "@/components/ui/Section";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Free Website Check",
   description:
-    "Get a free, no-pressure review of your small-business website: speed, phone usability, Google visibility, and what's costing you calls. Front Range businesses.",
+    "Free written review of your Front Range small-business website: a letter grade, phone speed, Google and reviews, local competitors, and what to fix first.",
   alternates: { canonical: "/free-website-check/" },
 };
 
 const checks = [
   { title: "Phone test", body: "How your site looks and works on a phone, where most of your customers find you." },
-  { title: "Speed", body: "How fast it loads, and what's slowing it down." },
-  { title: "Google visibility", body: "Whether you show up for local searches, and how your Business Profile looks." },
+  { title: "Speed", body: "How fast it loads on phones and computers, and what's slowing it down." },
   {
-    title: "AI search",
-    body: "Whether Google's AI answers and tools like ChatGPT can tell what you do and where you work.",
+    title: "First impression",
+    body: "Whether a visitor can tell what you do, where you work, and how to reach you in the first five seconds.",
   },
   { title: "Calls to action", body: "How easy it is for a visitor to call, book, or ask for a quote." },
-  { title: "First impression", body: "Whether the design and copy build trust or quietly send people elsewhere." },
+  {
+    title: "Google and reviews",
+    body: "Your Google Business Profile and reviews, and whether your pages give Google what it needs to list you.",
+  },
+  { title: "Trust", body: "Reviews, real photos of your work, and the other things people look for before they call." },
+  {
+    title: "Local competitors",
+    body: "How your homepage stacks up against two or three nearby competitors on the same tests.",
+  },
+  {
+    title: "Security and upkeep",
+    body: "Whether the site is secure, and whether broken links, email settings, or your domain need attention.",
+  },
   { title: "Quick wins", body: "Fixes you can make yourself today, whether or not we work together." },
 ];
 
@@ -37,31 +46,13 @@ export default function FreeWebsiteCheckPage() {
         visual={<ReportSheet />}
         eyebrow="Free website check · No obligation"
         title="Is your website costing you customers?"
-        lede={`Send us your site and we'll review it for free. Within ${site.checkTurnaround} you'll get a written report in plain English: what's working, what isn't, and what to fix first. No obligation, and no sales pitch.`}
+        lede={`Send us your site and we'll review it for free. Within ${site.checkTurnaround} you'll get a written report in plain English: what's working, what isn't, and what to fix first. No obligation, and no pressure.`}
         actions={
-          <>
-            <Button href="#request" variant="dark">
-              Request your free check
-            </Button>
-            <Button href="#speed-test" variant="outline-ink">
-              Test your speed now
-            </Button>
-          </>
+          <Button href="#request" variant="dark">
+            Request your free check
+          </Button>
         }
       />
-
-      <section aria-labelledby="speed-test" className="container-x pt-16 sm:pt-24">
-        <SectionHeading
-          id="speed-test"
-          reveal={false}
-          eyebrow="Try it now"
-          title="See how your site scores, right now."
-          lede="Type in your website and see how it scores on Google's own test, explained in plain English. Then send it to us for the full review."
-        />
-        <div className="mt-10">
-          <SpeedCheck />
-        </div>
-      </section>
 
       <section id="request" aria-labelledby="request-heading" className="container-x section-y scroll-mt-24">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -86,7 +77,7 @@ export default function FreeWebsiteCheckPage() {
               <ul className="mt-4 grid gap-2.5 text-mist">
                 <li className="flex gap-2.5">
                   <Check className="mt-0.5 shrink-0 text-orange" />
-                  Your top 5 fixes, ranked by how much they&rsquo;re likely costing you
+                  A letter grade, and every problem ranked by how much it&rsquo;s likely costing you
                 </li>
                 <li className="flex gap-2.5">
                   <Check className="mt-0.5 shrink-0 text-orange" />
@@ -96,9 +87,13 @@ export default function FreeWebsiteCheckPage() {
                   <Check className="mt-0.5 shrink-0 text-orange" />
                   Quick wins you can make yourself, whether or not we work together
                 </li>
+                <li className="flex gap-2.5">
+                  <Check className="mt-0.5 shrink-0 text-orange" />
+                  The plan we&rsquo;d recommend and what it costs, so there are no surprises
+                </li>
               </ul>
               <p className="mt-4 text-sm text-mist">
-                No sales pitch. If your site is in good shape, we&rsquo;ll tell you that too.
+                No pressure. If your site is in good shape, we&rsquo;ll tell you that too.
               </p>
             </div>
             <div className="mt-4 rounded-2xl bg-sand/70 p-6">
