@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DeviceShowcase from "@/components/DeviceShowcase";
-import SpeedScores from "@/components/SpeedScores";
 import { ConceptBadge } from "@/components/ProjectCard";
 import Button, { Check } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Section";
@@ -63,7 +62,6 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         <div className="container-x">
           <div className="mx-auto max-w-5xl">
             <DeviceShowcase project={project} mode="loop" priority sizes="(min-width: 1024px) 900px, 100vw" />
-            <SpeedScores project={project} />
           </div>
         </div>
       </div>
@@ -97,7 +95,6 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t border-cream/10 pt-5 font-mono text-sm text-mist">{project.stack}</p>
             <p className="mt-5 text-sm text-mist">
               A concept project: a fictional business designed as a portfolio piece. Names, people,
               reviews, and contact details on the site are illustrative.

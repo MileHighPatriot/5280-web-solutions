@@ -27,11 +27,11 @@ export default function Footer() {
             Let&rsquo;s get your business <span className="text-orange">online right.</span>
           </h2>
           <p className="t-lede mt-6 max-w-xl text-mist">
-            Start with a free website check. We&rsquo;ll look at what you have (or don&rsquo;t) and
+            Start with a free full website report. We&rsquo;ll look at what you have (or don&rsquo;t) and
             send honest notes, with no pressure and no jargon.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Button href="/free-website-check/">Get a free website check</Button>
+            <Button href="/free-website-check/">Get a free full website report</Button>
             <Button href={site.phoneHref} variant="outline-light" arrow={false}>
               Call {site.phoneDisplay}
             </Button>

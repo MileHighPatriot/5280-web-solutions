@@ -17,8 +17,8 @@ export const pricingFaq: FaqItem[] = [
     answer: `The one-time setup fee (${money(lowestSetup)}–${money(highestSetup)}, depending on the plan) is paid upfront, before we start building. It covers the early design work and gets your project on the calendar. It's separate from your monthly price and never hidden inside it.`,
   },
   {
-    question: `Why is there a ${monthlyTerms.minimumMonths}-month minimum?`,
-    answer: `A monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After ${monthlyTerms.minimumMonths} months your plan goes month-to-month, and you can cancel with 30 days' notice. For a limited time, new clients skip the minimum entirely and go month-to-month from day one. If you leave in the first ${monthlyTerms.minimumMonths} months, you can keep the site by buying it out, and that price goes down every month you stay.`,
+    question: "Is there a minimum term?",
+    answer: `Right now, no. For a limited time, new clients go month-to-month from day one and can cancel with 30 days' notice. When the offer ends, monthly plans will have a ${monthlyTerms.minimumMonths}-month minimum. That's because a monthly plan spreads the cost of designing and building your site across the first year instead of charging it all upfront. After those ${monthlyTerms.minimumMonths} months it goes month-to-month, and you can cancel with 30 days' notice. Either way, if you leave in the first ${monthlyTerms.minimumMonths} months, you can keep the site by buying it out, and that price goes down every month you stay.`,
   },
   {
     question: "Can I buy my site outright later?",
@@ -94,8 +94,8 @@ export const generalFaq: FaqItem[] = [
       "We work with businesses up and down the Front Range, from Fort Collins and Greeley down to Castle Rock and Colorado Springs. We're happy to meet in person, and we also work fully remote if that's easier.",
   },
   {
-    question: "What if I'm not happy with the design?",
+    question: "How many changes do I get?",
     answer:
-      "You'll review the design before anything goes live, and we'll revise it until it feels right. We don't launch anything you haven't approved.",
+      "You get three rounds of changes before launch: first the homepage look, then the full site, then a final polish. Anything past that is billed as a small edit, $25 to $40 each, and I'll quote it before I do it.",
   },
 ];

@@ -33,7 +33,7 @@ export default function ServicesPage() {
         actions={
           <>
             <Button href="/free-website-check/" variant="dark">
-              Get a free website check
+              Get a free full website report
             </Button>
             <Button href="/pricing/" variant="outline-ink">
               See pricing

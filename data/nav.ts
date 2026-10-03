@@ -8,7 +8,7 @@ export const primaryNav = [
 
 export const footerNav = [
   ...primaryNav,
-  { href: "/free-website-check/", label: "Free website check" },
+  { href: "/free-website-check/", label: "Free full website report" },
   { href: "/industries/", label: "Industries" },
   { href: "/areas/", label: "Service areas" },
   { href: "/faq/", label: "FAQ" },

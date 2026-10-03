@@ -18,13 +18,13 @@ function HeroCopy() {
         <Decode text="Web design · Fort Collins to Colorado Springs" duration={1100} />
       </p>
       <h1 className="t-display fade-up mt-6 max-w-[20ch] text-balance" style={{ animationDelay: "80ms" }}>
-        Websites that win <span className="text-orange">local customers.</span>
+        Websites for Front Range trades and <span className="text-orange">small businesses.</span>
       </h1>
       <p className="t-lede fade-up mt-6 max-w-xl text-pretty text-mist" style={{ animationDelay: "160ms" }}>
-        Custom websites for Front Range small businesses, designed, built, and cared for by a local developer.
+        Built and looked after by one local guy.
       </p>
       <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>
-        <Button href="/free-website-check/">Get a free website check</Button>
+        <Button href="/free-website-check/">Get a free full website report</Button>
         <Button href="/work/" variant="outline-light" className="max-sm:hidden">
           See our work
         </Button>

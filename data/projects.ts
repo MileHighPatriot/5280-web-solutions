@@ -15,11 +15,6 @@ export type Project = {
   featured?: string;
   /** Retired from the Work grid. The case study page stays up so old links keep working. */
   archived?: boolean;
-  /**
-   * Google Lighthouse scores (0–100) for the live homepage, median of 3 runs each.
-   * Re-measure after big changes to a concept site and update `measured`.
-   */
-  speed?: { mobile: number; desktop: number; accessibility: number; seo: number; measured: string };
 };
 
 /**
@@ -66,7 +61,6 @@ export const projects: Project[] = [
       fullDesktop: "/work/helix-frame-siding-full-desktop.jpg",
       fullMobile: "/work/helix-frame-siding-full-mobile.jpg",
     },
-    speed: { mobile: 90, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "summit-frame-build",
@@ -153,12 +147,12 @@ export const projects: Project[] = [
     location: "Denver, CO",
     url: "https://headgate.5280webs.com/",
     summary:
-      "A service-first site for a Denver plumbing shop that works like a dispatch desk: symptom triage, published price ranges, and two-hour arrival windows.",
+      "A site for a Denver plumbing shop that works like a dispatch desk. Customers tap what's wrong, see how urgent it is and what it'll likely cost, then book a two-hour arrival window.",
     goal: "Most plumbing sites look the same: blue and white, a van in the hero, and a phone number. This concept answers what people actually need at 3am: how urgent is this, what do I do right now, and what will it cost. It also gives commercial clients a reason to stay on an account.",
     decisions: [
       {
         title: "Sort by symptom, not by service",
-        body: "Homeowners don't know what their problem is called. A triage tool asks one or two questions, then gives an urgency level, what to do in the next five minutes, and a price range.",
+        body: "Homeowners don't know what their problem is called. A couple of quick questions tell them how urgent it is, what to do in the next five minutes, and about what it'll cost.",
       },
       {
         title: "Built on real Denver rules",
@@ -170,7 +164,7 @@ export const projects: Project[] = [
       },
     ],
     features: [
-      "Symptom triage with urgency levels and next steps",
+      "Tap what's wrong, see how urgent it is and what to do next",
       "Two-hour arrival-window booking with a live service ticket",
       "Searchable price book and Care Plan savings calculator",
       "Interactive pipe-ownership diagram and water heater age decoder",
@@ -183,7 +177,6 @@ export const projects: Project[] = [
       fullDesktop: "/work/headgate-plumbing-full-desktop.jpg",
       fullMobile: "/work/headgate-plumbing-full-mobile.jpg",
     },
-    speed: { mobile: 95, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "lamplight-bible-church",
@@ -222,7 +215,6 @@ export const projects: Project[] = [
       fullDesktop: "/work/lamplight-bible-church-full-desktop.jpg",
       fullMobile: "/work/lamplight-bible-church-full-mobile.jpg",
     },
-    speed: { mobile: 87, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
   {
     slug: "ditch-rider-brewing",
@@ -261,19 +253,18 @@ export const projects: Project[] = [
       fullDesktop: "/work/ditch-rider-brewing-full-desktop.jpg",
       fullMobile: "/work/ditch-rider-brewing-full-mobile.jpg",
     },
-    speed: { mobile: 99, desktop: 100, accessibility: 100, seo: 100, measured: "September 26, 2026" },
   },
 ];
 
 /** Projects shown on the Work page, in order. Archived ones keep their case study pages. */
-export const listedProjects = ["helix-frame-siding", "headgate-plumbing", "lamplight-bible-church", "ditch-rider-brewing"].map(
+export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );
 
 /** The homepage's orange showcase panel. */
-export const featuredProject = projects.find((project) => project.slug === "helix-frame-siding")!;
+export const featuredProject = projects.find((project) => project.slug === "headgate-plumbing")!;
 
 /** The homepage grid under the showcase: two from different lines of work than the featured piece. */
-export const homepageProjects = ["headgate-plumbing", "ditch-rider-brewing"].map(
+export const homepageProjects = ["helix-frame-siding", "ditch-rider-brewing"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );

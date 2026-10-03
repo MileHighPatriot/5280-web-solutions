@@ -4,19 +4,11 @@ import WhenNear from "@/components/ui/WhenNear";
 import type { Project } from "@/data/projects";
 
 /**
- * Full-bleed orange panel for the featured project: big type, the scores, and a tilted
+ * Full-bleed orange panel for the featured project: big type and a tilted
  * phone whose screen loops through the whole site (pure CSS, the shared .screen-loop).
  * The screenshot is ~180 KB, so WhenNear holds it back until the visitor scrolls close.
  */
 export default function FeaturedShowcase({ project }: { project: Project }) {
-  const scores = project.speed
-    ? [
-        { value: project.speed.mobile, label: "Phone speed" },
-        { value: project.speed.desktop, label: "Desktop speed" },
-        { value: project.speed.accessibility, label: "Accessibility" },
-      ]
-    : [];
-
   return (
     <section aria-labelledby="featured-work" className="relative isolate overflow-clip bg-orange text-navy-ink">
       <span
@@ -36,23 +28,6 @@ export default function FeaturedShowcase({ project }: { project: Project }) {
             {project.name}
           </h2>
           <p className="t-lede mt-6 max-w-xl text-pretty">{project.summary}</p>
-
-          {scores.length ? (
-            <dl className="mt-10 grid max-w-xl grid-cols-3 border-t-2 border-navy-ink/80">
-              {scores.map((score) => (
-                <div key={score.label} className="flex flex-col pt-4 pr-4">
-                  <dt className="t-mono order-2 mt-1 block text-[0.68rem]">{score.label}</dt>
-                  <dd className="font-mono text-4xl font-medium tracking-tight tabular-nums sm:text-5xl">
-                    {score.value}
-                    <span className="ml-1 text-base">/100</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          ) : null}
-          {project.speed ? (
-            <p className="mt-3 text-sm">Google Lighthouse scores for the live site, measured {project.speed.measured}.</p>
-          ) : null}
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href={`/work/${project.slug}/`} variant="dark">

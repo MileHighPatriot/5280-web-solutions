@@ -23,7 +23,7 @@ export default function PriceTag() {
         <span className="ml-1 font-sans text-xl font-semibold tracking-normal text-mist">/mo</span>
       </p>
       <p className="mt-4 font-mono text-sm text-mist">
-        + {money(tier.setupFee)} setup · {money(yearOne(tier))} year one
+        + {money(tier.setupFee)} setup · {money(yearOne(tier))} full first year
       </p>
       <div className="my-6 h-px bg-cream/15" />
       <ul className="grid gap-3 text-[0.95rem]">

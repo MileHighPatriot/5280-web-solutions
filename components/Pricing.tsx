@@ -108,12 +108,17 @@ export default function Pricing({
                 setup fee.
               </Sub>
             </div>
-            <ul className="grid shrink-0 gap-2 text-[0.95rem] text-stone lg:text-right">
+            <ul className="grid shrink-0 gap-2 text-[0.95rem] text-stone lg:max-w-sm lg:text-right">
               <li>
                 <strong className="text-navy">
-                  {monthlyTerms.minimumMonths}-month minimum
-                </strong>
-                , then month-to-month
+                  Right now: month-to-month from day one.
+                </strong>{" "}
+                Limited-time offer. Cancel with 30 days&rsquo; notice.
+              </li>
+              <li>
+                When the offer ends, monthly plans have a{" "}
+                {monthlyTerms.minimumMonths}-month minimum, then go
+                month-to-month.
               </li>
               <li>Buy your site outright any time</li>
             </ul>
@@ -307,14 +312,13 @@ function TierCard({
       <p
         className={`mt-2 px-1 text-sm ${featured ? "text-mist" : "text-stone"}`}
       >
-        Year one:{" "}
+        A full first year:{" "}
         <strong className={featured ? "text-cream" : "text-navy"}>
           {money(yearOne(tier))}
-        </strong>{" "}
-        total
+        </strong>
         <span className="block text-xs">
-          {money(tier.setupFee)} setup + {monthlyTerms.minimumMonths} ×{" "}
-          {money(tier.monthly)}/month
+          {money(tier.setupFee)} setup + {monthlyTerms.minimumMonths} months
+          at {money(tier.monthly)}
         </span>
       </p>
 

@@ -1,5 +1,3 @@
-import { site } from "@/data/site";
-
 export type Service = {
   id: string;
   title: string;
@@ -13,7 +11,7 @@ export const services: Service[] = [
     id: "new-websites",
     title: "New websites",
     short: "No site yet, or starting from scratch? We design and build one around how your customers actually find and hire you.",
-    body: "Most customers look you up on their phone before they call. A new site gives them what they need in seconds: what you do, where you work, what people say about you, and a big button to call or get a quote.",
+    body: "Most customers look you up on their phone before they call. A new site gives them what they need: what you do, where you work, what people say about you, and a big button to call or get a quote.",
     points: [
       "Custom design, not a stock template",
       "Built phone-first, because that's where your customers are",
@@ -63,13 +61,13 @@ export const services: Service[] = [
 export const steps = [
   {
     step: "01",
-    title: "Free website check",
-    body: `Send us your current site, or tell us about your business if you don't have one. Within ${site.checkTurnaround} you'll get a written report with honest, plain-English notes, free.`,
+    title: "Free full website report",
+    body: "Send us your current site, or tell us about your business if you don't have one. You'll get a written report with honest, plain-English notes, free.",
   },
   {
     step: "02",
     title: "A quick call",
-    body: "A 20-minute conversation about your business, your customers, and which plan fits. No pressure and no tech jargon.",
+    body: "A quick 15-20 minute call about your business, your customers, and which plan fits. No pressure and no tech jargon.",
   },
   {
     step: "03",

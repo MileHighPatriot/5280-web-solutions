@@ -55,10 +55,21 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         seed={art.seed}
         eyebrow={`Websites for ${industry.audience}`}
         title={industry.title}
-        lede={industry.intro}
+        lede={
+          industry.slug === "contractors" ? (
+            <>
+              {industry.intro}
+              <span className="mt-5 block text-base font-semibold text-cream">
+                I&rsquo;ve been framing houses around Denver for about 12 years. - Kohlton Luper, founder
+              </span>
+            </>
+          ) : (
+            industry.intro
+          )
+        }
         actions={
           <>
-            <Button href="/free-website-check/">Get a free website check</Button>
+            <Button href="/free-website-check/">Get a free full website report</Button>
             <Button href={site.phoneHref} variant="outline-light" arrow={false}>
               Call {site.phoneDisplay}
             </Button>

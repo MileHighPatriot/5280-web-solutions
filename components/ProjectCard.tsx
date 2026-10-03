@@ -12,26 +12,6 @@ export function ConceptBadge({ className = "" }: { className?: string }) {
   );
 }
 
-/** Lighthouse scores on the card's frame. The label shortens as the card narrows so it never meets the concept badge. */
-function SpeedBadge({ speed }: { speed: NonNullable<Project["speed"]> }) {
-  return (
-    <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-widest text-cream backdrop-blur">
-      <svg aria-hidden="true" viewBox="0 0 12 12" className="h-3 w-3 text-orange">
-        <path fill="currentColor" d="M7 0 1.5 7H6l-1 5 5.5-7H6z" />
-      </svg>
-      <span className="sr-only">
-        PageSpeed {speed.mobile} on phones, {speed.desktop} on desktop
-      </span>
-      <span aria-hidden="true">
-        <span className="hidden @2xs:inline">PageSpeed </span>
-        {speed.mobile}
-        <span className="hidden @md:inline"> phone</span> · {speed.desktop}
-        <span className="hidden @md:inline"> desktop</span>
-      </span>
-    </span>
-  );
-}
-
 export default function ProjectCard({
   project,
   large = false,
@@ -50,7 +30,6 @@ export default function ProjectCard({
           className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/15 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
         />
         <ConceptBadge className="absolute top-4 left-4 !bg-cream/10" />
-        {project.speed ? <SpeedBadge speed={project.speed} /> : null}
         <DeviceShowcase
           project={project}
           sizes={large ? "(min-width: 1024px) 640px, (min-width: 640px) 50vw, 100vw" : undefined}

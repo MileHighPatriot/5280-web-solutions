@@ -464,7 +464,7 @@ export const alternatives: {
     },
   },
   {
-    label: "Year one, all in",
+    label: "A full first year, all in",
     values: {
       diy: `About ${moneyRange(diy.monthlyMin * 12, diy.monthlyMax * 12)}, plus your weekends`,
       us: money(yearOne(growth)),

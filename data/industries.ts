@@ -480,7 +480,7 @@ export const industries: Industry[] = [
     customerNeeds: [
       {
         title: "Do you handle my situation?",
-        body: "Plain-English pages for each service, so they can tell in seconds whether you're the right fit.",
+        body: "Plain-English pages for each service, so they can tell whether you're the right fit.",
       },
       {
         title: "Who they'll work with",

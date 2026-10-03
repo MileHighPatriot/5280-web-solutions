@@ -16,7 +16,7 @@ export function BookCallCard() {
     >
       <p className="t-mono text-navy/70">Skip the back-and-forth</p>
       <p className="mt-2 flex items-center gap-2.5 text-xl font-bold sm:text-2xl">
-        Book a 20-minute call
+        Book a quick 15-20 minute call
         <Arrow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
       </p>
       <p className="mt-1 text-navy/80">Pick a time that works for you. Opens our calendar in a new tab.</p>
@@ -33,7 +33,7 @@ export function TalkLine({ className = "" }: { className?: string }) {
       {bookingUrl ? (
         <>
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className={link}>
-            Book a 20-minute call
+            Book a quick 15-20 minute call
           </a>
           , or call or text{" "}
         </>

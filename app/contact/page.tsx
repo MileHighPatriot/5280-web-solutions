@@ -49,7 +49,7 @@ export default function ContactPage() {
                   current site, if you have one.
                 </li>
                 <li>
-                  <span className="font-bold text-orange">2.</span> We set up a quick 20-minute call at a
+                  <span className="font-bold text-orange">2.</span> We set up a quick 15-20 minute call at a
                   time that works for you.
                 </li>
                 <li>

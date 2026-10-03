@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq/",
     "/privacy/",
     "/terms/",
-    ...projects.map((project) => `/work/${project.slug}/`),
+    ...projects.filter((project) => !project.archived).map((project) => `/work/${project.slug}/`),
     ...areas.map((area) => `/areas/${area.slug}/`),
     ...industries.map((industry) => `/industries/${industry.slug}/`),
   ];

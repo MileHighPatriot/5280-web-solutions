@@ -115,7 +115,7 @@ export default function AboutPage() {
         </ol>
 
         <div className="mt-16 flex flex-wrap gap-3">
-          <Button href="/free-website-check/">Get a free website check</Button>
+          <Button href="/free-website-check/">Get a free full website report</Button>
           <Button href="/work/" variant="outline">
             See our work
           </Button>

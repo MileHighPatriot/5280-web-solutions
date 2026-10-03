@@ -82,7 +82,7 @@ export default function Header() {
             href="/free-website-check/"
             className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-navy shadow-[0_6px_20px_-10px_rgba(251,79,20,0.8)] transition-[background-color,box-shadow] hover:bg-orange-soft hover:shadow-[0_10px_28px_-8px_rgba(251,79,20,0.8)] sm:inline-flex"
           >
-            Free website check
+            Free full website report
           </Link>
           <a
             href={site.phoneHref}
@@ -147,21 +147,21 @@ export default function Header() {
                 {link.href === "/services/" ? (
                   <div className="pb-5">
                     <p className="t-mono text-mist">Who we help</p>
-                    <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.95rem] text-cream/80">
+                    <ul className="mt-1 grid text-[0.95rem] text-cream/80">
                       {menuIndustries.map((industry) => (
                         <li key={industry.slug}>
-                          <Link href={`/industries/${industry.slug}/`} className="hover:text-orange">
+                          <Link href={`/industries/${industry.slug}/`} className="flex min-h-11 items-center hover:text-orange">
                             {industry.label}
                           </Link>
                         </li>
                       ))}
                       <li>
-                        <Link href="/industries/" className="font-semibold text-orange hover:text-cream">
+                        <Link href="/industries/" className="flex min-h-11 items-center font-semibold text-orange hover:text-cream">
                           All industries →
                         </Link>
                       </li>
                       <li>
-                        <Link href="/areas/" className="hover:text-orange">
+                        <Link href="/areas/" className="flex min-h-11 items-center hover:text-orange">
                           Service areas
                         </Link>
                       </li>
@@ -176,7 +176,7 @@ export default function Header() {
               href="/free-website-check/"
               className="rounded-full bg-orange px-6 py-4 text-center font-bold text-navy"
             >
-              Get a free website check
+              Get a free full website report
             </Link>
             <a
               href={site.phoneHref}

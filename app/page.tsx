@@ -59,7 +59,7 @@ export default function Home() {
               eyebrow="More work"
               title={
                 <>
-                  Sites built to <span className="text-orange">win the job.</span>
+                  A clean site that makes it <span className="text-orange">easy to call you.</span>
                 </>
               }
               lede="Each one is designed from scratch for a different kind of local business, and every one loads fast on a phone. These are concept projects; real client work is added as it launches."
@@ -106,7 +106,7 @@ export default function Home() {
                 <ServiceIcon id={service.id} className="h-11 w-11 text-cream" />
                 <h3 className="t-h3 mt-5">{service.title}</h3>
                 <p className="mt-3 leading-relaxed text-mist">{service.short}</p>
-                <p className="mt-auto pt-6 text-sm font-bold text-orange">
+                <p className="mt-auto pt-6 text-sm font-bold text-orange-soft">
                   Learn more{" "}
                   <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">
                     →

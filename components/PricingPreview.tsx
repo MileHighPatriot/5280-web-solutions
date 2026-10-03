@@ -46,7 +46,7 @@ export default function PricingPreview() {
             </span>
             <span className={`text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>{tier.summary}</span>
             <span className={`text-right text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>
-              + {money(tier.setupFee)} setup · {money(yearOne(tier))} year one
+              + {money(tier.setupFee)} setup · {money(yearOne(tier))} full first year
             </span>
           </Link>
         ))}

@@ -26,6 +26,8 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export default function LeadForm({ variant = "contact" }: { variant?: Variant }) {
   const [status, setStatus] = useState<Status>("idle");
+  // Set when the visitor leaves both the phone and the email blank.
+  const [noContact, setNoContact] = useState(false);
   const [plan, setPlan] = useState("not-sure");
   const formRef = useRef<HTMLFormElement>(null);
   const [blueprint, setBlueprint] = useState<{ industry: string; town: string; features: string[] } | null>(null);
@@ -55,6 +57,14 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
     event.preventDefault();
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    // A phone number or an email is enough; with neither there's no way to reply.
+    if (!data.phone?.trim() && !data.email?.trim()) {
+      setNoContact(true);
+      const phoneField = form.elements.namedItem("phone");
+      if (phoneField instanceof HTMLInputElement) phoneField.focus();
+      return;
+    }
+    setNoContact(false);
     const planLabel = planOptions.find((option) => option.value === data.plan)?.label;
     const subject = isCheck
       ? `Free website check: ${data.business}`
@@ -64,8 +74,8 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
       const body = [
         `Name: ${data.name}`,
         `Business: ${data.business || "Not given"}`,
-        `Email: ${data.email}`,
         `Phone: ${data.phone || "Not given"}`,
+        `Email: ${data.email || "Not given"}`,
         isCheck ? `Current website: ${data.website || "None yet"}` : `Plan: ${planLabel}`,
         ...(data.blueprint ? [`Blueprint: ${data.blueprint}`] : []),
         "",
@@ -80,7 +90,11 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
     try {
       // Plain form data keeps this a "simple" request, so the browser skips the CORS preflight.
       const body = new FormData();
-      for (const [key, value] of Object.entries(data)) body.append(key, value);
+      for (const [key, value] of Object.entries(data)) {
+        // Web3Forms treats "email" as the reply-to address, so a blank one is left out.
+        if (key === "email" && !value.trim()) continue;
+        body.append(key, value);
+      }
       body.set("plan", planLabel ?? data.plan ?? "");
       body.append("access_key", accessKey);
       body.append("subject", subject);
@@ -103,7 +117,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
         <p className="t-lede mt-4 text-mist">
           {accessKey
             ? isCheck
-              ? `Your written report will be in your inbox within ${site.checkTurnaround}. Questions before then? Call or text ${site.phoneDisplay}.`
+              ? `Thanks. I'll put your report together and email it to you, then we'll set up a quick 15-20 minute call to go over it. Questions before then? Call or text ${site.phoneDisplay}.`
               : `We'll get back to you within ${site.replyTime}. Need us sooner? Call or text ${site.phoneDisplay}.`
             : "Your email app should have opened with everything filled in. Just hit send."}
         </p>
@@ -147,9 +161,21 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Your name" name="name" autoComplete="name" required />
         <Field label="Business name" name="business" autoComplete="organization" required={isCheck} optional={!isCheck} />
-        <Field label="Email" name="email" type="email" autoComplete="email" required />
-        <Field label="Phone" name="phone" type="tel" autoComplete="tel" optional />
+        <Field
+          label="Best number to reach you"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          hint="I'll call or text you back within one business day."
+        />
+        <Field label="Email (optional if you gave a phone number)" name="email" type="email" autoComplete="email" />
       </div>
+
+      {noContact ? (
+        <p role="alert" className="-mt-1 rounded-lg bg-ember/10 px-4 py-3 text-sm text-ember">
+          Add a phone number or an email so I can reach you.
+        </p>
+      ) : null}
 
       {isCheck ? (
         <Field
@@ -179,7 +205,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
       )}
 
       <Field
-        label={isCheck ? "What's not working, or what do you want from a website?" : "Tell us about your business"}
+        label={isCheck ? "What's not working, or what do you want from your website?" : "Tell us about your business"}
         name="message"
         as="textarea"
         placeholder={
@@ -196,11 +222,11 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
           disabled={status === "sending"}
           className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-orange px-7 py-4 font-bold text-navy transition-colors hover:bg-orange-soft disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : isCheck ? "Get my free website check" : "Send message"}
+          {status === "sending" ? "Sending…" : isCheck ? "Get my free report" : "Send message"}
           <Arrow className="transition-transform duration-300 group-hover:translate-x-0.5" />
         </button>
         <p className="text-sm text-stone">
-          {isCheck ? `Your report within ${site.checkTurnaround}.` : `Reply within ${site.replyTime}.`} No spam, ever.
+          {isCheck ? "No cost, no spam." : `Reply within ${site.replyTime}. No spam, ever.`}
         </p>
       </div>
 
@@ -230,6 +256,7 @@ function Field({
   autoComplete,
   placeholder,
   inputMode,
+  hint,
 }: {
   label: string;
   name: string;
@@ -240,27 +267,33 @@ function Field({
   autoComplete?: string;
   placeholder?: string;
   inputMode?: "url" | "text" | "tel" | "email";
+  /** Small helper line under the label. */
+  hint?: string;
   children?: ReactNode;
 }) {
   return (
-    <label className="block">
+    // The input sits at the bottom of its cell, so two fields in a row line up even when one label wraps.
+    <label className="flex h-full flex-col">
       <span className="text-sm font-semibold">
         {label}
         {optional ? <span className="ml-1.5 font-normal text-stone">(optional)</span> : null}
       </span>
-      {as === "textarea" ? (
-        <textarea name={name} required={required} rows={5} placeholder={placeholder} className={`${inputClass} resize-y`} />
-      ) : (
-        <input
-          name={name}
-          type={type}
-          required={required}
-          autoComplete={autoComplete}
-          placeholder={placeholder}
-          inputMode={inputMode}
-          className={inputClass}
-        />
-      )}
+      {hint ? <span className="mt-1 text-sm text-stone">{hint}</span> : null}
+      <span className="mt-auto block">
+        {as === "textarea" ? (
+          <textarea name={name} required={required} rows={5} placeholder={placeholder} className={`${inputClass} resize-y`} />
+        ) : (
+          <input
+            name={name}
+            type={type}
+            required={required}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            inputMode={inputMode}
+            className={inputClass}
+          />
+        )}
+      </span>
     </label>
   );
 }

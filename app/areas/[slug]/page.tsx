@@ -40,7 +40,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
         lede={area.intro}
         actions={
           <>
-            <Button href="/free-website-check/">Get a free website check</Button>
+            <Button href="/free-website-check/">Get a free full website report</Button>
             <Button href={site.phoneHref} variant="outline-light" arrow={false}>
               Call {site.phoneDisplay}
             </Button>

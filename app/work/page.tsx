@@ -44,7 +44,7 @@ export default function WorkPage() {
               Your business could be <span className="text-orange">project 0{listedProjects.length + 1}.</span>
             </p>
             <div className="mt-8">
-              <Button href="/free-website-check/">Get a free website check</Button>
+              <Button href="/free-website-check/">Get a free full website report</Button>
             </div>
           </div>
         </div>

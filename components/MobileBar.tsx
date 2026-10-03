@@ -22,7 +22,7 @@ export default function MobileBar() {
 
   if (hiddenOn.some((path) => pathname.startsWith(path))) return null;
 
-  const item = "flex flex-1 items-center justify-center gap-2 rounded-full py-3 text-sm font-bold";
+  const item = "flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold";
 
   return (
     <nav
@@ -33,16 +33,16 @@ export default function MobileBar() {
       style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
       inert={!visible}
     >
-      <a href={site.phoneHref} className={`${item} hover:bg-cream/10`}>
+      <a href={site.phoneHref} className={`${item} flex-1 hover:bg-cream/10`}>
         <PhoneIcon />
         Call
       </a>
-      <a href={`sms:+1${site.phone}`} className={`${item} hover:bg-cream/10`}>
+      <a href={`sms:+1${site.phone}`} className={`${item} flex-1 hover:bg-cream/10`}>
         <TextIcon />
         Text
       </a>
-      <Link href="/free-website-check/" className={`${item} flex-[1.4] bg-orange text-navy`}>
-        Free website check
+      <Link href="/free-website-check/" className={`${item} shrink-0 bg-orange px-3.5 whitespace-nowrap text-navy`}>
+        Free full website report
       </Link>
     </nav>
   );
