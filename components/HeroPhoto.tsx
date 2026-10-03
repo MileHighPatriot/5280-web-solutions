@@ -1,10 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import Blueprint from "@/components/ui/Blueprint";
 import Decode from "@/components/ui/Decode";
 import Button from "@/components/ui/Button";
 import HeroShowcase from "@/components/HeroShowcase";
 import { listedProjects } from "@/data/projects";
-import { heroPhoto } from "@/data/site";
+import { heroPhoto, site } from "@/data/site";
+
+// min-h-11 keeps the phone-only text links a full 44px tap target.
+const textLink =
+  "flex min-h-11 items-center justify-center text-sm font-semibold text-cream underline underline-offset-4";
 
 function HeroCopy() {
   return (
@@ -20,9 +25,21 @@ function HeroCopy() {
       </p>
       <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>
         <Button href="/free-website-check/">Get a free website check</Button>
-        <Button href="/work/" variant="outline-light">
+        <Button href="/work/" variant="outline-light" className="max-sm:hidden">
           See our work
         </Button>
+        {/* Phones get a call button instead; "See our work" drops to a text link under it. */}
+        <div className="flex flex-col sm:hidden">
+          <Button href={site.phoneHref} variant="outline-light" arrow={false}>
+            Call {site.phoneDisplay}
+          </Button>
+          <a href={`sms:+1${site.phone}`} className={textLink}>
+            or text
+          </a>
+          <Link href="/work/" className={textLink}>
+            See our work
+          </Link>
+        </div>
       </div>
     </div>
   );
