@@ -140,7 +140,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
         <div className="rounded-xl bg-navy p-5 text-cream">
           <p className="t-mono text-orange-soft">Your blueprint is attached</p>
           <p className="mt-2 font-bold">
-            {[blueprint.industry && `A ${blueprint.industry} site`, blueprint.town].filter(Boolean).join(" in ")} ·{" "}
+            {[blueprint.industry && `${/^[aeiou]/i.test(blueprint.industry) ? "An" : "A"} ${blueprint.industry} site`, blueprint.town].filter(Boolean).join(" in ")} ·{" "}
             {blueprint.features.length} features
           </p>
           <ul className="mt-3 flex flex-wrap gap-1.5 text-sm">

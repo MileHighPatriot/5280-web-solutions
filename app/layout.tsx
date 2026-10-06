@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import JsonLd, { businessJsonLd } from "@/components/JsonLd";
 import MobileBar from "@/components/MobileBar";
 import PointerGlow from "@/components/PointerGlow";
-import { site } from "@/data/site";
+import { openGraphBase, site } from "@/data/site";
 import "./globals.css";
 
 // Body text, buttons, and navigation.
@@ -46,10 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.name,
     description: site.description,
-    locale: site.locale,
-    type: "website",
-    siteName: site.name,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name}: websites for Front Range small businesses` }],
+    ...openGraphBase,
   },
   twitter: {
     card: "summary_large_image",

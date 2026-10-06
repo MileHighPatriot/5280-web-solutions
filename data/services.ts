@@ -35,7 +35,7 @@ export const services: Service[] = [
     id: "hosting-care",
     title: "Hosting & care",
     short: "We keep your site online, secure, and up to date, so it's one less thing on your plate.",
-    body: "Websites need upkeep: security patches, renewals, backups, and small updates. On a monthly plan we handle all of it, and you get a real person to text when something needs changing.",
+    body: "Websites need upkeep: security patches, renewals, backups, and small updates. On a monthly plan we handle all of it, and when something needs changing, you email a real person, not a help desk.",
     points: [
       "Fast, secure hosting with SSL included",
       "Domain renewals handled so it never lapses",

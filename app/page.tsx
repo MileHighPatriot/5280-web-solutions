@@ -31,8 +31,10 @@ export default function Home() {
       <div className="border-b border-navy/10 bg-paper/70">
         <p className="container-x py-5 text-sm text-stone sm:text-base">
           Curious what your site would need?{" "}
-          <Link href="/blueprint/" className="group font-bold text-ember">
-            Try the 10-second website blueprint{" "}
+          <Link href="/blueprint/" className="group inline-flex min-h-11 items-center gap-1 font-bold text-ember">
+            <span>
+              Try the <span className="whitespace-nowrap">10-second</span> website blueprint
+            </span>
             <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>

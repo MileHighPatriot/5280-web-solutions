@@ -51,7 +51,7 @@ export type Block = {
 export type BlueprintPreset = {
   slug: string;
   chip: string;
-  /** "church", used in "a church like yours" and the status line. */
+  /** "church", used in "See a church concept we built" and the status line. */
   noun: string;
   example: string;
   headline: string;
@@ -64,7 +64,7 @@ export type BlueprintPreset = {
   skip?: string[];
   /** Pages every site of this kind has, besides Home and any a feature adds. */
   pages: string[];
-  /** Closest concept project, for "See what we built for a ___ like yours". */
+  /** Closest concept project, for "See a ___ concept we built". */
   project?: string;
 };
 

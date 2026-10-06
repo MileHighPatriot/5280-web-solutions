@@ -60,6 +60,17 @@ export const site = {
 };
 
 /**
+ * Share-card fields every page keeps. A page that sets its own `openGraph` replaces the
+ * layout's whole block (Next doesn't merge it), so it spreads these back in.
+ */
+export const openGraphBase = {
+  locale: site.locale,
+  type: "website" as const,
+  siteName: site.name,
+  images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name}: websites for Front Range small businesses` }],
+};
+
+/**
  * Homepage hero: aerial looking west over downtown, with the Broncos stadium just past the towers
  * and the Front Range behind. Public domain (Library of Congress), credited anyway.
  * Cropped to 2:1 at 2560px from the 3840px Commons copy. The left side sits under the navy

@@ -48,7 +48,7 @@ export default function FreeWebsiteCheckPage() {
         }
       />
 
-      <section id="request" aria-labelledby="request-heading" className="container-x section-y scroll-mt-24">
+      <section aria-labelledby="request-heading" className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <h2 id="request-heading" className="t-h3">
@@ -111,7 +111,7 @@ export default function FreeWebsiteCheckPage() {
             </div>
             <TalkLine className="mt-6" />
           </div>
-          <div className="lg:col-span-7">
+          <div id="request" className="scroll-mt-24 lg:col-span-7">
             <h2 className="sr-only">Request your free report</h2>
             <LeadForm variant="check" />
           </div>

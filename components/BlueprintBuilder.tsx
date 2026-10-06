@@ -195,6 +195,14 @@ export default function BlueprintBuilder() {
     setAnnounce(`${byId.get(id)?.tag} removed. You can add it back from the feature menu.`);
   }
 
+  /** Removing from the sheet or the list keeps focus there: on the next section, the previous one after the last, or the feature menu once it's empty. */
+  function removeThenFocus(id: string, target: (neighbor: string) => string) {
+    const at = ordered.indexOf(id);
+    const neighbor = ordered[at + 1] ?? ordered[at - 1];
+    remove(id);
+    focusLater(neighbor ? target(neighbor) : "[data-bp-menu]");
+  }
+
   /** Phones: move a section up or down the list, then re-flow the columns in that order. */
   function step(id: string, dir: -1 | 1) {
     const from = ordered.indexOf(id);
@@ -253,7 +261,7 @@ export default function BlueprintBuilder() {
     if (!r) return;
     if ((event.key === "Delete" || event.key === "Backspace") && !isLocked(id)) {
       event.preventDefault();
-      remove(id);
+      removeThenFocus(id, (next) => `[data-bp-section="${next}"]`);
       return;
     }
     const moves: Record<string, [number, number]> = {
@@ -320,7 +328,7 @@ export default function BlueprintBuilder() {
                   onChange={() => draw(p.slug)}
                   className="peer sr-only"
                 />
-                <span className="inline-flex rounded-full px-4 py-2 text-sm font-bold ring-1 ring-cream/25 transition-colors peer-checked:bg-orange peer-checked:text-navy peer-checked:ring-orange peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange hover:ring-cream/60">
+                <span className="inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-bold ring-1 ring-cream/25 transition-colors peer-checked:bg-orange peer-checked:text-navy peer-checked:ring-orange peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange hover:ring-cream/60">
                   {p.chip}
                 </span>
               </label>
@@ -407,6 +415,7 @@ export default function BlueprintBuilder() {
                 return (
                   <div
                     key={`${epoch}-${id}`}
+                    data-bp-section={id}
                     role="group"
                     aria-roledescription="movable section"
                     aria-label={isLocked(id) ? labelFor(id) : `Section ${number.get(id)}: ${labelFor(id)}`}
@@ -456,8 +465,9 @@ export default function BlueprintBuilder() {
                       <button
                         type="button"
                         aria-label={`Remove ${labelFor(id)}`}
-                        onClick={() => remove(id)}
-                        className="absolute top-1 right-1 flex h-8 w-8 items-center justify-center rounded-md font-mono text-base text-cream/80 hover:bg-cream/10 hover:text-cream"
+                        data-bp="remove"
+                        onClick={() => removeThenFocus(id, (next) => `[data-bp-section="${next}"] [data-bp="remove"]`)}
+                        className="absolute top-1 right-1 flex h-8 w-8 items-center justify-center rounded-md font-mono text-base text-cream/80 before:absolute before:-top-1 before:-right-1 before:size-11 hover:bg-cream/10 hover:text-cream"
                       >
                         ×
                       </button>
@@ -494,15 +504,14 @@ export default function BlueprintBuilder() {
                   <li
                     key={`${epoch}-${block.id}`}
                     data-bp-row={block.id}
-                    className={`${anim ? anim.name : ""} flex items-center gap-2 rounded-[5px] border-[1.5px] border-dashed border-cream/55 bg-[#0b3563]/70 py-1.5 pr-1 pl-2`}
+                    className={`${anim ? anim.name : ""} flex flex-wrap items-center gap-x-2 rounded-[5px] border-[1.5px] border-dashed border-cream/55 bg-[#0b3563]/70 pt-1.5 pr-1 pb-2 pl-2`}
                     style={anim?.delay ? { animationDelay: `${anim.delay}ms` } : undefined}
                   >
                     <span className="bp-pin">{index + 1}</span>
-                    <div className="min-w-0 flex-1">
-                      <p className="bp-tag">{block.tag}</p>
-                      <p className="mt-0.5 text-[0.8rem] leading-snug text-cream/90">{block.legend}</p>
-                    </div>
-                    <div className="flex shrink-0 items-center">
+                    <p className="bp-tag min-w-0 flex-1 break-words">{block.tag}</p>
+                    {/* Under the name and buttons, full width, so the 44px buttons don't squeeze it. */}
+                    <p className="order-last w-full pr-1 text-[0.8rem] leading-snug text-cream/90">{block.legend}</p>
+                    <div className="flex shrink-0 items-center gap-1">
                       <RowButton
                         label={`Move ${block.tag} up`}
                         data="up"
@@ -519,7 +528,12 @@ export default function BlueprintBuilder() {
                       >
                         ↓
                       </RowButton>
-                      <RowButton label={`Remove ${block.tag}`} data="remove" onClick={() => remove(block.id)}>
+                      <RowButton
+                        label={`Remove ${block.tag}`}
+                        data="remove"
+                        className="ml-2"
+                        onClick={() => removeThenFocus(block.id, (next) => `[data-bp-row="${next}"] [data-bp="remove"]`)}
+                      >
                         ×
                       </RowButton>
                     </div>
@@ -590,7 +604,9 @@ export default function BlueprintBuilder() {
 
         <div className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="t-mono text-mist">Add or remove features</p>
+            <p data-bp-menu tabIndex={-1} className="t-mono text-mist">
+              Add or remove features
+            </p>
             <div className="flex gap-5">
               <button
                 type="button"
@@ -602,7 +618,7 @@ export default function BlueprintBuilder() {
               <button
                 type="button"
                 onClick={() => draw()}
-                className="text-sm font-semibold text-mist underline underline-offset-4 hover:text-cream"
+                className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-mist underline underline-offset-4 hover:text-cream"
               >
                 Start over
               </button>
@@ -639,7 +655,7 @@ export default function BlueprintBuilder() {
                     setTab(g.id);
                     setQuery("");
                   }}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold ring-1 transition-colors ${
+                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold ring-1 transition-colors ${
                     current ? "bg-cream text-navy ring-cream" : "text-cream ring-cream/25 hover:ring-cream/60"
                   }`}
                 >
@@ -700,20 +716,24 @@ export default function BlueprintBuilder() {
 
         <div className="mt-10 flex flex-col items-start gap-5 border-t border-cream/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="t-h3">Your blueprint is ready.</p>
+            <p className="t-h3">
+              {placed.length ? "Your blueprint is ready." : "Pick at least one feature to see your blueprint."}
+            </p>
             <p className="mt-1.5 max-w-md text-mist">
-              The design comes next, drawn from scratch with you.{" "}
+              {placed.length ? <>The design comes next, drawn from scratch with you. </> : null}
               <Link
                 href={project ? `/work/${project.slug}/` : "/work/"}
                 className="font-semibold text-cream underline underline-offset-4 hover:text-orange-soft"
               >
-                {project ? `See what we built for a ${preset.noun} like yours` : "See the sites we've built"}
+                {project ? `See ${/^[aeiou]/.test(preset.noun) ? "an" : "a"} ${preset.noun} concept we built` : "See the sites we've built"}
               </Link>
             </p>
           </div>
-          <Button href={send} className="shrink-0">
-            Send me my blueprint
-          </Button>
+          {placed.length ? (
+            <Button href={send} className="shrink-0">
+              Send me my blueprint
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>
@@ -772,12 +792,14 @@ function RowButton({
   label,
   data,
   disabled,
+  className = "",
   onClick,
   children,
 }: {
   label: string;
   data: string;
   disabled?: boolean;
+  className?: string;
   onClick: () => void;
   children: string;
 }) {
@@ -788,7 +810,7 @@ function RowButton({
       data-bp={data}
       disabled={disabled}
       onClick={onClick}
-      className="flex h-9 w-8 items-center justify-center rounded-md font-mono text-base text-cream/80 transition-colors hover:bg-cream/10 hover:text-cream disabled:pointer-events-none disabled:opacity-25"
+      className={`flex size-11 items-center justify-center rounded-md font-mono text-base text-cream/80 transition-colors hover:bg-cream/10 hover:text-cream disabled:pointer-events-none disabled:opacity-25 ${className}`}
     >
       {children}
     </button>

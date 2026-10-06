@@ -3,12 +3,27 @@ import BlueprintBuilder from "@/components/BlueprintBuilder";
 import Blueprint from "@/components/ui/Blueprint";
 import Button from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/Section";
+import { openGraphBase, site } from "@/data/site";
+
+const description =
+  "Pick what your business does and see the pages and features your site should have. Free, no sign-up.";
 
 export const metadata: Metadata = {
   title: "Website Blueprint",
-  description:
-    "Pick what your business does and see the pages and features your site should have. Free, no sign-up.",
+  description,
   alternates: { canonical: "/blueprint/" },
+  openGraph: {
+    ...openGraphBase,
+    title: `Website Blueprint | ${site.name}`,
+    description,
+    url: "/blueprint/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Website Blueprint | ${site.name}`,
+    description,
+    images: ["/og.png"],
+  },
 };
 
 export default function BlueprintPage() {
