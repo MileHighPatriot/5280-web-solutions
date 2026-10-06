@@ -93,7 +93,7 @@ export const addOns: AddOn[] = [
     unit: "one-time",
     group: "launch",
     description:
-      "Go live in about a week instead of 2–3, for a grand opening or a busy season.",
+      "Moves your build to the front of the line, for a grand opening or a busy season.",
   },
   {
     id: "extra-page",
@@ -282,7 +282,7 @@ export const tiers: Tier[] = [
     features: [
       "Up to 12 pages at launch",
       "Unlimited reasonable edits",
-      "Priority turnaround (same or next business day)",
+      "Priority turnaround: your requests go to the front of the line",
       "3 site features set up free instead of 1",
       "Logo cleanup, business email, and social media profiles set up at no charge",
       "Local SEO boost: a monthly Google Business Profile post and search report",
@@ -313,7 +313,6 @@ export const everyBuild = [
   "Looks right on phones, tablets, and desktops",
   "Contact form and click-to-call",
   "Basic on-page SEO so Google can find you",
-  "Launch in about 2–3 weeks",
 ];
 
 /** Rows for the full monthly comparison table. true = included, false = not, string = detail. */
@@ -358,7 +357,7 @@ export const comparison: {
     values: {
       basic: "Standard",
       growth: "Standard",
-      premium: "Same / next day",
+      premium: "Priority",
     },
   },
   {

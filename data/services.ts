@@ -72,7 +72,7 @@ export const steps = [
   {
     step: "03",
     title: "Design & build",
-    body: "We design and build your site, usually in 2–3 weeks. You review it, request changes, and approve it before anything goes live.",
+    body: "We design and build your site. You review it, request changes, and approve it before anything goes live.",
   },
   {
     step: "04",

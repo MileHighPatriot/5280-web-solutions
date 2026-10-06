@@ -16,7 +16,7 @@ const updateOptions: Choice<"rarely" | "monthly" | "weekly">[] = [
 const helpOptions: Choice<"online" | "reports" | "handsOn">[] = [
   { value: "online", label: "Just keep it online", hint: "Hosting, security, and updates" },
   { value: "reports", label: "Updates + a traffic report", hint: "See how many people find you each month" },
-  { value: "handsOn", label: "Hands-on help", hint: "Monthly call, content, same-day changes" },
+  { value: "handsOn", label: "Hands-on help", hint: "Monthly call, content, priority changes" },
 ];
 
 const payOptions: Choice<"monthly" | "once">[] = [

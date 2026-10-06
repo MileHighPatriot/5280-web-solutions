@@ -55,7 +55,7 @@ export const generalFaq: FaqItem[] = [
   {
     question: "How long does it take to build my site?",
     answer:
-      "Most small-business sites take about 2–3 weeks from our kickoff call to launch. The biggest factor is usually how quickly we get your photos, logo, and info, and we'll tell you exactly what we need upfront.",
+      "It depends on the size of your site and how quickly we get your photos, logo, and info. We'll tell you exactly what we need upfront and walk you through the timeline on our kickoff call.",
   },
   {
     question: "I'm not a tech person. Is that a problem?",
