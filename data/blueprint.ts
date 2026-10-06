@@ -1,5 +1,5 @@
 /**
- * The homepage blueprint builder: a visitor types their business name and picks an
+ * The blueprint builder on /blueprint/: a visitor types their business name and picks an
  * industry, and we draw the plan for their home page as a blueprint, not a design.
  * Each industry starts with the features its customers look for (from the must-haves
  * on its industry page), and the visitor can add, remove, and reorder sections.

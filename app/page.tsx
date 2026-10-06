@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import BlueprintBuilder from "@/components/BlueprintBuilder";
 import FeaturedShowcase from "@/components/FeaturedShowcase";
 import FounderCard from "@/components/FounderCard";
 import HeroPhoto from "@/components/HeroPhoto";
@@ -28,26 +27,18 @@ export default function Home() {
       <Readouts />
       <FeaturedShowcase project={featuredProject} />
 
-      {/* Website blueprint builder */}
-      <section id="blueprint" aria-labelledby="blueprint-title" className="relative isolate overflow-clip bg-navy text-cream">
-        <Blueprint />
-        <div className="container-x section-y relative">
-          <SectionHeading
-            id="blueprint-title"
-            dark
-            eyebrow="Try it · Your website blueprint"
-            title={
-              <>
-                See the plan for your site <span className="text-orange">in ten seconds.</span>
-              </>
-            }
-            lede="Pick what you do and we'll draw up the pages and features your customers look for, the same plan we start every build with. Then add, remove, and rearrange until it fits."
-          />
-          <div className="mt-12 sm:mt-16">
-            <BlueprintBuilder />
-          </div>
-        </div>
-      </section>
+      {/* Pointer to the blueprint tool, which lives on its own page */}
+      <div className="border-b border-navy/10 bg-paper/70">
+        <p className="container-x py-5 text-sm text-stone sm:text-base">
+          Curious what your site would need?{" "}
+          <Link href="/blueprint/" className="group font-bold text-ember">
+            Try the 10-second website blueprint{" "}
+            <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </p>
+      </div>
 
       {/* Work */}
       <div className="relative isolate overflow-clip">

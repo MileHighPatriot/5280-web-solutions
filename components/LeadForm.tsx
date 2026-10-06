@@ -36,7 +36,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect -- one-time sync from the URL */
     const params = new URLSearchParams(window.location.search);
-    // The homepage blueprint builder links here with the business name and the features they picked.
+    // The blueprint builder on /blueprint/ links here with the business name and the features they picked.
     const business = params.get("business")?.trim();
     const field = formRef.current?.elements.namedItem("business");
     if (business && field instanceof HTMLInputElement && !field.value) field.value = business.slice(0, 80);

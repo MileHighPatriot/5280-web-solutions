@@ -19,6 +19,7 @@ export function SectionHeading({
   center = false,
   reveal = true,
   id,
+  as: Heading = "h2",
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -28,15 +29,17 @@ export function SectionHeading({
   /** Off for headings that can sit above the fold, so they never paint mid-fade. */
   reveal?: boolean;
   id?: string;
+  /** h1 when the heading is the page's own title. Looks the same either way. */
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={`${reveal ? "reveal " : ""}${center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
       <Eyebrow className={`${dark ? "text-mist" : "text-stone"} ${center ? "justify-center" : ""}`}>
         {eyebrow}
       </Eyebrow>
-      <h2 id={id} className="t-h2 mt-5 text-balance">
+      <Heading id={id} className="t-h2 mt-5 text-balance">
         {title}
-      </h2>
+      </Heading>
       {lede ? (
         <p className={`t-lede mt-5 text-pretty ${dark ? "text-mist" : "text-stone"}`}>{lede}</p>
       ) : null}
