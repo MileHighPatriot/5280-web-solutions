@@ -143,6 +143,27 @@ export default function Home() {
         <Blueprint className="[mask-image:radial-gradient(ellipse_70%_80%_at_15%_50%,black_20%,transparent_75%)]" />
         <div className="container-x section-y">
           <PricingPreview />
+
+          {/* Referral program. Approved wording: change it only with Kohlton's sign-off. */}
+          <div
+            id="referrals"
+            className="reveal mt-12 grid scroll-mt-24 gap-5 rounded-2xl bg-cream/[0.06] p-6 ring-1 ring-cream/10 sm:p-8 lg:grid-cols-12 lg:gap-16"
+          >
+            <h3 className="t-h3 text-balance lg:col-span-5">
+              Send someone my way, and <span className="text-orange">your next month&apos;s on me.</span>
+            </h3>
+            <div className="lg:col-span-7">
+              <p className="text-mist">
+                If you&apos;re a client and you send me another business, I&apos;ll take one month of your plan off
+                your next invoice once their site is live and they&apos;ve paid their first monthly bill. It&apos;s
+                a credit, not a check. Your own invoices just need to be current. That&apos;s it.
+              </p>
+              <p className="mt-4 text-sm text-mist">
+                Fine print: Credit is one month of your own plan, up to 12 a year. Doesn&apos;t count for yourself or
+                anyone who&apos;s already a client. Never paid out as cash, and unused credits end if you cancel.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
