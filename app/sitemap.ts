@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blueprint/",
     "/areas/",
     "/industries/",
+    "/industries/hvac/",
+    "/industries/roofing/",
     "/faq/",
     "/privacy/",
     "/terms/",

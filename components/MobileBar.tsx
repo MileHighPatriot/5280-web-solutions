@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
 // Pages that already put the form front and center don't need the bar.
-const hiddenOn = ["/contact/", "/free-website-check/"];
+const hiddenOn = ["/contact/", "/free-website-check/", "/industries/hvac/", "/industries/roofing/"];
 
 /** Phone-only action bar that slides up once the visitor scrolls past the first screen. */
 export default function MobileBar() {
