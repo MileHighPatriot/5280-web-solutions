@@ -254,10 +254,124 @@ export const projects: Project[] = [
       fullMobile: "/work/ditch-rider-brewing-full-mobile.jpg",
     },
   },
+  {
+    slug: "quality-air",
+    name: "Quality Air",
+    industry: "Heating & cooling",
+    location: "Aurora, CO",
+    url: "https://milehighpatriot.github.io/quality-air/",
+    summary:
+      "A concept site for a furnace and AC company in Aurora. It shows upfront price ranges, a 30-second repair-or-replace check, and a simple maintenance plan.",
+    goal: "Heating and cooling calls often start with one question: fix it or replace it. This concept answers that on the home page with a short quiz, shows sample price ranges before anyone calls, and keeps the phone number one tap away.",
+    decisions: [
+      {
+        title: "Answer repair or replace first",
+        body: "Three quick questions about the system, its age, and what it's doing lead to a plain answer and a sample price range.",
+      },
+      {
+        title: "Say the price up front",
+        body: "The home page promises a price range on the phone and a firm number before work starts. Plan prices are marked as samples.",
+      },
+      {
+        title: "Plan around the seasons",
+        body: "A dismissible furnace-season notice and a two-tune-ups-a-year maintenance plan fit how people think about heating and cooling.",
+      },
+    ],
+    features: [
+      "Repair-or-replace check with a sample price range",
+      "Furnace repair, AC repair, new system install, and tune-up services",
+      "Maintenance plan comparison with sample monthly prices",
+      "Tap-to-call button and a demo contact form",
+      "Sample reviews and service area, all marked as concept content",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/quality-air-desktop.jpg",
+      mobile: "/work/quality-air-mobile.jpg",
+      fullDesktop: "/work/quality-air-full-desktop.jpg",
+      fullMobile: "/work/quality-air-full-mobile.jpg",
+    },
+  },
+  {
+    slug: "lumbre",
+    name: "Lumbre",
+    industry: "Mexican restaurant",
+    location: "Denver, CO",
+    url: "https://milehighpatriot.github.io/lumbre/",
+    summary:
+      "A concept site for a small Mexican kitchen on Santa Fe Drive. It shows the menu, a pickup and delivery order builder, daily promotions, and open-now hours.",
+    goal: "Restaurant sites often hide the menu and the hours behind a PDF. This concept puts the food, the hours, and ordering on the home page, with promotions that follow the day and time.",
+    decisions: [
+      {
+        title: "Lead with the food",
+        body: "A warm photo, the menu board, and an order button open the page, so a visitor sees what the kitchen makes right away.",
+      },
+      {
+        title: "Order in a few taps",
+        body: "The order builder changes the price as heat, fillings, and add-ons change, then lets the guest pick a pickup window. No card is charged on the demo.",
+      },
+      {
+        title: "Show what's on today",
+        body: "Hours show whether the kitchen is open now, and the Tuesday, Thursday, and weekday afternoon promotions are listed in one place.",
+      },
+    ],
+    features: [
+      "Menu with prices and short dish descriptions",
+      "Order builder with pickup or delivery and time windows",
+      "Promotions: Tuesday tacos, Thursday margaritas, afternoon board",
+      "Open-now status and full weekly hours",
+      "Sample address, phone, and email, marked as not real",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/lumbre-desktop.jpg",
+      mobile: "/work/lumbre-mobile.jpg",
+      fullDesktop: "/work/lumbre-full-desktop.jpg",
+      fullMobile: "/work/lumbre-full-mobile.jpg",
+    },
+  },
+  {
+    slug: "morainex",
+    name: "Morainex",
+    industry: "Electrician",
+    location: "Denver metro, CO",
+    url: "https://milehighpatriot.github.io/morainex/",
+    summary:
+      "A concept site for a Denver-metro electrician. It lists sample prices for each service, lets visitors price an EV charger or panel upgrade, and includes a before and after lighting slider.",
+    goal: "Most electricians won't give a number until they're standing in the garage. This concept shows sample price ranges for every service, a price tool, and a clear path for emergencies, so a homeowner knows where they stand before they call.",
+    decisions: [
+      {
+        title: "Price it first",
+        body: "Each service is shown as a numbered breaker with a sample price range. A price tool covers EV chargers and panel upgrades.",
+      },
+      {
+        title: "Safety before sales",
+        body: "A note near the top tells visitors to get everyone out and call 911 for a burning smell, sparks, or a hot panel, with a link to what to do next.",
+      },
+      {
+        title: "Show the lighting work",
+        body: "A draggable before and after slider shows the same house with the lights on and off, since lighting is the part of the job people see.",
+      },
+    ],
+    features: [
+      "Service list with sample price ranges",
+      "EV charger and panel upgrade price tool",
+      "Before and after lighting slider",
+      "Care plan and pay-over-time examples marked as samples",
+      "ZIP code checker, FAQ, and an emergency page",
+    ],
+    stack: "Next.js · TypeScript",
+    images: {
+      desktop: "/work/morainex-desktop.jpg",
+      mobile: "/work/morainex-mobile.jpg",
+      fullDesktop: "/work/morainex-full-desktop.jpg",
+      fullMobile: "/work/morainex-full-mobile.jpg",
+    },
+  },
 ];
 
 /** Projects shown on the Work page, in order. Archived ones keep their case study pages. */
-export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church"].map(
+export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church", "quality-air", "lumbre", "morainex"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );
 

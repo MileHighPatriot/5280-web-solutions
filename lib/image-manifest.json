@@ -160,6 +160,62 @@
     384,
     600
   ],
+  "/work/lumbre-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/lumbre-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/lumbre-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/lumbre-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
+  "/work/morainex-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/morainex-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/morainex-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/morainex-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
   "/work/platte-river-builders-desktop.jpg": [
     256,
     384,
@@ -188,12 +244,33 @@
     384,
     600
   ],
-  "/work/quality-air-mobile.jpg": [
+  "/work/quality-air-desktop.jpg": [
     256,
     384,
     640,
     750,
-    780
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/quality-air-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/quality-air-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/quality-air-mobile.jpg": [
+    256,
+    384,
+    600
   ],
   "/work/roofing-footer-before-after.png": [
     256,
