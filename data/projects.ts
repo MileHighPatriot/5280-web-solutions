@@ -368,10 +368,48 @@ export const projects: Project[] = [
       fullMobile: "/work/morainex-full-mobile.jpg",
     },
   },
+  {
+    slug: "strathvane",
+    name: "Strathvane",
+    industry: "Roofing contractor",
+    location: "Denver metro, CO",
+    url: "https://milehighpatriot.github.io/strathvane/",
+    summary:
+      "A concept site for a Denver-metro roofing company. It opens with a drone inspection, shows a price range before anyone climbs up, and books a two-hour inspection window.",
+    goal: "Roofing sites often lead with a phone number and a photo of shingles. This concept answers the questions people ask first: what does the roof need, what will it cost, and when can someone look at it.",
+    decisions: [
+      {
+        title: "Measure it from the sky",
+        body: "The home page leads with a roof seen from above. Hotspots call out shingles, flashing, vents, and gutters, and a satellite measurement sits next to the drone report.",
+      },
+      {
+        title: "A range before the ladder",
+        body: "An estimator shows a sample price range on the home page. The written, itemized price comes before any work starts, and the page says so.",
+      },
+      {
+        title: "Storm, emergency, and the yearly plan",
+        body: "A storm check, an emergency checklist, and a roof-care plan live on the same site, so the urgent call and the routine checkup share one website.",
+      },
+    ],
+    features: [
+      "Drone inspection hotspots and a satellite measurement",
+      "Price-range estimator and a clear estimate page",
+      "Storm check, emergency checklist, and two-hour booking windows",
+      "Roof care plan and a pay-over-time example, marked as concept",
+      "Material choices: architectural, impact-resistant, metal, and tile",
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    images: {
+      desktop: "/work/strathvane-desktop.jpg",
+      mobile: "/work/strathvane-mobile.jpg",
+      fullDesktop: "/work/strathvane-full-desktop.jpg",
+      fullMobile: "/work/strathvane-full-mobile.jpg",
+    },
+  },
 ];
 
 /** Projects shown on the Work page, in order. Archived ones keep their case study pages. */
-export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church", "quality-air", "lumbre", "morainex"].map(
+export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church", "quality-air", "lumbre", "morainex", "strathvane"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );
 

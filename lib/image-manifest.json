@@ -288,6 +288,34 @@
     750,
     780
   ],
+  "/work/strathvane-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/strathvane-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/strathvane-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/strathvane-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
   "/work/summit-frame-build-desktop.jpg": [
     256,
     384,
