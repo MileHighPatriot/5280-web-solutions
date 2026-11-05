@@ -261,28 +261,28 @@ export const projects: Project[] = [
     location: "Aurora, CO",
     url: "https://milehighpatriot.github.io/quality-air/",
     summary:
-      "A concept site for a furnace and AC company in Aurora. It shows upfront price ranges, a 30-second repair-or-replace check, and a simple maintenance plan.",
-    goal: "Heating and cooling calls often start with one question: fix it or replace it. This concept answers that on the home page with a short quiz, shows sample price ranges before anyone calls, and keeps the phone number one tap away.",
+      "A concept site for a furnace and AC company in Aurora. A live weather card, a call button that never leaves the screen, a 30-second repair-or-replace check, and a no-heat checklist.",
+    goal: "Heating and cooling calls happen when something's already wrong, often at night. This concept keeps the phone number one tap away on every screen, says whether the office is open right now, and answers the two big questions before anyone calls: can I fix it myself, and should I repair it or replace it?",
     decisions: [
       {
-        title: "Answer repair or replace first",
-        body: "Three quick questions about the system, its age, and what it's doing lead to a plain answer and a sample price range.",
+        title: "Keep the call button on screen",
+        body: "On a phone, a call bar stays pinned to the bottom of the screen. It shows whether the office is open or the emergency line is on, based on the time in Denver.",
       },
       {
-        title: "Say the price up front",
-        body: "The home page promises a price range on the phone and a firm number before work starts. Plan prices are marked as samples.",
+        title: "Use tonight's weather",
+        body: "A live card pulls Aurora's temperature, tonight's low and tomorrow's high. It suggests a furnace tune-up when it's cold, an AC check when it's hot, and says to call on a hard-freeze night.",
       },
       {
-        title: "Plan around the seasons",
-        body: "A dismissible furnace-season notice and a two-tune-ups-a-year maintenance plan fit how people think about heating and cooling.",
+        title: "Answer before they call",
+        body: "A three-question repair-or-replace check gives a sample price range and fills in the booking form. A no-heat checklist covers the quick fixes, like snow on the vent pipes, and puts gas safety first.",
       },
     ],
     features: [
-      "Repair-or-replace check with a sample price range",
-      "Furnace repair, AC repair, new system install, and tune-up services",
-      "Maintenance plan comparison with sample monthly prices",
-      "Tap-to-call button and a demo contact form",
-      "Sample reviews and service area, all marked as concept content",
+      "Call bar pinned to the bottom of the phone screen, with live office hours",
+      "Live Aurora weather card that changes its advice with the forecast",
+      "Repair-or-replace check that fills in the booking form",
+      "No-heat and no-cool checklists, with gas and CO safety up top",
+      "Sample price page, plus a calculator that shows whether a maintenance plan pays for itself",
     ],
     stack: "Next.js · TypeScript · Tailwind CSS",
     images: {

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const conceptUrl = "https://milehighpatriot.github.io/quality-air/";
 const phoneShot = {
   src: "/work/quality-air-mobile.jpg",
-  alt: "Quality Air concept site on a phone, with the call button at the top",
+  alt: "Quality Air concept site on a phone, with a call bar pinned to the bottom of the screen",
   width: 780,
   height: 1688,
 };
@@ -123,7 +123,7 @@ export default function HvacPage() {
             </h2>
             <p className="t-lede mt-5 max-w-2xl text-pretty text-mist">
               {
-                'Quality Air is a concept site I built to show what an HVAC site can do. It\'s not a real company. The call button sits right at the top on a phone, there\'s a quick "repair or replace?" tool, and the maintenance plans have their own page.'
+                'Quality Air is a concept site I built to show what an HVAC site can do. It\'s not a real company. On a phone, the call button stays pinned to the bottom of the screen and says whether the office is open. A live card shows tonight\'s low in Aurora and what it means for the furnace. There\'s a quick "repair or replace?" tool, a no-heat checklist, and a price page.'
               }
             </p>
             <Button href={conceptUrl} variant="outline-light" className="mt-8">
