@@ -50,10 +50,10 @@ export default function Footer() {
 
           <nav aria-label="Footer" className="lg:col-span-2">
             <p className="t-mono text-mist">Explore</p>
-            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-1">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 sm:grid-cols-1 sm:gap-y-2.5">
               {footerNav.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-cream/80 transition-colors hover:text-orange">
+                  <Link href={link.href} className="flex min-h-11 items-center sm:inline sm:min-h-0 text-cream/80 transition-colors hover:text-orange">
                     {link.label}
                   </Link>
                 </li>
@@ -63,21 +63,21 @@ export default function Footer() {
 
           <div className="lg:col-span-3">
             <p className="t-mono text-mist">Contact</p>
-            <ul className="mt-4 space-y-2.5 text-cream/80">
+            <ul className="mt-4 text-cream/80 sm:space-y-2.5">
               <li>
-                <a href={site.phoneHref} className="transition-colors hover:text-orange">
+                <a href={site.phoneHref} className="flex min-h-11 items-center sm:inline sm:min-h-0 transition-colors hover:text-orange">
                   {site.phoneDisplay}
                 </a>
               </li>
               <li>
-                <a href={site.emailHref} className="transition-colors hover:text-orange">
-                  {site.email}
+                <a href={site.footerEmailHref} className="flex min-h-11 items-center sm:inline sm:min-h-0 transition-colors hover:text-orange">
+                  {site.footerEmail}
                 </a>
               </li>
               <li className="text-mist">{site.hours}</li>
               {site.googleReviewUrl && (
                 <li>
-                  <a href={site.googleReviewUrl} className="transition-colors hover:text-orange">
+                  <a href={site.googleReviewUrl} className="flex min-h-11 items-center sm:inline sm:min-h-0 transition-colors hover:text-orange">
                     Review us on Google
                   </a>
                 </li>
@@ -116,10 +116,10 @@ export default function Footer() {
               </a>
               , edited.
             </p>
-            <ul className="flex gap-5">
+            <ul className="flex items-center gap-5">
               {legalNav.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-cream">
+                  <Link href={link.href} className="flex min-h-11 items-center sm:inline sm:min-h-0 hover:text-cream">
                     {link.label}
                   </Link>
                 </li>

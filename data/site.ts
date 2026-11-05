@@ -14,6 +14,9 @@ export const site = {
   phoneHref: "tel:+17202606089",
   email: "kohlton@5280webs.com",
   emailHref: "mailto:kohlton@5280webs.com",
+  // The footer shows the address capitalized; everything else still uses email/emailHref above.
+  footerEmail: "Kohlton@5280webs.com",
+  footerEmailHref: "mailto:Kohlton@5280webs.com",
   region: "Front Range, Colorado",
   // Google Business Profile (place ID ChIJG0IhN9wQpQ0RwsHmb3F-96M). The profile link is the schema
   // sameAs; the review link opens Google's "write a review" box. Empty = no Google links shown.

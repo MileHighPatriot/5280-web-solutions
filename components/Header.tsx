@@ -76,13 +76,13 @@ export default function Header() {
             href={site.phoneHref}
             className="hidden font-mono text-sm text-cream/80 transition-colors hover:text-cream xl:inline"
           >
-            {site.phoneDisplay}
+            Call {site.phoneDisplay}
           </a>
           <Link
             href="/free-website-check/"
             className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-navy shadow-[0_6px_20px_-10px_rgba(251,79,20,0.8)] transition-[background-color,box-shadow] hover:bg-orange-soft hover:shadow-[0_10px_28px_-8px_rgba(251,79,20,0.8)] sm:inline-flex"
           >
-            Free full website report
+            Get my free website report
           </Link>
           <a
             href={site.phoneHref}

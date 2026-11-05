@@ -135,7 +135,7 @@ export default function HvacPage() {
 
       <section aria-labelledby="plans" className="container-x section-y">
         <h2 id="plans" className="t-h2 max-w-3xl text-balance">
-          Turn one-time calls into yearly plans
+          Turn one‑time calls into yearly plans
         </h2>
         <p className="t-lede mt-5 max-w-2xl text-pretty text-stone">
           I can build a page that sells your maintenance plans, so a tune-up customer becomes a customer for years.

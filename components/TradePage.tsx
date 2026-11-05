@@ -165,7 +165,7 @@ export function TradeCallBar() {
   return (
     <nav
       aria-label="Quick contact"
-      className="fixed inset-x-3 z-40 flex gap-1.5 max-[359px]:inset-x-2 rounded-full bg-navy/95 p-1.5 text-cream shadow-[0_10px_30px_rgba(0,34,68,0.35)] ring-1 ring-cream/10 backdrop-blur sm:hidden"
+      className="fixed inset-x-3 z-40 flex gap-1.5 max-[359px]:inset-x-2 rounded-full bg-navy p-1.5 text-cream shadow-[0_10px_30px_rgba(0,34,68,0.35)] ring-2 ring-white sm:hidden"
       style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <a
