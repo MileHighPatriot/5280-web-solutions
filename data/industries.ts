@@ -72,6 +72,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "restaurants",
+    metaDescription:
+      "Websites for Front Range restaurants and cafés, built by a local developer. Menu, hours, and directions easy to find on a phone, plus ordering links. $75/mo.",
     label: "Restaurants & cafés",
     audience: "restaurants & cafés",
     title: "Restaurant websites people actually use.",
@@ -112,6 +114,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "salons-barbers",
+    metaDescription:
+      "Websites for Front Range salons and barbershops, built by a local developer. A gallery of your work, your price list, and a Book Now button. From $75/mo.",
     label: "Salons & barbers",
     audience: "salons & barbershops",
     title: "Websites for salons and barbers that fill the book.",
@@ -152,6 +156,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "auto-shops",
+    metaDescription:
+      "Websites for Front Range car washes and auto shops, built by a local developer. Prices, hours, and one-tap directions that load fast on a phone. From $75/mo.",
     label: "Car washes & auto shops",
     audience: "car washes & auto shops",
     title: "Websites for car washes and auto shops.",
@@ -232,6 +238,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "cleaning",
+    metaDescription:
+      "Websites for Front Range cleaning services, built by a local developer. Show you're insured and reliable, list what's included, and make booking easy. $75/mo.",
     label: "Cleaning services",
     audience: "cleaning services",
     title: "Websites for cleaning services people trust.",
@@ -317,6 +325,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "nonprofits",
+    metaDescription:
+      "Websites for Front Range nonprofits and community groups, built by a local developer. Donate button on every page, volunteer sign-ups, and events. $75/mo.",
     label: "Nonprofits & community groups",
     audience: "nonprofits & community groups",
     title: "Nonprofit websites that turn visitors into supporters.",
@@ -358,6 +368,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "fitness",
+    metaDescription:
+      "Websites for Front Range gyms and fitness studios, built by a local developer. Class schedule, membership prices, and an intro-class sign-up. From $75/mo.",
     label: "Gyms & fitness studios",
     audience: "gyms & fitness studios",
     title: "Websites for gyms and studios that fill classes.",
@@ -398,6 +410,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "health-wellness",
+    metaDescription:
+      "Websites for Front Range chiropractors, therapists, and wellness practices. Service pages, insurance details, and a Book Now button for new patients. $75/mo.",
     label: "Health & wellness practices",
     audience: "health & wellness practices",
     title: "Websites for chiropractors, therapists, and wellness practices.",
@@ -438,6 +452,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "retail",
+    metaDescription:
+      "Websites for Front Range retail and local shops, built by a local developer. Show what you carry, your hours and directions, and this week's sales. $75/mo.",
     label: "Retail & local shops",
     audience: "retail & local shops",
     title: "Websites for local shops that bring people through the door.",
@@ -478,6 +494,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "professional-services",
+    metaDescription:
+      "Websites for Front Range accountants, attorneys, and advisors, built by a local developer. A page for each service, team bios, and consultation booking.",
     label: "Professional services",
     audience: "accountants, attorneys & advisors",
     title: "Websites for accountants, attorneys, and advisors.",
@@ -518,6 +536,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "pet-services",
+    metaDescription:
+      "Websites for Front Range groomers, trainers, and pet care pros, built by a local developer. Prices by size or breed, happy-pet photos, and easy booking.",
     label: "Pet services",
     audience: "groomers, trainers & pet care",
     title: "Websites for groomers, trainers, and pet care pros.",
@@ -558,6 +578,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "childcare-education",
+    metaDescription:
+      "Websites for Front Range daycares, preschools, and tutors, built by a local developer. Programs by age, licensing and tuition details, and tour booking.",
     label: "Childcare & tutoring",
     audience: "daycares, preschools & tutors",
     title: "Websites for daycares, preschools, and tutors that parents trust.",
@@ -598,6 +620,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "real-estate",
+    metaDescription:
+      "Websites for Front Range real estate agents and property managers. Neighborhood pages, a home value form, and links to your listings, on a site of your own.",
     label: "Real estate & property management",
     audience: "real estate agents & property managers",
     title: "Websites for real estate agents and property managers.",
@@ -638,6 +662,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "photographers-events",
+    metaDescription:
+      "Websites for Front Range photographers, venues, and event pros, built by a local developer. Fast portfolio galleries, packages, and a date inquiry form.",
     label: "Photographers & event pros",
     audience: "photographers, venues & event pros",
     title: "Websites for photographers, venues, and event pros.",
@@ -678,6 +704,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "breweries-bars",
+    metaDescription:
+      "Websites for Front Range breweries, wineries, and bars, built by a local developer. Tap list, events and food trucks, and patio details in one look. $75/mo.",
     label: "Breweries, wineries & bars",
     audience: "breweries, wineries & bars",
     title: "Websites for breweries, wineries, and bars.",
@@ -718,6 +746,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "outdoor-recreation",
+    metaDescription:
+      "Websites for Colorado outfitters, guides, and rental shops, built by a local developer. Trips with prices and skill levels, plus online booking. From $75/mo.",
     label: "Outdoor outfitters & recreation",
     audience: "outfitters, guides & rental shops",
     title: "Websites for outfitters, guides, and rental shops.",

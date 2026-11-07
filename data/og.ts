@@ -133,4 +133,107 @@ export const ogCopy: Record<string, { title: string; description: string }> = {
     title: "Terms of Use | 5280 Web Solutions",
     description: "Terms for using the 5280 Web Solutions website.",
   },
+
+  // Pending pages (4 towns, 16 industries): drafted 2026-11-07 from each page's own content, in the
+  // same shape as the Marketing Manager's copy above. Replace freely.
+  "/areas/aurora/": {
+    title: "Web Design in Aurora, CO | 5280 Web Solutions",
+    description:
+      "Websites for Aurora small businesses, built and hosted by a local Front Range developer. Plans from $75/mo or a one-time build.",
+  },
+  "/areas/lakewood/": {
+    title: "Web Design in Lakewood, CO | 5280 Web Solutions",
+    description:
+      "Websites for Lakewood small businesses, built and hosted by a local Front Range developer. Plans from $75/mo or a one-time build.",
+  },
+  "/areas/boulder/": {
+    title: "Web Design in Boulder, CO | 5280 Web Solutions",
+    description:
+      "Websites for Boulder small businesses, built and hosted by a local Front Range developer. Plans from $75/mo or a one-time build.",
+  },
+  "/areas/colorado-springs/": {
+    title: "Web Design in Colorado Springs, CO | 5280 Web Solutions",
+    description:
+      "Websites for Colorado Springs small businesses, built and hosted by a local Front Range developer. Plans from $75/mo or a one-time build.",
+  },
+  "/industries/restaurants/": {
+    title: "Websites for Restaurants and Cafés | 5280 Web Solutions",
+    description:
+      "Menu, hours, and directions people can find in seconds on a phone. Restaurant and café websites for the Front Range from $75/mo.",
+  },
+  "/industries/salons-barbers/": {
+    title: "Websites for Salons and Barbers | 5280 Web Solutions",
+    description:
+      "Show off your work, list your prices, and get clients booked with a Book Now button. Salon and barber websites from $75/mo.",
+  },
+  "/industries/auto-shops/": {
+    title: "Websites for Car Washes and Auto Shops | 5280 Web Solutions",
+    description:
+      "Fast pages with prices, hours, and one-tap directions for drivers who are already in the car. Front Range sites from $75/mo.",
+  },
+  "/industries/landscaping/": {
+    title: "Websites for Landscaping and Lawn Care | 5280 Web Solutions",
+    description:
+      "Show your work, list your seasonal services, and take quote requests while you're out on a mower. Front Range sites from $75/mo.",
+  },
+  "/industries/cleaning/": {
+    title: "Websites for Cleaning Services | 5280 Web Solutions",
+    description:
+      "Show you're reliable and insured, list what's included, and make booking easy. Cleaning service websites from $75/mo.",
+  },
+  "/industries/nonprofits/": {
+    title: "Websites for Nonprofits | 5280 Web Solutions",
+    description:
+      "A donate button on every page, volunteer sign-ups, and an events calendar. Nonprofit websites for the Front Range from $75/mo.",
+  },
+  "/industries/fitness/": {
+    title: "Websites for Gyms and Fitness Studios | 5280 Web Solutions",
+    description:
+      "Your class schedule, your prices, and a first-class sign-up, easy to find on a phone. Gym and studio websites from $75/mo.",
+  },
+  "/industries/health-wellness/": {
+    title: "Websites for Health and Wellness Practices | 5280 Web Solutions",
+    description:
+      "Service pages, insurance and self-pay prices, and a Book Now button for new patients. Front Range practice websites from $75/mo.",
+  },
+  "/industries/retail/": {
+    title: "Websites for Local Shops | 5280 Web Solutions",
+    description:
+      "What you carry, when you're open, and a reason to come in this week. Websites for Front Range retail shops from $75/mo.",
+  },
+  "/industries/professional-services/": {
+    title: "Websites for Accountants, Attorneys and Advisors | 5280 Web Solutions",
+    description:
+      "Look established, explain what you handle, and make booking a consultation easy. Front Range websites from $75/mo.",
+  },
+  "/industries/pet-services/": {
+    title: "Websites for Groomers, Trainers and Pet Care | 5280 Web Solutions",
+    description:
+      "Prices by size or breed, photos of happy pets, and simple booking. Pet service websites for the Front Range from $75/mo.",
+  },
+  "/industries/childcare-education/": {
+    title: "Websites for Daycares, Preschools and Tutors | 5280 Web Solutions",
+    description:
+      "Programs by age, licensing, tuition, and tour booking: the answers parents look for first. Front Range websites from $75/mo.",
+  },
+  "/industries/real-estate/": {
+    title: "Real Estate and Property Management Websites | 5280 Web Solutions",
+    description:
+      "Neighborhood pages, a home value request form, and your listings, on a site of your own. Front Range websites from $75/mo.",
+  },
+  "/industries/photographers-events/": {
+    title: "Websites for Photographers and Event Pros | 5280 Web Solutions",
+    description:
+      "Portfolio galleries that load fast, packages and starting prices, and an inquiry form for your date. Front Range sites from $75/mo.",
+  },
+  "/industries/breweries-bars/": {
+    title: "Websites for Breweries, Wineries and Bars | 5280 Web Solutions",
+    description:
+      "What's on tap, tonight's food truck, and whether the dog can come, in one look. Front Range taproom websites from $75/mo.",
+  },
+  "/industries/outdoor-recreation/": {
+    title: "Websites for Outfitters, Guides and Rentals | 5280 Web Solutions",
+    description:
+      "Show the trip, the price, and the skill level, then let visitors book online. Outfitter and guide websites from $75/mo.",
+  },
 };

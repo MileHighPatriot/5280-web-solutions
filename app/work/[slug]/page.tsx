@@ -18,11 +18,13 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
-  return pageMeta({
+  const meta = pageMeta({
     title: `${project.name} (Concept Project)`,
     description: project.metaDescription ?? project.summary,
     path: `/work/${project.slug}/`,
   });
+  // Retired concepts stay reachable for old links but drop out of search results.
+  return project.archived ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 
 export default async function ProjectPage({ params }: PageProps<"/work/[slug]">) {
