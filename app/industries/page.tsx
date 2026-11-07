@@ -5,12 +5,13 @@ import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { industries, industryGroups } from "@/data/industries";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Industries",
   description: `Websites built for how each business gets customers: contractors, restaurants, churches, nonprofits, salons, gyms, shops, practices, and more on the Front Range.`,
-  alternates: { canonical: "/industries/" },
-};
+  path: "/industries/",
+});
 
 /** First sentence of the intro, or the first two when the first is very short. */
 function teaser(intro: string) {

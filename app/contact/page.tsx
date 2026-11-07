@@ -4,12 +4,13 @@ import CallCard from "@/components/CallCard";
 import LeadForm from "@/components/LeadForm";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact",
   description: `Get started with ${site.name}. Call or text ${site.phoneDisplay}, email ${site.email}, or send a message. Replies within ${site.replyTime}.`,
-  alternates: { canonical: "/contact/" },
-};
+  path: "/contact/",
+});
 
 export default function ContactPage() {
   return (

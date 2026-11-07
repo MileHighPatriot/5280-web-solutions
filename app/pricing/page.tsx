@@ -12,12 +12,13 @@ import { SectionHeading } from "@/components/ui/Section";
 import { pricingFaq } from "@/data/faq";
 import { alternativesCheckedOn, money, tiers } from "@/data/pricing";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Pricing",
   description: `Website plans from ${money(tiers[0].monthly)}/month with a small setup fee, or a one-time flat-fee build you own outright. Clear pricing for Front Range small businesses.`,
-  alternates: { canonical: "/pricing/" },
-};
+  path: "/pricing/",
+});
 
 export default function PricingPage() {
   return (

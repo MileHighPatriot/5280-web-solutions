@@ -6,6 +6,7 @@ import { ConceptBadge } from "@/components/ProjectCard";
 import Button, { Check } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Section";
 import { listedProjects, projects } from "@/data/projects";
+import { pageMeta } from "@/lib/meta";
 
 export const dynamicParams = false;
 
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
-  return {
+  return pageMeta({
     title: `${project.name} (Concept Project)`,
     description: project.summary,
-    alternates: { canonical: `/work/${project.slug}/` },
-  };
+    path: `/work/${project.slug}/`,
+  });
 }
 
 export default async function ProjectPage({ params }: PageProps<"/work/[slug]">) {

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
   description: `How ${site.name} handles the information you share through this website.`,
-  alternates: { canonical: "/privacy/" },
-};
+  path: "/privacy/",
+});
 
 const updated = "September 30, 2026";
 

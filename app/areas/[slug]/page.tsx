@@ -8,6 +8,7 @@ import { areas } from "@/data/areas";
 import { money, tiers } from "@/data/pricing";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
 export const dynamicParams = false;
 
@@ -19,11 +20,11 @@ export async function generateMetadata({ params }: PageProps<"/areas/[slug]">): 
   const { slug } = await params;
   const area = areas.find((item) => item.slug === slug);
   if (!area) return {};
-  return {
+  return pageMeta({
     title: `Web Design in ${area.city}, CO`,
     description: `Professional websites for ${area.city} small businesses, built and hosted by a local Front Range developer. Monthly plans from ${money(tiers[0].monthly)}/mo or a one-time build.`,
-    alternates: { canonical: `/areas/${area.slug}/` },
-  };
+    path: `/areas/${area.slug}/`,
+  });
 }
 
 export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {

@@ -11,6 +11,7 @@ import { industries } from "@/data/industries";
 import { money, tiers } from "@/data/pricing";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
 export const dynamicParams = false;
 
@@ -22,11 +23,11 @@ export async function generateMetadata({ params }: PageProps<"/industries/[slug]
   const { slug } = await params;
   const industry = industries.find((item) => item.slug === slug);
   if (!industry) return {};
-  return {
+  return pageMeta({
     title: `Websites for ${industry.label} in Colorado`,
     description: `Custom websites for Front Range ${industry.audience}, built and cared for by a local developer. ${industry.intro.split(". ")[0]}. Plans from ${money(tiers[0].monthly)}/mo.`,
-    alternates: { canonical: `/industries/${industry.slug}/` },
-  };
+    path: `/industries/${industry.slug}/`,
+  });
 }
 
 // Each industry header gets different art, so the pages don't all look alike.

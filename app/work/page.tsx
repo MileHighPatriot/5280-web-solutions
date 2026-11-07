@@ -4,13 +4,14 @@ import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { listedProjects } from "@/data/projects";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Work",
   description:
     "Website projects by 5280 Web Solutions: fast, phone-first sites built to win local customers for Front Range small businesses.",
-  alternates: { canonical: "/work/" },
-};
+  path: "/work/",
+});
 
 export default function WorkPage() {
   return (

@@ -4,13 +4,14 @@ import AreaMap from "@/components/AreaMap";
 import PageHeader from "@/components/ui/PageHeader";
 import { areas } from "@/data/areas";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Service Areas",
   description:
     "Web design for small businesses along the Front Range: Fort Collins, Boulder, Denver, Aurora, Lakewood, Castle Rock, Colorado Springs, and everywhere in between.",
-  alternates: { canonical: "/areas/" },
-};
+  path: "/areas/",
+});
 
 export default function AreasPage() {
   return (

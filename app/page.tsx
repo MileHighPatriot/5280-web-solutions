@@ -15,10 +15,9 @@ import { SectionHeading } from "@/components/ui/Section";
 import { featuredProject, homepageProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = pageMeta({ path: "/" });
 
 export default function Home() {
   return (

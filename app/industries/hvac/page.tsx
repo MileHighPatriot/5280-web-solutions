@@ -12,22 +12,15 @@ import {
 } from "@/components/TradePage";
 import Blueprint from "@/components/ui/Blueprint";
 import Button from "@/components/ui/Button";
-import { openGraphBase } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
 // Not in data/industries.ts on purpose: this page is reachable by URL and the sitemap only.
 
 const title = "HVAC Websites With Tap-to-Call | 5280 Web Solutions";
 const description =
   "Websites for Front Range HVAC companies, built by one local guy. A call button on every screen and emergency service up top. Start with a free full website report.";
-const url = "https://5280webs.com/industries/hvac/";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: url },
-  openGraph: { ...openGraphBase, title, description, url },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
-};
+export const metadata: Metadata = pageMeta({ title: { absolute: title }, description, path: "/industries/hvac/" });
 
 const conceptUrl = "https://milehighpatriot.github.io/quality-air/";
 const phoneShot = {

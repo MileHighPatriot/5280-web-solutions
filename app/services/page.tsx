@@ -10,13 +10,14 @@ import { industries } from "@/data/industries";
 import { featuredProject, projects } from "@/data/projects";
 import { everyBuild } from "@/data/pricing";
 import { services, steps } from "@/data/services";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Services",
   description:
     "New websites, redesigns, hosting and care, and Google Business Profile setup for Front Range small businesses. Built phone-first by a local developer.",
-  alternates: { canonical: "/services/" },
-};
+  path: "/services/",
+});
 
 const headgate = projects.find((project) => project.slug === "headgate-plumbing")!;
 

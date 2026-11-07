@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Terms of Use",
   description: `Terms for using the ${site.name} website.`,
-  alternates: { canonical: "/terms/" },
-};
+  path: "/terms/",
+});
 
 const updated = "September 24, 2026";
 

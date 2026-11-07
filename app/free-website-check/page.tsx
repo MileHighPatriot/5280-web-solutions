@@ -5,13 +5,14 @@ import ReportSheet from "@/components/ReportSheet";
 import Button, { Check } from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Free Full Website Report",
   description:
     "Get a free full website report on your small-business site from Kohlton at 5280 Web Solutions. Graded A to F on speed, Google basics, phones, and trust, then a quick 15-20 minute call to go over it.",
-  alternates: { canonical: "/free-website-check/" },
-};
+  path: "/free-website-check/",
+});
 
 const checks = [
   { title: "Speed", body: "How fast your site loads on a phone and a computer, and what's slowing it down." },

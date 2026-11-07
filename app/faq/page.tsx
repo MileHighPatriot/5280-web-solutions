@@ -5,13 +5,14 @@ import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { generalFaq, pricingFaq } from "@/data/faq";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "FAQ",
   description:
     "Answers to common questions about websites, pricing, setup fees, timelines, ownership, and Google for Front Range small businesses.",
-  alternates: { canonical: "/faq/" },
-};
+  path: "/faq/",
+});
 
 export default function FaqPage() {
   return (

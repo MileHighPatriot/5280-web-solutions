@@ -4,12 +4,13 @@ import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
 import { Eyebrow } from "@/components/ui/Section";
 import { site } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About",
   description: `Meet ${site.founder}, the local developer behind ${site.name}. Professional websites for Front Range small businesses, explained in plain English.`,
-  alternates: { canonical: "/about/" },
-};
+  path: "/about/",
+});
 
 const promises = [
   {

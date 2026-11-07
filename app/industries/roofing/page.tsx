@@ -11,22 +11,15 @@ import {
   TradeSteps,
 } from "@/components/TradePage";
 import Blueprint from "@/components/ui/Blueprint";
-import { openGraphBase } from "@/data/site";
+import { pageMeta } from "@/lib/meta";
 
 // Not in data/industries.ts on purpose: this page is reachable by URL and the sitemap only.
 
 const title = "Roofing Websites for Front Range Towns | 5280 Web Solutions";
 const description =
   "Is Google skipping your roofing site? I build roofing websites with a page for every town you work, Fort Collins to Colorado Springs. Start with a free full website report.";
-const url = "https://5280webs.com/industries/roofing/";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: url },
-  openGraph: { ...openGraphBase, title, description, url },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
-};
+export const metadata: Metadata = pageMeta({ title: { absolute: title }, description, path: "/industries/roofing/" });
 
 const searchShot = {
   src: "/work/roofing-search.png",
