@@ -15,6 +15,8 @@ export type Project = {
   featured?: string;
   /** Retired from the Work grid. The case study page stays up so old links keep working. */
   archived?: boolean;
+  /** Meta description, when `summary` (shown on the page) is too long for search results. */
+  metaDescription?: string;
 };
 
 /**
@@ -142,6 +144,8 @@ export const projects: Project[] = [
   },
   {
     slug: "headgate-plumbing",
+    metaDescription:
+      "Headgate is a concept project for a Denver plumber. Customers tap what is wrong, see how urgent it is and the likely cost, and book a two-hour window.",
     name: "Headgate Plumbing & Drain",
     industry: "Plumbing, residential & commercial",
     location: "Denver, CO",
@@ -332,6 +336,8 @@ export const projects: Project[] = [
   },
   {
     slug: "morainex",
+    metaDescription:
+      "Morainex is a concept project for a Denver-metro electrician: sample prices for each service, an EV charger and panel estimator, and a lighting slider.",
     name: "Morainex",
     industry: "Electrician",
     location: "Denver metro, CO",
@@ -370,6 +376,8 @@ export const projects: Project[] = [
   },
   {
     slug: "strathvane",
+    metaDescription:
+      "Strathvane is a concept project for a Denver-metro roofer. It opens with a drone inspection, shows a price range up front, and books an inspection window.",
     name: "Strathvane",
     industry: "Roofing contractor",
     location: "Denver metro, CO",

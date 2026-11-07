@@ -18,7 +18,7 @@ import { pageMeta } from "@/lib/meta";
 
 const title = "HVAC Websites With Tap-to-Call | 5280 Web Solutions";
 const description =
-  "Websites for Front Range HVAC companies, built by one local guy. A call button on every screen and emergency service up top. Start with a free full website report.";
+  "Websites for Front Range HVAC companies, built by one local guy. A call button on every screen and emergency service up top. Get a free full website report.";
 
 export const metadata: Metadata = pageMeta({ title: { absolute: title }, description, path: "/industries/hvac/" });
 

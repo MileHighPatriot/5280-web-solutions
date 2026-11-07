@@ -25,7 +25,9 @@ export async function generateMetadata({ params }: PageProps<"/industries/[slug]
   if (!industry) return {};
   return pageMeta({
     title: `Websites for ${industry.label} in Colorado`,
-    description: `Custom websites for Front Range ${industry.audience}, built and cared for by a local developer. ${industry.intro.split(". ")[0]}. Plans from ${money(tiers[0].monthly)}/mo.`,
+    description:
+      industry.metaDescription ??
+      `Custom websites for Front Range ${industry.audience}, built and cared for by a local developer. ${industry.intro.split(". ")[0]}. Plans from ${money(tiers[0].monthly)}/mo.`,
     path: `/industries/${industry.slug}/`,
   });
 }

@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta({
   title: "Service Areas",
   description:
-    "Web design for small businesses along the Front Range: Fort Collins, Boulder, Denver, Aurora, Lakewood, Castle Rock, Colorado Springs, and everywhere in between.",
+    "Web design for small businesses along the Front Range: Fort Collins, Boulder, Denver, Aurora, Lakewood, Castle Rock, Colorado Springs, and towns in between.",
   path: "/areas/",
 });
 

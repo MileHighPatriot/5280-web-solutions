@@ -17,7 +17,12 @@ import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = pageMeta({ path: "/" });
+export const metadata: Metadata = pageMeta({
+  title: { absolute: "Denver Web Design for Small Businesses | 5280 Web Solutions" },
+  description:
+    "Websites for Denver and Front Range small businesses, built and looked after by a local developer. Plans from $75/mo or a one-time build you own outright.",
+  path: "/",
+});
 
 export default function Home() {
   return (

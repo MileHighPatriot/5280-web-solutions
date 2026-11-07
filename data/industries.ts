@@ -17,6 +17,8 @@ export type Industry = {
   fit: { tier: TierId; reason: string };
   /** Concept projects worth showing on this page. */
   projects: string[];
+  /** Meta description, when the template in app/industries/[slug] runs long. */
+  metaDescription?: string;
 };
 
 /**
@@ -26,6 +28,8 @@ export type Industry = {
 export const industries: Industry[] = [
   {
     slug: "contractors",
+    metaDescription:
+      "Websites for Front Range contractors and trades, built by a local guy who framed houses. Tap-to-call on every screen and a page for each service. From $75/mo.",
     label: "Contractors & trades",
     audience: "contractors & trades",
     title: "Websites that get contractors the call.",
@@ -268,6 +272,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "churches",
+    metaDescription:
+      "Websites for Front Range churches and ministries, built by a local developer. Service times, directions, and what to expect, easy to find on a phone. $75/mo.",
     label: "Churches & ministries",
     audience: "churches & ministries",
     title: "Church websites that welcome people in.",

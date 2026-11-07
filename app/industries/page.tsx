@@ -9,7 +9,8 @@ import { pageMeta } from "@/lib/meta";
 
 export const metadata: Metadata = pageMeta({
   title: "Industries",
-  description: `Websites built for how each business gets customers: contractors, restaurants, churches, nonprofits, salons, gyms, shops, practices, and more on the Front Range.`,
+  description:
+    "Websites built around how each business gets customers: contractors, restaurants, churches, nonprofits, salons, gyms, shops, and more along the Front Range.",
   path: "/industries/",
 });
 

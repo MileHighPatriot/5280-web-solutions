@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   if (!project) return {};
   return pageMeta({
     title: `${project.name} (Concept Project)`,
-    description: project.summary,
+    description: project.metaDescription ?? project.summary,
     path: `/work/${project.slug}/`,
   });
 }

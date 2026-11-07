@@ -17,7 +17,7 @@ import { pageMeta } from "@/lib/meta";
 
 const title = "Roofing Websites for Front Range Towns | 5280 Web Solutions";
 const description =
-  "Is Google skipping your roofing site? I build roofing websites with a page for every town you work, Fort Collins to Colorado Springs. Start with a free full website report.";
+  "Is Google skipping your roofing site? I build roofing sites with a page for every town you work, Fort Collins to Colorado Springs. Free full website report.";
 
 export const metadata: Metadata = pageMeta({ title: { absolute: title }, description, path: "/industries/roofing/" });
 

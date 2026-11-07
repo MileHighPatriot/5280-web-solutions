@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta({
   title: "Free Full Website Report",
   description:
-    "Get a free full website report on your small-business site from Kohlton at 5280 Web Solutions. Graded A to F on speed, Google basics, phones, and trust, then a quick 15-20 minute call to go over it.",
+    "A free full website report on your business site. Graded A to F on speed, Google basics, phones, and trust, then a quick 15-20 minute call to go over it.",
   path: "/free-website-check/",
 });
 
