@@ -125,6 +125,11 @@ export const ogCopy: Record<string, { title: string; description: string }> = {
     description:
       "A concept roofing site that opens with a drone inspection, shows a price range up front, and books a two-hour inspection window.",
   },
+  "/work/joes-carwash/": {
+    title: "Joe's CarWash (Concept Project)",
+    description:
+      "A concept car wash site with a live wait time, wash prices with a single or unlimited switch, and a membership savings calculator.",
+  },
   "/privacy/": {
     title: "Privacy Policy | 5280 Web Solutions",
     description: "How 5280 Web Solutions handles the information you share through this website.",

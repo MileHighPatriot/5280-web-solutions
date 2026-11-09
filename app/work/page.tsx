@@ -37,12 +37,12 @@ export default function WorkPage() {
             aria-hidden="true"
             className="t-display text-[clamp(6rem,14vw,11rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-navy)] lg:col-span-4"
           >
-            0{listedProjects.length + 1}
+            {String(listedProjects.length + 1).padStart(2, "0")}
           </p>
           <div className="lg:col-span-8">
             <p className="t-mono text-stone">Now booking new projects</p>
             <p className="t-h2 mt-4 max-w-[20ch] text-balance">
-              Your business could be <span className="text-orange">project 0{listedProjects.length + 1}.</span>
+              Your business could be <span className="text-orange">project {String(listedProjects.length + 1).padStart(2, "0")}.</span>
             </p>
             <div className="mt-8">
               <Button href="/free-website-check/">Get a free full website report</Button>

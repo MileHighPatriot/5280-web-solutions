@@ -414,10 +414,50 @@ export const projects: Project[] = [
       fullMobile: "/work/strathvane-full-mobile.jpg",
     },
   },
+  {
+    slug: "joes-carwash",
+    metaDescription:
+      "Joe's CarWash is a concept project for a tunnel car wash. It shows the wait time up front, prices every wash, and works out whether a membership pays off.",
+    name: "Joe's CarWash",
+    industry: "Car wash",
+    location: "Aurora & Parker, CO",
+    url: "https://5280webs.com/joes-carwash/",
+    summary:
+      "A concept site for a tunnel car wash with two locations. It shows whether the tunnel is open and how long the line is, prices every wash, and works out whether a membership pays off.",
+    goal: "People decide on a car wash from the driver's seat, usually in under a minute. This concept answers their three questions on the first screen: is it open, how long is the line, and what does it cost. It's also the \"after\" side of the before and after slider on our home page.",
+    decisions: [
+      {
+        title: "Open, and how long is the line",
+        body: "A status chip at the top says whether the tunnel is open, the current wait, and when it closes. It follows the posted hours and the visitor's own clock.",
+      },
+      {
+        title: "Ride through the tunnel",
+        body: "The five wash stages light up one by one as you scroll, each with its time stamp, so a first-time customer knows what happens to their car.",
+      },
+      {
+        title: "Let the math sell the membership",
+        body: "A slider asks how often you wash and shows the monthly saving. If single washes are cheaper for you, it says so.",
+      },
+    ],
+    features: [
+      "Live open or closed status with a wait time",
+      "Wash prices with a single or unlimited switch",
+      "Membership savings calculator",
+      "Scroll-driven walk through the five wash stages",
+      "Directions and Join buttons pinned to the bottom of the phone screen",
+    ],
+    stack: "HTML · CSS · JavaScript (one hand-built page, no framework)",
+    images: {
+      desktop: "/work/joes-carwash-desktop.jpg",
+      mobile: "/work/joes-carwash-mobile.jpg",
+      fullDesktop: "/work/joes-carwash-full-desktop.jpg",
+      fullMobile: "/work/joes-carwash-full-mobile.jpg",
+    },
+  },
 ];
 
 /** Projects shown on the Work page, in order. Archived ones keep their case study pages. */
-export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church", "quality-air", "lumbre", "morainex", "strathvane"].map(
+export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch-rider-brewing", "lamplight-bible-church", "quality-air", "lumbre", "morainex", "strathvane", "joes-carwash"].map(
   (slug) => projects.find((project) => project.slug === slug)!,
 );
 

@@ -122,6 +122,34 @@
     384,
     600
   ],
+  "/work/joes-carwash-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1280
+  ],
+  "/work/joes-carwash-full-desktop.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    960
+  ],
+  "/work/joes-carwash-full-mobile.jpg": [
+    256,
+    384,
+    440
+  ],
+  "/work/joes-carwash-mobile.jpg": [
+    256,
+    384,
+    600
+  ],
   "/work/joes-tunnel.jpg": [
     256,
     384,
