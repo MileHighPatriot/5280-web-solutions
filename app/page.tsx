@@ -132,13 +132,22 @@ export default function Home() {
           <div className="reveal mt-12">
             <BeforeAfterSlider />
           </div>
-          <p className="mt-5 text-xs text-stone">
-            Illustration of a typical redesign; Joe&rsquo;s Car Wash is not a real business. Photo: Visitor7,{" "}
-            <a href="https://creativecommons.org/licenses/by-sa/3.0/" className="underline underline-offset-2">
-              CC BY-SA 3.0
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+            {/* A plain link: the demo is a static page outside the app, so it needs a full page load. */}
+            <a
+              href="/joes-carwash/"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-navy-3"
+            >
+              See the full Joe&rsquo;s CarWash page <span aria-hidden="true">→</span>
             </a>
-            , via Wikimedia Commons.
-          </p>
+            <p className="max-w-xl text-xs text-stone">
+              Illustration of a typical redesign; Joe&rsquo;s CarWash is not a real business. Photo: 4300streetcar,{" "}
+              <a href="https://creativecommons.org/licenses/by/4.0/" className="underline underline-offset-2">
+                CC BY 4.0
+              </a>
+              , via Wikimedia Commons, recoloured.
+            </p>
+          </div>
         </section>
       </div>
 

@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joe's CarWash | Concept site by 5280 Web Solutions</title>
+<meta name="description" content="A concept car wash website by 5280 Web Solutions: live wait times, wash plans, and a membership you can price out yourself.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preload" href="unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="manrope.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Unbounded";src:url(unbounded.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Manrope";src:url(manrope.woff2) format("woff2");font-weight:400 800;font-display:swap}
+:root{
+  --ink:#05070d;--ink-2:#080c16;--panel:#0c1220;--panel-2:#111a2e;
+  --line:rgba(140,180,255,.16);--line-2:rgba(140,180,255,.3);
+  --blue:#2f7bff;--blue-2:#6aa2ff;--cyan:#22e3ff;--violet:#7a5cff;--amber:#ffb020;
+  --text:#f2f6ff;--muted:#a3b3cf;--dim:#7f90ae;
+  --display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(1.1rem,4vw,3rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5.5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:400 1rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font:500 .72rem/1 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+.h2{font:700 clamp(1.7rem,4.4vw,3.1rem)/1.08 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.lede{color:var(--muted);font-size:clamp(1rem,1.5vw,1.15rem);max-width:38rem;text-wrap:pretty}
+.grad{background:linear-gradient(100deg,var(--cyan),var(--blue-2) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section{padding-block:clamp(4.5rem,10vw,8.5rem);position:relative}
+.head{display:grid;gap:1.1rem;margin-bottom:clamp(2.2rem,5vw,3.8rem)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3.1rem;padding:.8rem 1.5rem;border-radius:999px;border:1px solid transparent;font-weight:800;font-size:.98rem;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s,background .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-amber{background:var(--amber);color:#1a1002;box-shadow:0 0 0 1px rgba(255,176,32,.4),0 10px 40px -8px rgba(255,176,32,.55)}
+.btn-amber:hover{box-shadow:0 0 0 1px rgba(255,176,32,.6),0 14px 50px -6px rgba(255,176,32,.75)}
+.btn-ghost{background:rgba(255,255,255,.06);border-color:var(--line-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(34,227,255,.6)}
+.btn svg{width:1.1rem;height:1.1rem}
+
+/* concept bar */
+.concept{background:#b83d0e;color:#fff;font-size:.8rem;font-weight:700;text-align:center;padding:.5rem var(--pad)}
+.concept a{text-underline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(5,7,13,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.25rem}
+.logo{display:flex;align-items:center;gap:.7rem;font:800 1.02rem/1 var(--display);letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.logo-mark{width:2.1rem;height:2.1rem;flex:none;filter:drop-shadow(0 0 10px rgba(34,227,255,.6))}
+.logo em{font-style:normal;color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2.2rem);font-weight:600;font-size:.93rem}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links .btn{min-height:2.6rem;padding:.5rem 1.15rem;color:#1a1002;font-size:.9rem}
+@media (max-width:760px){.nav-links a:not(.btn){display:none}}
+
+/* hero */
+.hero{position:relative;isolation:isolate;min-height:min(100svh - 4.25rem,56rem);display:grid;align-items:end;overflow:clip}
+.hero-img{position:absolute;inset:0 0 0 auto;width:80%;height:100%;object-fit:cover;object-position:44% 42%;z-index:-3}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  linear-gradient(90deg,var(--ink) 0%,var(--ink) 20%,rgba(5,7,13,.7) 38%,rgba(5,7,13,0) 62%),
+  linear-gradient(0deg,var(--ink) 0%,rgba(5,7,13,.5) 26%,rgba(5,7,13,0) 55%),
+  radial-gradient(60% 50% at 70% 30%,rgba(34,227,255,.18),transparent 70%)}
+.beam{position:absolute;inset:-20% auto -20% 0;width:22%;z-index:-1;background:linear-gradient(90deg,transparent,rgba(34,227,255,.16) 45%,rgba(255,255,255,.22) 50%,rgba(47,123,255,.16) 55%,transparent);transform:translateX(-120%) skewX(-14deg);animation:sweep 7s var(--ease) infinite 1.2s;mix-blend-mode:screen;pointer-events:none}
+@keyframes sweep{0%{transform:translateX(-120%) skewX(-14deg)}55%,100%{transform:translateX(560%) skewX(-14deg)}}
+.hero-in{width:100%;padding-block:clamp(2.5rem,5vw,4rem) clamp(2rem,4vw,3rem);display:grid;gap:clamp(2rem,4vw,3rem)}
+.status{display:inline-flex;align-items:center;gap:.65rem;padding:.5rem .95rem .5rem .8rem;border-radius:999px;border:1px solid rgba(34,227,255,.4);background:rgba(8,12,22,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-weight:700;font-size:.86rem;width:fit-content;box-shadow:0 0 30px -6px rgba(34,227,255,.5)}
+.dot{position:relative;width:.6rem;height:.6rem;border-radius:50%;background:#35f29a;flex:none}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;animation:ping 1.8s ease-out infinite}
+.status.closed .dot{background:#ff5d6c}
+.status.closed{border-color:rgba(255,93,108,.5);box-shadow:none}
+@keyframes ping{to{transform:scale(3.2);opacity:0}}
+.status span span{color:var(--muted);font-weight:600}
+h1{font:800 clamp(2.25rem,5.4vw,4.5rem)/.98 var(--display);letter-spacing:-.035em;max-width:8.6em;margin-top:1.3rem}
+.hero .lede{margin-top:1.4rem;color:#c5d2ea;max-width:30rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.rating{display:flex;align-items:center;gap:.6rem;margin-top:1.4rem;color:var(--muted);font-size:.92rem;font-weight:600}
+.stars{color:var(--amber);letter-spacing:.12em}
+.hud{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:1.25rem;background:rgba(8,12,22,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);overflow:hidden}
+.hud div{padding:1.15rem 1.3rem;border-left:1px solid var(--line)}
+.hud div:first-child{border-left:0}
+.hud b{display:block;font:700 clamp(1.25rem,2.6vw,1.9rem)/1.1 var(--display);letter-spacing:-.02em}
+.hud b i{font-style:normal;font-size:.55em;color:var(--cyan);margin-left:.15em}
+.hud span{color:var(--muted);font-size:.82rem;font-weight:600}
+@media (max-width:700px){
+  .hero-img{inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:1;object-position:42% 50%;-webkit-mask-image:linear-gradient(#000 62%,transparent 96%);mask-image:linear-gradient(#000 62%,transparent 96%)}
+  .hero::before{background:radial-gradient(80% 30% at 50% 12%,rgba(34,227,255,.16),transparent 70%)}
+  .hero{min-height:0}
+  .hero-in{padding-top:68vw}
+  h1{max-width:none}
+  .hud{grid-template-columns:1fr 1fr}
+  .hud div:nth-child(3){border-left:0}
+  .hud div:nth-child(n+3){border-top:1px solid var(--line)}
+  .cta .btn{flex:1 1 100%}
+}
+
+/* tunnel */
+.tunnel{background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+.track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;--p:0}
+.rail{position:absolute;left:0;right:0;top:1.55rem;height:2px;background:var(--line);border-radius:2px}
+.rail i{position:absolute;inset:0;transform-origin:left;transform:scaleX(var(--p));background:linear-gradient(90deg,var(--blue),var(--cyan));box-shadow:0 0 18px var(--cyan);border-radius:2px}
+.stage{position:relative;padding-top:4.4rem}
+.node{position:absolute;top:0;left:0;width:3.1rem;height:3.1rem;border-radius:50%;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line-2);font:700 .8rem var(--display);color:var(--dim);transition:all .5s var(--ease)}
+.stage h3{font:700 1.05rem/1.2 var(--display);letter-spacing:-.01em;color:var(--dim);transition:color .5s}
+.stage p{margin-top:.5rem;color:var(--dim);font-size:.93rem;transition:color .5s}
+.stage time{display:block;margin-top:.8rem;font:500 .7rem var(--display);letter-spacing:.16em;color:var(--dim);transition:color .5s}
+.stage.on .node{background:var(--cyan);border-color:var(--cyan);color:#021018;box-shadow:0 0 0 6px rgba(34,227,255,.14),0 0 32px rgba(34,227,255,.7)}
+.stage.on h3{color:var(--text)}
+.stage.on p{color:var(--muted)}
+.stage.on time{color:var(--cyan)}
+@media (max-width:860px){
+  .track{grid-template-columns:1fr;gap:0}
+  .rail{left:1.55rem;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .rail i{transform-origin:top;transform:scaleY(var(--p));background:linear-gradient(180deg,var(--blue),var(--cyan))}
+  .stage{padding:0 0 2.2rem 4.6rem;min-height:3.1rem}
+  .stage:last-child{padding-bottom:0}
+}
+
+/* plans */
+.plans-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem}
+.plans-top .head{margin-bottom:0}
+.toggle{display:inline-grid;grid-template-columns:1fr 1fr;padding:.3rem;border-radius:999px;border:1px solid var(--line-2);background:var(--panel);position:relative}
+.toggle button{position:relative;z-index:1;border:0;background:none;padding:.7rem 1.3rem;border-radius:999px;font-weight:800;font-size:.9rem;color:var(--muted);transition:color .3s;min-height:2.75rem}
+.toggle button[aria-pressed=true]{color:#021018}
+.toggle::before{content:"";position:absolute;top:.3rem;bottom:.3rem;left:.3rem;width:calc(50% - .3rem);border-radius:999px;background:linear-gradient(100deg,var(--cyan),var(--blue-2));transition:transform .45s var(--ease)}
+.toggle.monthly::before{transform:translateX(100%)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:clamp(2.2rem,5vw,3.5rem);align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;padding:2rem 1.8rem;border-radius:1.5rem;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--ink-2));transition:transform .4s var(--ease),border-color .3s}
+.plan:hover{transform:translateY(-6px);border-color:var(--line-2)}
+.plan.top{border-color:transparent;background:linear-gradient(180deg,#0f1a33,#0a1122) padding-box,linear-gradient(140deg,var(--cyan),var(--blue) 45%,var(--violet)) border-box;box-shadow:0 30px 90px -30px rgba(47,123,255,.7)}
+.badge{position:absolute;top:-.8rem;left:1.8rem;padding:.35rem .8rem;border-radius:999px;background:linear-gradient(100deg,var(--cyan),var(--blue-2));color:#021018;font:700 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase}
+.plan h3{font:700 1.2rem var(--display);letter-spacing:-.01em}
+.plan .for{color:var(--muted);font-size:.93rem;margin-top:.35rem}
+.price{display:flex;align-items:baseline;gap:.4rem;margin:1.5rem 0 1.4rem;font:800 clamp(2.5rem,4.6vw,3.3rem)/1 var(--display);letter-spacing:-.04em}
+.price small{font:600 .9rem var(--body);letter-spacing:0;color:var(--muted);white-space:nowrap}
+.plan ul{list-style:none;margin:0 0 1.8rem;padding:0;display:grid;gap:.7rem;font-size:.95rem;color:#c5d2ea}
+.plan li{display:flex;gap:.7rem;align-items:flex-start}
+.plan li::before{content:"";flex:none;width:1.1rem;height:1.1rem;margin-top:.25rem;border-radius:50%;background:rgba(34,227,255,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2322e3ff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 8.3 2.3 2.3 4.7-5'/%3E%3C/svg%3E") center/contain}
+.plan .btn{margin-top:auto;width:100%}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* membership */
+.member{background:radial-gradient(70% 60% at 85% 10%,rgba(122,92,255,.2),transparent 70%),radial-gradient(60% 60% at 0% 90%,rgba(34,227,255,.14),transparent 70%),var(--ink-2);border-block:1px solid var(--line)}
+.member-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.card-stage{perspective:1100px;display:grid;place-items:center;padding:1rem 0}
+.mcard{position:relative;width:min(100%,27rem);aspect-ratio:1.586;border-radius:1.4rem;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.03) 45%,rgba(34,227,255,.14)),linear-gradient(135deg,#12224a,#0a1226);
+  border:1px solid rgba(255,255,255,.22);box-shadow:0 40px 90px -30px rgba(47,123,255,.8),inset 0 1px 0 rgba(255,255,255,.3);
+  transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,-14deg));transition:transform .5s var(--ease);will-change:transform}
+.mcard::before{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.28) 50%,transparent 58%);transform:translateX(var(--sh,-30%));transition:transform .5s var(--ease);pointer-events:none}
+.mcard-top{display:flex;justify-content:space-between;align-items:flex-start;font:700 .95rem var(--display)}
+.mcard-top small{display:block;font:600 .62rem var(--display);letter-spacing:.2em;color:var(--cyan);margin-top:.4rem}
+.chip{width:2.6rem;height:2rem;border-radius:.45rem;background:linear-gradient(135deg,#ffe19a,#c98a1a);opacity:.95}
+.plate{align-self:flex-start;position:relative;padding:.45rem .9rem;border-radius:.5rem;border:2px solid rgba(255,255,255,.75);font:800 clamp(1.1rem,3.2vw,1.5rem)/1 var(--display);letter-spacing:.12em;overflow:hidden}
+.plate::after{content:"";position:absolute;inset:0 auto 0 0;width:30%;background:linear-gradient(90deg,transparent,rgba(34,227,255,.75),transparent);animation:scan 2.6s ease-in-out infinite}
+@keyframes scan{0%{transform:translateX(-110%)}60%,100%{transform:translateX(440%)}}
+.mcard-bot{display:flex;justify-content:space-between;align-items:flex-end;font-size:.8rem;color:#c5d2ea;font-weight:600}
+.mcard-bot b{display:block;font:700 .95rem var(--display);color:var(--text)}
+.perks{list-style:none;margin:1.8rem 0 0;padding:0;display:grid;gap:1rem}
+.perks li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.perks i{width:2.6rem;height:2.6rem;border-radius:.8rem;display:grid;place-items:center;background:rgba(34,227,255,.1);border:1px solid var(--line-2);color:var(--cyan)}
+.perks svg{width:1.25rem;height:1.25rem}
+.perks b{display:block;font-weight:800}
+.perks span{color:var(--muted);font-size:.94rem}
+.calc{margin-top:clamp(3rem,6vw,4.5rem);padding:clamp(1.5rem,4vw,2.4rem);border-radius:1.5rem;border:1px solid var(--line-2);background:rgba(8,12,22,.7);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.calc label{display:block;font:700 1.05rem var(--display);letter-spacing:-.01em}
+.calc label output{color:var(--cyan)}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2.75rem;margin-top:.9rem;background:none;--f:25%}
+.calc input[type=range]::-webkit-slider-runnable-track{height:.5rem;border-radius:999px;background:linear-gradient(90deg,var(--cyan) var(--f),rgba(140,180,255,.2) var(--f))}
+.calc input[type=range]::-moz-range-track{height:.5rem;border-radius:999px;background:linear-gradient(90deg,var(--cyan) var(--f),rgba(140,180,255,.2) var(--f))}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:1.7rem;height:1.7rem;margin-top:-.6rem;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 5px rgba(34,227,255,.3),0 0 24px var(--cyan)}
+.calc input[type=range]::-moz-range-thumb{width:1.7rem;height:1.7rem;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 5px rgba(34,227,255,.3),0 0 24px var(--cyan)}
+.calc .hint{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+.result{text-align:right}
+.result b{display:block;font:800 clamp(2.4rem,6vw,3.8rem)/1 var(--display);letter-spacing:-.04em}
+.result span{color:var(--muted);font-weight:600;font-size:.95rem}
+@media (max-width:900px){.member-grid,.calc{grid-template-columns:1fr}.result{text-align:left}}
+
+/* locations */
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.loc{padding:1.8rem;border-radius:1.5rem;border:1px solid var(--line);background:var(--panel);display:grid;gap:1.1rem}
+.loc-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.loc h3{font:700 1.25rem var(--display);letter-spacing:-.01em}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .75rem;border-radius:999px;font-size:.8rem;font-weight:800;background:rgba(53,242,154,.12);color:#5ff5ae;border:1px solid rgba(53,242,154,.35)}
+.pill.closed{background:rgba(255,93,108,.12);color:#ff8d98;border-color:rgba(255,93,108,.35)}
+.loc dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.35rem 1.2rem;font-size:.95rem}
+.loc dt{color:var(--muted)}
+.loc dd{margin:0;font-weight:700;text-align:right}
+.loc .btn{width:100%}
+@media (max-width:760px){.locs{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:.8rem;max-width:50rem}
+.faq details{border:1px solid var(--line);border-radius:1.1rem;background:var(--panel);transition:border-color .3s}
+.faq details[open]{border-color:rgba(34,227,255,.45)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.2rem 1.4rem;font-weight:800;font-size:1.03rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font:400 1.5rem/1 var(--body);color:var(--cyan);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 1.4rem 1.3rem;color:var(--muted)}
+
+/* closing + footer */
+.close{text-align:center;padding-block:clamp(4.5rem,10vw,8rem);background:radial-gradient(50% 80% at 50% 100%,rgba(47,123,255,.35),transparent 70%)}
+.close .h2{max-width:18ch;margin-inline:auto}
+.close .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding-block:2.2rem 6rem;color:var(--dim);font-size:.85rem}
+footer .wrap{display:grid;gap:.6rem}
+footer a{color:var(--muted)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+/* phone action bar */
+.bar{display:none}
+@media (max-width:700px){
+  .bar{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:fixed;inset:auto 0 0 0;z-index:60;padding:.7rem var(--pad) calc(.7rem + env(safe-area-inset-bottom));background:rgba(5,7,13,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+  .bar .btn{min-height:2.9rem;padding:.6rem 1rem;font-size:.92rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .beam{display:none}
+}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove("no-js")</script>
+
+<p class="concept">Concept site, not a real business. Designed and built by <a href="/">5280 Web Solutions</a>.</p>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Joe's CarWash home">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="4" y1="4" x2="36" y2="36"><stop stop-color="#22e3ff"/><stop offset="1" stop-color="#2f7bff"/></linearGradient></defs>
+        <path d="M20 3c6 8 12 13.500 12 21a12 12 0 0 1-24 0c0-7.500 6-13 12-21Z" fill="url(#lg)"/>
+        <path d="M14 25a6 6 0 0 0 6 6" stroke="#fff" stroke-width="2.400" stroke-linecap="round" opacity=".85"/>
+      </svg>
+      <span>Joe's <em>CarWash</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#tunnel">The tunnel</a>
+      <a href="#plans">Washes</a>
+      <a href="#membership">Membership</a>
+      <a href="#locations">Locations</a>
+      <a class="btn btn-amber" href="#plans">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-img" alt="A black sedan under the rinse arch inside the wash tunnel" width="2400" height="1600" fetchpriority="high"
+      src="/_img/work/joes-tunnel-1200.webp"
+      srcset="/_img/work/joes-tunnel-640.webp 640w,/_img/work/joes-tunnel-828.webp 828w,/_img/work/joes-tunnel-1200.webp 1200w,/_img/work/joes-tunnel-1920.webp 1920w,/_img/work/joes-tunnel-2400.webp 2400w"
+      sizes="100vw">
+    <div class="beam" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div>
+        <p class="status" id="status"><span class="dot"></span><span id="status-text">Tunnel open <span>· checking the line…</span></span></p>
+        <h1>Three minutes. <span class="grad">Showroom shine.</span></h1>
+        <p class="lede">Pull in, stay in your seat, and roll out spotless. Ceramic-coat tunnel, free vacuums, and a plate reader that waves members straight through.</p>
+        <div class="cta">
+          <a class="btn btn-amber" href="#plans">See wash prices
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#locations">Get directions</a>
+        </div>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.9 from 1,200+ Google reviews</p>
+      </div>
+      <div class="hud">
+        <div><b id="wait">4<i>min</i></b><span>Current wait</span></div>
+        <div><b>3<i>min</i></b><span>Door to dry</span></div>
+        <div><b>85<i>%</i></b><span>Water reclaimed</span></div>
+        <div><b>$0</b><span>Vacuums, always</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tunnel" id="tunnel">
+    <div class="wrap">
+      <div class="head rv">
+        <p class="eyebrow">Inside the tunnel</p>
+        <h2 class="h2">Five stages. <span class="grad">One slow roll.</span></h2>
+        <p class="lede">Scroll to ride through. Every car gets the same sequence, timed by sensors that measure it bumper to bumper.</p>
+      </div>
+      <div class="track" id="track">
+        <div class="rail" aria-hidden="true"><i></i></div>
+        <div class="stage"><span class="node">01</span><h3>Pre-soak</h3><p>Warm foam loosens road salt, bugs and mag chloride before anything touches the paint.</p><time>0:00</time></div>
+        <div class="stage"><span class="node">02</span><h3>Soft-touch</h3><p>Closed-cell foam brushes that hold no grit. Gentle enough for a fresh wrap.</p><time>0:35</time></div>
+        <div class="stage"><span class="node">03</span><h3>Underbody</h3><p>High-pressure jets flush the frame and wheel wells. Your winter rust insurance.</p><time>1:10</time></div>
+        <div class="stage"><span class="node">04</span><h3>Ceramic coat</h3><p>A sealant curtain that makes water bead and roll off for weeks.</p><time>1:50</time></div>
+        <div class="stage"><span class="node">05</span><h3>Spot-free dry</h3><p>Filtered rinse, then twelve blowers shaped to your roofline. No towel marks.</p><time>2:30</time></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="wrap">
+      <div class="plans-top rv">
+        <div class="head">
+          <p class="eyebrow">Wash prices</p>
+          <h2 class="h2">Pick a wash. <span class="grad">Or never pay per wash again.</span></h2>
+        </div>
+        <div class="toggle" id="toggle" role="group" aria-label="Show prices for">
+          <button type="button" aria-pressed="true" data-mode="single">Single wash</button>
+          <button type="button" aria-pressed="false" data-mode="monthly">Unlimited</button>
+        </div>
+      </div>
+      <div class="plans">
+        <article class="plan rv">
+          <h3>Express</h3><p class="for">In and out, clean and dry.</p>
+          <p class="price"><span data-single="$12" data-monthly="$24.99">$12</span><small data-single="per wash" data-monthly="per month">per wash</small></p>
+          <ul><li>Pre-soak and soft-touch wash</li><li>Spot-free rinse and dry</li><li>Free vacuums and mat cleaner</li></ul>
+          <a class="btn btn-ghost" href="#locations">Choose Express</a>
+        </article>
+        <article class="plan top rv">
+          <span class="badge">Most popular</span>
+          <h3>Shine</h3><p class="for">The one most drivers pick.</p>
+          <p class="price"><span data-single="$18" data-monthly="$34.99">$18</span><small data-single="per wash" data-monthly="per month">per wash</small></p>
+          <ul><li>Everything in Express</li><li>Underbody flush</li><li>Triple-foam polish</li><li>Wheel and tire shine</li></ul>
+          <a class="btn btn-amber" href="#locations">Choose Shine</a>
+        </article>
+        <article class="plan rv">
+          <h3>Ceramic</h3><p class="for">Weeks of beading and gloss.</p>
+          <p class="price"><span data-single="$25" data-monthly="$44.99">$25</span><small data-single="per wash" data-monthly="per month">per wash</small></p>
+          <ul><li>Everything in Shine</li><li>Ceramic sealant curtain</li><li>Rain-repellent glass coat</li><li>Members-only fast lane</li></ul>
+          <a class="btn btn-ghost" href="#locations">Choose Ceramic</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section member" id="membership">
+    <div class="wrap">
+      <div class="member-grid">
+        <div class="card-stage rv" id="card-stage">
+          <div class="mcard" id="mcard">
+            <div class="mcard-top"><span>Joe's CarWash<small>UNLIMITED · SHINE</small></span><span class="chip" aria-hidden="true"></span></div>
+            <span class="plate" aria-label="Sample plate">JOE·5280</span>
+            <div class="mcard-bot"><span>Member since<b>2026</b></span><span style="text-align:right">Washes this month<b>9</b></span></div>
+          </div>
+        </div>
+        <div class="rv">
+          <div class="head" style="margin-bottom:0">
+            <p class="eyebrow">Unlimited club</p>
+            <h2 class="h2">Your plate is <span class="grad">your pass.</span></h2>
+            <p class="lede">Join once from your phone. The camera reads your plate, the gate lifts, and you never roll a window down in January.</p>
+          </div>
+          <ul class="perks">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 12.500h10"/></svg></i><div><b>Plate recognition</b><span>No sticker, no app to open, no card to find.</span></div></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8Z"/></svg></i><div><b>Members-only lane</b><span>Skip the pay station line on Saturday mornings.</span></div></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500 10 17l9-10"/></svg></i><div><b>Cancel in two taps</b><span>No contract and no phone call. Pause it for a road trip.</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="calc rv">
+        <div>
+          <label for="washes">I wash my car <output id="washes-out" for="washes">3 times</output> a month</label>
+          <input type="range" id="washes" min="1" max="12" value="3" step="1">
+          <p class="hint">Based on the Shine wash: $18 each, or $34.99 a month unlimited.</p>
+        </div>
+        <div class="result" aria-live="polite">
+          <b class="grad" id="save">$19</b>
+          <span id="save-note">saved every month with Unlimited</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="locations">
+    <div class="wrap">
+      <div class="head rv">
+        <p class="eyebrow">Locations</p>
+        <h2 class="h2">Two tunnels. <span class="grad">Both open late.</span></h2>
+      </div>
+      <div class="locs">
+        <article class="loc rv">
+          <div class="loc-top"><h3>Aurora</h3><span class="pill" data-open>Open now</span></div>
+          <dl><dt>Where</dt><dd>Southeast Aurora</dd><dt>Mon to Sat</dt><dd>7am to 8pm</dd><dt>Sunday</dt><dd>8am to 6pm</dd><dt>Call</dt><dd>(303) 555-0142</dd></dl>
+          <a class="btn btn-ghost" href="#locations">Directions to Aurora</a>
+        </article>
+        <article class="loc rv">
+          <div class="loc-top"><h3>Parker</h3><span class="pill" data-open>Open now</span></div>
+          <dl><dt>Where</dt><dd>Downtown Parker</dd><dt>Mon to Sat</dt><dd>7am to 8pm</dd><dt>Sunday</dt><dd>8am to 6pm</dd><dt>Call</dt><dd>(303) 555-0167</dd></dl>
+          <a class="btn btn-ghost" href="#locations">Directions to Parker</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv">
+        <p class="eyebrow">Questions</p>
+        <h2 class="h2">Good to know.</h2>
+      </div>
+      <div class="faq rv">
+        <details><summary>Will the brushes scratch my paint?</summary><p>No. The tunnel uses closed-cell foam that can't hold grit, rinsed constantly while it spins. It's safe for clear coat, wraps and ceramic coatings.</p></details>
+        <details><summary>Can my truck fit?</summary><p>Up to 7 feet tall and 80 inches wide at the mirrors. Dually trucks, lift kits over 6 inches and open beds full of gear need the self-serve bay.</p></details>
+        <details><summary>How does Unlimited work?</summary><p>One plan covers one vehicle. Wash once a day, every day, at either location. It renews monthly and you can pause or cancel from your phone.</p></details>
+        <details><summary>Do you close for weather?</summary><p>We stay open in light snow. The status chip at the top of this page shows when the tunnel is closed.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap rv">
+      <h2 class="h2">The line is short. <span class="grad">Come get shiny.</span></h2>
+      <div class="cta"><a class="btn btn-amber" href="#plans">Join Unlimited</a><a class="btn btn-ghost" href="#locations">Find a tunnel</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Joe's CarWash is a concept project by <a href="/">5280 Web Solutions</a>. The business, prices, reviews and phone numbers are made up for the demo.</p>
+    <p>Photo: 4300streetcar, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Lincoln_MKZ_at_a_car_wash_in_New_York_City_June_2026.jpg">Wikimedia Commons</a>. Recoloured and retouched.</p>
+    <p><a href="/contact/">Want a site like this for your business?</a></p>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-ghost" href="#locations">Directions</a>
+  <a class="btn btn-amber" href="#plans">Join</a>
+</div>
+
+<script>
+(function () {
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Open / closed and wait time, from the visitor's clock and the posted hours.
+  function hours(day) { return day === 0 ? [8, 18] : [7, 20]; }
+  function fmt(h) { return (h % 12 || 12) + (h < 12 ? "am" : "pm"); }
+  function status() {
+    var now = new Date(), h = now.getHours() + now.getMinutes() / 60, today = hours(now.getDay());
+    var open = h >= today[0] && h < today[1];
+    var wait = 2 + ((now.getMinutes() * 7 + now.getHours()) % 6);
+    var chip = $("status"), text = $("status-text");
+    chip.classList.toggle("closed", !open);
+    if (open) {
+      text.innerHTML = "Tunnel open <span>· " + wait + " min wait · until " + fmt(today[1]) + "</span>";
+      $("wait").innerHTML = wait + "<i>min</i>";
+    } else {
+      var next = h < today[0] ? today[0] : hours((now.getDay() + 1) % 7)[0];
+      text.innerHTML = "Closed <span>· opens " + fmt(next) + "</span>";
+      $("wait").innerHTML = "0<i>min</i>";
+    }
+    document.querySelectorAll("[data-open]").forEach(function (p) {
+      p.textContent = open ? "Open now" : "Closed";
+      p.classList.toggle("closed", !open);
+    });
+  }
+  status();
+  setInterval(status, 30000);
+
+  // Scroll reveals.
+  var seen = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); seen.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach(function (el) { seen.observe(el); });
+
+  // Tunnel: the rail fills and stages light up as the section scrolls past.
+  var track = $("track"), stages = track.querySelectorAll(".stage"), ticking = false;
+  function ride() {
+    ticking = false;
+    var r = track.getBoundingClientRect(), vh = innerHeight;
+    var p = Math.max(0, Math.min(1, (vh * 0.82 - r.top) / (r.height + vh * 0.32)));
+    track.style.setProperty("--p", p.toFixed(3));
+    stages.forEach(function (s, i) { s.classList.toggle("on", p > (i + 0.15) / stages.length); });
+  }
+  addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(ride); } }, { passive: true });
+  addEventListener("resize", ride);
+  ride();
+
+  // Single / unlimited price toggle.
+  var toggle = $("toggle");
+  toggle.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    var mode = b.dataset.mode;
+    toggle.classList.toggle("monthly", mode === "monthly");
+    toggle.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    document.querySelectorAll("[data-single]").forEach(function (el) { el.textContent = el.dataset[mode]; });
+  });
+
+  // Savings calculator.
+  var range = $("washes");
+  function calc() {
+    var n = +range.value, diff = n * 18 - 34.99;
+    range.style.setProperty("--f", ((n - 1) / 11 * 100) + "%");
+    $("washes-out").textContent = n + (n === 1 ? " time" : " times");
+    if (diff > 0) {
+      $("save").textContent = "$" + Math.round(diff);
+      $("save-note").textContent = "saved every month with Unlimited";
+    } else {
+      $("save").textContent = "$" + n * 18;
+      $("save-note").textContent = "a month. Single washes are the better deal for you.";
+    }
+  }
+  range.addEventListener("input", calc);
+  calc();
+
+  // Member card follows the pointer.
+  var stage = $("card-stage"), card = $("mcard");
+  if (!reduce && matchMedia("(hover: hover)").matches) {
+    stage.addEventListener("pointermove", function (e) {
+      var r = stage.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.setProperty("--ry", (x * 26).toFixed(1) + "deg");
+      card.style.setProperty("--rx", (-y * 20).toFixed(1) + "deg");
+      card.style.setProperty("--sh", (x * 60).toFixed(1) + "%");
+    });
+    stage.addEventListener("pointerleave", function () {
+      card.style.removeProperty("--ry"); card.style.removeProperty("--rx"); card.style.removeProperty("--sh");
+    });
+  }
+})();
+</script>
+</body>
+</html>

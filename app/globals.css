@@ -697,3 +697,14 @@ details[open] .faq-icon-v {
     transform: scaleX(1);
   }
 }
+
+/* Joe's CarWash mockup in the before/after slider: a band of light crossing the tunnel. */
+@keyframes joes-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-14deg);
+  }
+  55%,
+  100% {
+    transform: translateX(680%) skewX(-14deg);
+  }
+}

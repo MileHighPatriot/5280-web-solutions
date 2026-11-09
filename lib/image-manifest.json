@@ -38,16 +38,6 @@
     1920,
     2560
   ],
-  "/work/car-wash-tunnel.jpg": [
-    256,
-    384,
-    640,
-    750,
-    828,
-    1080,
-    1200,
-    1400
-  ],
   "/work/ditch-rider-brewing-desktop.jpg": [
     256,
     384,
@@ -131,6 +121,17 @@
     256,
     384,
     600
+  ],
+  "/work/joes-tunnel.jpg": [
+    256,
+    384,
+    640,
+    750,
+    828,
+    1080,
+    1200,
+    1920,
+    2400
   ],
   "/work/lamplight-bible-church-desktop.jpg": [
     256,

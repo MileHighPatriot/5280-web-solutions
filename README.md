@@ -66,4 +66,4 @@ Each of these is empty in `data/site.ts` (marked `TODO(Kohlton)`). Until it's fi
 Both photos are free to use commercially. Their licenses require the credit lines already shown on the site:
 
 - **Front Range + downtown Denver at sunset** (hero, footer, 404, share image): DarlArthurS, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Downtown_Denver_Skyline_at_Sunset.jpg). Credit is in the footer (`photoCredit` in `data/site.ts`).
-- **Car wash tunnel** (before/after slider): Visitor7, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Inside_a_Carwash-2.jpg). Credit is under the slider.
+- **Car wash tunnel** (before/after slider and the Joe's CarWash concept page at `/joes-carwash/`): 4300streetcar, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lincoln_MKZ_at_a_car_wash_in_New_York_City_June_2026.jpg). Recoloured blue and the licence plate removed. Credit is under the slider and in the concept page footer.
