@@ -8,7 +8,7 @@ import { site } from "@/data/site";
  */
 export default function FounderCard({ showRegion = false, photo = true }: { showRegion?: boolean; photo?: boolean }) {
   return (
-    <figure className="relative overflow-hidden rounded-3xl bg-navy text-cream shadow-xl shadow-navy/15">
+    <figure className="relative overflow-hidden rounded-3xl bg-navy-2 text-cream shadow-[0_40px_80px_-40px_rgba(251,79,20,0.45)] ring-1 ring-cream/10">
       {photo ? (
         <div className="relative">
           <Image
@@ -20,7 +20,7 @@ export default function FounderCard({ showRegion = false, photo = true }: { show
             className="aspect-[4/4.2] w-full object-cover object-[50%_35%]"
           />
           <div
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy to-transparent"
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-2 to-transparent"
             aria-hidden="true"
           />
         </div>

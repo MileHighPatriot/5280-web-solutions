@@ -463,8 +463,3 @@ export const listedProjects = ["headgate-plumbing", "helix-frame-siding", "ditch
 
 /** The homepage's orange showcase panel. */
 export const featuredProject = projects.find((project) => project.slug === "headgate-plumbing")!;
-
-/** The homepage grid under the showcase: two from different lines of work than the featured piece. */
-export const homepageProjects = ["helix-frame-siding", "ditch-rider-brewing"].map(
-  (slug) => projects.find((project) => project.slug === slug)!,
-);

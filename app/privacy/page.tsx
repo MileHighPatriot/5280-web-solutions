@@ -36,7 +36,7 @@ export default function PrivacyPage() {
             You can block it with your browser&rsquo;s privacy settings or Google&rsquo;s{" "}
             <a
               href="https://tools.google.com/dlpage/gaoptout"
-              className="font-semibold text-navy underline underline-offset-4"
+              className="font-semibold text-cream underline underline-offset-4"
             >
               opt-out add-on
             </a>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
               under its{" "}
               <a
                 href="https://www.microsoft.com/privacy/privacystatement"
-                className="font-semibold text-navy underline underline-offset-4"
+                className="font-semibold text-cream underline underline-offset-4"
               >
                 privacy statement
               </a>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
           <h2>Your choices</h2>
           <p>
             You can ask us to see, correct, or delete the information you&rsquo;ve shared by emailing{" "}
-            <a href={site.emailHref} className="font-semibold text-navy underline underline-offset-4">
+            <a href={site.emailHref} className="font-semibold text-cream underline underline-offset-4">
               {site.email}
             </a>
             .

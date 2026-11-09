@@ -25,7 +25,6 @@ export default function IndustriesPage() {
     <>
       <PageHeader
         tone="orange"
-        into="navy"
         long
         visual={<IndustryCount />}
         eyebrow="Who we help · Front Range"
@@ -39,7 +38,7 @@ export default function IndustriesPage() {
           <section
             key={group.title}
             aria-labelledby={`group-${g}`}
-            className={dark ? "bg-navy text-cream" : "bg-cream text-navy"}
+            className={dark ? "bg-navy text-cream" : "bg-navy-ink text-cream"}
           >
             <div
               className={`${g > 0 ? "reveal " : ""}container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12`}
@@ -48,7 +47,7 @@ export default function IndustriesPage() {
                 <p
                   aria-hidden="true"
                   className={`t-display text-[clamp(4.5rem,8vw,7rem)] leading-[0.8] ${
-                    dark ? "text-orange" : "text-transparent [-webkit-text-stroke:2px_var(--color-navy)]"
+                    dark ? "text-orange" : "text-transparent [-webkit-text-stroke:2px_var(--color-cream)]"
                   }`}
                 >
                   0{g + 1}
@@ -68,7 +67,7 @@ export default function IndustriesPage() {
                         className={`glow-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-7 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-xl ${
                           dark
                             ? "bg-navy-2 ring-1 ring-cream/10 hover:shadow-black/30 hover:ring-orange/60"
-                            : "bg-paper ring-1 ring-navy/10 hover:shadow-navy/10 hover:ring-orange/60"
+                            : "bg-paper ring-1 ring-cream/10 hover:shadow-navy/10 hover:ring-orange/60"
                         }`}
                       >
                         <h3 className="t-h3">{industry.label}</h3>

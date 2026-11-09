@@ -88,7 +88,7 @@ export default function PricingPage() {
         </p>
       </section>
 
-      <section aria-labelledby="compare" className="border-t border-navy/10 bg-paper/60">
+      <section aria-labelledby="compare" className="border-t border-cream/10 bg-paper/60">
         <div className="container-x section-y">
           <SectionHeading
             id="compare"
@@ -112,7 +112,7 @@ export default function PricingPage() {
               lede={
                 <>
                   Still unsure which option fits? Call or text{" "}
-                  <a href={site.phoneHref} className="font-semibold text-navy underline underline-offset-4">
+                  <a href={site.phoneHref} className="font-semibold text-cream underline underline-offset-4">
                     {site.phoneDisplay}
                   </a>{" "}
                   and we&rsquo;ll help you choose.
@@ -130,7 +130,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-      <section aria-label="Custom projects" className="border-t border-navy/10">
+      <section aria-label="Custom projects" className="border-t border-cream/10">
         <div className="container-x py-12 text-center">
           <p className="text-lg text-stone">
             Need something more custom, like online booking, e-commerce, or ad management?{" "}

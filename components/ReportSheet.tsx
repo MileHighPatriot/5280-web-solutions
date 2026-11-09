@@ -7,9 +7,9 @@ export default function ReportSheet() {
   return (
     <div
       aria-hidden="true"
-      className="relative mx-auto w-[min(23rem,86%)] rotate-[3deg] rounded-[1.25rem] bg-paper p-7 text-navy shadow-[0_50px_90px_-30px_rgba(0,24,51,0.75)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0 sm:p-8"
+      className="relative mx-auto w-[min(23rem,86%)] rotate-[3deg] rounded-[1.25rem] bg-paper p-7 text-cream shadow-[0_50px_90px_-30px_rgba(0,24,51,0.75)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0 sm:p-8"
     >
-      <div className="flex items-center justify-between gap-4 border-b-2 border-navy pb-4">
+      <div className="flex items-center justify-between gap-4 border-b-2 border-cream/40 pb-4">
         <span className="t-mono">Website report</span>
         <span className="font-mono text-xs text-stone">yourbusiness.com</span>
       </div>

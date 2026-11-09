@@ -47,7 +47,7 @@ export default function TermsPage() {
           <h2>Questions</h2>
           <p>
             Email{" "}
-            <a href={site.emailHref} className="font-semibold text-navy underline underline-offset-4">
+            <a href={site.emailHref} className="font-semibold text-cream underline underline-offset-4">
               {site.email}
             </a>{" "}
             or call {site.phoneDisplay}.

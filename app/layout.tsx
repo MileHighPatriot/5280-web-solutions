@@ -33,7 +33,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#002244",
+  themeColor: "#050c18",
 };
 
 export const metadata: Metadata = {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${onest.variable} ${syne.variable} ${plexMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-cream font-sans text-navy">
+      <body className="flex min-h-full flex-col bg-navy font-sans text-cream">
         <JsonLd data={businessJsonLd()} />
         <a href="#main" className="skip-link">
           Skip to content

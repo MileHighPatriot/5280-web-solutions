@@ -19,13 +19,13 @@ export type BackdropVariant = "numerals" | "topo" | "logo" | "ridge";
 
 export default function Backdrop({
   variant,
-  dark = false,
+  dark = true,
   seed = 1,
   animate = "scroll",
   className = "",
 }: {
   variant: BackdropVariant;
-  /** Draw in cream for navy sections. */
+  /** Cream-on-dark opacities. Every section is dark on the Night scheme, so this defaults on. */
   dark?: boolean;
   /** Changes the contour layout, so repeated topo backdrops don't match. */
   seed?: number;
@@ -33,7 +33,7 @@ export default function Backdrop({
   animate?: "load" | "scroll";
   className?: string;
 }) {
-  const ink = dark ? "text-cream" : "text-navy";
+  const ink = "text-cream";
   return (
     <div
       aria-hidden="true"

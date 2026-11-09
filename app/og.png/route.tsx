@@ -29,7 +29,7 @@ export async function GET() {
           display: "flex",
           flexDirection: "column",
           position: "relative",
-          background: "#002244",
+          background: "#050c18",
           color: "#f5f3ee",
           padding: "64px 72px",
           fontFamily: "Schibsted Grotesk",

@@ -33,13 +33,14 @@ export default function FeaturedShowcase({ project }: { project: Project }) {
             <Button href={`/work/${project.slug}/`} variant="dark">
               Read the case study
             </Button>
-            <Button href={project.url} variant="outline" className="!border-navy-ink hover:bg-navy-ink hover:text-orange">
+            <Button href={project.url} variant="outline-ink">
               Try the live site
             </Button>
           </div>
         </div>
 
-        <div className="relative mx-auto w-[min(17rem,70%)] lg:col-span-5 lg:w-[19rem]">
+        {/* Phones skip this: the hero above already shows the same site on a phone. */}
+        <div className="relative mx-auto w-[min(17rem,70%)] max-sm:hidden lg:col-span-5 lg:w-[19rem]">
           <div className="rotate-[-4deg] rounded-[2.6rem] bg-[#0b1117] p-2.5 shadow-[0_50px_90px_-30px_rgba(0,24,51,0.75)] ring-1 ring-white/15 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0">
             <WhenNear className="screen-loop screen-loop-phone aspect-[9/19] rounded-[2rem] bg-navy-3">
               <Image

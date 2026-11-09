@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CityLights from "@/components/CityLights";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -21,6 +22,7 @@ export default function Footer() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy/95 via-navy/85 via-55% to-navy/5 lg:hidden" />
         <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-navy/95 via-navy/70 via-40% to-navy/0 lg:block" />
         <div className="absolute inset-x-0 top-0 -z-10 hidden h-40 bg-gradient-to-b from-navy to-transparent lg:block" />
+        <CityLights className="-z-10" />
         <div className="container-x relative z-10 pt-20 pb-64 sm:pt-28 sm:pb-72 lg:pb-80">
           <p className="t-mono text-mist">Ready when you are</p>
           <h2 className="t-display mt-5 max-w-[14ch] text-balance">
@@ -90,6 +92,14 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-mist">{site.cities.join(" · ")}</p>
           </div>
         </div>
+
+        {/* Fills with orange from the bottom up as the page reaches its end: a mile high. */}
+        <p
+          aria-hidden="true"
+          className="footer-5280 t-display container-x pointer-events-none pb-6 text-[clamp(4rem,19vw,17rem)] leading-[0.8] select-none"
+        >
+          5280
+        </p>
 
         <div className="container-x">
           <div className="flex flex-col gap-3 border-t border-cream/10 pt-6 pb-24 text-sm text-mist sm:flex-row sm:items-center sm:justify-between sm:pb-6">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import DeviceShowcase from "@/components/DeviceShowcase";
 import { ConceptBadge } from "@/components/ProjectCard";
 import Button, { Check } from "@/components/ui/Button";
@@ -63,9 +64,11 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
       <div className="bg-navy pb-16 sm:pb-24">
         <div className="container-x">
-          <div className="mx-auto max-w-5xl">
-            <DeviceShowcase project={project} mode="loop" priority sizes="(min-width: 1024px) 900px, 100vw" />
-          </div>
+          <ViewTransition name={`project-${project.slug}`} share="morph" default="none">
+            <div className="mx-auto max-w-5xl">
+              <DeviceShowcase project={project} mode="loop" priority sizes="(min-width: 1024px) 900px, 100vw" />
+            </div>
+          </ViewTransition>
         </div>
       </div>
 
@@ -79,7 +82,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           <h2 className="t-h2 mt-14">Design decisions</h2>
           <div className="mt-6 grid gap-4">
             {project.decisions.map((decision) => (
-              <div key={decision.title} className="rounded-2xl bg-paper p-6 ring-1 ring-navy/10">
+              <div key={decision.title} className="rounded-2xl bg-paper p-6 ring-1 ring-cream/10">
                 <h3 className="t-h3">{decision.title}</h3>
                 <p className="mt-2 leading-relaxed text-stone">{decision.body}</p>
               </div>
@@ -106,7 +109,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         </aside>
       </div>
 
-      <nav aria-label="Next project" className="border-t border-navy/10 bg-paper/70">
+      <nav aria-label="Next project" className="border-t border-cream/10 bg-paper/70">
         <div className="container-x flex flex-col items-start justify-between gap-6 py-14 sm:flex-row sm:items-center">
           <div>
             <p className="t-mono text-stone">Next project</p>

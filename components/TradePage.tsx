@@ -49,7 +49,7 @@ export function TradeCards({
       {cards.map((card, i) => (
         <li
           key={card.title}
-          className={`reveal rounded-2xl p-7 ${dark ? "bg-navy-2 ring-1 ring-cream/10" : "bg-paper ring-1 ring-navy/10"}`}
+          className={`reveal rounded-2xl p-7 ${dark ? "bg-navy-2 ring-1 ring-cream/10" : "bg-paper ring-1 ring-cream/10"}`}
         >
           {numbered ? <p className="font-mono text-sm font-medium text-ember">0{i + 1}</p> : null}
           <h3 className={`t-h3 ${numbered ? "mt-3" : ""}`}>{card.title}</h3>
@@ -63,7 +63,7 @@ export function TradeCards({
 /** Same on every trade page. */
 export function TradeIncludes() {
   return (
-    <section aria-labelledby="includes" className="border-y border-navy/10 bg-paper/60">
+    <section aria-labelledby="includes" className="border-y border-cream/10 bg-paper/60">
       <div className="container-x section-y">
         <h2 id="includes" className="t-h2 text-balance">
           What every site includes

@@ -32,10 +32,10 @@ export default function WorkPage() {
           ))}
         </div>
 
-        <div className="reveal mt-24 grid items-center gap-8 border-t-2 border-navy pt-12 lg:grid-cols-12 lg:gap-12">
+        <div className="reveal mt-24 grid items-center gap-8 border-t-2 border-cream/40 pt-12 lg:grid-cols-12 lg:gap-12">
           <p
             aria-hidden="true"
-            className="t-display text-[clamp(6rem,14vw,11rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-navy)] lg:col-span-4"
+            className="t-display text-[clamp(6rem,14vw,11rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-cream)] lg:col-span-4"
           >
             {String(listedProjects.length + 1).padStart(2, "0")}
           </p>

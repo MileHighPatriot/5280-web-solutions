@@ -1,23 +1,32 @@
 @import "tailwindcss";
 
-/* Brand tokens: Broncos-style deep navy and bright orange, on a warm off-white.
+/* Brand tokens, "Night" scheme: a near-black navy with bright orange as the light source, and a
+   warm off-white for text. The navy names are kept from the earlier, bluer palette (#002244).
    Bright orange is for fills, large text, and accents; small orange text on light
    backgrounds uses ember, which passes WCAG AA contrast. */
 @theme inline {
-  --color-navy: #002244;
-  --color-navy-2: #07294f;
-  --color-navy-3: #10335e;
-  --color-navy-ink: #001833;
-  --color-slate: #1f3d63;
+  --color-navy: #050c18;
+  --color-navy-2: #0a1424;
+  --color-navy-3: #121f35;
+  --color-navy-ink: #03080f;
+  --color-slate: #1c2b44;
+  --color-glow: #ffb07a;
   --color-mist: #a9bad2;
   --color-orange: #fb4f14;
   --color-orange-soft: #ff7a45;
-  --color-ember: #b83d0e;
+  /* Small orange text. On the old light pages this was a darker orange; on Night it is a lighter one. */
+  --color-ember: #ff8a55;
+  /* The darker orange, for small text on the few light surfaces left (cream cards and pills). */
+  --color-rust: #b83d0e;
   --color-cream: #f5f3ee;
-  --color-paper: #fbfaf8;
-  --color-sand: #e8e4dc;
-  --color-line: #d8d3c9;
-  --color-stone: #475569;
+  /* Card surface, one step up from the page. */
+  --color-paper: #0c1627;
+  --color-sand: #16233a;
+  --color-line: #1f2c44;
+  /* Secondary text on dark. */
+  --color-stone: #9fb0c8;
+  /* Secondary text on the few light surfaces left. */
+  --color-slate-ink: #475569;
 
   --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -138,8 +147,8 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-navy);
+  background: var(--color-navy);
+  color: var(--color-cream);
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -166,8 +175,8 @@ body {
   left: 1rem;
   top: -100px;
   z-index: 100;
-  background: var(--color-navy);
-  color: var(--color-paper);
+  background: var(--color-orange);
+  color: var(--color-navy);
   padding: 0.65rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -706,5 +715,591 @@ details[open] .faq-icon-v {
   55%,
   100% {
     transform: translateX(680%) skewX(-14deg);
+  }
+}
+
+/* Homepage hero headline: sized so "the phone ring." stays on one line down to 340px phones. */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 8vw, 3.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  }
+}
+
+/* ---------- Service demos (components/ServicePanels.tsx) ----------
+   Each loops on a 7s cycle. The resting styles are the finished state, so reduced motion
+   (and browsers that skip the animation) show the completed picture. */
+.svc-build i {
+  position: absolute;
+  border-radius: 3px;
+}
+
+.svc-wipe {
+  clip-path: inset(0 55% 0 0);
+}
+
+.svc-handle {
+  transform: translateX(45%);
+}
+
+.svc-ring {
+  stroke-dashoffset: 4;
+}
+
+@keyframes svc-build {
+  0%,
+  6% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  16%,
+  88% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+@keyframes svc-wipe {
+  0%,
+  100% {
+    clip-path: inset(0 22% 0 0);
+  }
+  50% {
+    clip-path: inset(0 78% 0 0);
+  }
+}
+
+@keyframes svc-handle {
+  0%,
+  100% {
+    transform: translateX(78%);
+  }
+  50% {
+    transform: translateX(22%);
+  }
+}
+
+@keyframes svc-ring {
+  0%,
+  8% {
+    stroke-dashoffset: 100;
+  }
+  45%,
+  100% {
+    stroke-dashoffset: 4;
+  }
+}
+
+@keyframes svc-pin {
+  0%,
+  10% {
+    opacity: 0;
+    transform: translateY(-160%) rotate(-45deg);
+  }
+  24% {
+    opacity: 1;
+    transform: translateY(0) rotate(-45deg);
+  }
+  30% {
+    transform: translateY(-22%) rotate(-45deg);
+  }
+  36%,
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-45deg);
+  }
+}
+
+@keyframes svc-listing {
+  0%,
+  34% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  46%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .svc-build i {
+    animation: svc-build 7s var(--ease-out-expo) infinite both;
+  }
+  .svc-build i:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .svc-build i:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  .svc-build i:nth-child(4) {
+    animation-delay: 0.75s;
+  }
+  .svc-build i:nth-child(5) {
+    animation-delay: 1s;
+  }
+  .svc-wipe {
+    animation: svc-wipe 7s ease-in-out infinite;
+  }
+  .svc-handle {
+    animation: svc-handle 7s ease-in-out infinite;
+  }
+  .svc-ring {
+    animation: svc-ring 7s var(--ease-out-expo) infinite;
+  }
+  .svc-pin {
+    animation: svc-pin 7s ease-out infinite both;
+  }
+  .svc-listing {
+    animation: svc-listing 7s ease-out infinite both;
+  }
+}
+
+/* ---------- Night sections: a soft orange light in one top corner, so dark bands read as lit ---------- */
+@utility lit-left {
+  background-image: radial-gradient(55% 60% at 8% 0%, rgb(251 79 20 / 0.16), transparent 65%);
+}
+
+@utility lit-right {
+  background-image: radial-gradient(55% 60% at 92% 0%, rgb(251 79 20 / 0.16), transparent 65%);
+}
+
+/* ====================================================================================
+   Motion pass. Every rule below follows one pattern: the plain style is the finished
+   picture, and the animation is added only when the visitor hasn't asked for reduced
+   motion (and, for scroll-driven effects, only where the browser supports them).
+   ==================================================================================== */
+
+/* ---------- Opening sequence (homepage hero) ---------- */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* Room for descenders, so the mask doesn't shave the "g" in "ring". */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.line-rise {
+  display: block;
+}
+
+@keyframes line-rise {
+  from {
+    transform: translateY(112%);
+  }
+}
+
+/* `scale` and `translate` are separate from `transform`, so these stack with the
+   scroll-driven hero-drift and the pointer tilt instead of overriding them. */
+@keyframes hero-push {
+  from {
+    scale: 1.09;
+  }
+}
+
+@keyframes device-rise {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translateY(52px) rotateX(13deg) rotateY(-11deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1400px);
+  }
+}
+
+@keyframes hero-devices-out {
+  to {
+    translate: 0 -46px;
+  }
+}
+
+/* ---------- Devices that follow the cursor (components/HeroShowcase.tsx sets --tx / --ty, -1 to 1) ---------- */
+.tilt-stage {
+  perspective: 1400px;
+}
+
+.tilt {
+  transform: rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.tilt-near {
+  translate: calc(var(--tx, 0) * -12px) calc(var(--ty, 0) * -8px);
+  transition: translate 0.6s var(--ease-out-expo);
+}
+
+.sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 36%, rgb(255 255 255 / 0.13) 50%, transparent 64%);
+  translate: calc(var(--tx, 0) * 42%) 0;
+  transition: translate 0.6s var(--ease-out-expo);
+}
+
+/* ---------- Travelling border light ---------- */
+@property --orbit {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 40deg;
+}
+
+.orbit {
+  position: relative;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--orbit),
+    transparent 0 64%,
+    var(--color-orange) 84%,
+    var(--color-glow) 93%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+
+@keyframes orbit {
+  to {
+    --orbit: 400deg;
+  }
+}
+
+/* ---------- Footer numerals: "5280" fills with orange as the page reaches the bottom ---------- */
+@property --fill {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+.footer-5280 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(245 243 238 / 0.2);
+  background: linear-gradient(0deg, var(--color-orange) var(--fill), transparent var(--fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes footer-fill {
+  from {
+    --fill: 0%;
+  }
+}
+
+/* ---------- Heading wipe ---------- */
+@keyframes wipe {
+  from {
+    clip-path: inset(-12% 100% -12% 0);
+  }
+  to {
+    clip-path: inset(-12% 0 -12% 0);
+  }
+}
+
+/* ---------- Ticker (components/Ticker.tsx) ---------- */
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Build story (components/BuildStory.tsx): resting state is the finished site ---------- */
+.build-wire,
+.build-color {
+  opacity: 0;
+}
+
+.build-rail {
+  display: none;
+}
+
+@keyframes build-step-1 {
+  0%,
+  19% {
+    opacity: 1;
+    transform: none;
+  }
+  25%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes build-step-2 {
+  0%,
+  21% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  27%,
+  44% {
+    opacity: 1;
+    transform: none;
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes build-step-3 {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  52%,
+  69% {
+    opacity: 1;
+    transform: none;
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes build-step-4 {
+  0%,
+  71% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  77%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes build-wire {
+  0%,
+  17% {
+    opacity: 1;
+  }
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes build-color {
+  0%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes build-shot {
+  0%,
+  45% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  47% {
+    opacity: 1;
+    clip-path: inset(0 0 100% 0);
+  }
+  64%,
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes build-phone {
+  0%,
+  71% {
+    opacity: 0;
+    transform: translate(34%, 12%) rotate(7deg);
+  }
+  90%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Shared-element page transitions: a project's screenshot grows into its case study ---------- */
+::view-transition-group(.morph) {
+  animation-duration: 520ms;
+  animation-timing-function: var(--ease-out-expo);
+  z-index: 2;
+}
+
+::view-transition-old(.morph),
+::view-transition-new(.morph) {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .line-rise {
+    animation: line-rise 0.95s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .hero-push {
+    animation: hero-push 2.2s var(--ease-out-expo) both;
+  }
+
+  .device-rise {
+    animation: device-rise 1.25s var(--ease-out-expo) 0.3s both;
+  }
+
+  .orbit::before {
+    animation: orbit 5.5s linear infinite;
+  }
+
+  .ticker-track {
+    animation: ticker 80s linear infinite;
+  }
+
+  .ticker-reverse {
+    animation-direction: reverse;
+    animation-duration: 65s;
+  }
+
+  .ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+
+  [data-magnet] {
+    transition-property: background-color, border-color, color, box-shadow, translate;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-devices {
+      animation: hero-devices-out linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 90%;
+    }
+
+    .wipe {
+      animation: wipe linear both;
+      animation-timeline: view();
+      animation-range: entry 12% entry 80%;
+    }
+
+    .footer-5280 {
+      animation: footer-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 55%;
+    }
+
+    /* Three screens of scrolling, with the stage pinned for the middle two. */
+    .build-story {
+      height: 300vh;
+      view-timeline: --build block;
+    }
+
+    .build-stage {
+      position: sticky;
+      top: 4rem;
+      display: flex;
+      align-items: center;
+      height: calc(100svh - 4rem);
+    }
+
+    .build-rail {
+      display: block;
+    }
+
+    .build-steps {
+      display: block;
+      position: relative;
+      min-height: 10.5rem;
+    }
+
+    .build-step {
+      position: absolute;
+      inset: 0 0 auto 0;
+    }
+
+    .build-step,
+    .build-rail-fill,
+    .build-wire,
+    .build-color,
+    .build-shot,
+    .build-phone {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --build;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .build-step-1 {
+      animation-name: build-step-1;
+    }
+    .build-step-2 {
+      animation-name: build-step-2;
+    }
+    .build-step-3 {
+      animation-name: build-step-3;
+    }
+    .build-step-4 {
+      animation-name: build-step-4;
+    }
+    .build-rail-fill {
+      animation-name: timeline-fill;
+    }
+    .build-wire {
+      animation-name: build-wire;
+    }
+    .build-color {
+      animation-name: build-color;
+    }
+    .build-shot {
+      animation-name: build-shot;
+    }
+    .build-phone {
+      animation-name: build-phone;
+    }
+
+    @media (min-width: 640px) {
+      .build-stage {
+        top: 5rem;
+        height: calc(100svh - 5rem);
+      }
+    }
+
+    /* Phones get a shorter hold, so the story doesn't add too much scrolling. */
+    @media (max-width: 639px) {
+      .build-story {
+        height: 230vh;
+      }
+    }
   }
 }

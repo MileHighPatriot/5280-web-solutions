@@ -89,7 +89,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         />
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {industry.customerNeeds.map((need, i) => (
-            <li key={need.title} className="reveal rounded-2xl bg-paper p-7 ring-1 ring-navy/10">
+            <li key={need.title} className="reveal rounded-2xl bg-paper p-7 ring-1 ring-cream/10">
               <p className="font-mono text-sm font-medium text-ember">0{i + 1}</p>
               <h3 className="t-h3 mt-3">{need.title}</h3>
               <p className="mt-3 leading-relaxed text-stone">{need.body}</p>
@@ -98,7 +98,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         </ol>
       </section>
 
-      <div className="relative isolate overflow-clip border-y border-navy/10 bg-paper">
+      <div className="relative isolate overflow-clip border-y border-cream/10 bg-paper">
         <Backdrop variant="ridge" />
         <section aria-labelledby="included" className="container-x section-y">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -129,7 +129,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 rounded-2xl bg-cream p-6 ring-1 ring-navy/10">
+              <div className="mt-8 rounded-2xl bg-navy-ink p-6 ring-1 ring-cream/10">
                 <p className="t-mono text-stone">Usually the right fit</p>
                 <p className="mt-2 text-lg font-bold">
                   {tier.name} plan · {money(tier.monthly)}/mo
@@ -166,20 +166,20 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         </section>
       ) : null}
 
-      <section aria-label="Pricing" className={showcase.length ? "border-t border-navy/10 bg-paper/60" : ""}>
+      <section aria-label="Pricing" className={showcase.length ? "border-t border-cream/10 bg-paper/60" : ""}>
         <div className="container-x section-y">
           <Pricing />
         </div>
       </section>
 
-      <nav aria-label="Other industries" className="container-x border-t border-navy/10 py-14">
+      <nav aria-label="Other industries" className="container-x border-t border-cream/10 py-14">
         <p className="t-mono text-stone">We also build websites for</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {others.map((item) => (
             <li key={item.slug}>
               <Link
                 href={`/industries/${item.slug}/`}
-                className="inline-flex rounded-full bg-paper px-4 py-2 text-sm font-semibold ring-1 ring-navy/10 transition-shadow hover:ring-orange"
+                className="inline-flex rounded-full bg-paper px-4 py-2 text-sm font-semibold ring-1 ring-cream/10 transition-shadow hover:ring-orange"
               >
                 {item.label}
               </Link>

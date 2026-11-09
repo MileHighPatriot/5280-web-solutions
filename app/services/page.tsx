@@ -26,7 +26,6 @@ export default function ServicesPage() {
     <>
       <PageHeader
         tone="orange"
-        into="navy"
         visual={<HeaderDevices laptop={featuredProject} phone={headgate} />}
         eyebrow="Services · Four ways we help"
         title="Built, hosted, and found."
@@ -50,13 +49,13 @@ export default function ServicesPage() {
             key={service.id}
             id={service.id}
             aria-labelledby={`${service.id}-title`}
-            className={dark ? "bg-navy text-cream" : "bg-cream text-navy"}
+            className={dark ? "bg-navy text-cream" : "bg-navy-ink text-cream"}
           >
             <div className={`${index > 0 ? "reveal " : ""}container-x grid gap-8 py-16 sm:py-24 lg:grid-cols-12 lg:gap-12`}>
               <p
                 aria-hidden="true"
                 className={`t-display text-[clamp(4.5rem,8vw,7rem)] leading-[0.8] lg:col-span-3 ${
-                  dark ? "text-orange" : "text-transparent [-webkit-text-stroke:2px_var(--color-navy)]"
+                  dark ? "text-orange" : "text-transparent [-webkit-text-stroke:2px_var(--color-cream)]"
                 }`}
               >
                 0{index + 1}
@@ -109,7 +108,7 @@ export default function ServicesPage() {
           <SectionHeading id="how" eyebrow="How it works" title="Four simple steps." />
           <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {steps.map((step) => (
-              <li key={step.step} className="relative border-t-2 border-navy pt-6">
+              <li key={step.step} className="relative border-t-2 border-cream/40 pt-6">
                 <span className="absolute -top-[7px] left-0 h-3 w-3 rounded-full bg-orange" aria-hidden="true" />
                 <p className="font-mono text-sm font-medium text-ember">Step {step.step}</p>
                 <h3 className="t-h3 mt-2">{step.title}</h3>
@@ -134,14 +133,14 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-navy/10 sm:p-12">
+          <div className="mt-20 rounded-3xl bg-paper p-8 ring-1 ring-cream/10 sm:p-12">
             <h2 className="t-h3">Built for businesses like yours</h2>
             <ul className="mt-5 flex flex-wrap gap-2">
               {industries.map((industry) => (
                 <li key={industry.slug}>
                   <Link
                     href={`/industries/${industry.slug}/`}
-                    className="group inline-flex gap-1.5 rounded-full bg-cream px-4 py-2 text-sm font-semibold ring-1 ring-navy/10 transition-shadow hover:ring-2 hover:ring-orange"
+                    className="group inline-flex gap-1.5 rounded-full bg-cream/[0.06] px-4 py-2 text-sm font-semibold ring-1 ring-cream/10 transition-shadow hover:ring-2 hover:ring-orange"
                   >
                     {industry.label}
                     <span aria-hidden="true" className="text-orange transition-transform group-hover:translate-x-0.5">

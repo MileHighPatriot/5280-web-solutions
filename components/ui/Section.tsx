@@ -37,7 +37,7 @@ export function SectionHeading({
       <Eyebrow className={`${dark ? "text-mist" : "text-stone"} ${center ? "justify-center" : ""}`}>
         {eyebrow}
       </Eyebrow>
-      <Heading id={id} className="t-h2 mt-5 text-balance">
+      <Heading id={id} className={`t-h2 mt-5 text-balance ${reveal ? "wipe" : ""}`}>
         {title}
       </Heading>
       {lede ? (

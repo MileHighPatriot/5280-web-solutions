@@ -34,7 +34,7 @@ export default function ContactPage() {
             <BookCallCard />
             <ContactCard label="Call or text" value={site.phoneDisplay} href={site.phoneHref} />
             <ContactCard label="Email" value={site.email} href={site.emailHref} />
-            <div className="rounded-2xl bg-paper p-6 ring-1 ring-navy/10">
+            <div className="rounded-2xl bg-paper p-6 ring-1 ring-cream/10">
               <p className="t-mono text-stone">Hours</p>
               <p className="mt-2 text-lg font-bold">{site.hours}</p>
               <p className="mt-1 text-stone">Texts after hours are answered the next business day.</p>
@@ -70,7 +70,7 @@ function ContactCard({ label, value, href }: { label: string; value: string; hre
   return (
     <a
       href={href}
-      className="group rounded-2xl bg-paper p-6 ring-1 ring-navy/10 transition-shadow hover:ring-2 hover:ring-orange"
+      className="group rounded-2xl bg-paper p-6 ring-1 ring-cream/10 transition-shadow hover:ring-2 hover:ring-orange"
     >
       <p className="t-mono text-stone">{label}</p>
       <p className="mt-2 text-xl font-bold break-words group-hover:text-ember sm:text-2xl">{value}</p>

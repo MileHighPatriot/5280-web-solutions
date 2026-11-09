@@ -36,7 +36,6 @@ export default function AboutPage() {
     <>
       <PageHeader
         tone="orange"
-        into="navy"
         visual={<FounderPortrait />}
         eyebrow="About · Front Range, Colorado"
         title="Hi, I'm Kohlton."
@@ -100,10 +99,10 @@ export default function AboutPage() {
         </div>
         <ol className="mt-14 grid gap-x-12 gap-y-12 sm:grid-cols-2">
           {promises.map((item, index) => (
-            <li key={item.title} className="reveal grid grid-cols-[auto_1fr] gap-6 border-t-2 border-navy pt-8">
+            <li key={item.title} className="reveal grid grid-cols-[auto_1fr] gap-6 border-t-2 border-cream/40 pt-8">
               <span
                 aria-hidden="true"
-                className="t-display text-[clamp(3.25rem,5vw,4.5rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-navy)]"
+                className="t-display text-[clamp(3.25rem,5vw,4.5rem)] leading-[0.8] text-transparent [-webkit-text-stroke:2px_var(--color-cream)]"
               >
                 0{index + 1}
               </span>

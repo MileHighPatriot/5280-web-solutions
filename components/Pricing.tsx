@@ -66,7 +66,7 @@ export default function Pricing({
             </a>
             <a
               href="#flat-fee"
-              className="inline-flex items-center justify-center rounded-full border-2 border-navy/15 px-5 py-3 text-sm font-bold transition-colors hover:border-navy"
+              className="inline-flex items-center justify-center rounded-full border-2 border-cream/15 px-5 py-3 text-sm font-bold transition-colors hover:border-cream/40"
             >
               One-time flat-fee build
             </a>
@@ -89,7 +89,7 @@ export default function Pricing({
         aria-labelledby="monthly-title"
         className={intro ? "mt-14 sm:mt-20" : undefined}
       >
-        <div className="rounded-[1.75rem] bg-sand/70 p-4 ring-1 ring-navy/10 sm:p-6 lg:p-10">
+        <div className="rounded-[1.75rem] bg-sand/70 p-4 ring-1 ring-cream/10 sm:p-6 lg:p-10">
           <div className="flex flex-col gap-6 px-2 pt-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="flex flex-wrap items-center gap-3">
@@ -110,7 +110,7 @@ export default function Pricing({
             </div>
             <ul className="grid shrink-0 gap-2 text-[0.95rem] text-stone lg:max-w-sm lg:text-right">
               <li>
-                <strong className="text-navy">
+                <strong className="text-cream">
                   Right now: month-to-month from day one.
                 </strong>{" "}
                 Limited-time offer. Cancel with 30 days&rsquo; notice.
@@ -170,7 +170,7 @@ export default function Pricing({
         aria-labelledby="flat-fee-title"
         className="mx-auto mt-14 max-w-5xl sm:mt-16"
       >
-        <div className="rounded-[1.5rem] border-2 border-dashed border-navy/20 bg-paper p-6 sm:p-8 lg:p-10">
+        <div className="rounded-[1.5rem] border-2 border-dashed border-cream/20 bg-paper p-6 sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             <div>
               <span className="t-mono text-stone">
@@ -187,14 +187,14 @@ export default function Pricing({
               </p>
               <p className="mt-2 text-[0.95rem] text-stone">
                 then{" "}
-                <strong className="text-navy">
+                <strong className="text-cream">
                   {moneyRange(flatFee.hostingMin, flatFee.hostingMax)}/mo
                 </strong>{" "}
                 hosting after launch
               </p>
               <Link
                 href="/contact/?plan=flat-fee"
-                className="group mt-7 inline-flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-navy px-6 py-3.5 font-bold transition-colors hover:bg-navy hover:text-cream sm:w-auto"
+                className="group mt-7 inline-flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-cream/40 px-6 py-3.5 font-bold transition-colors hover:bg-navy hover:text-cream sm:w-auto"
               >
                 Request a quote
                 <Arrow className="transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -267,8 +267,8 @@ function TierCard({
       aria-labelledby={`tier-${tier.id}`}
       className={`relative flex flex-col rounded-2xl p-6 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/15 sm:p-7 ${
         featured
-          ? "bg-navy text-cream shadow-xl shadow-navy/20 ring-2 ring-orange"
-          : "bg-paper ring-1 ring-navy/10"
+          ? "orbit bg-navy text-cream shadow-xl shadow-navy/20 ring-2 ring-orange"
+          : "bg-paper ring-1 ring-cream/10"
       }`}
     >
       {tier.highlight ? (
@@ -299,7 +299,7 @@ function TierCard({
       {/* Setup fee on its own line so it's never mistaken for part of the monthly price. */}
       <p
         className={`mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 rounded-xl px-4 py-3 ${
-          featured ? "bg-navy-3 text-cream" : "bg-sand/70 text-navy"
+          featured ? "bg-navy-3 text-cream" : "bg-sand/70 text-cream"
         }`}
       >
         <span className="font-bold">+ {money(tier.setupFee)} setup fee</span>
@@ -313,7 +313,7 @@ function TierCard({
         className={`mt-2 px-1 text-sm ${featured ? "text-mist" : "text-stone"}`}
       >
         A full first year:{" "}
-        <strong className={featured ? "text-cream" : "text-navy"}>
+        <strong className={featured ? "text-cream" : "text-cream"}>
           {money(yearOne(tier))}
         </strong>
         <span className="block text-xs">
@@ -368,11 +368,11 @@ function TierCard({
 export function ComparisonTable() {
   return (
     <>
-      <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-navy/10 max-md:hidden">
+      <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-cream/10 max-md:hidden">
         <table className="w-full border-collapse text-left text-[0.95rem]">
           <caption className="sr-only">Monthly plan comparison</caption>
           <thead>
-            <tr className="border-b border-navy/10">
+            <tr className="border-b border-cream/10">
               <th
                 scope="col"
                 className="p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone"
@@ -401,7 +401,7 @@ export function ComparisonTable() {
             {comparison.map((row) => (
               <tr
                 key={row.label}
-                className="border-b border-navy/10 last:border-0"
+                className="border-b border-cream/10 last:border-0"
               >
                 <th scope="row" className="px-5 py-4 font-medium">
                   {row.label}
@@ -409,7 +409,7 @@ export function ComparisonTable() {
                 {tiers.map((tier) => (
                   <td
                     key={tier.id}
-                    className={`px-5 py-4 text-center ${tier.highlight ? "bg-navy/[0.04] font-semibold" : ""}`}
+                    className={`px-5 py-4 text-center ${tier.highlight ? "bg-cream/[0.04] font-semibold" : ""}`}
                   >
                     <CellValue value={row.values[tier.id]} />
                   </td>
@@ -422,14 +422,14 @@ export function ComparisonTable() {
 
       {/* On phones the stacked rows run long and repeat the plan cards, so they start folded. */}
       <details className="group md:hidden">
-        <summary className="flex cursor-pointer items-center justify-between gap-4 rounded-xl bg-paper px-5 py-4 font-bold ring-1 ring-navy/10">
+        <summary className="flex cursor-pointer items-center justify-between gap-4 rounded-xl bg-paper px-5 py-4 font-bold ring-1 ring-cream/10">
           <span className="group-open:hidden">
             Show all {comparison.length} rows
           </span>
           <span className="hidden group-open:inline">Hide the comparison</span>
           <span
             aria-hidden="true"
-            className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-navy/15 transition-colors group-open:border-orange group-open:bg-orange"
+            className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-cream/15 transition-colors group-open:border-orange group-open:bg-orange"
           >
             <span className="absolute h-0.5 w-3 rounded bg-current" />
             <span className="faq-icon-v absolute h-3 w-0.5 rounded bg-current transition-transform duration-300" />
@@ -449,7 +449,7 @@ export function ComparisonTable() {
           {comparison.map((row) => (
             <div
               key={row.label}
-              className="rounded-xl bg-paper p-4 ring-1 ring-navy/10"
+              className="rounded-xl bg-paper p-4 ring-1 ring-cream/10"
             >
               <p className="text-sm font-bold">{row.label}</p>
               <dl className="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
@@ -474,13 +474,13 @@ export function ComparisonTable() {
 export function AlternativesTable() {
   return (
     <>
-      <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-navy/10 max-md:hidden">
+      <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-cream/10 max-md:hidden">
         <table className="w-full table-fixed border-collapse text-left text-[0.95rem]">
           <caption className="sr-only">
             Our Growth plan compared with doing it yourself and hiring an agency
           </caption>
           <thead>
-            <tr className="border-b border-navy/10">
+            <tr className="border-b border-cream/10">
               <th
                 scope="col"
                 className="w-[26%] p-5 font-mono text-xs font-medium uppercase tracking-widest text-stone"
@@ -509,7 +509,7 @@ export function AlternativesTable() {
             {alternatives.map((row) => (
               <tr
                 key={row.label}
-                className="border-b border-navy/10 last:border-0"
+                className="border-b border-cream/10 last:border-0"
               >
                 <th scope="row" className="px-5 py-4 font-medium">
                   {row.label}
@@ -517,7 +517,7 @@ export function AlternativesTable() {
                 {alternativeColumns.map((column) => (
                   <td
                     key={column.id}
-                    className={`px-5 py-4 text-center ${column.id === "us" ? "bg-navy/[0.04] font-semibold" : "text-stone"}`}
+                    className={`px-5 py-4 text-center ${column.id === "us" ? "bg-cream/[0.04] font-semibold" : "text-stone"}`}
                   >
                     <CellValue value={row.values[column.id]} />
                   </td>
@@ -532,7 +532,7 @@ export function AlternativesTable() {
         {alternatives.map((row) => (
           <div
             key={row.label}
-            className="rounded-xl bg-paper p-4 ring-1 ring-navy/10"
+            className="rounded-xl bg-paper p-4 ring-1 ring-cream/10"
           >
             <p className="text-sm font-bold">{row.label}</p>
             <dl className="mt-3 grid gap-2 text-sm">

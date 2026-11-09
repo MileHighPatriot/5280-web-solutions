@@ -133,7 +133,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-paper p-6 ring-1 ring-navy/10 sm:p-8">
+    <form ref={formRef} onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-paper p-6 ring-1 ring-cream/10 sm:p-8">
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
       {blueprint ? (
@@ -244,7 +244,7 @@ export default function LeadForm({ variant = "contact" }: { variant?: Variant })
 }
 
 const inputClass =
-  "mt-2 block w-full rounded-xl border-0 bg-cream px-4 py-3.5 text-base text-navy ring-1 ring-navy/15 placeholder:text-stone/70 transition-shadow focus:ring-2 focus:ring-orange focus:outline-none";
+  "mt-2 block w-full rounded-xl border-0 bg-navy-ink px-4 py-3.5 text-base text-cream ring-1 ring-cream/15 placeholder:text-stone/70 transition-shadow focus:ring-2 focus:ring-orange focus:outline-none";
 
 function Field({
   label,

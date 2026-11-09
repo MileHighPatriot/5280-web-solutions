@@ -29,7 +29,7 @@ export default function PricingPreview() {
             key={tier.id}
             href={`/contact/?plan=${tier.id}`}
             className={`group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 rounded-2xl px-6 py-5 transition-[background-color,translate] duration-300 hover:translate-x-1 sm:px-7 ${
-              tier.highlight ? "bg-cream text-navy" : "bg-cream/[0.06] ring-1 ring-cream/10 hover:bg-cream/10"
+              tier.highlight ? "orbit bg-cream text-navy" : "bg-cream/[0.06] ring-1 ring-cream/10 hover:bg-cream/10"
             }`}
           >
             <span className="flex items-center gap-3">
@@ -42,10 +42,10 @@ export default function PricingPreview() {
             </span>
             <span className="text-right">
               <span className="text-3xl font-extrabold tracking-tight">{money(tier.monthly)}</span>
-              <span className={tier.highlight ? "text-stone" : "text-mist"}>/mo</span>
+              <span className={tier.highlight ? "text-slate-ink" : "text-mist"}>/mo</span>
             </span>
-            <span className={`text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>{tier.summary}</span>
-            <span className={`text-right text-sm ${tier.highlight ? "text-stone" : "text-mist"}`}>
+            <span className={`text-sm max-sm:col-span-2 ${tier.highlight ? "text-slate-ink" : "text-mist"}`}>{tier.summary}</span>
+            <span className={`text-sm max-sm:col-span-2 sm:text-right ${tier.highlight ? "text-slate-ink" : "text-mist"}`}>
               + {money(tier.setupFee)} setup · {money(yearOne(tier))} full first year
             </span>
           </Link>

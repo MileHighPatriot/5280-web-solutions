@@ -57,7 +57,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
             <h3 className="t-h3 mt-12">What we can do for your {area.city} business</h3>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2">
               {services.map((service) => (
-                <li key={service.id} className="rounded-2xl bg-paper p-5 ring-1 ring-navy/10">
+                <li key={service.id} className="rounded-2xl bg-paper p-5 ring-1 ring-cream/10">
                   <Link href={`/services/#${service.id}`} className="font-bold hover:text-ember">
                     {service.title}
                   </Link>
@@ -78,7 +78,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl bg-paper p-7 ring-1 ring-navy/10">
+            <div className="rounded-2xl bg-paper p-7 ring-1 ring-cream/10">
               <h2 className="t-mono text-stone">Also serving</h2>
               <p className="mt-3 leading-relaxed">{area.nearby.join(" · ")}</p>
             </div>
@@ -86,7 +86,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
         </div>
       </section>
 
-      <section aria-label="Pricing" className="border-t border-navy/10 bg-paper/60">
+      <section aria-label="Pricing" className="border-t border-cream/10 bg-paper/60">
         <div className="container-x section-y">
           <Pricing />
         </div>
@@ -99,7 +99,7 @@ export default async function AreaPage({ params }: PageProps<"/areas/[slug]">) {
             <li key={item.slug}>
               <Link
                 href={`/areas/${item.slug}/`}
-                className="inline-flex rounded-full bg-paper px-4 py-2 text-sm font-semibold ring-1 ring-navy/10 hover:ring-orange"
+                className="inline-flex rounded-full bg-paper px-4 py-2 text-sm font-semibold ring-1 ring-cream/10 hover:ring-orange"
               >
                 {item.city}
               </Link>

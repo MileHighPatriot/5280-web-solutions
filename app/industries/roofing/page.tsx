@@ -88,7 +88,7 @@ export default function RoofingPage() {
             width={footerShot.width}
             height={footerShot.height}
             sizes="(min-width: 1280px) 1184px, 100vw"
-            className="h-auto w-full rounded-2xl ring-1 ring-navy/10"
+            className="h-auto w-full rounded-2xl ring-1 ring-cream/10"
           />
           <figcaption className="mt-4 text-sm text-stone">
             Before: a footer stuck in 2009. After: a footer that updates itself every year.
@@ -96,7 +96,7 @@ export default function RoofingPage() {
         </figure>
       </section>
 
-      <section aria-labelledby="towns" className="border-y border-navy/10 bg-paper/60">
+      <section aria-labelledby="towns" className="border-y border-cream/10 bg-paper/60">
         <div className="container-x section-y">
           <h2 id="towns" className="t-h2 max-w-3xl text-balance">
             Found in every town you work

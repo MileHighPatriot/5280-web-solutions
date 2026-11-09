@@ -16,7 +16,6 @@ export default function PageHeader({
   seed,
   tone = "navy",
   visual,
-  into = "cream",
   long = false,
 }: {
   eyebrow: string;
@@ -29,8 +28,6 @@ export default function PageHeader({
   tone?: "navy" | "orange";
   /** Right-hand visual for the orange header (stacks under the text on small screens). */
   visual?: ReactNode;
-  /** Color of the section below, which the ridge fills into. */
-  into?: "cream" | "navy";
   /** A smaller orange headline for titles longer than a few words. */
   long?: boolean;
 }) {
@@ -74,7 +71,7 @@ export default function PageHeader({
             </div>
           ) : null}
         </div>
-        <Ridge line="stroke-navy-ink" fill={into === "navy" ? "fill-navy" : "fill-cream"} />
+        <Ridge line="stroke-navy-ink" fill="fill-navy" />
       </header>
     );
   }
@@ -99,7 +96,7 @@ export default function PageHeader({
           </div>
         ) : null}
       </div>
-      <Ridge line="stroke-orange" fill={into === "navy" ? "fill-navy" : "fill-cream"} />
+      <Ridge line="stroke-orange" fill="fill-navy" />
     </header>
   );
 }

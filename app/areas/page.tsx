@@ -33,7 +33,7 @@ export default function AreasPage() {
                 <li key={area.slug}>
                   <Link
                     href={`/areas/${area.slug}/`}
-                    className="group block h-full rounded-2xl bg-paper p-6 ring-1 ring-navy/10 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-orange"
+                    className="group block h-full rounded-2xl bg-paper p-6 ring-1 ring-cream/10 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-orange"
                   >
                     <p className="t-mono text-stone">{area.region}</p>
                     <p className="t-h3 mt-2 flex items-center justify-between">
@@ -52,7 +52,7 @@ export default function AreasPage() {
             <p className="mt-4 leading-relaxed text-stone">{site.cities.join(" · ")}</p>
             <p className="mt-4 text-stone">
               Outside this list? If you&rsquo;re anywhere along the Front Range,{" "}
-              <Link href="/contact/" className="font-semibold text-navy underline underline-offset-4">
+              <Link href="/contact/" className="font-semibold text-cream underline underline-offset-4">
                 reach out
               </Link>
               . Remote projects are welcome too.

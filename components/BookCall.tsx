@@ -26,7 +26,7 @@ export function BookCallCard() {
 
 /** One-line "prefer to talk?" prompt that offers booking when available, otherwise call or text. */
 export function TalkLine({ className = "" }: { className?: string }) {
-  const link = "font-semibold text-navy underline underline-offset-4";
+  const link = "font-semibold text-cream underline underline-offset-4";
   return (
     <p className={`text-sm text-stone ${className}`}>
       Prefer to talk?{" "}

@@ -54,7 +54,7 @@ export default function BeforeAfterSlider() {
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-navy shadow-2xl shadow-navy/25 ring-1 ring-navy/20">
+    <div className="overflow-hidden rounded-2xl bg-navy shadow-2xl shadow-navy/25 ring-1 ring-cream/20">
       <div className="flex items-center gap-3 px-4 py-3" aria-hidden="true">
         <span className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-cream/25" />

@@ -71,7 +71,7 @@ export default function PlanFinder() {
         <Question legend="3. How would you rather pay?" options={payOptions} value={pay} onChange={setPay} />
       </div>
 
-      <div aria-live="polite" className="flex flex-col rounded-2xl bg-cream p-6 text-navy sm:p-8">
+      <div aria-live="polite" className="flex flex-col rounded-2xl bg-navy-2 p-6 text-cream ring-1 ring-orange/40 sm:p-8">
         <p className="t-mono text-stone">Your best fit</p>
         <p className="mt-2 text-4xl font-extrabold tracking-tight">{planName}</p>
         <ul className="mt-5 grid gap-2.5">
@@ -83,7 +83,7 @@ export default function PlanFinder() {
           ))}
         </ul>
 
-        <div className="mt-7 border-t border-navy/10 pt-6">
+        <div className="mt-7 border-t border-cream/10 pt-6">
           <p className="text-sm font-bold">Estimated total cost</p>
           <div className="mt-4 grid gap-4">
             {[0, 1].map((index) => (
@@ -163,7 +163,7 @@ function Bar({ label, value, max, highlight }: { label: string; value: number; m
       <span className={highlight ? "font-bold" : "text-stone"}>{label}</span>
       <span className="flex items-center gap-2">
         <span
-          className={`h-2.5 rounded-full transition-[width] duration-500 ${highlight ? "bg-orange" : "bg-navy/20"}`}
+          className={`h-2.5 rounded-full transition-[width] duration-500 ${highlight ? "bg-orange" : "bg-cream/20"}`}
           style={{ width: `${Math.max(6, (value / max) * 78)}%` }}
         />
         <span className={highlight ? "font-bold" : "text-stone"}>{money(value)}</span>

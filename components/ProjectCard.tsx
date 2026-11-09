@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import DeviceShowcase from "@/components/DeviceShowcase";
 import type { Project } from "@/data/projects";
 
@@ -24,7 +25,9 @@ export default function ProjectCard({
 }) {
   return (
     <article className={`${reveal ? "reveal " : ""}group relative`}>
-      <div className="@container relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-navy/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
+      {/* The same name is on the case study's device mockup, so this card grows into it. */}
+      <ViewTransition name={`project-${project.slug}`} share="morph" default="none">
+      <div className="@container relative overflow-hidden rounded-2xl bg-navy px-[8%] pt-[12%] pb-[7%] ring-1 ring-cream/10 transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-navy/25">
         <div
           aria-hidden="true"
           className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/15 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
@@ -35,6 +38,7 @@ export default function ProjectCard({
           sizes={large ? "(min-width: 1024px) 640px, (min-width: 640px) 50vw, 100vw" : undefined}
         />
       </div>
+      </ViewTransition>
       <p className="t-mono mt-5 text-stone">
         {project.featured ? <span className="text-ember">Featured · </span> : null}
         {project.industry} · {project.location}
